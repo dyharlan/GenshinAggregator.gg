@@ -16,8 +16,7 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    
+    align-items: center;  
   }
 
 .welcome-section {
@@ -26,6 +25,11 @@ section {
 
 .news-section {
     background-image: url(assets/bg2.jpg);
+    
+}
+
+.news-section > .news-articles {
+    flex-direction: row;
 }
 
 .banner-section {
