@@ -2,9 +2,17 @@
     border: 0;
     margin: 0;
     scroll-behavior: smooth;
+    
+    color: white;
 }
 
+body {
+    background-image: url(assets/bg.jpg);
+    background-size: center;
+    background-position: center;
+}
 h1 {
+    padding-top: 3% ;
     text-align: center;
 }
 .content {
@@ -15,6 +23,7 @@ h1 {
 }
 
 .content div {
+    background-color: cornflowerblue;
     margin: 10%;
 }
 
