@@ -1,0 +1,2 @@
+# GenshinAggregator.gg
+ 
