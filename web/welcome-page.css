@@ -2,7 +2,7 @@
     border: 0;
     margin: 0;
     scroll-behavior: smooth;
-    
+    font-family: 'Open Sans', sans-serif;
     color: white;
 }
 
@@ -24,6 +24,8 @@ h1 {
 
 .content div {
     background-color: cornflowerblue;
-    margin: 10%;
+    margin-top: 5%;
+    margin-right: 10%;
+    margin-left: 10%;
 }
 
