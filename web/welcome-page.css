@@ -13,10 +13,10 @@ body {
 }
 
 .welcome {
-    margin-top: 10% ;
+    margin: 10% auto 0;
     text-align: center;
     background-color: rgba(125, 125, 125, 0.4);
-    
+    width: fit-content;
 }
 
 .content {
