@@ -7,7 +7,7 @@
 }
 
 body {
-    
+    text-shadow: 2px 3px #000000;
 }
 
 section {
@@ -22,21 +22,24 @@ section {
 
 .welcome-section {
     background-image: url(assets/bg.jpg);
-    background-size: center;
-    background-position: center;
 }
 
 .news-section {
     background-image: url(assets/bg2.jpg);
+}
+
+.banner-section {
+    background-image: url(assets/bg3.jpg);
+}
+
+.welcome-section, .news-section, .banner-section {
+    font-size: 2em;
     background-size: center;
     background-position: center;
 }
 
-
-.banner-section {
-    background-image: url(assets/bg3.jpg);
-    background-size: center;
-    background-position: center;
+.banner-header {
+    padding-bottom: 2%;
 }
 
 .banners {
