@@ -29,7 +29,10 @@ section {
 }
 
 .news-section > .news-articles {
-    flex-direction: row;
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    background-color: rgba(0,50,125, 0.35);
 }
 
 .banner-section {
@@ -54,6 +57,7 @@ section {
     justify-content: space-evenly;
     align-items: center;
     padding: 0;
+    
 }
 
 .banners > .child {
@@ -64,6 +68,7 @@ section {
     padding: 0;
     flex-basis: 33%;
     flex-shrink: 1;
+    border: solid;
 }
 
 .banners > .wbanner {
