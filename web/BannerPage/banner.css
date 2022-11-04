@@ -76,3 +76,15 @@ body {
     width: 57%;
     margin: auto;
 }
+
+.tab-content {
+    display: none;
+}
+
+.navbar button:active {
+    background-color: #ccc;
+}
+
+.navbar button:hover {
+    background-color: #ddd;
+}
