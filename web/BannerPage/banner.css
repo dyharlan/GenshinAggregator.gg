@@ -17,8 +17,12 @@
     justify-content:center;
 }
   
-.tablinks {
+.tab-links {
     background: rgba(125,125,125,0.3);
+}
+
+.tab-content {
+    color: white;
 }
   
 body {
