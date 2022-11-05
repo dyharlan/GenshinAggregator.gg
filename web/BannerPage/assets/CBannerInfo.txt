@@ -1,0 +1,36 @@
+Character Name: Nahida
+Rarity: 5
+Description: dfsdf sdfsdfsdf dfssdfsdf sdfsdfdsfsdf sdfsdfsdfsdf.
+Opinion: sadsadas asdsadsad asdasdsad asdasdasds
+Character Portrait: 5s1.png;
+Character Splash: 5splash1.png;
+#
+Character Name: Yoimiya
+Rarity: 5
+Description: dfsdf sdfsdfsdf dfssdfsdf sdfsdfdsfsdf sdfsdfsdfsdf.
+Opinion: sadsadas asdsadsad asdasdsad asdasdasds
+Character Portrait: 5s2.png;
+Character Splash: 5splash2.png;
+#
+Character Name: Bennett
+Rarity: 4
+Description: dfsdf sdfsdfsdf dfssdfsdf sdfsdfdsfsdf sdfsdfsdfsdf.
+Opinion: sadsadas asdsadsad asdasdsad asdasdasds
+Character Portrait: 4s2.png;
+Character Splash: 4splash2.png;
+#
+Character Name: Razor
+Rarity: 4
+Description: dfsdf sdfsdfsdf dfssdfsdf sdfsdfdsfsdf sdfsdfsdfsdf.
+Opinion: sadsadas asdsadsad asdasdsad asdasdasds
+Character Portrait: 4s3.png;
+Character Splash: 4splash3.png;
+#
+Character Name: Noelle
+Rarity: 4
+Description: dfsdf sdfsdfsdf dfssdfsdf sdfsdfdsfsdf sdfsdfsdfsdf.
+Opinion: sadsadas asdsadsad asdasdsad asdasdasds
+Character Portrait: 4s1.png;
+Character Splash: 4splash1.png;
+#
+

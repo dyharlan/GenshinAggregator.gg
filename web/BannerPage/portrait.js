@@ -1,7 +1,7 @@
 function changeContent(evt, charName) {
     var i, tabContent, tabLinks, rateUp, perOp;
     if (charName == "Nahida") {
-        document.getElementById("display").src="assets/splash/5splash1.png";
+        document.getElementById("display").src="assets/splash/4splash1.png";
         rateUp = "ru1";
         perOp = "po1";
     }
