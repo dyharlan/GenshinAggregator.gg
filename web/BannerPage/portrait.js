@@ -5,25 +5,20 @@ function changeContent(evt, charName) {
         rateUp = "ru1";
         perOp = "po1";
     }
-    else if (charName == "Yoimiya") {
-        document.getElementById("display").src="assets/splash/5splash2.png";
+    else if (charName == "Noelle") {
+        document.getElementById("display").src="assets/splash/4splash1.png";
         rateUp = "ru2";
         perOp = "po2";
     }
-    else if (charName == "Noelle") {
-        document.getElementById("display").src="assets/splash/4splash1.png";
+    else if (charName == "Bennett") {
+        document.getElementById("display").src="assets/splash/4splash2.png";
         rateUp = "ru3";
         perOp = "po3";
     }
-    else if (charName == "Bennett") {
-        document.getElementById("display").src="assets/splash/4splash2.png";
-        rateUp = "ru4";
-        perOp = "po4";
-    }
     else { //charName == "Razor"
         document.getElementById("display").src="assets/splash/4splash3.png"
-        rateUp = "ru5";
-        perOp = "po5"
+        rateUp = "ru4";
+        perOp = "po4";
     }
     
     tabContent = document.getElementsByClassName("tab-content");
