@@ -7,7 +7,7 @@ Character Splash: 5splash1.png;
 #
 Character Name: Yoimiya
 Rarity: 5
-Description: dfsdf sdfsdfsdf dfssdfsdf sdfsdfdsfsdf sdfsdfsdfsdf.
+Description: wowowowowow
 Opinion: sadsadas asdsadsad asdasdsad asdasdasds
 Character Portrait: 5s2.png;
 Character Splash: 5splash2.png;

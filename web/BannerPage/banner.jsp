@@ -16,10 +16,8 @@
         <link href="<%= request.getContextPath()%>/BannerPage/banner.css" rel="stylesheet">
         <script src="<%= request.getContextPath()%>/BannerPage/portrait.js"></script>
         <script id="vars">
-            let contextPath = "<%= request.getContextPath()%>";
-            let path2 = "/BannerPage/assets/splash/";
-            let path3 = "<%=_5star.getCharSplash() %>";
-            let _5splash  = contextPath.concat(path2,path3);
+            let path = "<%= request.getContextPath()%>/BannerPage/assets/splash/<%=_5star.getCharSplash() %>"
+
         </script>
     </head>
     <body>
