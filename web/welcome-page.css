@@ -40,10 +40,9 @@ section {
     background-image: url(assets/bg3.jpg);
 }
 
-
 .cbanner > form {
-    width: 250px;
-    height: 500px;
+    width: 225px;
+    height: 375px;
     margin: auto;
     padding: 0;
 }

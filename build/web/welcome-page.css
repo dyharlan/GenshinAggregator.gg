@@ -41,7 +41,7 @@ section {
 }
 
 .cbanner > form {
-    width: 200px;
+    width: 225px;
     height: 375px;
     margin: auto;
     padding: 0;
@@ -111,19 +111,9 @@ button {
     margin: 0;
 }
 
-.banners > .cbanner img {
-    width: 100%; 
-    height: auto; 
-    overflow: hidden; 
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-    
-}
-
 .banners > .wbanner img {
-    padding-top: 10px;
-    width: inherit;
+    padding-top: 10%;
+    width: 75%;
     height: inherit;
 }
 
