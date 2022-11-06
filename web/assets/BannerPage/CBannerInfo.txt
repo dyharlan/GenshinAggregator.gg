@@ -1,7 +1,7 @@
 Character Name: Nahida
 Rarity: 5
-Description: fei shang gao shing chi shishyang.
-Opinion: Just Nahida.
+Description: Also known as Lesser Lord Kusanali, she is the new catalyst user to grace Genshin Impact. Being the archon, or the God of the game's 4th region of Sumeru, the traveler will embroil on their journey to find her in order to search for answers about the whereabouts of your sibling.
+Opinion: It's only been a week since her release. But all we can say is that she is a cute bubbly character that'll surely put some smile on our face during your travels!
 Character Portrait: 5s1.png;
 Character Splash: 5splash1.png;
 #

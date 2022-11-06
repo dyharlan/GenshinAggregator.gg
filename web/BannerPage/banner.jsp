@@ -23,7 +23,7 @@
             
         </script>
     </head>
-    <body background="assets/BannerPage/bg.jpg">
+    <body background="assets/BannerPage/bg.jpg" onload="changeContent(event, 'Nahida', _5splashpath )">
         <div class="navbar">
             <ul>
                 <li><button class="tab-links" id="defaultOpen" onclick="changeContent(event, 'Nahida', _5splashpath )"><img  loading="lazy" src="assets/BannerPage/cportraits/<%= _5star.getCharPortrait()%>" alt="5 Star character"></button></li>
