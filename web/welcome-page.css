@@ -40,9 +40,10 @@ section {
     background-image: url(assets/bg3.jpg);
 }
 
+
 .cbanner > form {
-    width: 200px;
-    height: 375px;
+    width: 250px;
+    height: 500px;
     margin: auto;
     padding: 0;
 }
@@ -111,19 +112,9 @@ button {
     margin: 0;
 }
 
-.banners > .cbanner img {
-    width: 100%; 
-    height: auto; 
-    overflow: hidden; 
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-    
-}
-
 .banners > .wbanner img {
-    padding-top: 10px;
-    width: inherit;
+    padding-top: 10%;
+    width: 75%;
     height: inherit;
 }
 

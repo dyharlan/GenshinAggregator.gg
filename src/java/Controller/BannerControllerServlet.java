@@ -29,23 +29,12 @@ public class BannerControllerServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        response.setContentType("text/html;charset=UTF-8");
-//        try ( PrintWriter out = response.getWriter()) {
-//            /* TODO output your page here. You may use following sample code. */
-//            out.println("<!DOCTYPE html>");
-//            out.println("<html>");
-//            out.println("<head>");
-//            out.println("<title>Servlet BannerControllerServlet</title>");            
-//            out.println("</head>");
-//            out.println("<body>");
-//            out.println("<h1>Servlet BannerControllerServlet at " + request.getContextPath() + "</h1>");
-//            out.println("</body>");
-//            out.println("</html>");
-//        }
+
         Model.BannerModel bm = null;
-        System.out.println("here:" + getServletContext().getRealPath("/assets/BannerPage/CBannerInfo.txt"));
         try{
-           bm = new Model.BannerModel(getServletContext().getRealPath("/assets/BannerPage/CBannerInfo.txt"));
+           //bm = new Model.BannerModel(getServletContext().getRealPath("/assets/BannerPage/CBannerInfo.txt"));
+           //ServletConfig #1
+           bm = new Model.BannerModel(getServletContext().getRealPath(getServletConfig().getInitParameter("bannerinfo-path")));
         }
         catch(Model.IncompleteDataException | IOException ex){
             response.sendError(500, ex.toString());
@@ -53,8 +42,10 @@ public class BannerControllerServlet extends HttpServlet {
         request.setAttribute("4starchar1", bm.charInfo(2));
         request.setAttribute("4starchar2", bm.charInfo(3));
         request.setAttribute("4starchar3", bm.charInfo(4));
-        RequestDispatcher dispatcher = request.getRequestDispatcher("BannerPage/banner.jsp");
-        if(request.getParameter("banner")!= null){
+        
+        if(request.getParameter("banner")!= null && !(request.getParameter("banner").equals("wb")) ){
+            //ServletConfig #2
+            RequestDispatcher dispatcher = request.getRequestDispatcher(getServletConfig().getInitParameter("bannerpage-path"));
                 switch(request.getParameter("banner") ){
                 case "b1":
                     request.setAttribute("5starchar", bm.charInfo(0));
@@ -69,8 +60,11 @@ public class BannerControllerServlet extends HttpServlet {
                 
             }
         }
+        else if( request.getParameter("banner").equals("wb") ){
+            response.sendError(500, "Server under construction");
+        }
         else{
-            response.sendError(500, "No such page");
+            response.sendError(403, "Query Incomplete");
         }
         
     }

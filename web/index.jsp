@@ -39,19 +39,22 @@
                     <h4>Character Banner 1</h4>
                     <p>Nahida</p>
                     <form action="BannerProcessor" METHOD="GET">
-                        <button type="submit" name="banner" value="b1"><img src="assets/cbanner1.png" alt="5 star 1st character"></button>
+                        <button type="submit" name="banner" value="b1"><img src="<%= getServletContext().getInitParameter("asset-folder") %>/cbanner1.png" alt="5 star 1st character"></button>
                     </form>
                 </div>
                 <div class="cbanner-2 cbanner child">
                     <h4>Character Banner 2</h4>
                     <p>Yoimiya</p>
                     <form action="BannerProcessor" METHOD="GET">
-                        <button type="submit" name="banner" value="b2"><img src="assets/cbanner2.png" alt="5 star 2nd character"></button>
+                        <button type="submit" name="banner" value="b2"><img src="<%= getServletContext().getInitParameter("asset-folder") %>/cbanner2.png" alt="5 star 2nd character"></button>
                     </form>
                 </div>
                 <div class="wbanner child">
                     <h4>Weapon Banner</h4>
-                    <img src="assets/wbanner.png" alt="Weapon Banner">
+                    <form action="BannerProcessor" METHOD="GET">
+                        <button type="submit" name="banner" value="wb"><img src="<%= getServletContext().getInitParameter("asset-folder") %>/wbanner.png" alt="Weapon Banner"></button>
+                    </form>
+                    
                 </div>
             </div>
         </section>

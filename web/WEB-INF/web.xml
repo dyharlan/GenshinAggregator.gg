@@ -1,8 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    
+    
+    <context-param>
+        <param-name>asset-folder</param-name>
+        <param-value>assets</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>bannerpage-asset-folder</param-name>
+        <param-value>assets/BannerPage</param-value>
+    </context-param>
     <servlet>
         <servlet-name>BannerController</servlet-name>
         <servlet-class>Controller.BannerControllerServlet</servlet-class>
+        
+        <init-param>
+            <param-name>bannerpage-path</param-name>
+            <param-value>BannerPage/banner.jsp</param-value>
+        </init-param>
+        
+        <init-param>
+            <param-name>bannerinfo-path</param-name>
+            <param-value>/assets/BannerPage/CBannerInfo.txt</param-value>
+        </init-param>
     </servlet>
     
     <servlet-mapping>
