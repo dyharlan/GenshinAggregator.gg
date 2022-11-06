@@ -43,9 +43,9 @@ public class BannerControllerServlet extends HttpServlet {
 //            out.println("</html>");
 //        }
         Model.BannerModel bm = null;
-        System.out.println("here:" + getServletContext().getRealPath("/BannerPage/assets/CBannerInfo.txt"));
+        System.out.println("here:" + getServletContext().getRealPath("/assets/BannerPage/CBannerInfo.txt"));
         try{
-           bm = new Model.BannerModel(getServletContext().getRealPath("/BannerPage/assets/CBannerInfo.txt"));
+           bm = new Model.BannerModel(getServletContext().getRealPath("/assets/BannerPage/CBannerInfo.txt"));
         }
         catch(Model.IncompleteDataException | IOException ex){
             response.sendError(500, ex.toString());
@@ -70,7 +70,7 @@ public class BannerControllerServlet extends HttpServlet {
             }
         }
         else{
-            response.sendError(404, "No such page");
+            response.sendError(500, "No such page");
         }
         
     }

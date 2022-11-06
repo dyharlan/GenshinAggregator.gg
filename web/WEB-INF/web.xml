@@ -10,17 +10,6 @@
         <url-pattern>/BannerProcessor</url-pattern>
     </servlet-mapping>
     
-    <servlet>
-        <servlet-name>Banner</servlet-name>
-        <jsp-file>BannerPage.banner</jsp-file>
-    </servlet>
-    
-    <servlet-mapping>
-        <servlet-name>Banner</servlet-name>
-        <url-pattern>/Banners</url-pattern>
-    </servlet-mapping>
-    
-    
     <session-config>
         <session-timeout>
             30

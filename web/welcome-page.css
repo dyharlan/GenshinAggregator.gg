@@ -35,9 +35,6 @@ section {
     background-color: rgba(0,50,125, 0.35);
 }
 
-article {
-    
-}
 
 .banner-section {
     background-image: url(assets/bg3.jpg);
@@ -97,9 +94,16 @@ article {
     margin: auto;
     padding: 0;
 }
-
+button {
+    background: none;
+}
 .banners > .cbanner img {
-    height: 80%;
+    width:75%; 
+    height: 700px; 
+    overflow: hidden; 
+    display: inline-block;
+    margin: 20px;
+    
 }
 
 .banners > .wbanner img {
@@ -116,5 +120,4 @@ img {
     margin: 20px auto;
     object-fit: contain;
     padding: 0;
-  }
-
+}

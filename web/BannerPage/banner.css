@@ -5,6 +5,9 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+#vars {
+    display: none;
+}
 
 .navbar ul {
     display: flex;
@@ -22,7 +25,7 @@
 }
   
 body {
-    background: url(assets/bg.jpg);
+    background-image: url("assets/BannerPage/bg.jpg");
     background-size: cover;
 }
 

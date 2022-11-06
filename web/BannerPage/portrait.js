@@ -1,22 +1,22 @@
-function changeContent(evt, charName) {
+function changeContent(evt, charName, spashpath) {
     var i, tabContent, tabLinks, rateUp, perOp;
     if (charName == "Nahida") {
-        document.getElementById("display").src = document.querySelector('#vars').getAttribute('path');
+        document.getElementById("display").src = spashpath;
         rateUp = "ru1";
         perOp = "po1";
     }
     else if (charName == "Noelle") {
-        document.getElementById("display").src="assets/splash/4splash1.png";
+        document.getElementById("display").src= spashpath;
         rateUp = "ru2";
         perOp = "po2";
     }
     else if (charName == "Bennett") {
-        document.getElementById("display").src="assets/splash/4splash2.png";
+        document.getElementById("display").src= spashpath;
         rateUp = "ru3";
         perOp = "po3";
     }
     else { //charName == "Razor"
-        document.getElementById("display").src="assets/splash/4splash3.png"
+        document.getElementById("display").src= spashpath;
         rateUp = "ru4";
         perOp = "po4";
     }
