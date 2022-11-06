@@ -1,7 +1,7 @@
 Character Name: Nahida
 Rarity: 5
-Description: dfsdf sdfsdfsdf dfssdfsdf sdfsdfdsfsdf sdfsdfsdfsdf.
-Opinion: sadsadas asdsadsad asdasdsad asdasdasds
+Description: fei shang gao shing chi shishyang.
+Opinion: Just Nahida.
 Character Portrait: 5s1.png;
 Character Splash: 5splash1.png;
 #
@@ -14,22 +14,22 @@ Character Splash: 5splash2.png;
 #
 Character Name: Noelle
 Rarity: 4
-Description: dfsdf sdfsdfsdf dfssdfsdf sdfsdfdsfsdf sdfsdfsdfsdf.
-Opinion: sadsadas asdsadsad asdasdsad asdasdasds
+Description: Someone needs.
+Opinion: ASSISTANCE.
 Character Portrait: 4s1.png;
 Character Splash: 4splash1.png;
 #
 Character Name: Bennett
 Rarity: 4
-Description: dfsdf sdfsdfsdf dfssdfsdf sdfsdfdsfsdf sdfsdfsdfsdf.
-Opinion: sadsadas asdsadsad asdasdsad asdasdasds
+Description: bouken.
+Opinion: da broken.
 Character Portrait: 4s2.png;
 Character Splash: 4splash2.png;
 #
 Character Name: Razor
 Rarity: 4
-Description: dfsdf sdfsdfsdf dfssdfsdf sdfsdfdsfsdf sdfsdfsdfsdf.
-Opinion: sadsadas asdsadsad asdasdsad asdasdasds
+Description: ooga.
+Opinion: booga.
 Character Portrait: 4s3.png;
 Character Splash: 4splash3.png;
 #
