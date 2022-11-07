@@ -10,24 +10,30 @@ function changeContent(evt, weapName, spashpath) {
         rateUp = "ru2";
         perOp = "po2";
     }
-    else if (weapName == "4starSword") {
+    else if (weapName == "4starBow") {
         document.getElementById("display").src= spashpath;
         rateUp = "ru3";
         perOp = "po3";
     }
-    else if (weapName == "4starBow") {
-
-    }
-    else if (weapName == "4starSpear") {
-
-    }
-    else if (weapName == "4starClaymore") {
-
-    }
-    else { //weapName == "4starCatalyst"
+    else if (weapName == "4starSword") {
         document.getElementById("display").src= spashpath;
         rateUp = "ru4";
         perOp = "po4";
+    }
+    else if (weapName == "4starCatalyst") {
+        document.getElementById("display").src= spashpath;
+        rateUp = "ru5";
+        perOp = "po5";
+    }
+    else if (weapName == "4starSpear") {
+        document.getElementById("display").src= spashpath;
+        rateUp = "ru6";
+        perOp = "po6";
+    }
+    else { //weapName == "4starClaymore"
+        document.getElementById("display").src= spashpath;
+        rateUp = "ru7";
+        perOp = "po7";
     }
     
     tabContent = document.getElementsByClassName("tab-content");
