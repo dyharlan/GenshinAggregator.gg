@@ -8,13 +8,25 @@
  * @author dyhar
  */
 import javax.servlet.*;
-import java.time.LocalDate;
-import java.time.Period;
+
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+import static java.time.temporal.ChronoUnit.HOURS;
+
 public class AssetListener implements ServletContextListener{
     public void contextInitialized(ServletContextEvent sce) {
        ServletContext context = sce.getServletContext();
+       LocalTime curr = LocalTime.now();
+       DateTimeFormatter dtf = new DateTimeFormatterBuilder()
+                                .parseCaseInsensitive()
+                                .appendPattern("h:m a")
+                                .toFormatter(Locale.ENGLISH);
        
-       context.setAttribute("versionTime", Period.between(LocalDate.now(), LocalDate.of(2022, 11, 2)).getDays());
+       LocalTime resetTime = LocalTime.parse("4:00 am", dtf);
+       context.setAttribute("resetTime", curr.until(resetTime, HOURS)+24);
+       
     }
     
      public void contextDestroyed(ServletContextEvent sce) {

@@ -4,6 +4,7 @@
     scroll-behavior: smooth;
     font-family: 'Open Sans', sans-serif;
     color: white;
+    
 }
 
 body {
@@ -38,15 +39,39 @@ section {
 
 .banner-section {
     background-image: url(assets/bg3.jpg);
+    
 }
 
 .cbanner > form {
-    width: 225px;
-    height: 375px;
+    width: 550px;
+    height: 700px;
+    margin: auto;
+    padding: 0;
+}
+.wbanner > form {
+    width: 950px;
+    height: 450px;
     margin: auto;
     padding: 0;
 }
 
+@media (max-width:1600px){
+    body{
+        overflow: scroll;
+    }
+    .cbanner > form {
+    width: 225px;
+    height: 375px;
+    margin: auto;
+    padding: 0;
+    }
+.wbanner > form {
+    width: 650px;
+    height: 350px;
+    margin: auto;
+    padding: 0;
+    }
+}
 .welcome-section, .news-section, .banner-section {
     font-size: 2em;
     background-size: center;
@@ -112,7 +137,7 @@ button {
 }
 
 .banners > .wbanner img {
-    padding-top: 10%;
+    padding-top: 5%;
     width: 75%;
     height: inherit;
 }

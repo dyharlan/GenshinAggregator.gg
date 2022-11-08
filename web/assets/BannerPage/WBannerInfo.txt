@@ -1,0 +1,49 @@
+Weapon Name: A Thousand Floating Dreams
+Rarity: 5
+Description: sd
+Opinion: sd
+Weapon Portrait: 5sw1.png;
+Weapon Splash: 5splashweap1.png;
+#
+Weapon Name: Thundering Pulse
+Rarity: 5
+Description: sd
+Opinion: sd
+Weapon Portrait: 5sw2.png;
+Weapon Splash: 5splashweap2.png;
+#
+Weapon Name: Rust
+Rarity: 4
+Description: sde
+Opinion:sd
+Weapon Portrait: 4sw1.png;
+Weapon Splash: 4splashweap1.png;
+#
+Weapon Name: The Flute
+Rarity: 4
+Description: sd
+Opinion: sd
+Weapon Portrait: 4sw2.png;
+Weapon Splash: 4splashweap2.png;
+#
+Weapon Name: The Widsith
+Rarity: 4
+Description: sd 
+Opinion: sd
+Weapon Portrait: 4sw3.png;
+Weapon Splash: 4splashweap3.png;
+#
+Weapon Name: Favonius Lance
+Rarity: 4
+Description:  sd
+Opinion: sd
+Weapon Portrait: 4sw4.png;
+Weapon Splash: 4splashweap4.png;
+#
+Weapon Name: Sacrificial Greatsword
+Rarity: 4
+Description: sd
+Opinion: sd
+Weapon Portrait: 4sw5.png;
+Weapon Splash: 4splashweap5.png;
+#

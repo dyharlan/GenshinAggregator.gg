@@ -19,6 +19,12 @@
     padding: 0.25em 0.25em 0.25em 0;
     justify-content:center;
 }
+
+.navbar ul button img {
+    object-fit: contain;
+    width: 64px;
+    height: 64px;
+}
   
 .tablinks {
     background: rgba(125,125,125,0.3);

@@ -34,18 +34,19 @@ public class BannerControllerServlet extends HttpServlet {
         try{
            //bm = new Model.BannerModel(getServletContext().getRealPath("/assets/BannerPage/CBannerInfo.txt"));
            //ServletConfig #1
-           bm = new Model.BannerModel(getServletContext().getRealPath(getServletConfig().getInitParameter("bannerinfo-path")));
+           bm = new Model.BannerModel(getServletContext().getRealPath(getServletConfig().getInitParameter("cbannerinfo-path")), getServletContext().getRealPath(getServletConfig().getInitParameter("wbannerinfo-path")));
         }
         catch(Model.IncompleteDataException | IOException ex){
             response.sendError(500, ex.toString());
         }
-        request.setAttribute("4starchar1", bm.charInfo(2));
-        request.setAttribute("4starchar2", bm.charInfo(3));
-        request.setAttribute("4starchar3", bm.charInfo(4));
+        
         
         if(request.getParameter("banner")!= null && !(request.getParameter("banner").equals("wb")) ){
             //ServletConfig #2
-            RequestDispatcher dispatcher = request.getRequestDispatcher(getServletConfig().getInitParameter("bannerpage-path"));
+            RequestDispatcher dispatcher = request.getRequestDispatcher(getServletConfig().getInitParameter("cbannerpage-path"));
+                request.setAttribute("4starchar1", bm.charInfo(2));
+                request.setAttribute("4starchar2", bm.charInfo(3));
+                request.setAttribute("4starchar3", bm.charInfo(4));
                 switch(request.getParameter("banner") ){
                 case "b1":
                     request.setAttribute("5starchar", bm.charInfo(0));
@@ -56,12 +57,23 @@ public class BannerControllerServlet extends HttpServlet {
                     dispatcher.forward(request,response);
                 break;
                 default:
-                    response.sendError(404, "No such page");
-                
+                    response.sendError(404, "No such page");    
+                    break;
             }
         }
         else if( request.getParameter("banner").equals("wb") ){
-            response.sendError(500, "Server under construction");
+            //response.sendError(500, "Server under construction");
+             request.setAttribute("5starwpn1", bm.wpnInfo(0));
+             request.setAttribute("5starwpn2", bm.wpnInfo(1));
+             request.setAttribute("4starwpn1", bm.wpnInfo(2));
+             request.setAttribute("4starwpn2", bm.wpnInfo(3));
+             request.setAttribute("4starwpn3", bm.wpnInfo(4));
+             request.setAttribute("4starwpn4", bm.wpnInfo(5));
+             request.setAttribute("4starwpn5", bm.wpnInfo(6));
+             
+             RequestDispatcher dispatcher = request.getRequestDispatcher(getServletConfig().getInitParameter("wbannerpage-path"));
+             dispatcher.forward(request,response);
+             
         }
         else{
             response.sendError(403, "Query Incomplete");

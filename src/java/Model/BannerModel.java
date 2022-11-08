@@ -14,13 +14,16 @@ import java.util.ArrayList;
 
 public class BannerModel {
     
-    private ArrayList<BannerCharacter> bc;
-    public BannerModel(String file) throws FileNotFoundException, IOException, IncompleteDataException{
-        bc = addCharacter(file);
+    private ArrayList<BannerPrize> bc;
+    private ArrayList<BannerPrize> wb;
+    
+    public BannerModel(String charFile, String wpnFile) throws FileNotFoundException, IOException, IncompleteDataException{
+        bc = addCharacter(charFile);
+        wb = addWeapon(wpnFile);
     }
     
-    ArrayList<BannerCharacter> addCharacter(String file) throws FileNotFoundException, IOException, IncompleteDataException{
-        ArrayList<BannerCharacter> temp = new ArrayList<>();
+    ArrayList<BannerPrize> addCharacter(String file) throws FileNotFoundException, IOException, IncompleteDataException{
+        ArrayList<BannerPrize> temp = new ArrayList<>();
         
         BufferedReader br = new BufferedReader(new FileReader(file));
         String str;
@@ -63,7 +66,7 @@ public class BannerModel {
                 charSplash = tmpString[1].trim();
             }
             if(str.startsWith("#")){
-               temp.add(charNumber, new BannerCharacter(charName, charRarity, charDescription, authorOpinion,charPortrait,charSplash));
+               temp.add(charNumber, new BannerPrize(charName, charRarity, charDescription, authorOpinion,charPortrait,charSplash));
                charNumber++;
             }
         }
@@ -74,30 +77,66 @@ public class BannerModel {
         return temp;
     }
     
-    public BannerCharacter charInfo(int index){
+    public BannerPrize charInfo(int index){
         return bc.get(index);
     }
     
-//    public String getName(int index){
-//        return bc.get(index).getName();
-//    }
-//    
-//    public int getRarity(int index){
-//        return bc.get(index).getRarity();
-//    }
-//    
-//    public String getDescription(int index){
-//        return bc.get(index).getDescription();
-//    }
-//    
-//    public String getOpinion(int index){
-//        return bc.get(index).getDescription();
-//    }
-//    
-//    public String getCharPortrait(int index){
-//        return bc.get(index).getDescription();
-//    }
-//    public String getCharSplash(int index){
-//        return bc.get(index).getDescription();
-//    } 
+    ArrayList<BannerPrize> addWeapon(String file) throws FileNotFoundException, IOException, IncompleteDataException{
+        ArrayList<BannerPrize> temp = new ArrayList<>();
+        
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        String str;
+        String wpnName = null;
+        int wpnRarity = -1;
+        String wpnDescription = null;
+        String authorOpinion = null;
+        String wpnPortrait = null;
+        String wpnSplash = null;
+        int wpnNumber = 0;
+        while((str = br.readLine()) != null)
+        {
+            //A string var is added because for some reason startsWith() doesn't seem to work properly when directly invoked on the scanner.
+            //Ignores any line that starts with an equals or space.
+            if(str.startsWith(" ")){
+                continue;
+            }
+            if(str.startsWith("Weapon Name:")){
+                String[] tmpString = str.split(":");
+                wpnName = tmpString[1].trim();
+            }
+            if(str.startsWith("Rarity:")){
+                String[] tmpString = str.split(":");
+                wpnRarity = Integer.parseInt(tmpString[1].trim());
+            }
+            if(str.startsWith("Description:")){
+                String[] tmpString = str.split(":");
+                wpnDescription = tmpString[1].trim();
+            }
+            if(str.startsWith("Opinion:")){
+                String[] tmpString = str.split(":");
+                authorOpinion = tmpString[1].trim();
+            }
+            if(str.startsWith("Weapon Portrait:")){
+                String[] tmpString = str.split(":");
+                wpnPortrait = tmpString[1].trim();
+            }
+            if(str.startsWith("Weapon Splash:")){
+                String[] tmpString = str.split(":");
+                wpnSplash = tmpString[1].trim();
+            }
+            if(str.startsWith("#")){
+               temp.add(wpnNumber, new BannerPrize(wpnName, wpnRarity, wpnDescription, authorOpinion,wpnPortrait,wpnSplash));
+               wpnNumber++;
+            }
+        }
+        br.close();
+        if(temp.size() < 7){
+            throw new IncompleteDataException();
+        }
+        return temp;
+    }
+    
+    public BannerPrize wpnInfo(int index){
+        return wb.get(index);
+    }
 }

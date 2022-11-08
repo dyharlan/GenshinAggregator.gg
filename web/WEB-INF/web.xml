@@ -16,13 +16,23 @@
         <servlet-class>Controller.BannerControllerServlet</servlet-class>
         
         <init-param>
-            <param-name>bannerpage-path</param-name>
+            <param-name>cbannerpage-path</param-name>
             <param-value>BannerPage/banner.jsp</param-value>
         </init-param>
         
         <init-param>
-            <param-name>bannerinfo-path</param-name>
+            <param-name>cbannerinfo-path</param-name>
             <param-value>/assets/BannerPage/CBannerInfo.txt</param-value>
+        </init-param>
+        
+        <init-param>
+            <param-name>wbannerpage-path</param-name>
+            <param-value>BannerPage/wbanner.jsp</param-value>
+        </init-param>
+        
+        <init-param>
+            <param-name>wbannerinfo-path</param-name>
+            <param-value>/assets/BannerPage/WBannerInfo.txt</param-value>
         </init-param>
     </servlet>
     
