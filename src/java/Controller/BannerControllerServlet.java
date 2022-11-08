@@ -61,7 +61,7 @@ public class BannerControllerServlet extends HttpServlet {
                     break;
             }
         }
-        else if( request.getParameter("banner").equals("wb") ){
+        else if(request.getParameter("banner")!= null && request.getParameter("banner").equals("wb") ){
             //response.sendError(500, "Server under construction");
              request.setAttribute("5starwpn1", bm.wpnInfo(0));
              request.setAttribute("5starwpn2", bm.wpnInfo(1));
@@ -76,7 +76,7 @@ public class BannerControllerServlet extends HttpServlet {
              
         }
         else{
-            response.sendError(403, "Query Incomplete");
+            response.sendRedirect("/GenshinAggregator.gg");
         }
         
     }
