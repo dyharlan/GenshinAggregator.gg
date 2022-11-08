@@ -38,8 +38,8 @@
                 <li><button class="tab-links" onclick="changeContent(event, '4starBow', _4splashpath1)"><img loading="lazy" src="<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/wportraits/4stars/4sw1.png" alt="4 Star weapon #1"></button></li>
                 <li><button class="tab-links" onclick="changeContent(event, '4starSword', _4splashpath2)"><img loading="lazy" src="<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/wportraits/4stars/4sw2.png" alt="4 Star weapon #2"></button></li>
                 <li><button class="tab-links" onclick="changeContent(event, '4starCatalyst', _4splashpath3)"><img loading="lazy" src="<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/wportraits/4stars/4sw3.png" alt="4 Star weapon #3"></button></li>
-                <li><button class="tab-links" onclick="changeContent(event, '4starSpear', _4splashpath3)"><img loading="lazy" src="<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/wportraits/4stars/4sw4.png" alt="4 Star weapon #3"></button></li>
-                <li><button class="tab-links" onclick="changeContent(event, '4starClaymore', _4splashpath3)"><img loading="lazy" src="<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/wportraits/4stars/4sw5.png" alt="4 Star weapon #3"></button></li>
+                <li><button class="tab-links" onclick="changeContent(event, '4starSpear', _4splashpath4)"><img loading="lazy" src="<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/wportraits/4stars/4sw4.png" alt="4 Star weapon #4"></button></li>
+                <li><button class="tab-links" onclick="changeContent(event, '4starClaymore', _4splashpath5)"><img loading="lazy" src="<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/wportraits/4stars/4sw5.png" alt="4 Star weapon #5"></button></li>
             </ul>
         </div>
         <div class="main">

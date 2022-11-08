@@ -14,7 +14,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="BannerPage/banner.css" rel="stylesheet">
-        <script src="BannerPage/portrait.js"></script>
+        <script src="BannerPage/charPortrait.js"></script>
         <script id="vars" type="text/javascript">
             var _5splashpath = "<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_5star.getSplashArt() %>";
             var _4splashpath1 = "<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_4star1.getSplashArt() %>";
