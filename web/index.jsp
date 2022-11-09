@@ -16,7 +16,7 @@
             
         </section>
 
-        <section class="news-section">
+        <!--<section class="news-section">
             <h1>Here are the latest news about Genshin Impact</h1> 
 
             <div class="news-articles">
@@ -32,7 +32,7 @@
                     <p>test</p>
                 </article>
             </div>
-        </section>
+        </section>-->
 
         <section class="banner-section">
             <h1 class="banner-header">Today's current banners are:</h1> 
@@ -58,7 +58,7 @@
                     <form action="BannerViewer" METHOD="GET">
                         <button type="submit" name="banner" value="wb"><img src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("asset-folder") %>wbanner.png" alt="Weapon Banner"></button>
                     </form>
-                        
+                    <a href="store.html">Buy genesis Crystals now! We are 50% off</a>   
                 </div>
             </div>
         </section>
