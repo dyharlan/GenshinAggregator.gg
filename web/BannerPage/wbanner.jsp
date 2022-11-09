@@ -20,33 +20,33 @@
         <link href="BannerPage/banner.css" rel="stylesheet">
         <script src="BannerPage/weapPortrait.js"></script>
         <script id="vars" type="text/javascript">
-            var _5splashpath1 = "<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_5star1.getSplashArt() %>";
-            var _5splashpath2 = "<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_5star2.getSplashArt() %>";
-            var _4splashpath1 = "<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_4star1.getSplashArt() %>";
-            var _4splashpath2 = "<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_4star2.getSplashArt() %>";
-            var _4splashpath3 = "<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_4star3.getSplashArt() %>";
-            var _4splashpath4 = "<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_4star4.getSplashArt() %>";
-            var _4splashpath5 = "<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_4star5.getSplashArt() %>";
+            var _5splashpath1 = "<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_5star1.getSplashArt() %>";
+            var _5splashpath2 = "<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_5star2.getSplashArt() %>";
+            var _4splashpath1 = "<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_4star1.getSplashArt() %>";
+            var _4splashpath2 = "<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_4star2.getSplashArt() %>";
+            var _4splashpath3 = "<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_4star3.getSplashArt() %>";
+            var _4splashpath4 = "<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_4star4.getSplashArt() %>";
+            var _4splashpath5 = "<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_4star5.getSplashArt() %>";
             
         </script>
     </head>
     <body background="assets/BannerPage/bg.jpg" onload="changeContent(event, '5starWeap1', _5splashpath1 )">
         <div class="navbar">
             <ul>
-                <li><button class="tab-links" id="defaultOpen" onclick="changeContent(event, '5starWeap1', _5splashpath1 )"><img  loading="lazy" src="<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/wportraits/<%= _5star1.getPortrait()%>" alt="5 Star weapon #1"></button></li>
-                <li><button class="tab-links" onclick="changeContent(event, '5starWeap2', _5splashpath2 )"><img  loading="lazy" src="<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/wportraits/<%= _5star2.getPortrait()%>" alt="5 Star weapon #2"></button></li>
-                <li><button class="tab-links" onclick="changeContent(event, '4starBow', _4splashpath1)"><img loading="lazy" src="<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/wportraits/4stars/4sw1.png" alt="4 Star weapon #1"></button></li>
-                <li><button class="tab-links" onclick="changeContent(event, '4starSword', _4splashpath2)"><img loading="lazy" src="<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/wportraits/4stars/4sw2.png" alt="4 Star weapon #2"></button></li>
-                <li><button class="tab-links" onclick="changeContent(event, '4starCatalyst', _4splashpath3)"><img loading="lazy" src="<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/wportraits/4stars/4sw3.png" alt="4 Star weapon #3"></button></li>
-                <li><button class="tab-links" onclick="changeContent(event, '4starSpear', _4splashpath4)"><img loading="lazy" src="<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/wportraits/4stars/4sw4.png" alt="4 Star weapon #4"></button></li>
-                <li><button class="tab-links" onclick="changeContent(event, '4starClaymore', _4splashpath5)"><img loading="lazy" src="<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/wportraits/4stars/4sw5.png" alt="4 Star weapon #5"></button></li>
+                <li><button class="tab-links" id="defaultOpen" onclick="changeContent(event, '5starWeap1', _5splashpath1 )"><img  loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/wportraits/<%= _5star1.getPortrait()%>" alt="5 Star weapon #1"></button></li>
+                <li><button class="tab-links" onclick="changeContent(event, '5starWeap2', _5splashpath2 )"><img  loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/wportraits/<%= _5star2.getPortrait()%>" alt="5 Star weapon #2"></button></li>
+                <li><button class="tab-links" onclick="changeContent(event, '4starBow', _4splashpath1)"><img loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/wportraits/4stars/4sw1.png" alt="4 Star weapon #1"></button></li>
+                <li><button class="tab-links" onclick="changeContent(event, '4starSword', _4splashpath2)"><img loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/wportraits/4stars/4sw2.png" alt="4 Star weapon #2"></button></li>
+                <li><button class="tab-links" onclick="changeContent(event, '4starCatalyst', _4splashpath3)"><img loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/wportraits/4stars/4sw3.png" alt="4 Star weapon #3"></button></li>
+                <li><button class="tab-links" onclick="changeContent(event, '4starSpear', _4splashpath4)"><img loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/wportraits/4stars/4sw4.png" alt="4 Star weapon #4"></button></li>
+                <li><button class="tab-links" onclick="changeContent(event, '4starClaymore', _4splashpath5)"><img loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/wportraits/4stars/4sw5.png" alt="4 Star weapon #5"></button></li>
             </ul>
         </div>
         <div class="main">
             
             <div class="box">
                 <div class="column-1">
-                    <img id="display" id="splashimg" loading="lazy" src="<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_5star1.getSplashArt() %>" >
+                    <img id="display" id="splashimg" loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_5star1.getSplashArt() %>" >
                 </div>
                 <div class="column-2">
                     <div class="row-1">

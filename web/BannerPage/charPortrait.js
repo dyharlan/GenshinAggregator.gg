@@ -36,4 +36,4 @@ function changeContent(evt, charName, spashpath) {
 
     evt.currentTarget.className += " active";
 }
-document.getElementById("defaultOpen").click();
+//document.getElementById("defaultOpen").click();

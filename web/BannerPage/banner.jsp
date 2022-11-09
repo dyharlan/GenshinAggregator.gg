@@ -16,27 +16,28 @@
         <link href="BannerPage/banner.css" rel="stylesheet">
         <script src="BannerPage/charPortrait.js"></script>
         <script id="vars" type="text/javascript">
-            var _5splashpath = "<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_5star.getSplashArt() %>";
-            var _4splashpath1 = "<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_4star1.getSplashArt() %>";
-            var _4splashpath2 = "<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_4star2.getSplashArt() %>";
-            var _4splashpath3 = "<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_4star3.getSplashArt() %>";
+            var _5splashpath = "<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_5star.getSplashArt() %>";
+            var _4splashpath1 = "<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_4star1.getSplashArt() %>";
+            var _4splashpath2 = "<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_4star2.getSplashArt() %>";
+            var _4splashpath3 = "<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_4star3.getSplashArt() %>";
             
         </script>
     </head>
     <body background="assets/BannerPage/bg.jpg" onload="changeContent(event, 'Nahida', _5splashpath )">
+        
         <div class="navbar">
             <ul>
-                <li><button class="tab-links" id="defaultOpen" onclick="changeContent(event, 'Nahida', _5splashpath )"><img  loading="lazy" src="<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/cportraits/<%= _5star.getPortrait()%>" alt="5 Star character"></button></li>
-                <li><button class="tab-links" onclick="changeContent(event, 'Noelle', _4splashpath1)"><img loading="lazy" src="<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/cportraits/4stars/4s1.png" alt="4 Star character #1"></button></li>
-                <li><button class="tab-links" onclick="changeContent(event, 'Bennett', _4splashpath2)"><img loading="lazy" src="<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/cportraits/4stars/4s2.png" alt="4 Star character #2"></button></li>
-                <li><button class="tab-links" onclick="changeContent(event, 'Razor', _4splashpath3)"><img loading="lazy" src="<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/cportraits/4stars/4s3.png" alt="4 Star character #3"></button></li>
+                <li><button class="tab-links" id="defaultOpen" onclick="changeContent(event, 'Nahida', _5splashpath )"><img  loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/cportraits/<%= _5star.getPortrait()%>" alt="5 Star character"></button></li>
+                <li><button class="tab-links" onclick="changeContent(event, 'Noelle', _4splashpath1)"><img loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/cportraits/4stars/4s1.png" alt="4 Star character #1"></button></li>
+                <li><button class="tab-links" onclick="changeContent(event, 'Bennett', _4splashpath2)"><img loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/cportraits/4stars/4s2.png" alt="4 Star character #2"></button></li>
+                <li><button class="tab-links" onclick="changeContent(event, 'Razor', _4splashpath3)"><img loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/cportraits/4stars/4s3.png" alt="4 Star character #3"></button></li>
             </ul>
         </div>
         <div class="main">
             
             <div class="box">
                 <div class="column-1">
-                    <img id="display" id="splashimg" loading="lazy" src="<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_5star.getSplashArt() %>" >
+                    <img id="display" id="splashimg" loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_5star.getSplashArt() %>" >
                 </div>
                 <div class="column-2">
                     <div class="row-1">

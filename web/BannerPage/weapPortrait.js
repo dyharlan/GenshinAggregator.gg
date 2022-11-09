@@ -51,4 +51,4 @@ function changeContent(evt, weapName, spashpath) {
 
     evt.currentTarget.className += " active";
 }
-document.getElementById("defaultOpen").click();
+//document.getElementById("defaultOpen").click();

@@ -8,7 +8,11 @@
 }
 
 body {
-    text-shadow: 2px 3px #000000;
+    text-shadow: 2px 1px #0a0a0a;
+}
+
+.trailer-link {
+    text-shadow: 2px 1px #000000;
 }
 
 section {
@@ -43,33 +47,38 @@ section {
 }
 
 .cbanner > form {
-    width: 550px;
-    height: 700px;
+    width: 400px;
+    height: 600px;
     margin: auto;
     padding: 0;
+    
 }
 .wbanner > form {
     width: 950px;
     height: 450px;
     margin: auto;
     padding: 0;
+    
 }
 
 @media (max-width:1600px){
     body{
-        overflow: scroll;
+        overflow: hidden;
     }
     .cbanner > form {
-    width: 225px;
-    height: 375px;
-    margin: auto;
-    padding: 0;
+        width: 225px;
+        height: 375px;
+        margin: auto;
+        padding: 0;
     }
-.wbanner > form {
-    width: 650px;
-    height: 350px;
-    margin: auto;
-    padding: 0;
+    .wbanner > form {
+        width: 650px;
+        height: 350px;
+        margin: auto;
+        padding: 0;
+    }
+    .trailer-link {
+        font-size: 0.5em;
     }
 }
 .welcome-section, .news-section, .banner-section {
