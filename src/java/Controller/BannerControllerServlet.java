@@ -29,7 +29,7 @@ public class BannerControllerServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html");
+        
         Model.BannerModel bm = null;
         try{
            //bm = new Model.BannerModel(getServletContext().getRealPath("/assets/BannerPage/CBannerInfo.txt"));

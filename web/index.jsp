@@ -13,6 +13,7 @@
         <section class="welcome-section">
             <h1>Welcome to GenshinAggregator.gg!</h1> 
             <h2>Time until server reset is: <%= getServletContext().getAttribute("resetTime") %> Hours</h2> 
+            
         </section>
 
         <section class="news-section">
@@ -39,23 +40,25 @@
                 <div class="cbanner-1 cbanner child">
                     <h4>Character Banner 1</h4>
                     <p>Nahida</p>
-                    <form action="BannerProcessor" METHOD="GET">
-                        <button type="submit" name="banner" value="b1"><img src="<%= getServletContext().getInitParameter("asset-folder") %>/cbanner1.png" alt="5 star 1st character"></button>
+                    <form action="BannerViewer" METHOD="GET">
+                        <button type="submit" name="banner" value="b1"><img src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("asset-folder") %>cbanner1.png" alt="5 star 1st character"></button>
                     </form>
+                        <a class="trailer-link" href="watch?v=<%= getServletContext().getInitParameter("video1") %> ">Watch the trailer now!</a>
                 </div>
                 <div class="cbanner-2 cbanner child">
                     <h4>Character Banner 2</h4>
                     <p>Yoimiya</p>
-                    <form action="BannerProcessor" METHOD="GET">
-                        <button type="submit" name="banner" value="b2"><img src="<%= getServletContext().getInitParameter("asset-folder") %>/cbanner2.png" alt="5 star 2nd character"></button>
+                    <form action="BannerViewer" METHOD="GET">
+                        <button type="submit" name="banner" value="b2"><img src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("asset-folder") %>cbanner2.png" alt="5 star 2nd character"></button>
                     </form>
+                        <a class="trailer-link" href="watch?v=<%= getServletContext().getInitParameter("video2") %> ">Watch the trailer now!</a>
                 </div>
                 <div class="wbanner child">
                     <h4>Weapon Banner</h4>
-                    <form action="BannerProcessor" METHOD="GET">
-                        <button type="submit" name="banner" value="wb"><img src="<%= getServletContext().getInitParameter("asset-folder") %>/wbanner.png" alt="Weapon Banner"></button>
+                    <form action="BannerViewer" METHOD="GET">
+                        <button type="submit" name="banner" value="wb"><img src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("asset-folder") %>wbanner.png" alt="Weapon Banner"></button>
                     </form>
-                    
+                        
                 </div>
             </div>
         </section>
