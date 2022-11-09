@@ -1,34 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-    
-    
+    <!-- 5 Servlet Context Init parameters-->
     <context-param>
         <param-name>asset-folder</param-name>
-        <param-value>assets</param-value>
+        <param-value>assets/</param-value>
     </context-param>
     
     <context-param>
         <param-name>bannerpage-asset-folder</param-name>
         <param-value>assets/BannerPage</param-value>
     </context-param>
+    
+    <context-param>
+        <param-name>video-folder</param-name>
+        <param-value>videos/</param-value>
+    </context-param>
+    
+    <context-param>
+            <param-name>video1</param-name>
+            <param-value>nahida.mp4</param-value>
+    </context-param>
+        
+    <context-param>
+            <param-name>video2</param-name>
+            <param-value>yoimiya.mp4</param-value>
+    </context-param>
+    
+   <!-- ServletConfigs for Banner Controller and Video Controller-->
     <servlet>
         <servlet-name>BannerController</servlet-name>
         <servlet-class>Controller.BannerControllerServlet</servlet-class>
-        
         <init-param>
-            <param-name>bannerpage-path</param-name>
+            <param-name>cbannerpage-path</param-name>
             <param-value>BannerPage/banner.jsp</param-value>
         </init-param>
+        <init-param>
+            <param-name>cbannerinfo-path</param-name>
+            <param-value>/assets/BannerPage/CBannerInfo.txt</param-value>
+        </init-param>
+        <init-param>
+            <param-name>wbannerpage-path</param-name>
+            <param-value>BannerPage/wbanner.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>wbannerinfo-path</param-name>
+            <param-value>/assets/BannerPage/WBannerInfo.txt</param-value>
+        </init-param>
+    </servlet>
+    
+    
+    <servlet>
+        <servlet-name>VideoController</servlet-name>
+        <servlet-class>Controller.VideoServlet</servlet-class>
         
         <init-param>
-            <param-name>bannerinfo-path</param-name>
-            <param-value>/assets/BannerPage/CBannerInfo.txt</param-value>
+            <param-name>video-type</param-name>
+            <param-value>video/mp4</param-value>
         </init-param>
     </servlet>
     
     <servlet-mapping>
+        <servlet-name>VideoController</servlet-name>
+        <url-pattern>/watch</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
         <servlet-name>BannerController</servlet-name>
-        <url-pattern>/BannerProcessor</url-pattern>
+        <url-pattern>/BannerViewer</url-pattern>
     </servlet-mapping>
     
     <session-config>
@@ -41,9 +79,6 @@
             AssetListener
         </listener-class>
     </listener>
-    
-   
-
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
         <welcome-file>index.jsp</welcome-file>

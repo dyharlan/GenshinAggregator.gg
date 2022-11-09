@@ -1,49 +1,49 @@
 Weapon Name: A Thousand Floating Dreams
 Rarity: 5
-Description: sd
-Opinion: sd
+Description: This is a 5-star catalyst which scales off of Elemental Mastery as its substat. Its passive, in summary, gives off elemental mastery or elemental type damage boost to teammates.
+Opinion: This is a very powerful weapon, but a niche one meant for those who scale from Elemental Mastery like Nahida, Sucrose, or even Kokomi.
 Weapon Portrait: 5sw1.png;
 Weapon Splash: 5splashweap1.png;
 #
 Weapon Name: Thundering Pulse
 Rarity: 5
-Description: sd
-Opinion: sd
+Description: This is a 5-star bow which scales off of Crit Dmg as its substat. Its passive boosts Atk from the get-go and gives normal attack bonus Dmg based on the stacks the character has.
+Opinion: This weapon is a very good stat-stick, as it gives off great base attack boost and scales with Crit Dmg, but it shines especially well for normal attackers, as this weapon also gives normal attack damage boost.
 Weapon Portrait: 5sw2.png;
 Weapon Splash: 5splashweap2.png;
 #
 Weapon Name: Rust
 Rarity: 4
-Description: sde
-Opinion:sd
+Description: This 4-star bow scales off of Atk% as its substat, but has a simple passive that increases Normal Attack DMG% that scales with refinement, at the cost of decreasing Charged Attack DMG%.
+Opinion: This weapon is most especially useful for bow-users who mainly use normal attacks like Childe. This weapon is highly discouraged for those who use charged attacks, like Ganyu.
 Weapon Portrait: 4sw1.png;
 Weapon Splash: 4splashweap1.png;
 #
 Weapon Name: The Flute
 Rarity: 4
-Description: sd
-Opinion: sd
+Description: A 4-star sword which scales off of Atk% as its substat, this weapon has a passive which deals damage around the equipping character after gaining 5 stacks from normal or charged attacks.
+Opinion: A generally overshadowed weapon due to its dull passive, this weapon can easily be replaced by weapons with better stats, or even better passives, but can be used in niche scenarios like normal attacker Qiqi.
 Weapon Portrait: 4sw2.png;
 Weapon Splash: 4splashweap2.png;
 #
 Weapon Name: The Widsith
 Rarity: 4
-Description: sd 
-Opinion: sd
+Description: A 4-star catalyst which scales off of Crit Dmg as its substat, its passive varies between boosting Atk%, Elemental Dmg%, or Elemental Mastery which is decided upon by chance.
+Opinion: A very versatile weapon which can be used from a wide range of DPS, Sub-DPS, and even Support characters due to its passive and stats. The fact that this weapon is a 4-star only signifies that its already formidable passive can even be greater with refinements.
 Weapon Portrait: 4sw3.png;
 Weapon Splash: 4splashweap3.png;
 #
 Weapon Name: Favonius Lance
 Rarity: 4
-Description:  sd
-Opinion: sd
+Description:  A 4-star spear
+Opinion: A low-cost
 Weapon Portrait: 4sw4.png;
 Weapon Splash: 4splashweap4.png;
 #
 Weapon Name: Sacrificial Greatsword
 Rarity: 4
-Description: sd
-Opinion: sd
+Description: A 4-star claymore
+Opinion: An interesting, but niche weapone
 Weapon Portrait: 4sw5.png;
 Weapon Splash: 4splashweap5.png;
 #

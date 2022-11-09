@@ -25,8 +25,10 @@ public class AssetListener implements ServletContextListener{
                                 .toFormatter(Locale.ENGLISH);
        
        LocalTime resetTime = LocalTime.parse("4:00 am", dtf);
-       //paki ayos na lang ito
-       context.setAttribute("resetTime", curr.until(resetTime, HOURS)+24);
+       if (curr.until(resetTime, HOURS) < 0)
+            context.setAttribute("resetTime", (curr.until(resetTime, HOURS)+24));
+       else
+            context.setAttribute("resetTime", (curr.until(resetTime, HOURS)+24));
        
     }
     

@@ -52,6 +52,11 @@ div.content {
 
 .payment-container > div {
     width: 50%;
+    height: 50%;
+}
+
+.payment-container > label {
+    margin-left: 90px;
 }
 
 .payment-container > img {
