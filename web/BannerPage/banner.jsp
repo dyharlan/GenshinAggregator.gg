@@ -22,6 +22,12 @@
             var _4splashpath3 = "<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_4star3.getSplashArt() %>";
         </script>
         <title>Character Banner Page | GenshinStore.gg</title>
+        <style>
+            @font-face {
+                font-family: 'zh-cn';
+                src:url("<%=request.getContextPath()%>/<%= getServletContext().getInitParameter("asset-folder")%>zh-cn.ttf");
+            } 
+        </style>
     </head>
     <body background="assets/BannerPage/bg.jpg" onload="changeContent(event, 'Nahida', _5splashpath )">
         

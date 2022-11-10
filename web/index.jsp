@@ -8,6 +8,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="welcome-page.css" rel="stylesheet">
+        <style>
+            @font-face {
+                font-family: 'zh-cn';
+                src:url("<%=request.getContextPath()%>/<%= getServletContext().getInitParameter("asset-folder")%>zh-cn.ttf");
+            }        
+        </style>
         <title>GenshinStore.gg - Your landing page for the latest news in Teyvat!</title>
     </head>
     <body>

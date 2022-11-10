@@ -6,11 +6,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="store.css" rel="stylesheet">
+        
         <title>Store Page | GenshinStore.gg</title>
         <%
             if(request.getAttribute("uidstatus") == null)
                 request.setAttribute("uidstatus", "");
         %>
+        
     </head>
     <body>
         <h1>Select Recharge: </h1>
