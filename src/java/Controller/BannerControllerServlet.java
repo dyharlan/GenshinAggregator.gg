@@ -79,7 +79,7 @@ public class BannerControllerServlet extends HttpServlet {
             response.sendRedirect("Store");
         }
         else{
-            response.sendRedirect("/GenshinAggregator.gg");
+            response.sendRedirect(request.getContextPath());
         }
         
     }
@@ -110,7 +110,8 @@ public class BannerControllerServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+        response.sendError(418);
     }
 
     /**

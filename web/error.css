@@ -1,0 +1,46 @@
+* {
+    border: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+    font-family: 'Open Sans', sans-serif;
+    color: black;
+    
+}
+body {
+    display: flex;
+    flex: row;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+.error-div {
+    background-color: rgb(217,110,38);
+    box-shadow: 2px 2px rgba(0,0,0,0.4);
+    margin: auto;
+    width: 550px;
+    display: flex;
+    flex: row;
+    justify-content: center;
+    padding: 2em;
+}
+
+.col1{
+    margin-right: 5%;
+}
+.col1 img {
+    max-width: 150px;
+    vertical-align: center;
+    margin-top: 10%;
+    
+}
+
+
+h1 {
+    font-weight: bold;
+    font-size: 2.8em;
+}
+
+h3 {
+    text-align: justify;
+}
