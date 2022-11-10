@@ -9,7 +9,10 @@
 body {
     background-color: rgb(32,36,82);
 }
-
+#server option , input[type="number"], select {
+    color:black;
+    border-color: black;
+}
 div.recharge {
     display: flex;
     flex-flow: row wrap;

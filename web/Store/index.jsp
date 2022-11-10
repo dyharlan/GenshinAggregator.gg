@@ -6,6 +6,16 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="store.css" rel="stylesheet">
+        <script>
+            function numOnly(id) {
+                // Get the element by id
+                var element = document.getElementById(id);
+                // Use numbers only pattern, from 0 to 9 with \-
+                var regex = /[^0-9\-]/gi;
+                // Replace other characters that are not in regex pattern
+                element.value = element.value.replace(regex, "");
+            }
+        </script>
         
         <title>Store Page | GenshinStore.gg</title>
         <%
@@ -53,8 +63,8 @@
                 <h1>Select Payment</h1>
                 <br>
                 <div class="payment-container">
-                    <div class="child"><input type="radio" id="visa" name="payment" value="visa"><img src="<%= request.getContextPath()%>/assets/StorePage/visa.png"><label for="visa">Visa</label></div>
-                    <div class="child"><input type="radio" id="mastercard" name="payment" value="mastercard"><img src="<%= request.getContextPath()%>/assets/StorePage/mastercard.png"><label for="mastercard">MasterCard</label></div>
+                    <div class="child"><input type="radio" id="visa" name="payment" value="visa" required><img src="<%= request.getContextPath()%>/assets/StorePage/visa.png"><label for="visa">Visa</label></div>
+                    <div class="child"><input type="radio" id="mastercard" name="payment" value="mastercard" required><img src="<%= request.getContextPath()%>/assets/StorePage/mastercard.png"><label for="mastercard">MasterCard</label></div>
                 </div>
             </div>
             <br>
@@ -62,7 +72,7 @@
                 <h1>Enter UID And Server Details</h1>
                 <br>
                 <p><%= request.getAttribute("uidstatus") %></p>
-                <input class="child" name="uid" id="uid" type="number" min="1" max="999999999" placeholder="Enter UID (Up to 9 digits)" required>
+                <input class="child" name="uid" id="uid" oninput="numOnly(this.id);" type="text" minlength="1" maxlength="9" placeholder="Enter UID (Up to 9 digits)" required>
                 <select class="child" name="server" id="server" required>
                     <option value="" disabled selected hidden>Select Server</option>
                     <option value="na">America</option>

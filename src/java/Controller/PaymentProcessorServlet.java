@@ -9,9 +9,10 @@ import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import Model.PriceModel;
 /**
  *
  * @author dyhar
@@ -30,27 +31,18 @@ public class PaymentProcessorServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/form.jsp");
-//        try ( PrintWriter out = response.getWriter()) {
-//            
-//            
-//            /* TODO output your page here. You may use following sample code. */
-//            out.println("<!DOCTYPE html>");
-//            out.println("<html>");
-//            out.println("<head>");
-//            out.println("<title>Servlet PaymentProcessorServlet</title>");            
-//            out.println("</head>");
-//            out.println("<body>");
-//            out.println("<h1>Servlet PaymentProcessorServlet at " + request.getContextPath() + "</h1>");
-//            out.println("<h2>"+request.getParameter("select")+"</h2>");
-//            out.println("<h2>"+request.getParameter("payment")+"</h2>");
-//            out.println("<h2>"+request.getParameter("uid")+"</h2>");
-//             out.println("<h2>"+request.getParameter("server")+"</h2>");
-//            out.println("</body>");
-//            out.println("</html>");
-//            
-//            
-//        }
+        RequestDispatcher dispatcher = request.getRequestDispatcher("form.jsp");
+        PriceModel pm = new PriceModel((String)request.getParameter("select"),(String)request.getParameter("payment"));
+        Float totalAmount = pm.getItemPrice();
+        String creditCard = pm.getCcType();
+        String itemName = pm.getItemName();
+        HttpSession session = request.getSession();
+        session.setAttribute("totalAmount", totalAmount);
+        session.setAttribute("creditCard", creditCard);
+        session.setAttribute("item",itemName);
+        session.setAttribute("uid", request.getParameter("uid"));
+        session.setAttribute("server", request.getParameter("server"));
+        dispatcher.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -80,12 +72,25 @@ public class PaymentProcessorServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html");  
-        //PrintWriter out = response.getWriter(); 
-        if(request.getParameter("uid").length() < 9){
-            //out.print();
-            response.setContentType("text/html"); 
-            request.setAttribute("uidstatus", "Invalid UID!");
+        response.setContentType("text/html;charset=UTF-8");  
+        
+        if(!(request.getParameter("uid").startsWith("6")) && request.getParameter("server").equals("na") ){
+            request.setAttribute("uidstatus", "Invalid UID! NA Server UIDs start with 6");
+            RequestDispatcher rd = request.getRequestDispatcher("/Store/index.jsp");  
+            rd.include(request, response);  
+        }
+        else if(!(request.getParameter("uid").startsWith("7")) && request.getParameter("server").equals("eu") ){
+            request.setAttribute("uidstatus", "Invalid UID! EU Server UIDs start with 7");
+            RequestDispatcher rd = request.getRequestDispatcher("/Store/index.jsp");  
+            rd.include(request, response);  
+        }
+        else if(!(request.getParameter("uid").startsWith("8")) && request.getParameter("server").equals("asia") ){
+            request.setAttribute("uidstatus", "Invalid UID! Asia Server UIDs start with 8");
+            RequestDispatcher rd = request.getRequestDispatcher("/Store/index.jsp");  
+            rd.include(request, response);  
+        }
+        else if(!(request.getParameter("uid").startsWith("9")) && request.getParameter("server").equals("sar") ){
+            request.setAttribute("uidstatus", "Invalid UID! TW/HK SAR Server UIDs start with 9");
             RequestDispatcher rd = request.getRequestDispatcher("/Store/index.jsp");  
             rd.include(request, response);  
         }

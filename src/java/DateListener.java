@@ -10,23 +10,26 @@
 import javax.servlet.*;
 
 import java.time.LocalTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import static java.time.temporal.ChronoUnit.HOURS;
 import static java.time.temporal.ChronoUnit.MINUTES;
-import static java.time.temporal.ChronoUnit.SECONDS;
+
 
 public class DateListener implements ServletContextListener{
     public void contextInitialized(ServletContextEvent sce) {
        ServletContext context = sce.getServletContext();
        LocalTime curr = LocalTime.now();
+       LocalDate currDate = LocalDate.now();
        DateTimeFormatter dtf = new DateTimeFormatterBuilder()
                                 .parseCaseInsensitive()
                                 .appendPattern("h:m a")
                                 .toFormatter(Locale.ENGLISH);
        
        LocalTime resetTime = LocalTime.parse("4:00 am", dtf);
+       
        String countdown = "NaN";
        if (curr.until(resetTime, HOURS) == 0)
         {
@@ -59,6 +62,8 @@ public class DateListener implements ServletContextListener{
                 countdown = curr.until(resetTime, HOURS) + " hours";
         }
        context.setAttribute("resetTime", countdown);
+       context.setAttribute("currTime", curr);
+       context.setAttribute("currDate", currDate);
     }
     
      public void contextDestroyed(ServletContextEvent sce) {

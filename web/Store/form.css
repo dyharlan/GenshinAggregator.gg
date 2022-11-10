@@ -25,6 +25,7 @@ form {
 }
 
 input {
+    color: black;
     border: solid;
     border-radius: 6px;
 }
@@ -46,6 +47,7 @@ button {
     border: solid;
     border-radius: 7.5px;
     margin: auto;
+    color: black;
 }
 
 .section1 {
@@ -75,3 +77,23 @@ button {
 .section2 > input, .section3 > input {
     width: 95%;
 }
+.section3 {
+    margin:auto;
+    width:auto;
+}
+
+.section3 label {
+    text-align: center;
+}
+.cc-digits {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.cc-digits input[type="text"] {
+    width: 50px;
+}
+
+
+    
