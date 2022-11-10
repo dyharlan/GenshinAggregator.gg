@@ -20,8 +20,8 @@
             var _4splashpath1 = "<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_4star1.getSplashArt() %>";
             var _4splashpath2 = "<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_4star2.getSplashArt() %>";
             var _4splashpath3 = "<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_4star3.getSplashArt() %>";
-            
         </script>
+        <title>Character Banner Page | GenshinStore.gg</title>
     </head>
     <body background="assets/BannerPage/bg.jpg" onload="changeContent(event, 'Nahida', _5splashpath )">
         

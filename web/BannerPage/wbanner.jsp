@@ -29,6 +29,7 @@
             var _4splashpath5 = "<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_4star5.getSplashArt() %>";
             
         </script>
+        <title>Weapon Banner Page | GenshinStore.gg</title>
     </head>
     <body background="assets/BannerPage/bg.jpg" onload="changeContent(event, '5starWeap1', _5splashpath1 )">
         <div class="navbar">

@@ -1,0 +1,16 @@
+* {
+    border: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+    font-family: 'Open Sans', sans-serif;
+    color: black;
+    
+}
+
+section {
+    
+}
+
+hr{
+    border: solid;
+}
