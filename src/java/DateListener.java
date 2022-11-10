@@ -27,43 +27,38 @@ public class DateListener implements ServletContextListener{
                                 .toFormatter(Locale.ENGLISH);
        
        LocalTime resetTime = LocalTime.parse("4:00 am", dtf);
+       String countdown = "NaN";
        if (curr.until(resetTime, HOURS) == 0)
         {
-            if (curr.until(resetTime, MINUTES) == 0)
-            {
-                if (curr.until(resetTime,SECONDS) < 0)
-                    System.out.println("resetTime: "+ (curr.until(resetTime, HOURS)+23) + " hours");
-                else
-                {
-                    if (curr.until(resetTime, SECONDS) == 1)
-                        System.out.println("resetTime: "+ curr.until(resetTime, SECONDS) + " second");
-                    else
-                        System.out.println("resetTime: "+ curr.until(resetTime, SECONDS) + " seconds");
-                }
-            }
-            else if (curr.until(resetTime, MINUTES) < 0)
-                System.out.println("resetTime: " + (curr.until(resetTime, HOURS)+23) + " hours");
+            if (curr.until(resetTime, MINUTES) < 0)
+                //System.out.println("resetTime: " + (curr.until(resetTime, HOURS)+23) + " hours");
+                countdown = (curr.until(resetTime, HOURS)+23) + " hours";
             else
             {
                 if (curr.until(resetTime, MINUTES) == 1)
-                    System.out.println("resetTime: " + (curr.until(resetTime, MINUTES)) + " minute");
+                    //System.out.println("resetTime: " + (curr.until(resetTime, MINUTES)) + " minute");
+                    countdown = (curr.until(resetTime, MINUTES)) + " minute";
                 else
-                    System.out.println("resetTime: " + (curr.until(resetTime, MINUTES)) + " minutes");
+                    //System.out.println("resetTime: " + (curr.until(resetTime, MINUTES)) + " minutes");
+                    countdown = (curr.until(resetTime, MINUTES)) + " minutes";
             }
         }
         else if (curr.until(resetTime,HOURS) < 0)
         {
             if (curr.until(resetTime, MINUTES) < 0)
-                System.out.println("resetTime: " + (curr.until(resetTime, HOURS)+24) + " hours");
+                //System.out.println("resetTime: " + (curr.until(resetTime, HOURS)+24) + " hours");
+                countdown = (curr.until(resetTime, HOURS)+24) + " hours";
         }
         else
         {
             if (curr.until(resetTime, HOURS) == 1)
-                System.out.println("resetTime: " + curr.until(resetTime, HOURS) + " hour");
+                //System.out.println("resetTime: " + curr.until(resetTime, HOURS) + " hour");
+                countdown = curr.until(resetTime, HOURS) + " hour";
             else
-                System.out.println("resetTime: " + curr.until(resetTime, HOURS) + " hours");
+                //System.out.println("resetTime: " + curr.until(resetTime, HOURS) + " hours");
+                countdown = curr.until(resetTime, HOURS) + " hours";
         }
-       
+       context.setAttribute("resetTime", countdown);
     }
     
      public void contextDestroyed(ServletContextEvent sce) {

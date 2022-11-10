@@ -13,7 +13,7 @@
     <body>
         <section class="welcome-section">
             <h1>Welcome to GenshinAggregator.gg!</h1> 
-            <h2>Time until server reset is: <%= getServletContext().getAttribute("resetTime") %> Hours</h2> 
+            <h2>Time until server reset is: <%= getServletContext().getAttribute("resetTime") %></h2> 
             
         </section>
 
