@@ -34,7 +34,12 @@ public class AssetListener implements ServletContextListener{
                 if (curr.until(resetTime,SECONDS) < 0)
                     System.out.println("resetTime: "+ (curr.until(resetTime, HOURS)+23) + " hours");
                 else
-                    System.out.println("resetTime: "+ curr.until(resetTime, SECONDS) + " seconds");
+                {
+                    if (curr.until(resetTime, SECONDS) == 1)
+                        System.out.println("resetTime: "+ curr.until(resetTime, SECONDS) + " second");
+                    else
+                        System.out.println("resetTime: "+ curr.until(resetTime, SECONDS) + " seconds");
+                }
             }
             else if (curr.until(resetTime, MINUTES) < 0)
                 System.out.println("resetTime: " + (curr.until(resetTime, HOURS)+23) + " hours");
@@ -56,7 +61,7 @@ public class AssetListener implements ServletContextListener{
             if (curr.until(resetTime, HOURS) == 1)
                 System.out.println("resetTime: " + curr.until(resetTime, HOURS) + " hour");
             else
-                System.out.println("resetTime: " + curr.until(resetTime, HOURS) + " hour");
+                System.out.println("resetTime: " + curr.until(resetTime, HOURS) + " hours");
         }
        
     }
