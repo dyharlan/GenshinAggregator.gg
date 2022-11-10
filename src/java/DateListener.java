@@ -17,7 +17,7 @@ import static java.time.temporal.ChronoUnit.HOURS;
 import static java.time.temporal.ChronoUnit.MINUTES;
 import static java.time.temporal.ChronoUnit.SECONDS;
 
-public class AssetListener implements ServletContextListener{
+public class DateListener implements ServletContextListener{
     public void contextInitialized(ServletContextEvent sce) {
        ServletContext context = sce.getServletContext();
        LocalTime curr = LocalTime.now();

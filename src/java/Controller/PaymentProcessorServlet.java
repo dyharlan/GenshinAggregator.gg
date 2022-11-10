@@ -6,11 +6,8 @@ package Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.InputStream;
-import java.io.OutputStream;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author dyhar
  */
-public class VideoServlet extends HttpServlet {
+public class PaymentProcessorServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,18 +29,27 @@ public class VideoServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("video/mp4");
+        response.setContentType("text/html;charset=UTF-8");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/Store");
         try ( PrintWriter out = response.getWriter()) {
+            
+            
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet VideoServlet</title>");            
+            out.println("<title>Servlet PaymentProcessorServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet VideoServlet at " + request.getContextPath() + response.getHeader("Content-type") + "</h1>");
+            out.println("<h1>Servlet PaymentProcessorServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h2>"+request.getParameter("select")+"</h2>");
+            out.println("<h2>"+request.getParameter("payment")+"</h2>");
+            out.println("<h2>"+request.getParameter("uid")+"</h2>");
+             out.println("<h2>"+request.getParameter("server")+"</h2>");
             out.println("</body>");
             out.println("</html>");
+            
+            
         }
     }
 
@@ -59,36 +65,7 @@ public class VideoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
-        ServletContext ctx = getServletContext();
-        ServletConfig cfg = getServletConfig();
-        //six response headers
-        response.setContentType(cfg.getInitParameter("video-type"));
-        response.setHeader("Tk","N");
-        response.setHeader("Accept-Ranges","bytes");
-        response.setHeader("Cache-Control","380");
-        response.setHeader("X-Powered-By","CyandoAG/69a");
-        
-        int bytesRead = 0;
-        byte[] bytes = new byte[1024];
-        if(request.getParameter("v")!= null){
-            InputStream is = ctx.getResourceAsStream("/" + ctx.getInitParameter("asset-folder") + ctx.getInitParameter("video-folder") + request.getParameter("v"));
-            OutputStream os = response.getOutputStream();
-           
-            if(is != null){
-                while((bytesRead = is.read(bytes)) != -1) {
-                    os.write(bytes, 0, bytesRead);
-                }    
-                response.setStatus(HttpServletResponse.SC_OK);
-                os.flush();
-                os.close();
-            }
-            else
-                response.sendError(404, "No such video");
-        }
-        else
-            response.sendError(403, "No Access allowed");
-       
+        processRequest(request, response);
     }
 
     /**
@@ -102,7 +79,16 @@ public class VideoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html");  
+        PrintWriter out = response.getWriter(); 
+        if(request.getParameter("uid").length() < 9){
+            out.print("Invalid UID!");
+            response.setContentType("text/html");  
+            RequestDispatcher rd = request.getRequestDispatcher("/Store/index.jsp");  
+            rd.include(request, response);  
+        }
+        else
+            processRequest(request, response);
     }
 
     /**

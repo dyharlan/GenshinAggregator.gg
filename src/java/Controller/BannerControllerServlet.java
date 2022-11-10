@@ -75,6 +75,9 @@ public class BannerControllerServlet extends HttpServlet {
              dispatcher.forward(request,response);
              
         }
+        else if(request.getParameter("goto")!= null && request.getParameter("goto").equals("store") ){
+            response.sendRedirect("Store");
+        }
         else{
             response.sendRedirect("/GenshinAggregator.gg");
         }
