@@ -30,27 +30,27 @@ public class PaymentProcessorServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/Store");
-        try ( PrintWriter out = response.getWriter()) {
-            
-            
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet PaymentProcessorServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet PaymentProcessorServlet at " + request.getContextPath() + "</h1>");
-            out.println("<h2>"+request.getParameter("select")+"</h2>");
-            out.println("<h2>"+request.getParameter("payment")+"</h2>");
-            out.println("<h2>"+request.getParameter("uid")+"</h2>");
-             out.println("<h2>"+request.getParameter("server")+"</h2>");
-            out.println("</body>");
-            out.println("</html>");
-            
-            
-        }
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/form.jsp");
+//        try ( PrintWriter out = response.getWriter()) {
+//            
+//            
+//            /* TODO output your page here. You may use following sample code. */
+//            out.println("<!DOCTYPE html>");
+//            out.println("<html>");
+//            out.println("<head>");
+//            out.println("<title>Servlet PaymentProcessorServlet</title>");            
+//            out.println("</head>");
+//            out.println("<body>");
+//            out.println("<h1>Servlet PaymentProcessorServlet at " + request.getContextPath() + "</h1>");
+//            out.println("<h2>"+request.getParameter("select")+"</h2>");
+//            out.println("<h2>"+request.getParameter("payment")+"</h2>");
+//            out.println("<h2>"+request.getParameter("uid")+"</h2>");
+//             out.println("<h2>"+request.getParameter("server")+"</h2>");
+//            out.println("</body>");
+//            out.println("</html>");
+//            
+//            
+//        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -81,10 +81,11 @@ public class PaymentProcessorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html");  
-        PrintWriter out = response.getWriter(); 
+        //PrintWriter out = response.getWriter(); 
         if(request.getParameter("uid").length() < 9){
-            out.print("Invalid UID!");
-            response.setContentType("text/html");  
+            //out.print();
+            response.setContentType("text/html"); 
+            request.setAttribute("uidstatus", "Invalid UID!");
             RequestDispatcher rd = request.getRequestDispatcher("/Store/index.jsp");  
             rd.include(request, response);  
         }

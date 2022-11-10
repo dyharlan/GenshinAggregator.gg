@@ -7,6 +7,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="store.css" rel="stylesheet">
         <title>Store Page | GenshinAggregator.gg</title>
+        <%
+            if(request.getAttribute("uidstatus") == null)
+                request.setAttribute("uidstatus", "");
+        %>
     </head>
     <body>
         <h1>Select Recharge: </h1>
@@ -54,6 +58,7 @@
             <div class="details">
                 <h1>Enter UID And Server Details</h1>
                 <br>
+                <p><%= request.getAttribute("uidstatus") %></p>
                 <input class="child" name="uid" id="uid" type="number" min="1" max="999999999" placeholder="Enter UID (Up to 9 digits)" required>
                 <select class="child" name="server" id="server" required>
                     <option value="" disabled selected hidden>Select Server</option>

@@ -76,6 +76,7 @@ public class BannerControllerServlet extends HttpServlet {
              
         }
         else if(request.getParameter("goto")!= null && request.getParameter("goto").equals("store") ){
+            request.setAttribute("uidstatus", "tubol");
             response.sendRedirect("Store");
         }
         else{
