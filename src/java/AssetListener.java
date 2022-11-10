@@ -14,6 +14,8 @@ import java.time.format.DateTimeFormatterBuilder;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import static java.time.temporal.ChronoUnit.HOURS;
+import static java.time.temporal.ChronoUnit.MINUTES;
+import static java.time.temporal.ChronoUnit.SECONDS;
 
 public class AssetListener implements ServletContextListener{
     public void contextInitialized(ServletContextEvent sce) {
@@ -25,10 +27,37 @@ public class AssetListener implements ServletContextListener{
                                 .toFormatter(Locale.ENGLISH);
        
        LocalTime resetTime = LocalTime.parse("4:00 am", dtf);
-       if (curr.until(resetTime, HOURS) < 0)
-            context.setAttribute("resetTime", (curr.until(resetTime, HOURS)+24));
-       else
-            context.setAttribute("resetTime", (curr.until(resetTime, HOURS)+24));
+       if (curr.until(resetTime, HOURS) == 0)
+        {
+            if (curr.until(resetTime, MINUTES) == 0)
+            {
+                if (curr.until(resetTime,SECONDS) < 0)
+                    System.out.println("resetTime: "+ (curr.until(resetTime, HOURS)+23) + " hours");
+                else
+                    System.out.println("resetTime: "+ curr.until(resetTime, SECONDS) + " seconds");
+            }
+            else if (curr.until(resetTime, MINUTES) < 0)
+                System.out.println("resetTime: " + (curr.until(resetTime, HOURS)+23) + " hours");
+            else
+            {
+                if (curr.until(resetTime, MINUTES) == 1)
+                    System.out.println("resetTime: " + (curr.until(resetTime, MINUTES)) + " minute");
+                else
+                    System.out.println("resetTime: " + (curr.until(resetTime, MINUTES)) + " minutes");
+            }
+        }
+        else if (curr.until(resetTime,HOURS) < 0)
+        {
+            if (curr.until(resetTime, MINUTES) < 0)
+                System.out.println("resetTime: " + (curr.until(resetTime, HOURS)+24) + " hours");
+        }
+        else
+        {
+            if (curr.until(resetTime, HOURS) == 1)
+                System.out.println("resetTime: " + curr.until(resetTime, HOURS) + " hour");
+            else
+                System.out.println("resetTime: " + curr.until(resetTime, HOURS) + " hour");
+        }
        
     }
     
