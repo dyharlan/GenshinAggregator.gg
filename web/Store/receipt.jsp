@@ -21,7 +21,7 @@
             <p>UID: <!--Insert UID the transaction will go to--><%= request.getAttribute("uid") %></p>
             <p>Server: <!--Insert the Server in which the UID belongs to--> <%= request.getAttribute("server")%> </p>
             <p>Selected Order: <!--Insert order like "Blessing of the Welkin Moon"--> <%= request.getAttribute("item") %></p>
-            <p>Payment Method: <!--Insert Credit Card (not the number)--> <%= request.getAttribute("cc-info")%></p>
+            <p>Payment Method: <!--Insert Credit Card (not the number)--> <%= request.getAttribute("creditCard")%></p>
             <p>Transaction Date: <!--Insert YYYY-MM-DD HH:MM:SS (24 hr format)--> <%= getServletContext().getAttribute("currDate")%> <%= getServletContext().getAttribute("currTime")%></p>
             <p>Total Price: ₱<!--Insert price in pesos--> <%= request.getAttribute("amount")%></p>
         </section>

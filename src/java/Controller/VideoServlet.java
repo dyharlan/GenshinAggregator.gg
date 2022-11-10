@@ -46,7 +46,7 @@ public class VideoServlet extends HttpServlet {
             out.println("</html>");
         }
     }
-
+//doGet loads a video from the server's video directory
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

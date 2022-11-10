@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author dyhar
  */
+
+//load assets and information for the banner pages
 public class BannerControllerServlet extends HttpServlet {
 
     /**

@@ -46,9 +46,8 @@ public class CheckOutGeneratorServlet extends HttpServlet {
         request.setAttribute("name", request.getParameter("fname") + " " + request.getParameter("lname"));
         request.setAttribute("uid", request.getSession().getAttribute("uid"));
         request.setAttribute("server", request.getSession().getAttribute("server"));
-        System.out.println(request.getSession().getAttribute("creditCard"));
         request.setAttribute("item", request.getSession().getAttribute("item"));
-        request.setAttribute("cc-info", request.getSession().getAttribute("creditCard"));
+        request.setAttribute("creditCard", request.getSession().getAttribute("creditCard"));
         request.setAttribute("amount", request.getSession().getAttribute("totalAmount"));
         
         RequestDispatcher dispatcher = request.getRequestDispatcher("receipt.jsp");

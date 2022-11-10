@@ -17,7 +17,7 @@ import java.util.Locale;
 import static java.time.temporal.ChronoUnit.HOURS;
 import static java.time.temporal.ChronoUnit.MINUTES;
 
-
+//Create date objects for the game's reset times and for transaction logging
 public class DateListener implements ServletContextListener{
     public void contextInitialized(ServletContextEvent sce) {
        ServletContext context = sce.getServletContext();

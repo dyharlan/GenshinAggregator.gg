@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 
 
-
+//creates a set of characters with loaaded information
 public class BannerModel {
     
     private ArrayList<BannerPrize> bc;

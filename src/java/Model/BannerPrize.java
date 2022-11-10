@@ -8,6 +8,8 @@ package Model;
  *
  * @author dyhar
  */
+
+//a class detailing info about a rate up item
 public class BannerPrize {
     private String name;
     private int rarity;

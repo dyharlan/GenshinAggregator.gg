@@ -8,6 +8,8 @@ package Model;
  *
  * @author dyhar
  */
+
+//get info from a transaction like credit card type, item purchased, and its price
 public class PriceModel{
         private String item;
         private Float itemPrice;
@@ -65,8 +67,9 @@ public class PriceModel{
             case "visa":
                 this.ccType = "Visa";
                 break;
-            case "masterCard":
-                this.ccType = "MasterCard";
+            case "mastercard":
+                this.ccType = "Mastercard";
+                break;
             default:
                 this.ccType = null;
             break;

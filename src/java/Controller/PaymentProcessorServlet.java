@@ -31,7 +31,7 @@ public class PaymentProcessorServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher dispatcher = request.getRequestDispatcher("form.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("form.html");
         PriceModel pm = new PriceModel((String)request.getParameter("select"),(String)request.getParameter("payment"));
         Float totalAmount = pm.getItemPrice();
         String creditCard = pm.getCcType();
