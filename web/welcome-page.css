@@ -181,3 +181,7 @@ img {
     padding: 0;
     filter: drop-shadow(8px 4px 7px #222);
 }
+
+.banner-section img {
+    cursor: pointer;
+}
