@@ -30,6 +30,12 @@
             
         </script>
         <title>Weapon Banner Page | GenshinStore.gg</title>
+        <style>
+            @font-face {
+                font-family: 'zh-cn';
+                src:url("<%=request.getContextPath()%>/<%= getServletContext().getInitParameter("asset-folder")%>zh-cn.ttf");
+            } 
+        </style>
        
     </head>
     <body background="assets/BannerPage/bg.jpg" onload="changeContent(event, '5starWeap1', _5splashpath1 )">

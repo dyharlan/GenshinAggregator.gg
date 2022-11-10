@@ -78,10 +78,11 @@ public class BannerControllerServlet extends HttpServlet {
              
         }
         else if(request.getParameter("goto")!= null && request.getParameter("goto").equals("store") ){
-            
+            //relative redirect
             response.sendRedirect("Store");
         }
         else{
+            //absolute redirect
             response.sendRedirect(request.getContextPath());
         }
         

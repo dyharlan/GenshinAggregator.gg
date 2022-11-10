@@ -92,8 +92,16 @@ body {
     margin: auto;
 }
 
+.row-1, .row-2 {
+    padding: 1em;
+}
+h3 {
+    font-size: 2em;
+}
 .tab-content {
     display: none;
+    font-size: 1.5em;
+    text-align: justify;
 }
 
 .navbar button:active {
