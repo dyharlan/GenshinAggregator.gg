@@ -7,29 +7,29 @@ Character Splash: 5splash1.png;
 #
 Character Name: Yoimiya
 Rarity: 5
-Description: The owner of Naganohara Fireworks in Inazuma which wields a bow, the Naganohara family is well-known for the personalized and high-quality fireworks they produce.
-Opinion: An underrated character which has seen much appreciation through pairing with other characters boosting her damage potential, like Yun Jin and Xingqiu, she is a great character to pull due to her powerful and consistent Pyro damage.
+Description: wowowowowow
+Opinion: sadsadas asdsadsad asdasdsad asdasdasds
 Character Portrait: 5s2.png;
 Character Splash: 5splash2.png;
 #
 Character Name: Noelle
 Rarity: 4
-Description: A knight-in-training from the Knights of Favonius, she also works as a maid, and is surprisingly strong than she lets on, as she wields a Claymore, yet has a kind heart for serving others.
-Opinion: A very charming character due to her sweet and devoted personality, but, this should not elude you to the fact that she is a strong Geo healer/DPS when built correctly.
+Description: Someone needs.
+Opinion: ASSISTANCE.
 Character Portrait: 4s1.png;
 Character Splash: 4splash1.png;
 #
 Character Name: Bennett
 Rarity: 4
-Description: A Pyro character who wields a sword, is an adventurer from Monstadt, he has since be cursed from birth to be absolutely unlucky, meeting many misfortunes and mishaps along the way, yet is somehow brimming with optimism.
-Opinion: Considered as one of the best characters in Genshin Impact, he is simultaneously an Atk booster and a healer that is flexible enough to fit in many team compositions that need a damage boost.
+Description: bouken.
+Opinion: da broken.
 Character Portrait: 4s2.png;
 Character Splash: 4splash2.png;
 #
 Character Name: Razor
 Rarity: 4
-Description: An Electro character who wields a claymore, he is raised by wolves from Wolfendom, located in Monstadt.
-Opinion: As a 4-star character, he tends to be overshadowed by 5-stars and even other 4-star DPSs as one progresses through the game, but he is an easy to use, yet powerful character from the early stages of the game.
+Description: ooga.
+Opinion: booga.
 Character Portrait: 4s3.png;
 Character Splash: 4splash3.png;
 #
