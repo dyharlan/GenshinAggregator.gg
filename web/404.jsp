@@ -15,13 +15,13 @@
 
             <div class="error-div">
                 <div class="col1">
-                    <img src="<%=request.getContextPath()%>/<%= getServletContext().getInitParameter("asset-folder")%>/tatuscodes/404.png"></img>
+                    <img src="<%=request.getContextPath()%>/<%= getServletContext().getInitParameter("asset-folder")%>statuscodes/404.png"></img>
                 </div>
                 <div class="col2">
                     <h1>Uh oh! Error 404.</h1>
                     
                     <h3>Seems like paimon was thinking of something that only existed in her imagination...</h3>
-                    <a href="<%=request.getContextPath()%>/<%= getServletContext().getInitParameter("asset-folder")%>">Go back to Homepage.</a>
+                    <a href="<%=request.getContextPath()%>">Go back to Homepage.</a>
                 </div>
             </div>
 
