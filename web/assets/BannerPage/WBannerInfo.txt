@@ -14,8 +14,8 @@ Weapon Splash: 5splashweap2.png;
 #
 Weapon Name: Rust
 Rarity: 4
-Description: This 4-star bow scales off of Atk% as its substat, but has a simple passive that increases Normal Attack DMG% that scales with refinement, at the cost of decreasing Charged Attack DMG%.
-Opinion: This weapon is most especially useful for bow-users who mainly use normal attacks like Childe. This weapon is highly discouraged for those who use charged attacks, like Ganyu.
+Description: This 4-star bow scales off of Atk% as its substat, but has a simple passive that increases Normal Attack DMG% that increases with refinement, at the cost of decreasing Charged Attack DMG%.
+Opinion: This weapon is most especially useful for bow-users who mainly use normal attacks like Childe and Yoimiya. This weapon is highly discouraged for those who use charged attacks, like Ganyu.
 Weapon Portrait: 4sw1.png;
 Weapon Splash: 4splashweap1.png;
 #
@@ -35,15 +35,15 @@ Weapon Splash: 4splashweap3.png;
 #
 Weapon Name: Favonius Lance
 Rarity: 4
-Description:  A 4-star spear
-Opinion: A low-cost
+Description:  A 4-star spear which scales off of Energy Recharge as its substat, its passive is similar to other weapons in the Favonius series, granting a chance (that increases with refinement) of energy orbs to the character on the field after a critical hit.
+Opinion: A low-cost weapon that is very much versatile, thanks to its passive, and useful for characters not too conscious about their offensive stats, commonly being Sub-DPS and Support characters like Rosaria and Zhongli.
 Weapon Portrait: 4sw4.png;
 Weapon Splash: 4splashweap4.png;
 #
 Weapon Name: Sacrificial Greatsword
 Rarity: 4
-Description: A 4-star claymore
-Opinion: An interesting, but niche weapone
+Description: A 4-star claymore which scales off of Energy Recharge as its substat, its passive is similar to other weapons in the Sacrificial series, granting a chance (that increases with refinement) to reset an Elemental Skill's cooldown after hitting an opponent.
+Opinion: An interesting, but niche weapon that can be used by a few characters like Chongyun. Unlike other weapons of the same Sacrificial series, this one is particularly replaceable by a more powerful weapon like Wolf's Gravestone or Prototype Archaic.
 Weapon Portrait: 4sw5.png;
 Weapon Splash: 4splashweap5.png;
 #
