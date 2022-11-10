@@ -5,6 +5,7 @@
     scroll-behavior: smooth;
     font-family: 'zh-cn', sans-serif;
     text-shadow: 8px 4px 7px #222;
+    overflow: visible;
 }
 
 body {
@@ -83,7 +84,7 @@ a:hover {
         font-size: 0.5em;
     }
 }
-.welcome-section, .news-section, .banner-section {
+.welcome-section, .banner-section {
     font-size: 2em;
     background-size: center;
     background-position: center;
