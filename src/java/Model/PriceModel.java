@@ -68,7 +68,7 @@ public class PriceModel{
                 this.ccType = "Visa";
                 break;
             case "mastercard":
-                this.ccType = "Mastercard";
+                this.ccType = "MasterCard";
                 break;
             default:
                 this.ccType = null;
