@@ -5,28 +5,23 @@
         <param-name>asset-folder</param-name>
         <param-value>assets/</param-value>
     </context-param>
-    
     <context-param>
         <param-name>bannerpage-asset-folder</param-name>
         <param-value>assets/BannerPage</param-value>
     </context-param>
-    
     <context-param>
         <param-name>video-folder</param-name>
         <param-value>videos/</param-value>
     </context-param>
-    
     <context-param>
-            <param-name>video1</param-name>
-            <param-value>nahida.mp4</param-value>
+        <param-name>video1</param-name>
+        <param-value>nahida.mp4</param-value>
     </context-param>
-        
     <context-param>
-            <param-name>video2</param-name>
-            <param-value>yoimiya.mp4</param-value>
+        <param-name>video2</param-name>
+        <param-value>yoimiya.mp4</param-value>
     </context-param>
-    
-   <!-- ServletConfigs for Banner Controller and Video Controller-->
+    <!-- ServletConfigs for Banner Controller and Video Controller-->
     <servlet>
         <servlet-name>BannerController</servlet-name>
         <servlet-class>Controller.BannerControllerServlet</servlet-class>
@@ -47,28 +42,30 @@
             <param-value>/assets/BannerPage/WBannerInfo.txt</param-value>
         </init-param>
     </servlet>
-    
-    
     <servlet>
         <servlet-name>VideoController</servlet-name>
         <servlet-class>Controller.VideoServlet</servlet-class>
-        
         <init-param>
             <param-name>video-type</param-name>
             <param-value>video/mp4</param-value>
         </init-param>
     </servlet>
-    
+    <servlet>
+        <servlet-name>PaymentProcessorControllerServlet</servlet-name>
+        <servlet-class>Controller.PaymentProcessorServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VideoController</servlet-name>
         <url-pattern>/watch</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>BannerController</servlet-name>
         <url-pattern>/BannerViewer</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>PaymentProcessorControllerServlet</servlet-name>
+        <url-pattern>/Store/PaymentProcessor</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
@@ -76,7 +73,7 @@
     </session-config>
     <listener>
         <listener-class>
-            AssetListener
+            DateListener
         </listener-class>
     </listener>
     <welcome-file-list>
