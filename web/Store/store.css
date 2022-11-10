@@ -53,6 +53,16 @@ div.child {
 
 #uid, #server {
     border-radius: 5px;
+    display: inline-block;
+    
+}
+#uid {
+    margin-left: 500px;
+    float: left;
+}
+#server{
+    margin-right: 500px;
+    float: right;
 }
 
 div.content {
@@ -93,13 +103,16 @@ div.content {
 }
 
 .details {
-    justify-content: center;
+    align-items: center;
 }
 
 .details > div {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin: auto;
+    width: auto;
+    align-items: center;
 }
 
 .details > input[type="text"] {
