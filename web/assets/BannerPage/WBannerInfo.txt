@@ -1,6 +1,6 @@
 Weapon Name: A Thousand Floating Dreams
 Rarity: 5
-Description: This is a 5-star catalyst which scales off of Elemental Mastery as its substat. Its passive, in summary, gives off elemental mastery or elemental type damage boost to teammates.
+Description: This is a 5-star catalyst which scales off of Elemental Mastery as its substat. Its passive, in summary, gives off Elemental Mastery or Elemental Type damage boost to teammates.
 Opinion: This is a very powerful weapon, but a niche one meant for those who scale from Elemental Mastery like Nahida, Sucrose, or even Kokomi.
 Weapon Portrait: 5sw1.png;
 Weapon Splash: 5splashweap1.png;
@@ -15,14 +15,14 @@ Weapon Splash: 5splashweap2.png;
 Weapon Name: Rust
 Rarity: 4
 Description: This 4-star bow scales off of Atk% as its substat, but has a simple passive that increases Normal Attack DMG% that increases with refinement, at the cost of decreasing Charged Attack DMG%.
-Opinion: This weapon is most especially useful for bow-users who mainly use normal attacks like Childe and Yoimiya. This weapon is highly discouraged for those who use charged attacks, like Ganyu.
+Opinion: This weapon is most especially useful for bow-users who mainly use normal attacks like Childe and Yoimiya. However, this weapon is highly discouraged for those who use charged attacks, like Ganyu.
 Weapon Portrait: 4sw1.png;
 Weapon Splash: 4splashweap1.png;
 #
 Weapon Name: The Flute
 Rarity: 4
 Description: A 4-star sword which scales off of Atk% as its substat, this weapon has a passive which deals damage around the equipping character after gaining 5 stacks from normal or charged attacks.
-Opinion: A generally overshadowed weapon due to its dull passive, this weapon can easily be replaced by weapons with better stats, or even better passives, but can be used in niche scenarios like normal attacker Qiqi.
+Opinion: A generally overshadowed weapon due to its dull passive, this weapon can easily be replaced by weapons with better stats, or even better passives, but can be used in niche scenarios like a normal attacker Qiqi.
 Weapon Portrait: 4sw2.png;
 Weapon Splash: 4splashweap2.png;
 #
@@ -35,7 +35,7 @@ Weapon Splash: 4splashweap3.png;
 #
 Weapon Name: Favonius Lance
 Rarity: 4
-Description:  A 4-star spear which scales off of Energy Recharge as its substat, its passive is similar to other weapons in the Favonius series, granting a chance (that increases with refinement) of energy orbs to the character on the field after a critical hit.
+Description:  A 4-star spear which scales off of Energy Recharge as its substat, its passive is similar to other weapons in the Favonius series, granting a chance (that increases with refinement) of white orbs that restore energy to the character on the field after a critical hit.
 Opinion: A low-cost weapon that is very much versatile, thanks to its passive, and useful for characters not too conscious about their offensive stats, commonly being Sub-DPS and Support characters like Rosaria and Zhongli.
 Weapon Portrait: 4sw4.png;
 Weapon Splash: 4splashweap4.png;
@@ -43,7 +43,7 @@ Weapon Splash: 4splashweap4.png;
 Weapon Name: Sacrificial Greatsword
 Rarity: 4
 Description: A 4-star claymore which scales off of Energy Recharge as its substat, its passive is similar to other weapons in the Sacrificial series, granting a chance (that increases with refinement) to reset an Elemental Skill's cooldown after hitting an opponent.
-Opinion: An interesting, but niche weapon that can be used by a few characters like Chongyun. Unlike other weapons of the same Sacrificial series, this one is particularly replaceable by a more powerful weapon like Wolf's Gravestone or Prototype Archaic.
+Opinion: An interesting, but niche weapon that can be used by a few characters like Chongyun. Unlike other weapons of the same Sacrificial series, this one is particularly replaceable by a more powerful/useful weapon like Wolf's Gravestone or even Prototype Archaic.
 Weapon Portrait: 4sw5.png;
 Weapon Splash: 4splashweap5.png;
 #

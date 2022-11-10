@@ -34,7 +34,6 @@
             </ul>
         </div>
         <div class="main">
-            <p><%= session.getAttribute("test") %></p>
             <div class="box">
                 <div class="column-1">
                     <img id="display" id="splashimg" loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_5star.getSplashArt() %>" >
