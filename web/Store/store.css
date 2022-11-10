@@ -3,7 +3,11 @@
     margin: 0;
     scroll-behavior: smooth;
     font-family: 'Open Sans', sans-serif;
-    color: black;
+    color: #d4d5df;
+}
+
+body {
+    background-color: rgb(32,36,82);
 }
 
 div.recharge {
