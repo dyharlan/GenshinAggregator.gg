@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <% session.setAttribute("test", 69); %>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
@@ -58,7 +59,7 @@
                     <form action="BannerViewer" METHOD="GET">
                         <button type="submit" name="banner" value="wb"><img src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("asset-folder") %>wbanner.png" alt="Weapon Banner"></button>
                     </form>
-                    <a href="store.html">Buy genesis Crystals now! We are 50% off</a>   
+                    <a href="BannerViewer?goto=store">Buy genesis Crystals now! We are 50% off</a>   
                 </div>
             </div>
         </section>
