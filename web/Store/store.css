@@ -9,10 +9,16 @@
 body {
     background-color: rgb(32,36,82);
 }
+
 #server option , input[type="number"], select {
     color:black;
     border-color: black;
 }
+
+h1 {
+    text-align: center;
+}
+
 div.recharge {
     display: flex;
     flex-flow: row wrap;
@@ -66,6 +72,11 @@ div.content {
     display: flex;
     flex-direction: column;
     row-gap: 10px;
+    
+}
+
+.payment-container > .child {
+    margin: auto;
 }
 
 .payment-container > div {
@@ -81,10 +92,29 @@ div.content {
     object-fit: contain;
 }
 
-div > input[type="number"] {
+.details {
+    justify-content: center;
+}
+
+.details > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.details > input[type="text"] {
     width: 200px;
+    color: black;   
+}
+
+.details > input[type="text"], .details > select {
+    margin: auto;
 }
 
 button[type="submit"] {
+    display: grid;
     margin-bottom: 25px;
+    margin: auto;
+    text-align: center;
+    color: black;
 }
