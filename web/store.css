@@ -18,10 +18,20 @@ div.recharge {
     margin: auto;
     border-radius: 10px;
     text-align: center;
+    padding: 20px 0;
 }
 
 .child {
     border: solid;
+}
+
+div.child > label {
+    margin-left: 100px;
+}
+
+div.child > img {
+    width: 10%;
+    height: 10%;
 }
 
 div.child {
@@ -48,11 +58,12 @@ div.content {
 .payment-container {
     display: flex;
     flex-direction: column;
+    row-gap: 10px;
 }
 
 .payment-container > div {
-    width: 50%;
-    height: 50%;
+    width: 25%;
+    height: 75%;
 }
 
 .payment-container > label {
@@ -65,4 +76,8 @@ div.content {
 
 div > input[type="number"] {
     width: 200px;
+}
+
+button[type="submit"] {
+    margin-bottom: 25px;
 }

@@ -10,6 +10,7 @@
     </head>
     <body>
         <h1>Select Recharge: </h1>
+        <br>
         <form action="" method="POST">
             <div class="recharge">
                 <div class="r1 child">
@@ -41,16 +42,20 @@
                     <div class="img-button"><input id="rb7" type="radio" name="select" value="r7"></div>
                 </div>
             </div>
+            <br>
             <div class="payment">
                 <h1>Select Payment</h1>
+                <br>
                 <div class="payment-container">
                     <div class="child"><input type="radio" id="payment1" name="payment" value="card"><img src="assets/StorePage/card.png"><label for="payment1">Credit Card/Debit Card</label></div>
                     <div class="child"><input type="radio" id="payment2" name="payment" value="gcash"><img src="assets/StorePage/gcash.png"><label for="payment2">GCash</label></div>
                 </div>
             </div>
+            <br>
             <div class="details">
                 <h1>Enter UID And Server Details</h1>
-                <input class="child" id="uid" type="number" minlength="1" maxlength="9" placeholder="Enter UID (Up to 9 digits)" min="1">
+                <br>
+                <input class="child" id="uid" type="number" min="1" max="999999999" placeholder="Enter UID (Up to 9 digits)">
                 <select class="child" name="server" id="server">
                     <option value="" disabled selected hidden>Select Server</option>
                     <option value="na">America</option>
@@ -59,6 +64,7 @@
                     <option value="sar">Taiwan, Hong Kong, Macao</option>
                 </select>
             </div>
+            <br>
             <button type="submit">Next</button>
         </form>
     </body>
