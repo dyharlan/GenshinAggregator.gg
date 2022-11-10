@@ -12,7 +12,8 @@
     </head>
     <body>
         <section class="welcome-section">
-            <h1>Welcome to GenshinAggregator.gg!</h1> 
+            <img src="assets/Genshin_Store_Logo_White.png">
+                
             <h2>Time until server reset is: <%= getServletContext().getAttribute("resetTime") %></h2> 
             
         </section>

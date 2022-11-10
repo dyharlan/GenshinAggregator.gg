@@ -3,17 +3,15 @@
     margin: 0;
     scroll-behavior: smooth;
     font-family: 'Open Sans', sans-serif;
-    color: white;
+    text-shadow: 8px 4px 7px #222;
+    
     
 }
 
 body {
-    text-shadow: 2px 1px #0a0a0a;
+    color: white;
 }
 
-.trailer-link {
-    text-shadow: 2px 1px #000000;
-}
 
 section {
     width: 100%;
@@ -23,11 +21,23 @@ section {
     justify-content: center;
     align-items: center;  
   }
-
+a:visited{
+      color: white;
+  }
 .welcome-section {
-    background-image: url(assets/bg.jpg);
+    background-image: url(assets/bg3.jpg);
+    background-size: cover;
 }
 
+.welcome-section img {
+    max-width: 40%;
+}
+/*.text-div {
+    color: black;
+    background-color: rgb(217,110,38);
+    box-shadow: 2px 2px rgba(0,0,0,0.4);
+    padding: 1em;
+}*/
 .news-section {
     background-image: url(assets/bg2.jpg);
     
@@ -42,8 +52,13 @@ section {
 
 
 .banner-section {
-    background-image: url(assets/bg3.jpg);
+    background-image: url(assets/bg.jpg);
+    background-size: cover;
     
+}
+
+.banner-section img {
+    filter: drop-shadow(5px 5px 5px #222);
 }
 
 .cbanner > form {
@@ -60,7 +75,12 @@ section {
     padding: 0;
     
 }
-
+a, a:visited {
+    color: white;
+}
+a:hover {
+    color: gray;
+}
 @media (max-width:1600px){
     body{
         overflow: hidden;
@@ -159,4 +179,5 @@ img {
     margin: 20px auto;
     object-fit: contain;
     padding: 0;
+    filter: drop-shadow(8px 4px 7px #222);
 }
