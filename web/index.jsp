@@ -8,7 +8,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="welcome-page.css" rel="stylesheet">
-        <title>GenshinAggregator.gg - Your landing page for the latest news in Teyvat!</title>
+        <title>GenshinStore.gg - Your landing page for the latest news in Teyvat!</title>
     </head>
     <body>
         <section class="welcome-section">
