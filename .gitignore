@@ -6,3 +6,4 @@ build/web/WEB-INF/web.xml
 build/web/welcome-page.css
 nbproject/genfiles.properties
 nbproject/private/private.properties
+nbproject/private/private.xml
