@@ -104,6 +104,15 @@ h3 {
     text-align: justify;
 }
 
+
+@media(max-width: 1600px){
+    h3 {
+        font-size: 1.5em;
+    }
+    .tab-content {
+        font-size: 1em;
+    }
+}
 .navbar button:active {
     background-color: #ccc;
 }
