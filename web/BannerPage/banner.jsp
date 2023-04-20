@@ -29,7 +29,7 @@
             } 
         </style>
     </head>
-    <body background="assets/BannerPage/bg.jpg" onload="changeContent(event, 'Nahida', _5splashpath )">
+    <body background="assets/BannerPage/bg.jpg" onload="changeContent(event, 'Nahida', <%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_5star.getSplashArt() %> )">
         
         <div class="navbar">
             <ul>
