@@ -16,7 +16,7 @@
         </style>
         <title><%= getServletContext().getInitParameter("AppName")%> - Celebrating 1 year in the service of Tech Otakus!</title>
     </head>
-    <body onload="alert()">
+    <body onload="showSize()">
         <section class="welcome-section">
             <img src="assets/ConaShop-Logo.png">
             <h1>Celebrating 1 year in the service of Tech Otakus!</h1>    

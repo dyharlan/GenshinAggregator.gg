@@ -4,7 +4,7 @@
  */
 
 
-function alert() {
+function showSize() {
     let width = window.innerWidth;
     let height = window.innerHeight;
     alert(`The viewport's width is ${width} and the height is ${height}.`);
