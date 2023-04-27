@@ -57,7 +57,7 @@
                 </div>
                 <div class="cbanner-2 cbanner child">
                     <h4>Character Banner 2</h4>
-                    <p>Yoimiya</p>
+                    <p>Nilou</p>
                     <form action="BannerViewer" METHOD="GET">
                         <button type="submit" name="banner" value="b2"><img src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("asset-folder") %>cbanner2.png" alt="5 star 2nd character"></button>
                     </form>
