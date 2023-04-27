@@ -1,28 +1,28 @@
 Character Name: Seele
 Rarity: 5
 Description: A spirited and valiant member of Wildfire who grew up in the perilous Underworld of Belobog. She is accustomed to being on her own. The protectors and the protected, the oppressors and the oppressed. The world Seele grew up knowing was just a simple dichotomy.
-Opinion: 1
+Opinion: A very strong single target quantum character that can reuse her turn to attack again after killing an enemy. She has a stealth skill that can help her evade enemy attacks as well as buff her speed to be able to attack faster every turn.
 Character Portrait: Seele.png;
 Character Splash: 5s1.png;
 #
 Character Name: Hook
 Rarity: 4
 Description: The meticulous Intelligence Officer of the Silverman Guards. While young, she is undeniably brilliant. Whether it relates to maneuvering troops, distributing supplies, or the terrain, Pela can answer any problems with calm certainty.
-Opinion: 2
+Opinion: A very strong single target fire character, she can enhance her attack and deal damage over time(DoT) to the enemies as well as burning them every turn.
 Character Portrait: 4p1.png;
 Character Splash: 4s1.png;
 #
 Character Name: Natasha
 Rarity: 4
 Description: A fastidious doctor who always wears a curious smile. In the Underworld where medical resources are few and far between, Natasha is one of the very few doctors whom the people can turn to.
-Opinion: 3
+Opinion: A very good healer and debuffer in the team. She helps heal her allies as well as cleanse them from debuffs caused by enemies. She can also weaken the enemies to lessen the damage taken by the team.
 Character Portrait: 4p2.png;
 Character Splash: 4s2.png;
 #
 Character Name: Pela
 Rarity: 4
 Description: The meticulous Intelligence Officer of the Silverman Guards. While young, she is undeniably brilliant. Whether it relates to maneuvering troops, distributing supplies, or the terrain, Pela can answer any problems with calm certainty.
-Opinion: 4
+Opinion: A very strong aoe ice debuffer,  she is a very useful character in the team due to her reducing the defense of the enemy as well as freezing the enemy so that they will not be able to attack during their turn.
 Character Portrait: 4p3.png;
 Character Splash: 4s3.png;
 #
