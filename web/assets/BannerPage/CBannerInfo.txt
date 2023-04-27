@@ -21,14 +21,14 @@ Character Splash: 4splash1.png;
 #
 Character Name: Layla
 Rarity: 4
-Description: A Pyro character who wields a sword, is an adventurer from Monstadt, he has since be cursed from birth to be absolutely unlucky, meeting many misfortunes and mishaps along the way, yet is somehow brimming with optimism.
+Description: She is a student in the Rtawahist Darshan, specializing in Theoretical Astrology. Chronically sleep-deprived and of poor health as a result, Layla believes that "The Stars' Blessing" is the reason she wakes from sleepwalking to find her papers fully completed.
 Opinion: A sleepy and lovable character that shields your team. She can also be used as a cryo applicator and can trigger cryo reactions with her ult.
 Character Portrait: 4s2.png;
 Character Splash: 4splash2.png;
 #
 Character Name: Kuki Shinobu
 Rarity: 4
-Description: An Electro character who wields a claymore, he is raised by wolves from Wolfendom, located in Monstadt.
+Description: A former shrine maiden of the Grand Narukami Shrine, she is the sidekick of Arataki Itto and Deputy Leader of the Arataki Gang. Due to her professionalism and certifications, Kuki Shinobu has helped the Arataki Gang out of many problems, and has even expanded the gang's business scope outside of the regular mischief and delinquency.
 Opinion: A ninja with healing capabilities, she is best used as a hyperbloom carry that can heal as well as give damage due to her triggering dendro reactions to kill enemies.
 Character Portrait: 4s3.png;
 Character Splash: 4splash3.png;
