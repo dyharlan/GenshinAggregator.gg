@@ -10,6 +10,10 @@
         <param-value>assets/BannerPage</param-value>
     </context-param>
     <context-param>
+        <param-name>hsr-bannerpage-asset-folder</param-name>
+        <param-value>assets/HSR/BannerPage</param-value>
+    </context-param>
+    <context-param>
         <param-name>video-folder</param-name>
         <param-value>videos/</param-value>
     </context-param>
@@ -44,6 +48,15 @@
         <init-param>
             <param-name>wbannerinfo-path</param-name>
             <param-value>/assets/BannerPage/WBannerInfo.txt</param-value>
+        </init-param>
+        
+         <init-param>
+            <param-name>hsr-cbannerpage-path</param-name>
+            <param-value>BannerPage/banner-hsr.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>hsr-cbannerinfo-path</param-name>
+            <param-value>/assets/HSR/BannerPage/CBannerInfo.txt</param-value>
         </init-param>
     </servlet>
     <servlet>

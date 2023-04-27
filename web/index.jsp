@@ -81,7 +81,7 @@
                 <div class="cbanner-1 cbanner child">
                     <h2>Seele</h2>
                     <form action="BannerViewer" METHOD="GET">
-                        <button type="submit" name="banner" value="b1-hsr"><img src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("asset-folder") %>HSR/cbanner1-hsr.png" alt="5 star HSR Character"></button>
+                        <button type="submit" name="banner" value="b1-hsr"><img src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("asset-folder") %>HSR/BannerPage/splash/5s1.png" alt="5 star HSR Character"></button>
                     </form>
                         <a class="trailer-link" href="watch?v=<%= getServletContext().getInitParameter("video3") %> ">Watch the trailer now!</a>
                 </div>

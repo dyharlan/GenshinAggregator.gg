@@ -9,6 +9,7 @@ import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -33,17 +34,19 @@ public class BannerControllerServlet extends HttpServlet {
             throws ServletException, IOException {
         
         Model.BannerModel genshin_bm = null;
+        Model.BannerModel hsr_bm = null;
         try{
-           //bm = new Model.BannerModel(getServletContext().getRealPath("/assets/BannerPage/CBannerInfo.txt"));
            //ServletConfig #1
-           genshin_bm = new Model.BannerModel(getServletContext().getRealPath(getServletConfig().getInitParameter("cbannerinfo-path")), getServletContext().getRealPath(getServletConfig().getInitParameter("wbannerinfo-path")));
+           hsr_bm = new Model.BannerModel(getServletContext().getRealPath(getServletConfig().getInitParameter("hsr-cbannerinfo-path")), 4);
+           genshin_bm = new Model.BannerModel(getServletContext().getRealPath(getServletConfig().getInitParameter("cbannerinfo-path")), getServletContext().getRealPath(getServletConfig().getInitParameter("wbannerinfo-path")), 5);
         }
         catch(Model.IncompleteDataException | IOException ex){
             response.sendError(500, ex.toString());
+            System.out.println("The problem: " + ex);
         }
         
         
-        if(request.getParameter("banner")!= null && !(request.getParameter("banner").equals("wb")) ){
+        if(request.getParameter("banner")!= null && (request.getParameter("banner").equals("b1") || request.getParameter("banner").equals("b2")) ){
             //ServletConfig #2
             RequestDispatcher dispatcher = request.getRequestDispatcher(getServletConfig().getInitParameter("cbannerpage-path"));
                 request.setAttribute("4starchar1", genshin_bm.charInfo(2));
@@ -75,6 +78,18 @@ public class BannerControllerServlet extends HttpServlet {
              
              RequestDispatcher dispatcher = request.getRequestDispatcher(getServletConfig().getInitParameter("wbannerpage-path"));
              dispatcher.forward(request,response);
+             
+        }
+        else if(request.getParameter("banner")!= null && request.getParameter("banner").equals("b1-hsr") ){
+            //HttpSession session = request.getSession();
+            request.setAttribute("5starchar", hsr_bm.charInfo(0));
+            request.setAttribute("4starchar1", hsr_bm.charInfo(1));
+            request.setAttribute("4starchar2", hsr_bm.charInfo(2));
+            request.setAttribute("4starchar3", hsr_bm.charInfo(3));
+             
+            RequestDispatcher dispatcher = request.getRequestDispatcher(getServletConfig().getInitParameter("hsr-cbannerpage-path"));
+            dispatcher.forward(request,response);
+            //response.sendRedirect("BannerPage/banner-hsr.jsp");
              
         }
         else if(request.getParameter("goto")!= null && request.getParameter("goto").equals("store") ){

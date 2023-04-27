@@ -29,14 +29,14 @@
             } 
         </style>
     </head>
-    <body background="assets/BannerPage/bg.jpg" onload="changeContent(event, 'Nahida', <%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_5star.getSplashArt() %> )">
+    <body background="<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/bg.jpg" onload="changeContent(event, '<%= _5star.getName() %>', <%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_5star.getSplashArt() %> )">
         
         <div class="navbar">
             <ul>
-                <li><button class="tab-links" id="defaultOpen" onclick="changeContent(event, 'Nahida', _5splashpath )"><img  loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/cportraits/<%= _5star.getPortrait()%>" alt="5 Star character"></button></li>
-                <li><button class="tab-links" onclick="changeContent(event, 'Noelle', _4splashpath1)"><img loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/cportraits/4stars/4s1.png" alt="4 Star character #1"></button></li>
-                <li><button class="tab-links" onclick="changeContent(event, 'Bennett', _4splashpath2)"><img loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/cportraits/4stars/4s2.png" alt="4 Star character #2"></button></li>
-                <li><button class="tab-links" onclick="changeContent(event, 'Razor', _4splashpath3)"><img loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/cportraits/4stars/4s3.png" alt="4 Star character #3"></button></li>
+                <li><button class="tab-links" id="defaultOpen" onclick="changeContent(event, '<%= _5star.getName() %>', _5splashpath )"><img  loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/cportraits/<%= _5star.getPortrait()%>" alt="5 Star character"></button></li>
+                <li><button class="tab-links" onclick="changeContent(event, '<%= _4star1.getName() %>', _4splashpath1)"><img loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/cportraits/4stars/<%= _4star1.getPortrait() %>" alt="4 Star character #1"></button></li>
+                <li><button class="tab-links" onclick="changeContent(event, '<%= _4star2.getName() %>', _4splashpath2)"><img loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/cportraits/4stars/<%= _4star2.getPortrait() %>" alt="4 Star character #2"></button></li>
+                <li><button class="tab-links" onclick="changeContent(event, '<%= _4star3.getName() %>', _4splashpath3)"><img loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/cportraits/4stars/<%= _4star3.getPortrait() %>" alt="4 Star character #3"></button></li>
             </ul>
         </div>
         <div class="main">

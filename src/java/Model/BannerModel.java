@@ -13,13 +13,19 @@ import java.util.ArrayList;
 
 //creates a set of characters with loaaded information
 public class BannerModel {
-    
+    private int charSize;
     private ArrayList<BannerPrize> bc;
     private ArrayList<BannerPrize> wb;
     
-    public BannerModel(String charFile, String wpnFile) throws FileNotFoundException, IOException, IncompleteDataException{
+    public BannerModel(String charFile, int size) throws FileNotFoundException, IOException, IncompleteDataException{
+        bc = addCharacter(charFile);
+        this.charSize = size;
+    }
+    
+    public BannerModel(String charFile, String wpnFile, int size) throws FileNotFoundException, IOException, IncompleteDataException{
         bc = addCharacter(charFile);
         wb = addWeapon(wpnFile);
+        this.charSize = size;
     }
     
     ArrayList<BannerPrize> addCharacter(String file) throws FileNotFoundException, IOException, IncompleteDataException{
@@ -71,7 +77,7 @@ public class BannerModel {
             }
         }
         br.close();
-        if(temp.size() < 5){
+        if(temp.size() < charSize){
             throw new IncompleteDataException();
         }
         return temp;
