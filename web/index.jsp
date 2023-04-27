@@ -18,8 +18,8 @@
     <body>
         <section class="welcome-section">
             <img src="assets/ConaShop-Logo.png">
-                
-            <h2>Time until server reset is: <%= getServletContext().getAttribute("resetTime") %></h2> 
+            <h1>Celebrating 1 year in the service of Tech Otakus!</h1>    
+            
             
         </section>
 
@@ -42,7 +42,10 @@
         </section>-->
 
         <section class="banner-section genshin">
-            <h1 class="banner-header">Today's current banners are:</h1> 
+             
+            <h1 class="banner-header">Today's current banners are:</h1>
+            <h4>Time until server reset is: <%= getServletContext().getAttribute("resetTime") %></h4>
+            <br>
             <div class="banners">
                 <div class="cbanner-1 cbanner child">
                     <h4>Character Banner 1</h4>
@@ -72,6 +75,8 @@
                     
         <section class="banner-section hsr">
             <h1 class="banner-header">Today's current warp is:</h1> 
+            <h4>Time until server reset is: <%= getServletContext().getAttribute("resetTime") %></h4>
+            <br>
             <div class="banners">
                 
                 <div class="cbanner-1 cbanner child">
