@@ -5,31 +5,31 @@ Opinion: It's only been a week since her release. But all we can say is that she
 Character Portrait: 5s1.png;
 Character Splash: 5splash1.png;
 #
-Character Name: Yoimiya
+Character Name: Nilou
 Rarity: 5
-Description: The owner of Naganohara Fireworks in Inazuma which wields a bow, the Naganohara family is well-known for the personalized and high-quality fireworks they produce.
-Opinion: An underrated character which has seen much appreciation through pairing with other characters boosting her damage potential, like Yun Jin and Xingqiu, she is a great character to pull due to her powerful and consistent Pyro damage.
+Description: A dancer under the Zubayr Theater, Nilou's dancing is but elegant and graceful — however, outside the stage's spotlight, she's just like any girl her age; warm, smiling, and friendly.
+Opinion: A very strong niche character that only allows dendro and hydro characters, she is the best unit to fight aoe enemies by triggering bloom reactions
 Character Portrait: 5s2.png;
 Character Splash: 5splash2.png;
 #
-Character Name: Noelle
+Character Name: Dori
 Rarity: 4
-Description: A knight-in-training from the Knights of Favonius, she also works as a maid, and is surprisingly strong than she lets on, as she wields a Claymore, yet has a kind heart for serving others.
-Opinion: A very charming character due to her sweet and devoted personality, but, this should not elude you to the fact that she is a strong Geo healer/DPS when built correctly.
+Description: The owner of The Palace of Alcazarzaray and a merchant of high regard, "Lord Sangemah Bay" is well-known for her ability to obtain anything a person needs, as long as they have enough Mora to afford her jaw-dropping prices.
+Opinion: A merchant that loves mora, she is a good electro healer that can help apply reaction, give energy and heal the team with her abilities.
 Character Portrait: 4s1.png;
 Character Splash: 4splash1.png;
 #
-Character Name: Bennett
+Character Name: Layla
 Rarity: 4
 Description: A Pyro character who wields a sword, is an adventurer from Monstadt, he has since be cursed from birth to be absolutely unlucky, meeting many misfortunes and mishaps along the way, yet is somehow brimming with optimism.
-Opinion: Considered as one of the best characters in Genshin Impact, he is simultaneously an Atk booster and a healer that is flexible enough to fit in many team compositions that need a damage boost.
+Opinion: A sleepy and lovable character that shields your team. She can also be used as a cryo applicator and can trigger cryo reactions with her ult.
 Character Portrait: 4s2.png;
 Character Splash: 4splash2.png;
 #
-Character Name: Razor
+Character Name: Kuki Shinobu
 Rarity: 4
 Description: An Electro character who wields a claymore, he is raised by wolves from Wolfendom, located in Monstadt.
-Opinion: As a 4-star character, he tends to be overshadowed by 5-stars and even other 4-star DPSs as one progresses through the game, but he is an easy to use, yet powerful character from the early stages of the game.
+Opinion: A ninja with healing capabilities, she is best used as a hyperbloom carry that can heal as well as give damage due to her triggering dendro reactions to kill enemies.
 Character Portrait: 4s3.png;
 Character Splash: 4splash3.png;
 #
