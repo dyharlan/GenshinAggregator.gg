@@ -6,6 +6,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="alert.js" defer></script>
         <link href="welcome-page.css" rel="stylesheet">
         <style>
             @font-face {
@@ -15,7 +16,7 @@
         </style>
         <title>ConaShop.ph - Celebrating 1 year in the service of Tech Otakus!</title>
     </head>
-    <body>
+    <body onload="alert()">
         <section class="welcome-section">
             <img src="assets/ConaShop-Logo.png">
             <h1>Celebrating 1 year in the service of Tech Otakus!</h1>    

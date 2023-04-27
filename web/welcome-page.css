@@ -8,6 +8,8 @@
     overflow: visible;
 }
 
+/*@media (aspect-ratio)*/
+
 body {
     color: white;
 }
