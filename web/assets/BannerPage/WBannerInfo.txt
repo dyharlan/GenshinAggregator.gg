@@ -1,49 +1,49 @@
-Weapon Name: Thundering Pulse
+Weapon Name: Key of Khaj Nisut
 Rarity: 5
-Description: This is a 5-star bow which scales off of Crit Dmg as its substat. Its passive boosts Atk from the get-go and gives normal attack bonus Dmg based on the stacks the character has.
-Opinion: This weapon is a very good stat-stick, as it gives off great base attack boost and scales with Crit Dmg, but it shines especially well for normal attackers, as this weapon also gives normal attack damage boost.
-Weapon Portrait: 5sw2.png;
-Weapon Splash: 5splashweap2.png;
+Description: One of a paired set of scepters fashioned from obsidian. They say that this can be used as a key to open the gate to a paradise that lies at the end of the ocean of sand.
+Opinion: One of the best sword weapon that utilizes hp characters. This weapon is a huge stat stick for characters scaling with hp as well as giving elemental mastery to its user making it helpful in reactions.
+Weapon Portrait: 5sw1.png;
+Weapon Splash: 5splashweap1.png;
 #
 Weapon Name: A Thousand Floating Dreams
 Rarity: 5
 Description: This is a 5-star catalyst which scales off of Elemental Mastery as its substat. Its passive, in summary, gives off Elemental Mastery or Elemental Type damage boost to teammates.
 Opinion: This is a very powerful weapon, but a niche one meant for those who scale from Elemental Mastery like Nahida, Sucrose, or even Kokomi.
-Weapon Portrait: 5sw1.png;
-Weapon Splash: 5splashweap1.png;
+Weapon Portrait: 5sw2.png;
+Weapon Splash: 5splashweap2.png;
 #
-Weapon Name: Rust
+Weapon Name: The Stringless
 Rarity: 4
-Description: This 4-star bow scales off of Atk% as its substat, but has a simple passive that increases Normal Attack DMG% that increases with refinement, at the cost of decreasing Charged Attack DMG%.
-Opinion: This weapon is most especially useful for bow-users who mainly use normal attacks like Childe and Yoimiya. However, this weapon is highly discouraged for those who use charged attacks, like Ganyu.
+Description: A bow that once served as an extraordinary instrument. It is no longer capable of getting people up and dancing.
+Opinion: A very strong weapon that boosts the character's elemental mastery as well as increase the elemental skill and burst damage by 24%.
 Weapon Portrait: 4sw1.png;
 Weapon Splash: 4splashweap1.png;
 #
-Weapon Name: The Flute
+Weapon Name: Xiphos' Moonlight
 Rarity: 4
-Description: A 4-star sword which scales off of Atk% as its substat, this weapon has a passive which deals damage around the equipping character after gaining 5 stacks from normal or charged attacks.
-Opinion: A generally overshadowed weapon due to its dull passive, this weapon can easily be replaced by weapons with better stats, or even better passives, but can be used in niche scenarios like a normal attacker Qiqi.
+Description: This ancient double-edged sword glimmers with moonlight. It is said that a now-silent Jinni dwells within it.
+Opinion: Very useful for sword support users that scales with elemental mastery, this can also help the team by giving them energy recharge.
 Weapon Portrait: 4sw2.png;
 Weapon Splash: 4splashweap2.png;
 #
-Weapon Name: The Widsith
+Weapon Name: Sacrificial Fragments
 Rarity: 4
-Description: A 4-star catalyst which scales off of Crit Dmg as its substat, its passive varies between boosting Atk%, Elemental Dmg%, or Elemental Mastery which is decided upon by chance.
-Opinion: A very versatile weapon which can be used from a wide range of DPS, Sub-DPS, and even Support characters due to its passive and stats. The fact that this weapon is a 4-star only signifies that its already formidable passive can even be greater with refinements.
+Description: A weathered script, the text of which is no longer legible. A cursed item eroded by the winds of time.
+Opinion: One of the best elemental mastery weapon for catalyst users due to its high elemental mastery stat as well as its passive to reset the elemental skill of the character.
 Weapon Portrait: 4sw3.png;
 Weapon Splash: 4splashweap3.png;
 #
-Weapon Name: Favonius Lance
+Weapon Name: Dragon's Bane
 Rarity: 4
-Description:  A 4-star spear which scales off of Energy Recharge as its substat, its passive is similar to other weapons in the Favonius series, granting a chance (that increases with refinement) of white orbs that restore energy to the character on the field after a critical hit.
-Opinion: A low-cost weapon that is very much versatile, thanks to its passive, and useful for characters not too conscious about their offensive stats, commonly being Sub-DPS and Support characters like Rosaria and Zhongli.
+Description: A polearm decorated with an entwining golden dragon. Light and sharp, this weapon may very well kill dragons with ease.
+Opinion: Very helpful stat stick for polearm users due to its high elemental mastery, it also helps in hydro and pyro reactions that makes it useful for pyro and hydro characters.
 Weapon Portrait: 4sw4.png;
 Weapon Splash: 4splashweap4.png;
 #
-Weapon Name: Sacrificial Greatsword
+Weapon Name: Favonius Greatsword
 Rarity: 4
-Description: A 4-star claymore which scales off of Energy Recharge as its substat, its passive is similar to other weapons in the Sacrificial series, granting a chance (that increases with refinement) to reset an Elemental Skill's cooldown after hitting an opponent.
-Opinion: An interesting, but niche weapon that can be used by a few characters like Chongyun. Unlike other weapons of the same Sacrificial series, this one is particularly replaceable by a more powerful/useful weapon like Wolf's Gravestone or even Prototype Archaic.
+Description:  A heavy ceremonial sword of the Knights of Favonius. It channels elemental power easily and is highly destructive.
+Opinion: One of the best weapons for energy recharge gains due to its passive that gives 6 energy particles for the team, it also has an energy recharge stat to help the character equiping this to regain energy faster.
 Weapon Portrait: 4sw5.png;
 Weapon Splash: 4splashweap5.png;
 #
