@@ -1,0 +1,27 @@
+Character Name: Seele
+Rarity: 5
+Description: A spirited and valiant member of Wildfire who grew up in the perilous Underworld of Belobog. She is accustomed to being on her own. The protectors and the protected, the oppressors and the oppressed. The world Seele grew up knowing was just a simple dichotomy.
+Character Portrait: Seele.png;
+Character Splash: cbanner1-hsr.png;
+#
+Character Name: Natasha
+Rarity: 4
+Description: A fastidious doctor who always wears a curious smile. In the Underworld where medical resources are few and far between, Natasha is one of the very few doctors whom the people can turn to.
+Character Portrait: Natasha Icon.png;
+Character Splash: Natasha - 4 star.png;
+#
+Character Name: Pela
+Rarity: 4
+Description: The meticulous Intelligence Officer of the Silverman Guards. While young, she is undeniably brilliant. Whether it relates to maneuvering troops, distributing supplies, or the terrain, Pela can answer any problems with calm certainty.
+Character Portrait: Pela.png;
+Character Splash: Pela - 4 star.png;
+#
+Character Name: Hook
+Rarity: 4
+Description: The meticulous Intelligence Officer of the Silverman Guards. While young, she is undeniably brilliant. Whether it relates to maneuvering troops, distributing supplies, or the terrain, Pela can answer any problems with calm certainty.
+Character Portrait: Hook.png;
+Character Splash: hook - 4 star.png;
+#
+
+
+
