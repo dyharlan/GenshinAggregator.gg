@@ -1,21 +1,21 @@
-function changeContent(evt, charName, spashpath) {
+function changeContent(evt, charNum, spashpath) {
     var i, tabContent, tabLinks, rateUp, perOp;
-    if (charName == "Nahida") {
+    if (charNum === '1') {
         document.getElementById("display").src = spashpath;
         rateUp = "ru1";
         perOp = "po1";
     }
-    else if (charName == "Noelle") {
+    else if (charNum === '2') {
         document.getElementById("display").src= spashpath;
         rateUp = "ru2";
         perOp = "po2";
     }
-    else if (charName == "Bennett") {
+    else if (charNum === '3') {
         document.getElementById("display").src= spashpath;
         rateUp = "ru3";
         perOp = "po3";
     }
-    else { //charName == "Razor"
+    else if (charNum === '4') { 
         document.getElementById("display").src= spashpath;
         rateUp = "ru4";
         perOp = "po4";

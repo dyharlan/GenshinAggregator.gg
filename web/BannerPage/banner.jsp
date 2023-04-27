@@ -14,8 +14,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="BannerPage/banner.css" rel="stylesheet">
-        <script src="BannerPage/charPortrait.js"></script>
-        <script id="vars" type="text/javascript">
+        <script defer src="BannerPage/charPortrait.js"></script>
+        <script defer id="vars" type="text/javascript">
             var _5splashpath = "<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_5star.getSplashArt() %>";
             var _4splashpath1 = "<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_4star1.getSplashArt() %>";
             var _4splashpath2 = "<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_4star2.getSplashArt() %>";
@@ -29,14 +29,14 @@
             } 
         </style>
     </head>
-    <body background="<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/bg.jpg" onload="changeContent(event, '<%= _5star.getName() %>', <%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_5star.getSplashArt() %> )">
+    <body background="<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/bg.jpg" onload="changeContent(event, '1', _5splashpath)">
         
         <div class="navbar">
             <ul>
-                <li><button class="tab-links" id="defaultOpen" onclick="changeContent(event, '<%= _5star.getName() %>', _5splashpath )"><img  loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/cportraits/<%= _5star.getPortrait()%>" alt="5 Star character"></button></li>
-                <li><button class="tab-links" onclick="changeContent(event, '<%= _4star1.getName() %>', _4splashpath1)"><img loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/cportraits/4stars/<%= _4star1.getPortrait() %>" alt="4 Star character #1"></button></li>
-                <li><button class="tab-links" onclick="changeContent(event, '<%= _4star2.getName() %>', _4splashpath2)"><img loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/cportraits/4stars/<%= _4star2.getPortrait() %>" alt="4 Star character #2"></button></li>
-                <li><button class="tab-links" onclick="changeContent(event, '<%= _4star3.getName() %>', _4splashpath3)"><img loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/cportraits/4stars/<%= _4star3.getPortrait() %>" alt="4 Star character #3"></button></li>
+                <li><button class="tab-links" id="defaultOpen" onclick="changeContent(event, '1', _5splashpath )"><img  loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/cportraits/<%= _5star.getPortrait()%>" alt="5 Star character"></button></li>
+                <li><button class="tab-links" onclick="changeContent(event, '2', _4splashpath1)"><img loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/cportraits/4stars/<%= _4star1.getPortrait() %>" alt="4 Star character #1"></button></li>
+                <li><button class="tab-links" onclick="changeContent(event, '3', _4splashpath2)"><img loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/cportraits/4stars/<%= _4star2.getPortrait() %>" alt="4 Star character #2"></button></li>
+                <li><button class="tab-links" onclick="changeContent(event, '4', _4splashpath3)"><img loading="lazy" src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/cportraits/4stars/<%= _4star3.getPortrait() %>" alt="4 Star character #3"></button></li>
             </ul>
         </div>
         <div class="main">
