@@ -29,7 +29,7 @@
             var _4splashpath5 = "<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("bannerpage-asset-folder") %>/splash/<%=_4star5.getSplashArt() %>";
             
         </script>
-        <title>Weapon Banner Page | GenshinStore.gg</title>
+        <title>Weapon Banner Page | <%= getServletContext().getInitParameter("AppName")%></title>
         <style>
             @font-face {
                 font-family: 'zh-cn';
