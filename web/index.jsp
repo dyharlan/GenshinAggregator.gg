@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <% session.setAttribute("test", 69); %>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
@@ -14,11 +13,11 @@
                 src:url("<%=request.getContextPath()%>/<%= getServletContext().getInitParameter("asset-folder")%>zh-cn.ttf");
             }        
         </style>
-        <title>GenshinStore.gg - Your landing page for the latest news in Teyvat!</title>
+        <title>ConaShop.ph - Celebrating 1 year in the service of Tech Otakus!</title>
     </head>
     <body>
         <section class="welcome-section">
-            <img src="assets/Genshin_Store_Logo_White.png">
+            <img src="assets/ConaShop-Logo.png">
                 
             <h2>Time until server reset is: <%= getServletContext().getAttribute("resetTime") %></h2> 
             
@@ -42,7 +41,7 @@
             </div>
         </section>-->
 
-        <section class="banner-section">
+        <section class="banner-section genshin">
             <h1 class="banner-header">Today's current banners are:</h1> 
             <div class="banners">
                 <div class="cbanner-1 cbanner child">
@@ -68,6 +67,21 @@
                     </form>
                     <a href="BannerViewer?goto=store">Buy genesis Crystals now! We are 50% off</a>   
                 </div>
+            </div>
+        </section>
+                    
+        <section class="banner-section hsr">
+            <h1 class="banner-header">Today's current warp is:</h1> 
+            <div class="banners">
+                
+                <div class="cbanner-1 cbanner child">
+                    <h2>Seele</h2>
+                    <form action="BannerViewer" METHOD="GET">
+                        <button type="submit" name="banner" value="b1-hsr"><img src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("asset-folder") %>cbanner1-hsr.png" alt="5 star HSR Character"></button>
+                    </form>
+                        <a class="trailer-link" href="watch?v=<%= getServletContext().getInitParameter("video3") %> ">Watch the trailer now!</a>
+                </div>
+                
             </div>
         </section>
     </body>

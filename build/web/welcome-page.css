@@ -34,8 +34,14 @@ a:visited{
 }
 
 
-.banner-section {
+.genshin {
     background-image: url(assets/bg.jpg);
+    background-size: cover;
+    overflow:hidden;
+}
+
+.hsr {
+    background-image: url(assets/bg4.jpg);
     background-size: cover;
     overflow:hidden;
 }
