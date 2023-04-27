@@ -6,16 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="form.css" rel="stylesheet">
         <title>Credit Card Forms | GenshinStore.gg</title>
-        <script>
-            function numOnly(id) {
-                // Get the element by id
-                var element = document.getElementById(id);
-                // Use numbers only pattern, from 0 to 9 with \-
-                var regex = /[^0-9\-]/gi;
-                // Replace other characters that are not in regex pattern
-                element.value = element.value.replace(regex, "");
-            }
-        </script>
+        <script src="form.js" defer></script>
     </head>
     <body>
         <h1>Credit Card Information</h1>
@@ -41,6 +32,7 @@
                     <input id="card" type="text"  maxlength="4" placeholder="xxxx" name="card2" oninput="numOnly(this.id);" required>
                     <input id="card" type="text"  maxlength="4" placeholder="xxxx" name="card3" oninput="numOnly(this.id);" required>
                     <input id="card" type="text"  maxlength="4" placeholder="xxxx" name="card4" oninput="numOnly(this.id);" required>
+                    <input id="card" type="text" maxlength="19" placeholder="xxxx-xxxx-xxxx-xxxx" name="card" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" required>
                 </div>
             </div>
             <button type="submit">To Payment</button>
