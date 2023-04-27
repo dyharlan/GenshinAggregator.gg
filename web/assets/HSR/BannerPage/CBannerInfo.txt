@@ -1,0 +1,30 @@
+Character Name: Seele
+Rarity: 5
+Description: Also known as Lesser Lord Kusanali, she is the new catalyst user to grace Genshin Impact. Being the archon, or the God of the game's 4th region of Sumeru, the traveler will embroil on their journey to find her in order to search for answers about the whereabouts of your sibling.
+Opinion: It's only been a week since her release. But all we can say is that she is a cute bubbly character that'll surely put some smile on our face during your travels!
+Character Portrait: 5s1.png;
+Character Splash: 5splash1.png;
+#
+Character Name: Noelle
+Rarity: 4
+Description: A knight-in-training from the Knights of Favonius, she also works as a maid, and is surprisingly strong than she lets on, as she wields a Claymore, yet has a kind heart for serving others.
+Opinion: A very charming character due to her sweet and devoted personality, but, this should not elude you to the fact that she is a strong Geo healer/DPS when built correctly.
+Character Portrait: 4s1.png;
+Character Splash: 4splash1.png;
+#
+Character Name: Bennett
+Rarity: 4
+Description: A Pyro character who wields a sword, is an adventurer from Monstadt, he has since be cursed from birth to be absolutely unlucky, meeting many misfortunes and mishaps along the way, yet is somehow brimming with optimism.
+Opinion: Considered as one of the best characters in Genshin Impact, he is simultaneously an Atk booster and a healer that is flexible enough to fit in many team compositions that need a damage boost.
+Character Portrait: 4s2.png;
+Character Splash: 4splash2.png;
+#
+Character Name: Razor
+Rarity: 4
+Description: An Electro character who wields a claymore, he is raised by wolves from Wolfendom, located in Monstadt.
+Opinion: As a 4-star character, he tends to be overshadowed by 5-stars and even other 4-star DPSs as one progresses through the game, but he is an easy to use, yet powerful character from the early stages of the game.
+Character Portrait: 4s3.png;
+Character Splash: 4splash3.png;
+#
+
+
