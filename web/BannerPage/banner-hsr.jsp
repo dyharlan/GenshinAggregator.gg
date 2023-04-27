@@ -21,7 +21,7 @@
             var _4splashpath2 = "<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("hsr-bannerpage-asset-folder") %>/splash/<%=_4star2.getSplashArt() %>";
             var _4splashpath3 = "<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("hsr-bannerpage-asset-folder") %>/splash/<%=_4star3.getSplashArt() %>";
         </script>
-        <title>Character Banner Page | GenshinStore.gg</title>
+        <title>Character Banner Page | <%= getServletContext().getInitParameter("AppName")%></title>
         <style>
             @font-face {
                 font-family: 'zh-cn';
