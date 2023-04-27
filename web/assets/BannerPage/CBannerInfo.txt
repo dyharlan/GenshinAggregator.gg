@@ -7,7 +7,7 @@ Character Splash: 5splash1.png;
 #
 Character Name: Nilou
 Rarity: 5
-Description: A dancer under the Zubayr Theater, Nilou's dancing is but elegant and graceful — however, outside the stage's spotlight, she's just like any girl her age; warm, smiling, and friendly.
+Description: A dancer under the Zubayr Theater, Nilou's dancing is but elegant and graceful however, outside the stage's spotlight, she's just like any girl her age; warm, smiling, and friendly.
 Opinion: A very strong niche character that only allows dendro and hydro characters, she is the best unit to fight aoe enemies by triggering bloom reactions
 Character Portrait: 5s2.png;
 Character Splash: 5splash2.png;
