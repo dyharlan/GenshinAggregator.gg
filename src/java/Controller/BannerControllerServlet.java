@@ -32,11 +32,11 @@ public class BannerControllerServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        Model.BannerModel bm = null;
+        Model.BannerModel genshin_bm = null;
         try{
            //bm = new Model.BannerModel(getServletContext().getRealPath("/assets/BannerPage/CBannerInfo.txt"));
            //ServletConfig #1
-           bm = new Model.BannerModel(getServletContext().getRealPath(getServletConfig().getInitParameter("cbannerinfo-path")), getServletContext().getRealPath(getServletConfig().getInitParameter("wbannerinfo-path")));
+           genshin_bm = new Model.BannerModel(getServletContext().getRealPath(getServletConfig().getInitParameter("cbannerinfo-path")), getServletContext().getRealPath(getServletConfig().getInitParameter("wbannerinfo-path")));
         }
         catch(Model.IncompleteDataException | IOException ex){
             response.sendError(500, ex.toString());
@@ -46,16 +46,16 @@ public class BannerControllerServlet extends HttpServlet {
         if(request.getParameter("banner")!= null && !(request.getParameter("banner").equals("wb")) ){
             //ServletConfig #2
             RequestDispatcher dispatcher = request.getRequestDispatcher(getServletConfig().getInitParameter("cbannerpage-path"));
-                request.setAttribute("4starchar1", bm.charInfo(2));
-                request.setAttribute("4starchar2", bm.charInfo(3));
-                request.setAttribute("4starchar3", bm.charInfo(4));
+                request.setAttribute("4starchar1", genshin_bm.charInfo(2));
+                request.setAttribute("4starchar2", genshin_bm.charInfo(3));
+                request.setAttribute("4starchar3", genshin_bm.charInfo(4));
                 switch(request.getParameter("banner") ){
                 case "b1":
-                    request.setAttribute("5starchar", bm.charInfo(0));
+                    request.setAttribute("5starchar", genshin_bm.charInfo(0));
                     dispatcher.forward(request,response);
                 break;
                 case "b2":
-                    request.setAttribute("5starchar", bm.charInfo(1));
+                    request.setAttribute("5starchar", genshin_bm.charInfo(1));
                     dispatcher.forward(request,response);
                 break;
                 default:
@@ -65,13 +65,13 @@ public class BannerControllerServlet extends HttpServlet {
         }
         else if(request.getParameter("banner")!= null && request.getParameter("banner").equals("wb") ){
             //response.sendError(500, "Server under construction");
-             request.setAttribute("5starwpn1", bm.wpnInfo(0));
-             request.setAttribute("5starwpn2", bm.wpnInfo(1));
-             request.setAttribute("4starwpn1", bm.wpnInfo(2));
-             request.setAttribute("4starwpn2", bm.wpnInfo(3));
-             request.setAttribute("4starwpn3", bm.wpnInfo(4));
-             request.setAttribute("4starwpn4", bm.wpnInfo(5));
-             request.setAttribute("4starwpn5", bm.wpnInfo(6));
+             request.setAttribute("5starwpn1", genshin_bm.wpnInfo(0));
+             request.setAttribute("5starwpn2", genshin_bm.wpnInfo(1));
+             request.setAttribute("4starwpn1", genshin_bm.wpnInfo(2));
+             request.setAttribute("4starwpn2", genshin_bm.wpnInfo(3));
+             request.setAttribute("4starwpn3", genshin_bm.wpnInfo(4));
+             request.setAttribute("4starwpn4", genshin_bm.wpnInfo(5));
+             request.setAttribute("4starwpn5", genshin_bm.wpnInfo(6));
              
              RequestDispatcher dispatcher = request.getRequestDispatcher(getServletConfig().getInitParameter("wbannerpage-path"));
              dispatcher.forward(request,response);
