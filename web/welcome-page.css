@@ -71,7 +71,7 @@ a:hover {
     color: gray;
 }
 @media (max-width:1600px){
-    .welcome-section > h2 {
+    .welcome-section > h1 {
         font-size: 75%;
     }
     .cbanner > form {
