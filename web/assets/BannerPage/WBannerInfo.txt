@@ -1,16 +1,16 @@
-Weapon Name: A Thousand Floating Dreams
-Rarity: 5
-Description: This is a 5-star catalyst which scales off of Elemental Mastery as its substat. Its passive, in summary, gives off Elemental Mastery or Elemental Type damage boost to teammates.
-Opinion: This is a very powerful weapon, but a niche one meant for those who scale from Elemental Mastery like Nahida, Sucrose, or even Kokomi.
-Weapon Portrait: 5sw1.png;
-Weapon Splash: 5splashweap1.png;
-#
 Weapon Name: Thundering Pulse
 Rarity: 5
 Description: This is a 5-star bow which scales off of Crit Dmg as its substat. Its passive boosts Atk from the get-go and gives normal attack bonus Dmg based on the stacks the character has.
 Opinion: This weapon is a very good stat-stick, as it gives off great base attack boost and scales with Crit Dmg, but it shines especially well for normal attackers, as this weapon also gives normal attack damage boost.
 Weapon Portrait: 5sw2.png;
 Weapon Splash: 5splashweap2.png;
+#
+Weapon Name: A Thousand Floating Dreams
+Rarity: 5
+Description: This is a 5-star catalyst which scales off of Elemental Mastery as its substat. Its passive, in summary, gives off Elemental Mastery or Elemental Type damage boost to teammates.
+Opinion: This is a very powerful weapon, but a niche one meant for those who scale from Elemental Mastery like Nahida, Sucrose, or even Kokomi.
+Weapon Portrait: 5sw1.png;
+Weapon Splash: 5splashweap1.png;
 #
 Weapon Name: Rust
 Rarity: 4
