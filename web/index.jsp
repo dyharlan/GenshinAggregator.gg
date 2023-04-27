@@ -42,10 +42,9 @@
         </section>-->
 
         <section class="banner-section genshin">
-             
-            <h1 class="banner-header">Today's current banners are:</h1>
             <h4>Time until server reset is: <%= getServletContext().getAttribute("resetTime") %></h4>
             <br>
+            <h1 class="banner-header">Today's current banners are:</h1>
             <div class="banners">
                 <div class="cbanner-1 cbanner child">
                     <h4>Character Banner 1</h4>
@@ -74,9 +73,9 @@
         </section>
                     
         <section class="banner-section hsr">
-            <h1 class="banner-header">Today's current warp is:</h1> 
             <h4>Time until server reset is: <%= getServletContext().getAttribute("resetTime") %></h4>
             <br>
+            <h1 class="banner-header">Today's current warp is:</h1> 
             <div class="banners">
                 
                 <div class="cbanner-1 cbanner child">
