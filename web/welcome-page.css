@@ -185,28 +185,64 @@ img {
 }
 
 @media (max-width: 1300px) { /* tried to do mobile-first (lower max-widths first for media queries) but failed */
-    .welcome-section > h1 {
-        font-size: 100%;
+    @media (max-height: 600px) { /* Firefox, 150% */
+        .welcome-section > h1 {
+            font-size: 100%;
+        }
+
+        .cbanner > form {
+            width: 225px; /* 207px */
+            height: 375px; /* 345px*/
+            margin: auto;
+            padding: 0;
+        }
+        .wbanner > form {
+            width: 624px;
+            height: 336px;
+            margin: auto;
+            padding: 0;
+        }
+
+        .trailer-link {
+            font-size: 0.75em;
+        }
+
+        .welcome-section, .banner-section {
+            font-size: 1.25em;
+        }
     }
-    
-    .cbanner > form {
-        width: 225px; /* 207px */
-        height: 375px; /* 345px*/
-        margin: auto;
-        padding: 0;
-    }
-    .wbanner > form {
-        width: 624px;
-        height: 336px;
-        margin: auto;
-        padding: 0;
-    }
-    
-    .trailer-link {
-        font-size: 0.75em;
-    }
-    
-    .welcome-section, .banner-section {
-        font-size: 1.25em;
+    @media (max-height: 580px) { /* Edge, 150% */
+        welcome-section > h1 {
+            font-size: 100%;
+        }
+        
+        .banners .child h4 {
+            font-size: 18px;
+        }
+        
+        .banners > .child p {
+            font-size: 18px;
+        }
+        
+        .cbanner > form {
+            width: 225px; /* 207px */
+            height: 375px; /* 345px*/
+            margin: auto;
+            padding: 0;
+        }
+        .wbanner > form {
+            width: 611px;
+            height: 329px;
+            margin: auto;
+            padding: 0;
+        }
+
+        .trailer-link {
+            font-size: 0.75em;
+        }
+
+        .welcome-section, .banner-section {
+            font-size: 1.25em;
+        }
     }
 }
