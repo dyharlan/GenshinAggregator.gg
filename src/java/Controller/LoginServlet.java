@@ -5,20 +5,13 @@
 package Controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.LinkedHashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.crypto.Cipher;
-import javax.crypto.spec.SecretKeySpec;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -27,9 +20,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import nl.captcha.*;
-import nl.captcha.audio.AudioCaptcha;
-import org.apache.commons.codec.binary.Base64;
 
 /**
  *
@@ -77,6 +67,7 @@ public class LoginServlet extends HttpServlet {
                     {
                         credentialsFound = true;
                         Cookie cookie = new Cookie("let him cook",email);
+                        response.addCookie(cookie);
                         credentials.close();
                         response.sendRedirect("index.jsp");
                         break;
