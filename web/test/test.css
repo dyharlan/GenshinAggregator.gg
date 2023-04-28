@@ -6,6 +6,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     Created on : 28 Apr 2023, 7:33:49 pm
     Author     : dyhar
 */
+:root {
+  --header-height: 55px;
+}
 
 * {
     border: 0;
@@ -72,7 +75,8 @@ input {
 .content {
     background-color: #280031;
     width: 100%;
-    height: 100%;
+    padding-top: var(--header-height);
+    height: calc(100vh - var(--header-height));  
 }
 
 @media (max-width: 1300px) {
