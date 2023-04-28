@@ -1,133 +1,119 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 28 Apr 2023, 7:33:49 pm
+    Author     : dyhar
+*/
+:root {
+  --header-height: 55px;
+}
 * {
     border: 0;
     margin: 0;
     scroll-behavior: smooth;
     font-family: 'Open Sans', sans-serif;
     color: #d4d5df;
+    text-decoration: none;
 }
 
-body {
-    background-color: rgb(32,36,82);
+nav ul li form label{
+    padding-bottom: 43%;
+    color: #ffffff;
+    font-size: 1.25em;
 }
 
-#server option , input[type="number"], select {
-    color:black;
-    border-color: black;
+.logo {
+    margin-top: 1em;
 }
 
-h1 {
-    text-align: center;
-}
-
-div.recharge {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    border: solid;
-    border-color: black;
-    gap: 10px;
-    width: 75%;
-    margin: auto;
-    border-radius: 10px;
-    text-align: center;
-    padding: 20px 0;
-}
-
-.child {
-    border: solid;
-}
-
-div.child > label {
-    margin-left: 100px;
-}
-
-div.child > img {
-    width: 10%;
-    height: 10%;
-}
-
-div.child {
-    border-radius: 10px;
-}
-
-#uid, #server {
-    border-radius: 5px;
+nav ul li {
     display: inline-block;
-    
+    white-space: nowrap;
 }
-#uid {
-    margin-left: 500px;
-    float: left;
+nav ul{
+    display: inline-block;
 }
-#server{
-    margin-right: 500px;
+
+.pull-right{
+    float: right!important;
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    white-space: normal;
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+    height: var(--header-height);
+    background-color: #3c1f42;
+}
+
+.acct-status{
     float: right;
+    margin-right: 5px;
+    padding-top: 10px;
 }
 
-div.content {
-    padding: 7.5px;
+.acct-status input{
+    line-height: 50px;
+    display: inline-block;
+    margin: 0 5px;
+    color: white;
+    font-size: 24px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    background-color: #f16d0b;
+    border-color: #f16d0b;
+    border: none;
 }
 
-.img-button {
-    margin: auto;
+.acct-status input:active, input:hover{
+    background: #f8a96d;
+    transition: .5s;
 }
 
-.payment > form {
-    width: 200px;
-    height: 100px;
+.cart{
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 360px;
+    min-height: 100vh;
+    padding: 20px;
+    background: white;
+    transition: 0.3s;
 }
 
-.payment-container {
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
-    
+.cart.active{
+    right: 0;
 }
 
-.payment-container > .child {
-    margin: auto;
-}
-
-.payment-container > div {
-    width: 25%;
-    height: 75%;
-}
-
-.payment-container > label {
-    margin-left: 90px;
-}
-
-.payment-container > img {
-    object-fit: contain;
-}
-
-.details {
-    align-items: center;
-}
-
-.details > div {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: auto;
-    width: auto;
-    align-items: center;
-}
-
-.details > input[type="text"] {
-    width: 200px;
-    color: black;   
-}
-
-.details > input[type="text"], .details > select {
-    margin: auto;
-}
-
-button[type="submit"] {
-    display: grid;
-    margin-bottom: 25px;
-    margin: auto;
+.cart-title{
     text-align: center;
-    color: black;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 64px;
+}
+
+#cart-icon{
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: white;
+    margin-right: 5px;
+}
+
+.gap{
+    width: 100%;
+    height: 2px;
+    background-color: grey;
+}
+
+.wrap{
+    background-color: #280031;
+    width: 100%;
+    padding-top: var(--header-height);
+    height: calc(100vh - var(--header-height));  
 }

@@ -76,22 +76,22 @@ public class PaymentProcessorServlet extends HttpServlet {
         
         if(!(request.getParameter("uid").startsWith("6")) && request.getParameter("server").equals("na") ){
             request.setAttribute("uidstatus", "Invalid UID! NA Server UIDs start with 6");
-            RequestDispatcher rd = request.getRequestDispatcher("/Store/index.jsp");  
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");  
             rd.include(request, response);  
         }
         else if(!(request.getParameter("uid").startsWith("7")) && request.getParameter("server").equals("eu") ){
             request.setAttribute("uidstatus", "Invalid UID! EU Server UIDs start with 7");
-            RequestDispatcher rd = request.getRequestDispatcher("/Store/index.jsp");  
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");  
             rd.include(request, response);  
         }
         else if(!(request.getParameter("uid").startsWith("8")) && request.getParameter("server").equals("asia") ){
             request.setAttribute("uidstatus", "Invalid UID! Asia Server UIDs start with 8");
-            RequestDispatcher rd = request.getRequestDispatcher("/Store/index.jsp");  
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");  
             rd.include(request, response);  
         }
         else if(!(request.getParameter("uid").startsWith("9")) && request.getParameter("server").equals("sar") ){
             request.setAttribute("uidstatus", "Invalid UID! TW/HK SAR Server UIDs start with 9");
-            RequestDispatcher rd = request.getRequestDispatcher("/Store/index.jsp");  
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");  
             rd.include(request, response);  
         }
         else

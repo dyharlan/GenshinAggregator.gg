@@ -89,11 +89,11 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>PaymentProcessorControllerServlet</servlet-name>
-        <url-pattern>/Store/PaymentProcessor</url-pattern>
+        <url-pattern>/OldStore/PaymentProcessor</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CheckOutGeneratorServlet</servlet-name>
-        <url-pattern>/Store/Checkout</url-pattern>
+        <url-pattern>/OldStore/Checkout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -113,10 +113,7 @@
         <error-code>403</error-code>
         <location>/403.jsp</location>
     </error-page>
-    <error-page>
-        <error-code>404</error-code>
-        <location>/404.jsp</location>
-    </error-page>
+    
     <error-page>
         <error-code>412</error-code>
         <location>/412.jsp</location>
