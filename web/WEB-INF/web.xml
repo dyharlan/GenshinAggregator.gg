@@ -79,6 +79,54 @@
         <servlet-name>CheckOutGeneratorServlet</servlet-name>
         <servlet-class>Controller.CheckOutGeneratorServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>Controller.LoginServlet</servlet-class>
+                <init-param>
+            <param-name>className</param-name>
+            <param-value>org.apache.derby.jdbc.ClientDriver</param-value>
+        </init-param>
+        <init-param>
+            <param-name>dbUsername</param-name>
+            <param-value>app</param-value>
+        </init-param>
+        <init-param>
+            <param-name>dbPassword</param-name>
+            <param-value>app</param-value>
+        </init-param>
+        <init-param>
+            <param-name>driverURL</param-name>
+            <param-value>jdbc:derby</param-value>
+        </init-param>
+        <init-param>
+            <param-name>dbHostName</param-name>
+            <param-value>localhost</param-value>
+        </init-param>
+        <init-param>
+            <param-name>dbPort</param-name>
+            <param-value>1527</param-value>
+        </init-param>
+        <init-param>
+            <param-name>dbName</param-name>
+            <param-value>LoginDB</param-value>
+        </init-param>
+        <init-param>
+            <param-name>key</param-name>
+            <param-value>Lorem ipsum dolor sit amet nisi.</param-value>
+        </init-param>
+        <init-param>
+            <param-name>initVector</param-name>
+            <param-value>CICS2609FAP.java</param-value>
+        </init-param>
+        <init-param>
+            <param-name>algorithm</param-name>
+            <param-value>AES</param-value>
+        </init-param>
+        <init-param>
+            <param-name>mode</param-name>
+            <param-value>CBC</param-value>
+        </init-param>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VideoController</servlet-name>
         <url-pattern>/watch</url-pattern>
@@ -94,6 +142,10 @@
     <servlet-mapping>
         <servlet-name>CheckOutGeneratorServlet</servlet-name>
         <url-pattern>/OldStore/Checkout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/Login</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -16,8 +16,7 @@ function $(x) { //use this function only when not using a "template literal"
     return document.getElementById(x);
 }
 
-//$("card").addEventListener("keydown",dashFunction);
-$("card").addEventListener("keydown",function(){
+$("card").addEventListener("input",function(){
     let foo = this.value.split("-").join(""); // remove hyphens
     if (foo.length > 0) {
       foo = foo.match(new RegExp('.{1,4}', 'g')).join("-");

@@ -6,6 +6,7 @@
     font-family: 'zh-cn', sans-serif;
     text-shadow: 8px 4px 7px #222;
     overflow: visible;
+    /*scrollbar-width: none;  Firefox; for invisible scrollbars*/ 
 }
 
 
@@ -21,9 +22,11 @@ section {
     justify-content: center;
     align-items: center;  
   }
+  
 a:visited{
       color: white;
   }
+  
 .welcome-section {
     background-image: url(assets/bg3.jpg);
     background-size: cover;
@@ -70,44 +73,6 @@ a, a:visited {
 }
 a:hover {
     color: gray;
-}
-@media screen and (max-width: 1600px){
-    .welcome-section > h1 {
-        font-size: 75%;
-    }
-    .cbanner > form {
-        width: 225px;
-        height: 375px;
-        margin: auto;
-        padding: 0;
-    }
-    .wbanner > form {
-        width: 650px;
-        height: 350px;
-        margin: auto;
-        padding: 0;
-    }
-    .trailer-link {
-        font-size: 0.5em;
-    }
-    
-    .welcome-section, .banner-section {
-        font-size: 2em;
-    }
-}
-
-@media screen and (max-width: 1300px) {
-    .welcome-section > h1 {
-        font-size: 75%;
-    }
-    
-    .trailer-link {
-        font-size: 1em;
-    }
-    
-    .welcome-section, .banner-section {
-        font-size: 1.25em;
-    }
 }
 
 .welcome-section, .banner-section {
@@ -192,4 +157,92 @@ img {
 
 .banner-section img {
     cursor: pointer;
+}
+
+@media (max-width: 1600px) {
+    .welcome-section > h1 {
+        font-size: 75%;
+    }
+    .cbanner > form {
+        width: 225px;
+        height: 375px;
+        margin: auto;
+        padding: 0;
+    }
+    .wbanner > form {
+        width: 650px;
+        height: 350px;
+        margin: auto;
+        padding: 0;
+    }
+    .trailer-link {
+        font-size: 0.5em;
+    }
+    
+    .welcome-section, .banner-section {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 1300px) { /* tried to do mobile-first (lower max-widths first for media queries) but failed */
+    @media (max-height: 600px) { /* Firefox, 150% */
+        .welcome-section > h1 {
+            font-size: 100%;
+        }
+
+        .cbanner > form {
+            width: 225px; /* 207px */
+            height: 375px; /* 345px*/
+            margin: auto;
+            padding: 0;
+        }
+        .wbanner > form {
+            width: 624px;
+            height: 336px;
+            margin: auto;
+            padding: 0;
+        }
+
+        .trailer-link {
+            font-size: 0.75em;
+        }
+
+        .welcome-section, .banner-section {
+            font-size: 1.25em;
+        }
+    }
+    @media (max-height: 580px) { /* Edge, 150% */
+        welcome-section > h1 {
+            font-size: 100%;
+        }
+        
+        .banners .child h4 {
+            font-size: 18px;
+        }
+        
+        .banners > .child p {
+            font-size: 18px;
+        }
+        
+        .cbanner > form {
+            width: 225px; /* 207px */
+            height: 375px; /* 345px*/
+            margin: auto;
+            padding: 0;
+        }
+        .wbanner > form {
+            width: 611px;
+            height: 329px;
+            margin: auto;
+            padding: 0;
+        }
+
+        .trailer-link {
+            font-size: 0.75em;
+        }
+
+        .welcome-section, .banner-section {
+            font-size: 1.25em;
+        }
+    }
 }
