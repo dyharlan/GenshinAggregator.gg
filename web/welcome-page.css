@@ -6,6 +6,7 @@
     font-family: 'zh-cn', sans-serif;
     text-shadow: 8px 4px 7px #222;
     overflow: visible;
+    /*scrollbar-width: none;  Firefox; for invisible scrollbars*/ 
 }
 
 
@@ -158,34 +159,7 @@ img {
     cursor: pointer;
 }
 
-@media (max-width: 1300px) and (min-width: 1100px){
-    .welcome-section > h1 {
-        font-size: 75%;
-    }
-    
-    .cbanner > form {
-        width: 207px;
-        height: 345px;
-        margin: auto;
-        padding: 0;
-    }
-    .wbanner > form {
-        width: 624px;
-        height: 336px;
-        margin: auto;
-        padding: 0;
-    }
-    
-    .trailer-link {
-        font-size: 1em;
-    }
-    
-    .welcome-section, .banner-section {
-        font-size: 1.25em;
-    }
-}
-
-@media (max-width: 1600px) and (min-width: 1400px) {
+@media (max-width: 1600px) {
     .welcome-section > h1 {
         font-size: 75%;
     }
@@ -207,5 +181,32 @@ img {
     
     .welcome-section, .banner-section {
         font-size: 2em;
+    }
+}
+
+@media (max-width: 1300px) { /* tried to do mobile-first (lower max-widths first for media queries) but failed */
+    .welcome-section > h1 {
+        font-size: 100%;
+    }
+    
+    .cbanner > form {
+        width: 225px; /* 207px */
+        height: 375px; /* 345px*/
+        margin: auto;
+        padding: 0;
+    }
+    .wbanner > form {
+        width: 624px;
+        height: 336px;
+        margin: auto;
+        padding: 0;
+    }
+    
+    .trailer-link {
+        font-size: 0.75em;
+    }
+    
+    .welcome-section, .banner-section {
+        font-size: 1.25em;
     }
 }
