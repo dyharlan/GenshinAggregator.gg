@@ -16,26 +16,39 @@ import org.apache.commons.codec.binary.*;
  */
 public class Security {
     
-        private static byte[] key = "Lorem ipsum dolor sit amet nisi.".getBytes(); //Google Translate: It's really a pain to take care of yourself.
-        private static byte[] initVector = "CICS2609FAP.java".getBytes(); //exactly 16 bytes for 256 bit encryption
+        private static byte[] key; //Google Translate: It's really a pain to take care of yourself.
+        private static byte[] initVector; //exactly 16 bytes for 256 bit encryption
         
         private String algorithm;
         private String mode;
         private String transformation;
         
-        public Security() {
+        public Security(String key) {
+            this.key = key.getBytes();
             this.algorithm = "AES";
-            this.mode = "EBC";
+            this.mode = "ECB";
             this.transformation = String.format("%s/%s/PKCS5Padding",algorithm,mode);
         }
         
-        public Security(String mode) {
+        public Security(String key, String initVector) {
+            this.key = key.getBytes();
+            this.initVector = initVector.getBytes();
+            this.algorithm = "AES";
+            this.mode = "CBC";
+            this.transformation = String.format("%s/%s/PKCS5Padding",algorithm,mode);
+        }
+        
+        public Security(String key, String initVector, String mode) {
+            this.key = key.getBytes();
+            this.initVector = initVector.getBytes();
             this.algorithm = "AES";
             this.mode = mode;
             this.transformation = String.format("%s/%s/PKCS5Padding",algorithm,mode);
         }
         
-        public Security(String algorithm, String mode) {
+        public Security(String key, String initVector, String algorithm, String mode) {
+            this.key = key.getBytes();
+            this.initVector = initVector.getBytes();
             this.algorithm = algorithm;
             this.mode = mode;
             this.transformation = String.format("%s/%s/PKCS5Padding",algorithm,mode);
@@ -60,7 +73,7 @@ public class Security {
             {
                 Cipher cipher = Cipher.getInstance(this.getTransformation());
                 final SecretKeySpec secretKey = new SecretKeySpec(key,this.getAlgorithm()); //makes the secretKey an AES key
-                if (this.getMode().equals("EBC"))
+                if (this.getMode().equals("ECB"))
                     cipher.init(Cipher.ENCRYPT_MODE, secretKey);
                 else
                 {
@@ -82,7 +95,7 @@ public class Security {
             {
                 Cipher cipher = Cipher.getInstance(this.getTransformation());
                 final SecretKeySpec secretKey = new SecretKeySpec(key, this.getAlgorithm());
-                if (this.getMode().equals("EBC"))
+                if (this.getMode().equals("ECB"))
                     cipher.init(Cipher.DECRYPT_MODE, secretKey);
                 else
                 {
