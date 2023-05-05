@@ -25,15 +25,22 @@
             height="35"
             class="logo"
             />
-            <a class="bx bx-shopping-bag split" id="cart-icon" href="cart.jsp"></a>
-            <form class="acct-status split" method="POST" action="login.jsp">
+            <form class="acct-status split" method="POST" action="login.jsp"> <!-- The nature of css dictates that whatever element is encountered first will receive the styles accordingly from the stylesheet, this also means that log in will be the rightmost element, followed by the shopping bag -->
                 <!-- This is the Log In button -->
                 <input type="submit" value="Log In" name="where">
             </form>
+            <a class="bx bx-shopping-bag split" id="cart-icon" href="cart.jsp"></a>
             
         </nav>
         <div class="content">
-            <p>hello</p>
+            <% while(true) { %>
+                <button>
+                    <div>
+                        <img src='<%= config.getInitParameter("game-pic") %>'>
+                        <p><%= config.getInitParameter("game-name") %></p>
+                    </div>
+                </button>
+            <% } %>
         </div>
     </body>
 </html>

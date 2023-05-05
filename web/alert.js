@@ -5,7 +5,10 @@
 
 
 function showSize() {
-    let width = window.innerWidth;
-    let height = window.innerHeight;
-    alert(`The viewport's width is ${width} and the height is ${height}.`);
+    let innerwidth = window.innerWidth;
+    let innerheight = window.innerHeight;
+    alert(`(Inner) The viewport's width is ${innerwidth} and the height is ${innerheight}.`);
+    let outerwidth = window.outerWidth;
+    let outerheight = window.outerHeight;
+    alert(`(Outer) The viewport's width is ${outerwidth} and the height is ${outerheight}.`);
 }
