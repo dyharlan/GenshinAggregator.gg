@@ -34,12 +34,12 @@
         </nav>
         <div class="content">
             <% while(true) { %>
-                <button>
+                <a href="">
                     <div>
-                        <img src='<%= config.getInitParameter("game-pic") %>'>
-                        <p><%= config.getInitParameter("game-name") %></p>
+                        <img src='<%= config.getInitParameter("game-pic") %>' name="">
+                        <label for=""><%= config.getInitParameter("game-name") %></label>
                     </div>
-                </button>
+                </a>
             <% } %>
         </div>
     </body>
