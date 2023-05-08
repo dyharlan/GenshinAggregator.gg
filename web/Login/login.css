@@ -30,6 +30,7 @@ main {
     place-items: center;
     background-color: #280031;
     min-height: calc(100vh - 55px);
+    width: 100%;
 }
 
 /*navbar customization section start*/
@@ -103,7 +104,7 @@ h1 {
 input[type="text"], input[type="password"] {
     width: auto;
     font-size: 1rem;
-    padding: 7px 3px;
+    padding: 9px;
     display: block;
 }
 
