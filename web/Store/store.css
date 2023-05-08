@@ -16,10 +16,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     text-decoration: none;
 }
 
-body {
-    width: 100vw;
-    height: 100vh;
-}
 
 .topnav {
     background-color: #3c1f42;
@@ -72,8 +68,7 @@ input {
 .content {
     background-color: #280031;
     width: 100%;
-    padding-top: var(--header-height);
-    height: calc(100vh - var(--header-height));  
+    height: 100vh;  
 }
 
 @media (max-width: 1300px) {
