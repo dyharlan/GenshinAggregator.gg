@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
     <head>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +17,7 @@
         </style>
         <title><%= getServletContext().getInitParameter("AppName")%> - Celebrating 1 year in the service of Tech Otakus!</title>
     </head>
-    <body onload="showSize()">
+    <body onload="">
         <section class="welcome-section">
             <img src="assets/ConaShop-Logo.png">
             <h1>Celebrating 1 year in the service of Tech Otakus!</h1>    
@@ -62,7 +63,10 @@
                         <button type="submit" name="banner" value="b2"><img src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("asset-folder") %>cbanner2.png" alt="5 star 2nd character"></button>
                     </form>
                         <a class="trailer-link" href="watch?v=<%= getServletContext().getInitParameter("video2") %> ">Watch the trailer now!</a>
+                        
                 </div>
+               
+                
                 <div class="wbanner child">
                     <h4>Weapon Banner</h4>
                     <form action="BannerViewer" METHOD="GET">
@@ -89,5 +93,6 @@
                 
             </div>
         </section>
+                
     </body>
 </html>
