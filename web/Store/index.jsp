@@ -33,14 +33,14 @@
             
         </nav>
         <div class="content">
-            <% while(true) { %>
+            <%--<% while(true) { %>--%>
                 <a href="">
                     <div>
-                        <img src='<%= config.getInitParameter("game-pic") %>' name="">
-                        <label for=""><%= config.getInitParameter("game-name") %></label>
+                        <img src='https://th.bing.com/th/id/OIP.sbbK4hibITDZPvkCo8h9CQAAAA?pid=ImgDet&rs=1' lazy name="">
+                        <label for="">Honkai Star rail</label>
                     </div>
                 </a>
-            <% } %>
+            <%--<% } %>--%>
         </div>
     </body>
 </html>
