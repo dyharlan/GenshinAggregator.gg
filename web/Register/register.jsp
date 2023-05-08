@@ -1,9 +1,3 @@
-<%-- 
-    Document   : login
-    Created on : May 8, 2023, 10:27:16 PM
-    Author     : csean
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,7 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login Page</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="login.css">
+        <link rel="stylesheet" href="register.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat&display=swap">
         <script defer src="login.js"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,8 +28,12 @@
             <a class="bx bx-shopping-bag split" id="cart-icon" href="cart.jsp"></a>
         </nav>
         <main>
-            <form method="post" action="" class="login">
-                <h1>Sign In</h1>
+            <form method="post" action="" class="register">
+                <h1>Sign Up</h1>
+                <div class="container input">
+                    <label for="email" class="input label">Email: </label>
+                    <input type="text" class="input" name="email" id="email" placeholder="Enter Email" enterkeyhint="go" required>
+                </div>
                 <div class="container input">
                     <label for="username" class="input label">Username: </label>
                     <input type="text" class="input" name="username" id="username" placeholder="Enter Username" enterkeyhint="go" required>
@@ -48,10 +46,8 @@
                     <input type="checkbox" class="checkbox" name="show" id="show" onclick="showPassword()">
                     <label for="show" class="checkbox label">Show Password</label>
                 </div>
-                <input type="submit" value="Log In">
-                <input type="submit" value="Sign up">           
-            </form>    
-               
+                <input type="submit" value="Sign Up">
+            </form>
         </main>
     </body>
 </html>
