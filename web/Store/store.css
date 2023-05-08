@@ -55,9 +55,20 @@ body {
 }
 
 .logo {
+    float: left;
     position: relative;
     margin-top: 10px;
     margin-left: 35px;/*55px;*/
+}
+
+.navbar-text {
+    float: left;
+    font-style: italic;
+    display: block;
+    text-align: center;
+    font-size: 1rem;
+    margin-left: 36px;
+    margin-top: 18.15px; /* more accurate value is 18.1665px */
 }
 
 input {
