@@ -16,6 +16,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     text-decoration: none;
 }
 
+:root { /*placeholder for declaring variables*/
+    
+}
+
+
+body {
+    width: 100vw;
+}
 
 .topnav {
     background-color: #3c1f42;
@@ -30,7 +38,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
   padding: 15px 15px;
   text-decoration: none;
   font-size: 25px;
-  margin-right: 50px
+  /* margin-right: 50px; */
 }
 
 /* Change the color of links on hover */
@@ -49,7 +57,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 .logo {
     position: relative;
     margin-top: 10px;
-    margin-left: 55px;
+    margin-left: 35px;/*55px;*/
 }
 
 input {
@@ -65,10 +73,30 @@ input {
     border: none;
 }
 
-.content {
+.grid {
+    display: grid;
     background-color: #280031;
     width: 100%;
-    height: 100vh;  
+    height: auto;
+    justify-content: center;
+    grid-template-columns: auto auto auto auto;
+    column-gap: 20px;
+}
+
+.game-imgs {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+label {
+    display: block;
+    margin: auto;
+}
+
+.content {
+    border: solid blue;
+    border-radius: 9px;
+    overflow: hidden;
 }
 
 @media (max-width: 1300px) {

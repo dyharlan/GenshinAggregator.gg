@@ -32,12 +32,24 @@
             <a class="bx bx-shopping-bag split" id="cart-icon" href="cart.jsp"></a>
             
         </nav>
-        <div class="content">
+        <div class="grid">
             <%--<% while(true) { %>--%>
-                <a href="">
-                    <div>
-                        <img src='https://th.bing.com/th/id/OIP.sbbK4hibITDZPvkCo8h9CQAAAA?pid=ImgDet&rs=1' lazy name="">
-                        <label for="">Honkai Star rail</label>
+                <a href="test.jsp">
+                    <div class="content">
+                        <img src='https://th.bing.com/th/id/OIP.sbbK4hibITDZPvkCo8h9CQAAAA?pid=ImgDet&rs=1' lazy class="game-imgs" name="">
+                        <label for="">Honkai Star Rail</label>
+                    </div>
+                </a>
+                <a href="test.jsp">
+                    <div class="content">
+                        <img src='https://th.bing.com/th/id/OIP.sbbK4hibITDZPvkCo8h9CQAAAA?pid=ImgDet&rs=1' lazy class="game-imgs" name="">
+                        <label for="">Honkai Star Rail</label>
+                    </div>
+                </a>
+                <a href="test.jsp">
+                    <div class="content">
+                        <img src='https://th.bing.com/th/id/OIP.sbbK4hibITDZPvkCo8h9CQAAAA?pid=ImgDet&rs=1' lazy class="game-imgs" name="">
+                        <label for="">Honkai Star Rail</label>
                     </div>
                 </a>
             <%--<% } %>--%>
