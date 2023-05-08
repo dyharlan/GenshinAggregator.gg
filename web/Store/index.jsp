@@ -52,6 +52,12 @@
                         <label for="">Honkai Star Rail</label>
                     </div>
                 </a>
+                <a href="test.jsp">
+                    <div class="content">
+                        <img src='https://th.bing.com/th/id/OIP.sbbK4hibITDZPvkCo8h9CQAAAA?pid=ImgDet&rs=1' lazy class="game-imgs" name="">
+                        <label for="">Honkai Star Rail</label>
+                    </div>
+                </a>
             <%--<% } %>--%>
         </div>
     </body>

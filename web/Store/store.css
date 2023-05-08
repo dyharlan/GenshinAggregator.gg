@@ -90,7 +90,8 @@ input {
 
 label {
     display: block;
-    margin: auto;
+    text-align: center;
+    padding: 9px 0;
 }
 
 .content {
