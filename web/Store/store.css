@@ -17,7 +17,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 
 :root { /*placeholder for declaring variables*/
-    
+
 }
 
 
@@ -63,7 +63,7 @@ body {
 input {
     line-height: 40px;
     display: inline-block;
-    margin: 7.5px 5px;
+    margin: 7.5px 9px;
     color: white;
     font-size: 18px;
     padding: 0 13px;
@@ -81,6 +81,7 @@ input {
     justify-content: center;
     grid-template-columns: auto auto auto auto;
     column-gap: 20px;
+    min-height: calc(100vh - 55px);
 }
 
 .game-imgs {
