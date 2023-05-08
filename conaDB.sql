@@ -66,12 +66,13 @@ CREATE TABLE CCardInfo(
 CREATE TABLE SupportedGames(
     GameID INT NOT NULL GENERATED ALWAYS AS IDENTITY(Start with 1, Increment by 1),
     GameName VarChar(64) NOT NULL,
+    GameIcon VarChar(1024) NOT NULL,
     GamePage VarChar(128) NOT NULL,
     PRIMARY KEY(GameID)
 );
-INSERT INTO SupportedGames (GameName, GamePage) VALUES('Genshin Impact','games/genshin-impact.jsp');
-INSERT INTO SupportedGames (GameName, GamePage) VALUES('Honkai Star Rail','games/hsr.jsp');
-INSERT INTO SupportedGames (GameName, GamePage) VALUES('Valorant','games/riot-valorant.jsp');
+INSERT INTO SupportedGames (GameName, GameIcon, GamePage) VALUES('Genshin Impact', 'https://play-lh.googleusercontent.com/vRd2gg6XmC3TRTM5wZZ8qwEc5LMUROh4whycLuiCSPB40tIxDYLT6V0BdCn486XiKQ0=w240-h480-rw' ,'games/genshin-impact.jsp');
+INSERT INTO SupportedGames (GameName, GameIcon, GamePage) VALUES('Honkai Star Rail', 'https://cdn.now.gg/apps-content/com.HoYoverse.hkrpgoversea/icon/honkai-star-rail.png' ,'games/hsr.jsp');
+INSERT INTO SupportedGames (GameName, GameIcon, GamePage) VALUES('Valorant','https://www.techspot.com/images2/downloads/topdownload/2020/06/2020-06-09-ts3_thumbs-7fd.png','games/riot-valorant.jsp');
 
 CREATE TABLE INVENTORY(
     ItemID VARCHAR(255) NOT NULL,
