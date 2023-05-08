@@ -3,7 +3,8 @@
     Created on : Apr 28, 2023, 9:14:44 PM
     Author     : csean
 --%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%> 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +26,7 @@
             height="35"
             class="logo"
             />
+            <p><i>Celebrating 1 year in the service of Tech Otakus!</i></p>
             <form class="acct-status split" method="POST" action="login.jsp" class="login"> <!-- The nature of css dictates that whatever element is encountered first will receive the styles accordingly from the stylesheet, this also means that log in will be the rightmost element, followed by the shopping bag -->
                 <!-- This is the Log In button -->
                 <input type="submit" value="Log In" name="where">
@@ -33,32 +35,20 @@
             
         </nav>
         <div class="grid">
-            <%--<% while(true) { %>--%>
-                <a href="test.jsp">
+            <sql:setDataSource var="ds" driver="org.apache.derby.jdbc.ClientDriver" 
+                                   url="jdbc:derby://localhost:1527/ConaShopDB" 
+                                   user="cona" password="admin1"/>
+                <sql:query dataSource="${ds}" var="rs">
+                    SELECT * FROM SUPPORTEDGAMES
+                </sql:query>
+                <c:forEach var="games" items="${rs.rows}">
+                    <a href="${games.GamePage}">
                     <div class="content">
-                        <img src='https://th.bing.com/th/id/OIP.sbbK4hibITDZPvkCo8h9CQAAAA?pid=ImgDet&rs=1' lazy class="game-imgs" name="">
-                        <label for="">Honkai Star Rail</label>
+                        <img src='${games.GameIcon}' lazy class="game-imgs" id="${games.GameID}">
+                        <label for="${games.GameID}">${games.GameName}</label>
                     </div>
                 </a>
-                <a href="test.jsp">
-                    <div class="content">
-                        <img src='https://th.bing.com/th/id/OIP.sbbK4hibITDZPvkCo8h9CQAAAA?pid=ImgDet&rs=1' lazy class="game-imgs" name="">
-                        <label for="">Honkai Star Rail</label>
-                    </div>
-                </a>
-                <a href="test.jsp">
-                    <div class="content">
-                        <img src='https://th.bing.com/th/id/OIP.sbbK4hibITDZPvkCo8h9CQAAAA?pid=ImgDet&rs=1' lazy class="game-imgs" name="">
-                        <label for="">Honkai Star Rail</label>
-                    </div>
-                </a>
-                <a href="test.jsp">
-                    <div class="content">
-                        <img src='https://th.bing.com/th/id/OIP.sbbK4hibITDZPvkCo8h9CQAAAA?pid=ImgDet&rs=1' lazy class="game-imgs" name="">
-                        <label for="">Honkai Star Rail</label>
-                    </div>
-                </a>
-            <%--<% } %>--%>
+                </c:forEach>
         </div>
     </body>
 </html>
