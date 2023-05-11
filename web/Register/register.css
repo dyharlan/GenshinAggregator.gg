@@ -68,8 +68,8 @@ main {
     margin-top: 10px;
     margin-left: 35px;/*55px;*/
 }
-
-input {
+/*
+input.login {
     line-height: 40px;
     display: inline-block;
     margin: 7.5px 9px;
@@ -81,6 +81,7 @@ input {
     border-color: #f16d0b;
     border: none;
 }
+*/
 /*navbar customization section end*/
 
 form.register {
@@ -104,10 +105,26 @@ h1 {
 input[type="text"], input[type="password"] {
     width: auto;
     font-size: 1rem;
-    padding: 9px;
+    padding: 3px 9px;
     display: block;
+    color: black;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .input {
     border: none;
+}
+
+.input.label {
+    display: inline-block;
+    font-size: 0.9rem;
+}
+
+.checkbox.label {
+    margin-left: 9px;
 }

@@ -21,10 +21,6 @@
             height="35"
             class="logo"
             />
-            <form class="acct-status split" method="POST" action="login.jsp" class="login"> <!-- The nature of css dictates that whatever element is encountered first will receive the styles accordingly from the stylesheet, this also means that log in will be the rightmost element, followed by the shopping bag -->
-                <!-- This is the Log In button -->
-                <input type="submit" value="Log In" name="where">
-            </form>
             <a class="bx bx-shopping-bag split" id="cart-icon" href="cart.jsp"></a>
         </nav>
         <main>
