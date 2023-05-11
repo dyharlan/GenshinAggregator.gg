@@ -38,7 +38,7 @@ CREATE TABLE GCashInfo(
     GCashNumber VARCHAR(10) NOT NULL,
     FOREIGN KEY(USERID) REFERENCES PersonCredentials(USERID) ON DELETE CASCADE,
     FOREIGN KEY(PMIdentifier) REFERENCES UserPaymentMethods(PMIdentifier) ON DELETE CASCADE,
-    PRIMARY KEY(USERID,PMIdentifier)
+    PRIMARY KEY(PMIdentifier,GCashNumber)
 );
 
 CREATE TABLE SupportedCC(
@@ -60,7 +60,7 @@ CREATE TABLE CCardInfo(
     FOREIGN KEY(USERID) REFERENCES PersonCredentials(USERID) ON DELETE CASCADE,
     FOREIGN KEY(PMIdentifier) REFERENCES UserPaymentMethods(PMIdentifier) ON DELETE CASCADE,
     FOREIGN KEY(CCType) REFERENCES SupportedCC(CCType) ON DELETE CASCADE,
-    PRIMARY KEY(USERID,PMIdentifier)
+    PRIMARY KEY(PMIdentifier,CCNumber)
 );
 
 CREATE TABLE SupportedGames(
