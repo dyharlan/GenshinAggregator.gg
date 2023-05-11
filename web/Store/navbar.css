@@ -1,0 +1,80 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : May 11, 2023, 9:18:24 PM
+    Author     : csean
+*/
+
+* {
+    border: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+    font-family: "Montserrat", 'Open Sans', Helvetica, sans-serif;
+    color: #d4d5df;
+    text-decoration: none;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+main {
+    place-items: center;
+    background-color: #280031;
+    min-height: calc(100vh - 55px);
+    width: 100%;
+}
+
+/*navbar customization section start*/
+.topnav {
+    background-color: #3c1f42;
+    overflow: hidden;
+  }
+  
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+/*  color: #f2f2f2;*/
+  text-align: center;
+  padding: 15px 15px;
+  text-decoration: none;
+  font-size: 25px;
+  /* margin-right: 50px; */
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Create a right-aligned (split) link inside the navigation bar */
+.topnav .split {
+  float: right;
+  /*background-color: #04AA6D;*/
+  color: white;
+}
+
+.logo {
+    position: relative;
+    margin-top: 10px;
+    margin-left: 35px;/*55px;*/
+}
+
+input.login {
+    line-height: 40px;
+    display: inline-block;
+    margin: 7.5px 9px;
+    color: white;
+    font-size: 18px;
+    padding: 0 13px;
+    border-radius: 3px;
+    background-color: #f16d0b;
+    border-color: #f16d0b;
+    border: none;
+}
+
+/*navbar customization section end*/
