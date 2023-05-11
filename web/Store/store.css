@@ -71,7 +71,7 @@ body {
     margin-top: 18.15px; /* more accurate value is 18.1665px */
 }
 
-input {
+input.login {
     line-height: 40px;
     display: inline-block;
     margin: 7.5px 9px;

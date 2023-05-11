@@ -69,3 +69,16 @@ body {
     margin-left: 36px;
     margin-top: 18.15px; /* more accurate value is 18.1665px */
 }
+
+input.login {
+    line-height: 40px;
+    display: inline-block;
+    margin: 7.5px 9px;
+    color: white;
+    font-size: 18px;
+    padding: 0 13px;
+    border-radius: 3px;
+    background-color: #f16d0b;
+    border-color: #f16d0b;
+    border: none;
+}
