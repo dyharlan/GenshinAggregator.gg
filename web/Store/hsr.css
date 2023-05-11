@@ -3,10 +3,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
 */
 /* 
-    Created on : 28 Apr 2023, 7:33:49 pm
-    Author     : dyhar
+    Created on : May 11, 2023, 7:26:38 PM
+    Author     : csean
 */
-
 * {
     border: 0;
     margin: 0;
@@ -69,49 +68,4 @@ body {
     font-size: 1rem;
     margin-left: 36px;
     margin-top: 18.15px; /* more accurate value is 18.1665px */
-}
-
-input {
-    line-height: 40px;
-    display: inline-block;
-    margin: 7.5px 9px;
-    color: white;
-    font-size: 18px;
-    padding: 0 13px;
-    border-radius: 3px;
-    background-color: #f16d0b;
-    border-color: #f16d0b;
-    border: none;
-}
-
-.grid {
-    display: grid;
-    background-color: #280031;
-    width: 100%;
-    height: auto;
-    justify-content: center;
-    grid-template-columns: auto auto auto auto;
-    column-gap: 20px;
-    min-height: calc(100vh - 55px);
-}
-
-.game-imgs {
-    max-width: 200px;
-    max-height: 200px;
-}
-
-label {
-    display: block;
-    text-align: center;
-    padding: 9px 0;
-}
-
-.content {
-    border: solid blue;
-    border-radius: 9px;
-    overflow: hidden;
-}
-
-@media (max-width: 1300px) {
-    
 }
