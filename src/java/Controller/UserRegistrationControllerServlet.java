@@ -11,6 +11,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpSession;
@@ -94,6 +95,21 @@ public class UserRegistrationControllerServlet extends HttpServlet {
                     .append(getServletContext().getInitParameter("dbName"));
             System.out.println(password);
             conn = DriverManager.getConnection(url.toString(), username, password);
+			
+			String query = "SELECT EMAILS FROM PersonCredentials";
+			Statement statement = conn.createStatement();
+			ResultSet emailSet = statement.executeQuery(query);
+			while(emailSet.next())
+			{
+				if (request.getParameter("email").equals(emailSet.getString("EMAIL")))
+				{
+					boolean userExistsFlag = true;
+					request.setAttribute("userExists",userExistsFlag);
+					request.getRequestDispatcher("register.jsp").include(request,response);
+					return;
+				}
+			}
+			
             //set parameterized query
             String ps_query1 = "INSERT INTO PersonCredentials(EMAIL,PASSWORD) VALUES(?,?)";
             ps1 = conn.prepareStatement(ps_query1);
@@ -104,7 +120,7 @@ public class UserRegistrationControllerServlet extends HttpServlet {
             //disable autocommit for transaction mode
             conn.setAutoCommit(false);
             //execute parameterized query
-
+			
             try {
 
                 ps1.executeUpdate();
@@ -147,6 +163,7 @@ public class UserRegistrationControllerServlet extends HttpServlet {
             //set status flags accordingly
             session.setAttribute("sql-failure", false);
             session.setAttribute("sql-success", true);
+			request.removeAttribute("userExists");
             response.sendRedirect(request.getContextPath());
 
         } catch (SQLException sqle) {
