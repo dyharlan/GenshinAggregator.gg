@@ -27,8 +27,6 @@
             height="35"
             class="logo"
             />
-
-            <a class="bx bx-shopping-bag split" id="cart-icon" href="cart.jsp"></a>
         </nav>
         <main>
             <form method="post" action="" class="login">

@@ -21,7 +21,22 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 
 
 body {
-    width: 100vw;
+    width: 100%; /*100vw*/
+}
+
+main {
+    /*
+    display: grid;
+    place-items: center;
+    */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #280031;
+    min-height: calc(100vh - 55px);
+    width: 100%;
+    gap: 9px;
 }
 
 .topnav {
@@ -81,4 +96,53 @@ input.login {
     background-color: #f16d0b;
     border-color: #f16d0b;
     border: none;
+}
+
+/*
+.card-img {
+    max-height: 50px;
+    max-width: 50px;
+}
+*/
+
+div.recharge {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    border: solid;
+    border-color: black;
+    gap: 10px 0;
+    max-width: 75%;
+    /*margin: auto;*/
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 9px;
+    height: auto;
+}
+
+/*
+.payment, .details {
+    width: 100%;
+}
+*/
+
+.visa {
+    max-width: 55px;
+    max-height: 18px;
+}
+
+.mastercard {
+    max-width: 32px;
+    max-height: 18px;
+}
+
+.gcash {
+    max-width: 74.5px;
+    max-height: 17.5px;
+}
+
+input[type="text"], select, button {
+    color: black;
 }
