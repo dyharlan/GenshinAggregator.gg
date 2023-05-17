@@ -127,6 +127,26 @@
             <param-value>CBC</param-value>
         </init-param>
     </servlet>
+    <servlet>
+        <servlet-name>CaptchaGenerator</servlet-name>
+        <servlet-class>Controller.CaptchaGeneratorServlet</servlet-class>
+        <init-param>
+            <param-name>captcha-width</param-name>
+            <param-value>180</param-value>
+        </init-param>
+        <init-param>
+            <param-name>captcha-height</param-name>
+            <param-value>75</param-value>
+        </init-param>
+        <init-param>
+            <param-name>ttl</param-name>
+            <param-value>10</param-value>
+        </init-param>
+    </servlet> 
+    <servlet-mapping>
+        <servlet-name>CaptchaGenerator</servlet-name>
+        <url-pattern>/Store/captchaImg.png</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>VideoController</servlet-name>
         <url-pattern>/watch</url-pattern>
