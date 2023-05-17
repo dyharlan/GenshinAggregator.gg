@@ -37,31 +37,31 @@
             <div class="recharge">
                 <!-- for (database) -->
                 <div class="r1 child">
-                    <div class="content"><label for="rb1"><img src="<%= request.getContextPath()%>/assets/StorePage/Oneiric60.png" width="250" height="250"><p class="desc">60 Oneiric Shard</p><p class="price">₱49</p></label></div>
+                    <div class="content"><label for="rb1"><img src="<%= request.getContextPath()%>/assets/StorePage/Oneiric60.png" width="180" height="180"><p class="desc">60 Oneiric Shard</p><p class="price">₱49</p></label></div>
                     <div class="img-button"><input id="rb1" type="radio" name="select" value="r1" required></div>
                 </div>
                 <div class="r2 child">
-                    <div class="content"><label for="rb2"><img src="<%= request.getContextPath()%>/assets/StorePage/Oneiric300.png" width="250" height="250"><p>300+300 Oneiric Shard</p><p>₱249</p></label></div>
+                    <div class="content"><label for="rb2"><img src="<%= request.getContextPath()%>/assets/StorePage/Oneiric300.png" width="180" height="180"><p>300+300 Oneiric Shard</p><p>₱249</p></label></div>
                     <div class="img-button"><input id="rb2" type="radio" name="select" value="r2" required></div>
                 </div>
                 <div class="r3 child">
-                    <div class="content"><label for="rb3"><img src="<%= request.getContextPath()%>/assets/StorePage/Oneiric980.png" width="250" height="250"><p>980+980 Oneiric Shard</p><p>₱749</p></label></div>
+                    <div class="content"><label for="rb3"><img src="<%= request.getContextPath()%>/assets/StorePage/Oneiric980.png" width="180" height="180"><p>980+980 Oneiric Shard</p><p>₱749</p></label></div>
                     <div class="img-button"><input id="rb3" type="radio" name="select" value="r3" required></div>
                 </div>
                 <div class="r4 child">
-                    <div class="content"><label for="rb4"><img src="<%= request.getContextPath()%>/assets/StorePage/Oneiric1980.png" width="250" height="250"><p>1980+1980 Oneiric Shard</p><p>₱1490</p></label></div>
+                    <div class="content"><label for="rb4"><img src="<%= request.getContextPath()%>/assets/StorePage/Oneiric1980.png" width="180" height="180"><p>1980+1980 Oneiric Shard</p><p>₱1490</p></label></div>
                     <div class="img-button"><input id="rb4" type="radio" name="select" value="r4" required></div>
                 </div>
                 <div class="r5 child">
-                    <div class="content"><label for="rb5"><img src="<%= request.getContextPath()%>/assets/StorePage/Oneiric3280.png" width="250" height="250"><p>3280+3280 Oneiric Shard</p><p>₱2490</p></label></div>
+                    <div class="content"><label for="rb5"><img src="<%= request.getContextPath()%>/assets/StorePage/Oneiric3280.png" width="180" height="180"><p>3280+3280 Oneiric Shard</p><p>₱2490</p></label></div>
                     <div class="img-button"><input id="rb5" type="radio" name="select" value="r5" required></div>
                 </div>
                  <div class="r6 child">
-                    <div class="content"><label for="rb6"><img src="<%= request.getContextPath()%>/assets/StorePage/Oneiric6480.png" width="250" height="250"><p>6480+6480 Oneiric Shard</p><p>₱4990</p></label></div>
+                    <div class="content"><label for="rb6"><img src="<%= request.getContextPath()%>/assets/StorePage/Oneiric6480.png" width="180" height="180"><p>6480+6480 Oneiric Shard</p><p>₱4990</p></label></div>
                     <div class="img-button"><input id="rb6" type="radio" name="select" value="r6" required></div>
                 </div>
                 <div class="r7 child">
-                    <div class="content"><label for="rb7"><img src="<%= request.getContextPath()%>/assets/StorePage/SupplyPass.png" width="250" height="250"><p>Express Supply Pass</p><p>₱249</p></label></div>
+                    <div class="content"><label for="rb7"><img src="<%= request.getContextPath()%>/assets/StorePage/SupplyPass.png" width="180" height="180"><p>Express Supply Pass</p><p>₱249</p></label></div>
                     <div class="img-button"><input id="rb7" type="radio" name="select" value="r7" required></div>
                 </div>
             </div>
