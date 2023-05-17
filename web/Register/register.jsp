@@ -27,12 +27,20 @@
             <form method="post" action="" class="register">
                 <h1>Sign Up</h1>
                 <div class="container input">
-                    <label for="email" class="input label">Email: </label>
-                    <input type="text" class="input" name="email" id="email" placeholder="Enter Email" enterkeyhint="go" required>
-                </div>
-                <div class="container input">
                     <label for="username" class="input label">Username: </label>
                     <input type="text" class="input" name="username" id="username" placeholder="Enter Username" enterkeyhint="go" required>
+                </div>
+                <div class="container input">
+                    <label for="fname" class="input label">First Name: </label>
+                    <input type="text" class="input" name="username" id="username" placeholder="Enter First Name" enterkeyhint="go" required>
+                </div>
+                <div class="container input">
+                    <label for="lname" class="input label">Last Name: </label>
+                    <input type="text" class="input" name="username" id="username" placeholder="Enter Last Name" enterkeyhint="go" required>
+                </div>
+                <div class="container input">
+                    <label for="email" class="input label">Email: </label>
+                    <input type="text" class="input" name="email" id="email" placeholder="Enter Email" enterkeyhint="go" required>
                 </div>
                 <div class="container input">
                     <label for="password" class="input label">Password: </label>
@@ -42,6 +50,15 @@
                     <input type="checkbox" class="checkbox" name="show" id="show" onclick="showPassword()">
                     <label for="show" class="checkbox label">Show Password</label>
                 </div>
+                
+                <div class="form-group">
+                <label for="captcha">Captcha:</label>
+                <img src ="./SimpleCaptchaServlet"/>
+                <br>
+                <input type="text" name="captcha" id="captcha" class="form-control" placeholder="Enter the captcha" required />
+                </div>
+                
+                
                 <input type="submit" value="Sign Up">
             </form>
         </main>
