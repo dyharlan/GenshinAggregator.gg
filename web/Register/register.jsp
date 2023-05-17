@@ -27,24 +27,24 @@
             <form method="post" action="" class="register">
                 <h1>Sign Up</h1>
                 <div class="container input">
-                    <label for="username" class="input label">Username: </label>
-                    <input type="text" class="input" name="username" id="username" placeholder="Enter Username" enterkeyhint="go" required>
+                <label for="email" class="input label">Email: </label>
+                <input type="text" class="input" name="email" id="email" placeholder="Enter Email" enterkeyhint="go" required>
                 </div>
                 <div class="container input">
                     <label for="fname" class="input label">First Name: </label>
-                    <input type="text" class="input" name="username" id="username" placeholder="Enter First Name" enterkeyhint="go" required>
+                    <input type="text" class="input" name="fname" id="fname" placeholder="Enter First Name" enterkeyhint="go" required>
                 </div>
                 <div class="container input">
                     <label for="lname" class="input label">Last Name: </label>
-                    <input type="text" class="input" name="username" id="username" placeholder="Enter Last Name" enterkeyhint="go" required>
-                </div>
-                <div class="container input">
-                    <label for="email" class="input label">Email: </label>
-                    <input type="text" class="input" name="email" id="email" placeholder="Enter Email" enterkeyhint="go" required>
+                    <input type="text" class="input" name="lname" id="lname" placeholder="Enter Last Name" enterkeyhint="go" required>
                 </div>
                 <div class="container input">
                     <label for="password" class="input label">Password: </label>
                     <input type="password" class="input" name="password" id="password" placeholder="Enter Password" enterkeyhint="go" pattern="(?=[A-Za-z0-9]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,}).*$" title="At least 8 characters with at least 1 number, 1 uppercase character, and 1 lowercase character" required>
+                </div>
+                <div class="container input">
+                      <label for="birthday">Birthday:</label>
+                      <input type="date" id="birthday" name="birthday">
                 </div>
                 <div class="show-password">
                     <input type="checkbox" class="checkbox" name="show" id="show" onclick="showPassword()">
@@ -53,7 +53,8 @@
                 
                 <div class="form-group">
                 <label for="captcha">Captcha:</label>
-                <img src ="./SimpleCaptchaServlet"/>
+                <br>
+                <img src ="<%= request.getContextPath() %>/Store/captchaImg.png"/>
                 <br>
                 <input type="text" name="captcha" id="captcha" class="form-control" placeholder="Enter the captcha" required />
                 </div>
