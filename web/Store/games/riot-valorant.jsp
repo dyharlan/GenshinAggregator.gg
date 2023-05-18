@@ -78,7 +78,7 @@
                 </sql:query>
                 <c:forEach var="valo" items="${rs.rows}">
                     <div class="${valo.ItemID} child">
-                        <div class="content"><label for="${valo.ItemID}"><img src="${pageContext.servletContext.contextPath}${valo.ItemPic}" width="225" height="225"><p class="desc">${valo.ItemName}</p><p class="price">₱${valo.ItemValue}</p></label></div>
+                        <div class="content"><label for="${valo.ItemID}"><img src="${pageContext.servletContext.contextPath}${valo.ItemPic}" width="214.02" height="154.2"><p class="desc">${valo.ItemName}</p><p class="price">₱${valo.ItemValue}</p></label></div>
                         <div class="img-button"><input id="${valo.ItemID}" type="radio" name="select" value="${valo.ItemID}" required></div>
                     </div>   
                 </c:forEach>
