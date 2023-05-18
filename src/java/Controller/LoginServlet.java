@@ -52,15 +52,15 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        Map<String,String> result = (LinkedHashMap) session.getAttribute("result");
-            boolean credentialsFound = false;
+        //Map<String,String> result = (LinkedHashMap) session.getAttribute("result");
+        boolean credentialsFound = false;
             try 
             {
                 String email = request.getParameter("email");
                 String password = request.getParameter("password");
-                String query = "SELECT * FROM USERS";
+                String query = "SELECT USERID,EMAIL FROM PersonCredentials WHERE USERID = ? AND EMAIL = ?";
                 ResultSet credentials = runQuery(request, query); //used to determine if the login input matches credentials in database
-                Security sec = new Security("key", "initVector");
+                Security sec = new Security(getServletContext().getInitParameter("key"), getServletContext().getInitParameter("initVector"));
                 while (credentials.next()) 
                 { //if successful match is found, forwards to records.jsp
                     if (credentials.getString("EMAIL").trim().equals(email) && sec.decrypt(credentials.getString("PASSWORD").trim()).equals(password))
