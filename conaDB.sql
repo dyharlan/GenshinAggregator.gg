@@ -63,19 +63,19 @@ CREATE TABLE CCardInfo(
 );
 
 CREATE TABLE SupportedGames(
-    GameID INT NOT NULL GENERATED ALWAYS AS IDENTITY(Start with 1, Increment by 1),
+    GameID VarChar(64) NOT NULL,
     GameName VarChar(64) NOT NULL,
     GameIcon VarChar(1024) NOT NULL,
     GamePage VarChar(128) NOT NULL,
     PRIMARY KEY(GameID)
 );
-INSERT INTO SupportedGames (GameName, GameIcon, GamePage) VALUES('Genshin Impact', 'https://play-lh.googleusercontent.com/vRd2gg6XmC3TRTM5wZZ8qwEc5LMUROh4whycLuiCSPB40tIxDYLT6V0BdCn486XiKQ0=w240-h480-rw' ,'games/genshin-impact.jsp');
-INSERT INTO SupportedGames (GameName, GameIcon, GamePage) VALUES('Honkai Star Rail', 'https://cdn.now.gg/apps-content/com.HoYoverse.hkrpgoversea/icon/honkai-star-rail.png' ,'games/hsr.jsp');
-INSERT INTO SupportedGames (GameName, GameIcon, GamePage) VALUES('Valorant','https://www.techspot.com/images2/downloads/topdownload/2020/06/2020-06-09-ts3_thumbs-7fd.png','games/riot-valorant.jsp');
+INSERT INTO SupportedGames (GameID, GameName, GameIcon, GamePage) VALUES('HV001_GI','Genshin Impact', 'https://play-lh.googleusercontent.com/vRd2gg6XmC3TRTM5wZZ8qwEc5LMUROh4whycLuiCSPB40tIxDYLT6V0BdCn486XiKQ0=w240-h480-rw' ,'games/genshin-impact.jsp');
+INSERT INTO SupportedGames (GameID, GameName, GameIcon, GamePage) VALUES('HV002_HSR','Honkai Star Rail', 'https://cdn.now.gg/apps-content/com.HoYoverse.hkrpgoversea/icon/honkai-star-rail.png' ,'games/hsr.jsp');
+INSERT INTO SupportedGames (GameID, GameName, GameIcon, GamePage) VALUES('TRG003_VRT','Valorant','https://www.techspot.com/images2/downloads/topdownload/2020/06/2020-06-09-ts3_thumbs-7fd.png','games/riot-valorant.jsp');
 
 CREATE TABLE INVENTORY(
     ItemID VARCHAR(255) NOT NULL,
-    GameID INT NOT NULL,
+    GameID VarChar(64) NOT NULL,
     ItemName VARCHAR(128) NOT NULL,
     ItemPic VARCHAR(128) NOT NULL,
     ItemValue INT NOT NULL,
@@ -83,6 +83,14 @@ CREATE TABLE INVENTORY(
     UNIQUE(ItemID, GameID),
     PRIMARY KEY(ItemID)
 );
+
+INSERT INTO INVENTORY VALUES ('HV_GI_GC60', 'HV001_GI', '60 Genesis Crystals', '/assets/StorePage/crystals1.png', 49);
+INSERT INTO INVENTORY VALUES ('HV_GI_GC300', 'HV001_GI', '300+300 Genesis Crystals', '/assets/StorePage/crystals2.png', 249);
+INSERT INTO INVENTORY VALUES ('HV_GI_GC980', 'HV001_GI', '980+980 Genesis Crystals', '/assets/StorePage/crystals3.png', 749);
+INSERT INTO INVENTORY VALUES ('HV_GI_GC1980', 'HV001_GI', '1980+1980 Genesis Crystals', '/assets/StorePage/crystals4.png', 1490);
+INSERT INTO INVENTORY VALUES ('HV_GI_GC3280', 'HV001_GI', '3280+3280 Genesis Crystals', '/assets/StorePage/crystals5.png', 2490);
+INSERT INTO INVENTORY VALUES ('HV_GI_GC6480', 'HV001_GI', '6480+6480 Genesis Crystals', '/assets/StorePage/crystals6.png', 4990);
+INSERT INTO INVENTORY VALUES ('HV_GI_WELKIN', 'HV001_GI', 'Blessing of the Welkin Moon', '/assets/StorePage/welkin.png', 249);
 
 CREATE TABLE UserTransactions(
     UserID INT NOT NULL,
