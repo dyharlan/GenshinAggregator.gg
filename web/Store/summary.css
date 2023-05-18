@@ -3,27 +3,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
 */
 /* 
-    Created on : May 8, 2023, 10:27:38 PM
+    Created on : May 11, 2023, 7:26:38 PM
     Author     : csean
 */
-
 * {
     border: 0;
     margin: 0;
     scroll-behavior: smooth;
-    font-family: "Montserrat", 'Open Sans', Helvetica, sans-serif;
-    color: black;/*#d4d5df;*/
+    font-family: 'Open Sans', sans-serif;
+    color: #d4d5df;
     text-decoration: none;
-    box-sizing: border-box;
 }
 
-:root {
-    --text: #d4d4d4;
+:root { /*placeholder for declaring variables*/
+
 }
+
 
 body {
-    width: 100vw;
-    height: 100vh;
+    width: 100vw; /*100%*/
 }
 
 main {
@@ -32,19 +30,19 @@ main {
     place-items: center;
     */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #280031;
     min-height: calc(100vh - 55px);
     width: 100%;
+    gap: 9px;
 }
 
-/*navbar customization section start*/
 .topnav {
     background-color: #3c1f42;
     overflow: hidden;
-    height: 55px;
-  }
+}
   
 /* Style the links inside the navigation bar */
 .topnav a {
@@ -71,9 +69,20 @@ main {
 }
 
 .logo {
+    float: left;
     position: relative;
     margin-top: 10px;
     margin-left: 35px;/*55px;*/
+}
+
+.navbar-text {
+    float: left;
+    font-style: italic;
+    display: block;
+    text-align: center;
+    font-size: 1rem;
+    margin-left: 36px;
+    margin-top: 18.15px; /* more accurate value is 18.1665px */
 }
 
 h1 {
@@ -89,6 +98,7 @@ div.order{
     display: block;
     color: white;
     text-align: center;
+    
 }
     
 div.captcha{
@@ -105,4 +115,10 @@ input[type="submit"] {
     margin-right: auto;
     width: 40%;
     margin-top: 10px;
+}
+
+div.order {
+    border: solid;
+    border-width: thick;
+    border-color: white;
 }
