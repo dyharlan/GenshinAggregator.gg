@@ -109,7 +109,7 @@ h1 {
     color: black;/*var(--text);*/
 }
 
-input[type="text"], input[type="password"] {
+input[type="email"], input[type="text"], input[type="password"]  {
     width: auto;
     font-size: 1rem;
     padding: 9px;

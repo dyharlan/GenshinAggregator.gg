@@ -28,8 +28,8 @@
             <form method="post" action="Register" class="register">
                 <h1>Sign Up</h1>
                 <div class="container input">
-                <label for="email" class="input label">Email: </label>
-                <input type="email" class="input" name="email" id="email" placeholder="Enter Email" enterkeyhint="go" required>
+                    <label for="username" class="input label">E-mail: </label>
+                    <input type="email" class="input" name="email" id="email" placeholder="Enter E-mail." enterkeyhint="go" required>
                 <% if (request.getAttribute("userExists") != null && (((Boolean) request.getAttribute("userExists"))) == true) { %>
                     <p>Email already exists. Please input another email.</p>
                 <% } %>
@@ -55,7 +55,7 @@
                     <label for="show" class="checkbox label">Show Password</label>
                 </div>
                 
-                <div class="form-group">
+                <div class="captcha">
                 <label for="captcha">Captcha:</label>
                 <br>
                 <img src ="<%= request.getContextPath() %>/Store/captchaImg.png"/>
