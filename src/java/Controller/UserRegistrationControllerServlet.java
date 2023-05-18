@@ -95,20 +95,18 @@ public class UserRegistrationControllerServlet extends HttpServlet {
                     .append(getServletContext().getInitParameter("dbName"));
             System.out.println(password);
             conn = DriverManager.getConnection(url.toString(), username, password);
-			
-			String query = "SELECT EMAILS FROM PersonCredentials";
-			Statement statement = conn.createStatement();
-			ResultSet emailSet = statement.executeQuery(query);
-			while(emailSet.next())
-			{
-				if (request.getParameter("email").equals(emailSet.getString("EMAIL")))
-				{
-					boolean userExistsFlag = true;
-					request.setAttribute("userExists",userExistsFlag);
-					request.getRequestDispatcher("register.jsp").include(request,response);
-					return;
-				}
-			}
+	
+            String query = "SELECT EMAIL FROM PersonCredentials";
+            Statement statement = conn.createStatement();
+            ResultSet emailSet = statement.executeQuery(query);
+            while (emailSet.next()) {
+                if (request.getParameter("email").equals(emailSet.getString("EMAIL"))) {
+                    boolean userExistsFlag = true;
+                    request.setAttribute("userExists", userExistsFlag);
+                    request.getRequestDispatcher("register.jsp").include(request, response);
+                    return;
+                }
+            }
 			
             //set parameterized query
             String ps_query1 = "INSERT INTO PersonCredentials(EMAIL,PASSWORD) VALUES(?,?)";
