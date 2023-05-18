@@ -16,7 +16,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="navbar.css"/>
-        <link href="hsr.css" rel="stylesheet">
+        <link href="game-content.css" rel="stylesheet">
         <title>Genshin Impact</title>
         <script>
             
@@ -66,7 +66,7 @@
                  class="logo"
                  />
             <p class="navbar-text">Celebrating 1 year in the service of Tech Otakus!</p>
-
+            
             <c:choose>
                 <c:when test="${cookie.containsKey('let-him-cook1') && cookie.containsKey('let-him-cook2') && cookie.containsKey('let-him-cook3')}">
                     <c:set var="param1" value="${Integer.valueOf(cookie['let-him-cook1'].value)}"/> 
@@ -87,7 +87,9 @@
                         </c:when>  
                         <c:otherwise>
                             <c:forEach var="user_info" items="${rs.rows}">
-                                <p>${user_info.fname} ${user_info.lname}</p><a class="split login" href="<%= request.getContextPath()%>/Store/Logout">Logout</a>
+                                <a class="split login" href="<%= request.getContextPath()%>/Store/Logout">Logout</a>
+                                <a class="bx bx-shopping-bag split" id="cart-icon" href="cart.jsp"></a>
+                                <a class="navbar-text split name">${user_info.fname} ${user_info.lname}</a>
                             </c:forEach>
                         </c:otherwise>
                     </c:choose>
@@ -97,7 +99,7 @@
                     <a class="split login" href="<%= request.getContextPath()%>/Store/Login">Login</a>
                 </c:otherwise>
             </c:choose>
-            <a class="bx bx-shopping-bag split" id="cart-icon" href="cart.jsp"></a>
+            
         </nav>
         <main>
             <div class="details">
@@ -132,9 +134,9 @@
                     <h1>Select Payment</h1>
                     <div class="payment-container">
                         <!-- for (database) -->
-                        <div class="child"><input type="radio" id="visa" name="payment" value="visa" required><img src="<%= request.getContextPath()%>/assets/StorePage/visa.png" class="visa"></div>
-                        <div class="child"><input type="radio" id="mastercard" name="payment" value="mastercard" required><img src="<%= request.getContextPath()%>/assets/StorePage/mastercard.png" class="mastercard"></div>
-                        <div class="child"><input type="radio" id="gcash" name="payment" value="gcash"><img src="<%= request.getContextPath()%>/assets/StorePage/gcash.png" class="gcash"></div>
+                        <div class="child"><input type="radio" id="visa" name="payment" value="visa" required><label for="visa"><img src="<%= request.getContextPath()%>/assets/StorePage/visa.png" class="visa"></label></div>
+                        <div class="child"><input type="radio" id="mastercard" name="payment" value="mastercard" required><label for="mastercard"><img src="<%= request.getContextPath()%>/assets/StorePage/mastercard.png" class="mastercard"></label></div>
+                        <div class="child"><input type="radio" id="gcash" name="payment" value="gcash"><label for="gcash"><img src="<%= request.getContextPath()%>/assets/StorePage/gcash.png" class="gcash"></label></div>
                     </div>
                     <button type="submit" onclick="regexTest()">Pay Now</button>
                 </div>   

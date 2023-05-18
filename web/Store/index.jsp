@@ -19,7 +19,7 @@
         <title><%= getServletContext().getInitParameter("AppName")%> - Celebrating 1 year in the service of Tech Otakus!</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="navbar.css"/>
-        <link href="store.css" rel="stylesheet">
+        <link rel="stylesheet" href="store.css">
     </head>
     <body>
         <nav class="topnav">
@@ -32,7 +32,6 @@
             />
             <p class="navbar-text">Celebrating 1 year in the service of Tech Otakus!</p>
 
-            
             <c:choose>
                 <c:when test="${cookie.containsKey('let-him-cook1') && cookie.containsKey('let-him-cook2') && cookie.containsKey('let-him-cook3')}">
                     <c:set var="param1" value="${Integer.valueOf(cookie['let-him-cook1'].value)}"/> 
@@ -54,7 +53,9 @@
                          </c:when>  
                         <c:otherwise>
                             <c:forEach var="user_info" items="${rs.rows}">
-                                <p class="navbar-text">${user_info.fname} ${user_info.lname}</p><a class="split login" href="<%= request.getContextPath() %>/Store/Logout">Logout</a>
+                                <a class="split login" href="<%= request.getContextPath() %>/Store/Logout">Logout</a>
+                                <a class="bx bx-shopping-bag split" id="cart-icon" href="cart.jsp"></a>
+                                <a class="navbar-text split name" href="<%= request.getContextPath() %>/Store/profile.jsp">${user_info.fname} ${user_info.lname}</a>
                             </c:forEach>
                         </c:otherwise>
                     </c:choose>
@@ -67,7 +68,7 @@
             </c:choose>
            
            
-            <a class="bx bx-shopping-bag split" id="cart-icon" href="cart.jsp"></a>
+            
             
         </nav>
         <main>
@@ -79,7 +80,7 @@
                         SELECT * FROM SUPPORTEDGAMES
                     </sql:query>
                     <c:forEach var="games" items="${rs.rows}">
-                        <a href="${pageContext.request.contextPath}/Store/${games.GamePage}">
+                        <a href="${pageContext.request.contextPath}/Store/${games.GamePage}" class="games">
                             <div class="content">
                                 <img src='${games.GameIcon}' lazy class="game-imgs" id="${games.GameID}">
                                 <label for="${games.GameID}">${games.GameName}</label>

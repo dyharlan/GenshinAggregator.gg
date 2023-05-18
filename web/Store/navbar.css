@@ -23,18 +23,19 @@ body {
     height: 100vh;
 }
 
-main {
+/*main {
     place-items: center;
     background-color: #280031;
     min-height: calc(100vh - 55px);
     width: 100%;
-}
+}*/
 
 /*navbar customization section start*/
 .topnav {
     background-color: #3c1f42;
     overflow: hidden;
-  }
+    height: 55px;
+}
   
 /* Style the links inside the navigation bar */
 .topnav a {
@@ -43,7 +44,7 @@ main {
   text-align: center;
   padding: 15px 15px;
   text-decoration: none;
-  font-size: 25px;
+  /*font-size: 25px;*/
   /* margin-right: 50px; */
 }
 
@@ -61,13 +62,24 @@ main {
 }
 
 .logo {
+    float: left;
     position: relative;
     margin-top: 10px;
     margin-left: 35px;/*55px;*/
 }
 
+.navbar-text {
+    float: left;
+    font-style: italic;
+    display: block;
+    text-align: center;
+    font-size: 1rem;
+    margin-left: 36px;
+    margin-top: 18.15px; /* more accurate value is 18.1665px */
+}
+
 a.login {
-    line-height: 10px;
+    line-height: 40px;
     display: inline-block;
     margin: 7.5px 9px;
     color: white;
@@ -77,6 +89,15 @@ a.login {
     background-color: #f16d0b;
     border-color: #f16d0b;
     border: none;
+}
+
+a.name {
+    margin: 3.5px 0;
+    font-size: 18px;
+}
+
+.bx {
+    font-size: 25px;
 }
 
 /*navbar customization section end*/

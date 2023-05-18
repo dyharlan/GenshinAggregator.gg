@@ -22,6 +22,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 
 body {
     width: 100vw; /*100%*/
+    max-width: 100%;
+    height: 100vh;
 }
 
 main {
@@ -37,65 +39,6 @@ main {
     min-height: calc(100vh - 55px);
     width: 100%;
     gap: 9px;
-}
-
-.topnav {
-    background-color: #3c1f42;
-    overflow: hidden;
-}
-  
-/* Style the links inside the navigation bar */
-.topnav a {
-  float: left;
-/*  color: #f2f2f2;*/
-  text-align: center;
-  padding: 15px 15px;
-  text-decoration: none;
-  font-size: 25px;
-  /* margin-right: 50px; */
-}
-
-/* Change the color of links on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-/* Create a right-aligned (split) link inside the navigation bar */
-.topnav .split {
-  float: right;
-  /*background-color: #04AA6D;*/
-  color: white;
-}
-
-.logo {
-    float: left;
-    position: relative;
-    margin-top: 10px;
-    margin-left: 35px;/*55px;*/
-}
-
-.navbar-text {
-    float: left;
-    font-style: italic;
-    display: block;
-    text-align: center;
-    font-size: 1rem;
-    margin-left: 36px;
-    margin-top: 18.15px; /* more accurate value is 18.1665px */
-}
-
-a.login {
-    line-height: 40px;
-    display: inline-block;
-    margin: 7.5px 9px;
-    color: white;
-    font-size: 18px;
-    padding: 0 13px;
-    border-radius: 3px;
-    background-color: #f16d0b;
-    border-color: #f16d0b;
-    border: none;
 }
 
 /*
