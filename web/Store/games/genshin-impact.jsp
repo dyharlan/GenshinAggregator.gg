@@ -89,34 +89,6 @@
                         <div class="img-button"><input id="${genshin.ItemID}" type="radio" name="select" value="${genshin.ItemID}" required></div>
                     </div>   
                     </c:forEach>
-                    <!--                <div class="r1 child">
-                                        <div class="content"><label for="rb1"><img src="<%= request.getContextPath()%>/assets/StorePage/crystals1.png" width="225" height="225"><p class="desc">60 Oneiric Shard</p><p class="price">₱49</p></label></div>
-                                        <div class="img-button"><input id="rb1" type="radio" name="select" value="r1" required></div>
-                                    </div>
-                                    <div class="r2 child">
-                                        <div class="content"><label for="rb2"><img src="<%= request.getContextPath()%>/assets/StorePage/crystals2.png" width="225" height="225"><p>300+300 Oneiric Shard</p><p>₱249</p></label></div>
-                                        <div class="img-button"><input id="rb2" type="radio" name="select" value="r2" required></div>
-                                    </div>
-                                    <div class="r3 child">
-                                        <div class="content"><label for="rb3"><img src="<%= request.getContextPath()%>/assets/StorePage/crystals3.png" width="225" height="225"><p>980+980 Oneiric Shard</p><p>₱749</p></label></div>
-                                        <div class="img-button"><input id="rb3" type="radio" name="select" value="r3" required></div>
-                                    </div>
-                                    <div class="r4 child">
-                                        <div class="content"><label for="rb4"><img src="<%= request.getContextPath()%>/assets/StorePage/crystals4.png" width="225" height="225"><p>1980+1980 Oneiric Shard</p><p>₱1490</p></label></div>
-                                        <div class="img-button"><input id="rb4" type="radio" name="select" value="r4" required></div>
-                                    </div>
-                                    <div class="r5 child">
-                                        <div class="content"><label for="rb5"><img src="<%= request.getContextPath()%>/assets/StorePage/crystals5.png" width="225" height="225"><p>3280+3280 Oneiric Shard</p><p>₱2490</p></label></div>
-                                        <div class="img-button"><input id="rb5" type="radio" name="select" value="r5" required></div>
-                                    </div>
-                                     <div class="r6 child">
-                                        <div class="content"><label for="rb6"><img src="<%= request.getContextPath()%>/assets/StorePage/crystals6.png" width="225" height="225"><p>6480+6480 Oneiric Shard</p><p>₱4990</p></label></div>
-                                        <div class="img-button"><input id="rb6" type="radio" name="select" value="r6" required></div>
-                                    </div>
-                                    <div class="r7 child">
-                                        <div class="content"><label for="rb7"><img src="<%= request.getContextPath()%>/assets/StorePage/welkin.png" width="225" height="225"><p>Blessing of the Welkin Moon </p><p>₱249</p></label></div>
-                                        <div class="img-button"><input id="rb7" type="radio" name="select" value="r7" required></div>
-                                    </div>-->
                 </div>
                 <p class="solid">        
                 <div class="payment">
