@@ -100,6 +100,13 @@ INSERT INTO INVENTORY VALUES ('HV_GI_OS3280', 'HV002_HSR', '3280+3280 Oneiric Sh
 INSERT INTO INVENTORY VALUES ('HV_GI_OS6480', 'HV002_HSR', '6480+6480 Oneiric Shard', '/assets/StorePage/Oneiric6480.png', 4990);
 INSERT INTO INVENTORY VALUES ('HV_GI_ESPASS', 'HV002_HSR', 'Express Supply Pass', '/assets/StorePage/SupplyPass.png', 299);
 
+INSERT INTO INVENTORY VALUES ('TRG_VRT_VP375', 'TRG003_VRT', '375 Valorant Points', '/assets/StorePage/valopoints375.png', 49);
+INSERT INTO INVENTORY VALUES ('TRG_VRT_VP650', 'TRG003_VRT', '627+23 Valorant Points', '/assets/StorePage/valopoints650.png', 249);
+INSERT INTO INVENTORY VALUES ('TRG_VRT_VP1350', 'TRG003_VRT', '1256+94 Valorant Points', '/assets/StorePage/valopoints1350.png', 499);
+INSERT INTO INVENTORY VALUES ('TRG_VRT_VP2100', 'TRG003_VRT', '1885+215 Valorant Points', '/assets/StorePage/valopoints2100.png', 749);
+INSERT INTO INVENTORY VALUES ('TRG_VRT_VP3600', 'TRG003_VRT', '3146+454 Valorant Points', '/assets/StorePage/valopoints3600.png', 2490);
+INSERT INTO INVENTORY VALUES ('TRG_VRT_VP7500', 'TRG003_VRT', '6267+1233 Valorant Points', '/assets/StorePage/valopoints7500.png', 4990);
+
 CREATE TABLE UserTransactions(
     UserID INT NOT NULL,
     TransactionID VARCHAR(192) NOT NULL,

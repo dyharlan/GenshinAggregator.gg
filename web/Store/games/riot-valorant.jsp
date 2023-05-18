@@ -64,35 +64,23 @@
         <main>
             <div class="details">
                 <h1>Enter your Riot ID</h1>
-                <p><%= request.getAttribute("uidstatus") %></p>
                 <input class="child" name="uid" id="uid" oninput="numOnly(this.id);" type="text" minlength="1" maxlength="9" placeholder="Enter your Riot ID" required>
             </div>
             <div class="recharge">
                 <!-- for (database) -->
-                <div class="r1 child">
-                    <div class="content"><label for="rb1"><img src="<%= request.getContextPath()%>/assets/StorePage/valopoints375.png" width="225" height="225"><p class="desc">375 Valorant Points</p><p class="price">₱49</p></label></div>
-                    <div class="img-button"><input id="rb1" type="radio" name="select" value="r1" required></div>
-                </div>
-                <div class="r2 child">
-                    <div class="content"><label for="rb2"><img src="<%= request.getContextPath()%>/assets/StorePage/valopoints650.png" width="225" height="225"><p>627+23 Valorant Points</p><p>₱249</p></label></div>
-                    <div class="img-button"><input id="rb2" type="radio" name="select" value="r2" required></div>
-                </div>
-                <div class="r3 child">
-                    <div class="content"><label for="rb3"><img src="<%= request.getContextPath()%>/assets/StorePage/valopoints1350.png" width="225" height="225"><p>1256+94 Valorant Points</p><p>₱499</p></label></div>
-                    <div class="img-button"><input id="rb3" type="radio" name="select" value="r3" required></div>
-                </div>
-                <div class="r4 child">
-                    <div class="content"><label for="rb4"><img src="<%= request.getContextPath()%>/assets/StorePage/valopoints2100.png" width="225" height="225"><p>1885+215 Valorant Points</p><p>₱749</p></label></div>
-                    <div class="img-button"><input id="rb4" type="radio" name="select" value="r4" required></div>
-                </div>
-                <div class="r5 child">
-                    <div class="content"><label for="rb5"><img src="<%= request.getContextPath()%>/assets/StorePage/valopoints3600.png" width="225" height="225"><p>3146+454 Valorant Points</p><p>₱2490</p></label></div>
-                    <div class="img-button"><input id="rb5" type="radio" name="select" value="r5" required></div>
-                </div>
-                 <div class="r6 child">
-                    <div class="content"><label for="rb6"><img src="<%= request.getContextPath()%>/assets/StorePage/valopoints7500.png" width="225" height="225"><p>6267+1233 Valorant Points</p><p>₱4990</p></label></div>
-                    <div class="img-button"><input id="rb6" type="radio" name="select" value="r6" required></div>
-                </div>
+                 <sql:setDataSource var="ds" driver="org.apache.derby.jdbc.ClientDriver" 
+                                   url="jdbc:derby://localhost:1527/ConaShopDB" 
+                                   user="cona" password="admin1"/>
+                <sql:query dataSource="${ds}" var="rs">
+                    SELECT * FROM INVENTORY WHERE GameID = 'TRG003_VRT'
+                </sql:query>
+                <c:forEach var="valo" items="${rs.rows}">
+                    <div class="${valo.ItemID} child">
+                        <div class="content"><label for="${valo.ItemID}"><img src="${pageContext.servletContext.contextPath}${valo.ItemPic}" width="225" height="225"><p class="desc">${valo.ItemName}</p><p class="price">₱${valo.ItemValue}</p></label></div>
+                        <div class="img-button"><input id="${valo.ItemID}" type="radio" name="select" value="${valo.ItemID}" required></div>
+                    </div>   
+                </c:forEach>
+
             </div>
             <div class="payment">
                 <h1>Select Payment</h1>
