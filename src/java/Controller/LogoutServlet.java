@@ -41,6 +41,7 @@ public class LogoutServlet extends HttpServlet {
 
         }
         HttpSession session = request.getSession();
+        session.setAttribute("paymentInfo", null);
         session.invalidate();
         response.sendRedirect("index.jsp");
     }

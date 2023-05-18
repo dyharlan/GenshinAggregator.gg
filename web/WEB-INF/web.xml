@@ -147,6 +147,10 @@
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>Controller.LogoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CreditCardServlet</servlet-name>
+        <servlet-class>Controller.CreditCardServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CaptchaGenerator</servlet-name>
         <url-pattern>/Store/captchaImg.png</url-pattern>
@@ -159,7 +163,7 @@
         <servlet-name>BannerController</servlet-name>
         <url-pattern>/BannerViewer</url-pattern>
     </servlet-mapping>
-        <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>PaymentProcessorControllerServlet</servlet-name>
         <url-pattern>/OldStore/PaymentProcessor</url-pattern>
     </servlet-mapping>
@@ -183,6 +187,10 @@
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/Store/Logout</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreditCardServlet</servlet-name>
+        <url-pattern>/Store/CCProcessor</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
@@ -201,7 +209,7 @@
         <error-code>403</error-code>
         <location>/403.jsp</location>
     </error-page>
-     <error-page>
+    <error-page>
         <error-code>404</error-code>
         <location>/404.jsp</location>
     </error-page>
