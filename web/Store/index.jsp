@@ -74,11 +74,11 @@
                     </sql:query>
                     <c:forEach var="games" items="${rs.rows}">
                         <a href="${games.GamePage}">
-                        <div class="content">
-                            <img src='${games.GameIcon}' lazy class="game-imgs" id="${games.GameID}">
-                            <label for="${games.GameID}">${games.GameName}</label>
-                        </div>
-                    </a>
+                            <div class="content">
+                                <img src='${games.GameIcon}' lazy class="game-imgs" id="${games.GameID}">
+                                <label for="${games.GameID}">${games.GameName}</label>
+                            </div>
+                        </a>
                     </c:forEach>
             </div>
         </main>
