@@ -36,46 +36,35 @@
         </nav>
         <main>
             <div class="details">
-                <h1>Enter UID And Server Details</h1>
+                <h1>Enter your Riot ID</h1>
                 <p><%= request.getAttribute("uidstatus") %></p>
-                <input class="child" name="uid" id="uid" oninput="numOnly(this.id);" type="text" minlength="1" maxlength="9" placeholder="Enter UID (Up to 9 digits)" required>
-                <select class="child" name="server" id="server" required>
-                    <option value="" disabled selected hidden>Select Server</option>
-                    <option value="na">America</option>
-                    <option value="eu">Europe</option>
-                    <option value="asia">Asia</option>
-                    <option value="sar">Taiwan, Hong Kong, Macao</option>
-                </select>
+                <input class="child" name="uid" id="uid" oninput="numOnly(this.id);" type="text" minlength="1" maxlength="9" placeholder="Enter your Riot ID" required>
             </div>
             <div class="recharge">
                 <!-- for (database) -->
                 <div class="r1 child">
-                    <div class="content"><label for="rb1"><img src="<%= request.getContextPath()%>/assets/StorePage/Oneiric60.png" width="225" height="225"><p class="desc">60 Oneiric Shard</p><p class="price">₱49</p></label></div>
+                    <div class="content"><label for="rb1"><img src="<%= request.getContextPath()%>/assets/StorePage/valopoints375.png" width="225" height="225"><p class="desc">375 Valorant Points</p><p class="price">₱49</p></label></div>
                     <div class="img-button"><input id="rb1" type="radio" name="select" value="r1" required></div>
                 </div>
                 <div class="r2 child">
-                    <div class="content"><label for="rb2"><img src="<%= request.getContextPath()%>/assets/StorePage/Oneiric300.png" width="225" height="225"><p>300+300 Oneiric Shard</p><p>₱249</p></label></div>
+                    <div class="content"><label for="rb2"><img src="<%= request.getContextPath()%>/assets/StorePage/valopoints650.png" width="225" height="225"><p>627+23 Valorant Points</p><p>₱249</p></label></div>
                     <div class="img-button"><input id="rb2" type="radio" name="select" value="r2" required></div>
                 </div>
                 <div class="r3 child">
-                    <div class="content"><label for="rb3"><img src="<%= request.getContextPath()%>/assets/StorePage/Oneiric980.png" width="225" height="225"><p>980+980 Oneiric Shard</p><p>₱749</p></label></div>
+                    <div class="content"><label for="rb3"><img src="<%= request.getContextPath()%>/assets/StorePage/valopoints1350.png" width="225" height="225"><p>1256+94 Valorant Points</p><p>₱499</p></label></div>
                     <div class="img-button"><input id="rb3" type="radio" name="select" value="r3" required></div>
                 </div>
                 <div class="r4 child">
-                    <div class="content"><label for="rb4"><img src="<%= request.getContextPath()%>/assets/StorePage/Oneiric1980.png" width="225" height="225"><p>1980+1980 Oneiric Shard</p><p>₱1490</p></label></div>
+                    <div class="content"><label for="rb4"><img src="<%= request.getContextPath()%>/assets/StorePage/valopoints2100.png" width="225" height="225"><p>1885+215 Valorant Points</p><p>₱749</p></label></div>
                     <div class="img-button"><input id="rb4" type="radio" name="select" value="r4" required></div>
                 </div>
                 <div class="r5 child">
-                    <div class="content"><label for="rb5"><img src="<%= request.getContextPath()%>/assets/StorePage/Oneiric3280.png" width="225" height="225"><p>3280+3280 Oneiric Shard</p><p>₱2490</p></label></div>
+                    <div class="content"><label for="rb5"><img src="<%= request.getContextPath()%>/assets/StorePage/valopoints3600.png" width="225" height="225"><p>3146+454 Valorant Points</p><p>₱2490</p></label></div>
                     <div class="img-button"><input id="rb5" type="radio" name="select" value="r5" required></div>
                 </div>
                  <div class="r6 child">
-                    <div class="content"><label for="rb6"><img src="<%= request.getContextPath()%>/assets/StorePage/Oneiric6480.png" width="225" height="225"><p>6480+6480 Oneiric Shard</p><p>₱4990</p></label></div>
+                    <div class="content"><label for="rb6"><img src="<%= request.getContextPath()%>/assets/StorePage/valopoints7500.png" width="225" height="225"><p>6267+1233 Valorant Points</p><p>₱4990</p></label></div>
                     <div class="img-button"><input id="rb6" type="radio" name="select" value="r6" required></div>
-                </div>
-                <div class="r7 child">
-                    <div class="content"><label for="rb7"><img src="<%= request.getContextPath()%>/assets/StorePage/SupplyPass.png" width="225" height="225"><p>Express Supply Pass</p><p>₱299</p></label></div>
-                    <div class="img-button"><input id="rb7" type="radio" name="select" value="r7" required></div>
                 </div>
             </div>
             <div class="payment">
@@ -86,7 +75,7 @@
                         <div class="child"><input type="radio" id="mastercard" name="payment" value="mastercard" required><img src="<%= request.getContextPath()%>/assets/StorePage/mastercard.png" class="mastercard"></div>
                         <div class="child"><input type="radio" id="gcash" name="payment" value="gcash"><img src="<%= request.getContextPath()%>/assets/StorePage/gcash.png" class="gcash"></div>
                 </div>
-                        <button type="submit">Pay Now</button>
+                <button type="submit">Pay Now</button>
             </div>
 
         </main>

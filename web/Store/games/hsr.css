@@ -105,6 +105,14 @@ input.login {
 }
 */
 
+div.details{
+   border: solid;
+    border-color: black;
+    padding: 20px 20px; 
+    margin-top: 10px;
+}
+
+
 div.recharge {
     display: flex;
     flex-flow: row wrap;
@@ -127,6 +135,13 @@ div.recharge {
     width: 100%;
 }
 */
+
+div.payment{
+    border: solid;
+    border-color: black;
+    padding: 20px 20px;
+    margin-bottom: 10px;
+}
 
 .visa {
     max-width: 55px;
