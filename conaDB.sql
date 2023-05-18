@@ -92,6 +92,14 @@ INSERT INTO INVENTORY VALUES ('HV_GI_GC3280', 'HV001_GI', '3280+3280 Genesis Cry
 INSERT INTO INVENTORY VALUES ('HV_GI_GC6480', 'HV001_GI', '6480+6480 Genesis Crystals', '/assets/StorePage/crystals6.png', 4990);
 INSERT INTO INVENTORY VALUES ('HV_GI_WELKIN', 'HV001_GI', 'Blessing of the Welkin Moon', '/assets/StorePage/welkin.png', 249);
 
+INSERT INTO INVENTORY VALUES ('HV_GI_OS60', 'HV002_HSR', '60 Oneiric Shard', '/assets/StorePage/Oneiric60.png', 49);
+INSERT INTO INVENTORY VALUES ('HV_GI_OS300', 'HV002_HSR', '300+300 Oneiric Shard', '/assets/StorePage/Oneiric300.png', 249);
+INSERT INTO INVENTORY VALUES ('HV_GI_OS980', 'HV002_HSR', '980+980 Oneiric Shard', '/assets/StorePage/Oneiric980.png', 749);
+INSERT INTO INVENTORY VALUES ('HV_GI_OS1980', 'HV002_HSR', '1980+1980 Oneiric Shard', '/assets/StorePage/Oneiric1980.png', 1490);
+INSERT INTO INVENTORY VALUES ('HV_GI_OS3280', 'HV002_HSR', '3280+3280 Oneiric Shard', '/assets/StorePage/Oneiric3280.png', 2490);
+INSERT INTO INVENTORY VALUES ('HV_GI_OS6480', 'HV002_HSR', '6480+6480 Oneiric Shard', '/assets/StorePage/Oneiric6480.png', 4990);
+INSERT INTO INVENTORY VALUES ('HV_GI_ESPASS', 'HV002_HSR', 'Express Supply Pass', '/assets/StorePage/SupplyPass.png', 299);
+
 CREATE TABLE UserTransactions(
     UserID INT NOT NULL,
     TransactionID VARCHAR(192) NOT NULL,
