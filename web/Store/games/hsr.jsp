@@ -45,7 +45,7 @@
                     }
                 }
             %>
-            <%  if (cookieFound == true) { %>
+            <%  if (cookieFound == false) { %>
                 <a class="split login" href="<%= request.getContextPath() %>/Store/login.jsp">Login</a>
             <% } else { %>
                 <a class="split login" href="<%= request.getContextPath() %>/Store/Logout">Logout</a>

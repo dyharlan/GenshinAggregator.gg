@@ -21,7 +21,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 
 
 body {
-    width: 100%; /*100vw*/
+    width: 100vw; /*100%*/
 }
 
 main {
@@ -85,7 +85,7 @@ main {
     margin-top: 18.15px; /* more accurate value is 18.1665px */
 }
 
-input.login {
+a.login {
     line-height: 40px;
     display: inline-block;
     margin: 7.5px 9px;

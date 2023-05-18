@@ -28,7 +28,25 @@
             class="logo"
             />
             <p class="navbar-text">Celebrating 1 year in the service of Tech Otakus!</p>
-            <% if (session.getAttribute("username") == null) { %>
+            <%  
+                boolean cookieFound = false;
+                String cookieName = "let him cook";
+                Cookie[] cookies = request.getCookies();
+                
+                if (cookies != null) 
+                {
+                    for (int i=0; i < cookies.length; i++) 
+                    {
+                        Cookie cookie = cookies[i];
+                        if (cookieName.equals(cookie.getName())) 
+                        { 
+                            cookieFound = true;
+                            break;
+                        }
+                    }
+                }
+            %>
+            <% if (cookieFound == false) { %>
                 <a class="split login" href="<%= request.getContextPath() %>/Store/login.jsp">Login</a>
             <% } else {%>
                 <a class="split login" href="<%= request.getContextPath() %>/Store/Logout">Logout</a>
