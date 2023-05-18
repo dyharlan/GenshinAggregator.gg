@@ -27,7 +27,11 @@
             class="logo"
             />
             <p class="navbar-text">Celebrating 1 year in the service of Tech Otakus!</p>
-            <a class="split login" href="<%= request.getContextPath() %>/Store/login.jsp">Login</a>
+            <% if (session.getAttribute("username") == null) { %>
+                <a class="split login" href="<%= request.getContextPath() %>/Store/login.jsp">Login</a>
+            <% } else {%>
+                <a class="split login" href="<%= request.getContextPath() %>/Store/Logout">Logout</a>
+            <%}%>
             <a class="bx bx-shopping-bag split" id="cart-icon" href="cart.jsp"></a>
         </nav>
         <main>

@@ -29,16 +29,10 @@
             />
             <p class="navbar-text">Celebrating 1 year in the service of Tech Otakus!</p>
             <% if (session.getAttribute("username") == null) { %>
-            <form class="acct-status split" method="POST" action="<%= request.getContextPath() %>/Store/login.jsp" class="login"> <!-- The nature of css dictates that whatever element is encountered first will receive the styles accordingly from the stylesheet, this also means that log in will be the rightmost element, followed by the shopping bag -->
-                <!-- This is the Log In button -->
-                <input class="login" type="submit" value="Log In" name="where">
-            </form>
+                <a class="split login" href="<%= request.getContextPath() %>/Store/login.jsp">Login</a>
             <% } else {%>
-            <form class="acct-status split" method="POST" action="<%= request.getContextPath() %>/Store/Logout" class="login"> <!-- The nature of css dictates that whatever element is encountered first will receive the styles accordingly from the stylesheet, this also means that log in will be the rightmost element, followed by the shopping bag -->
-                <!-- This is the Log In button -->
-                <input class="login" type="submit" value="Log Out" name="where">
-            </form>
-                <%}%>
+                <a class="split login" href="<%= request.getContextPath() %>/Store/Logout">Logout</a>
+            <%}%>
             <a class="bx bx-shopping-bag split" id="cart-icon" href="cart.jsp"></a>
             
         </nav>
