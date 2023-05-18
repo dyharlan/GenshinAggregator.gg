@@ -77,7 +77,19 @@
             </div>
             <div class="recharge">
                 <!-- for (database) -->
-                <div class="r1 child">
+                <sql:setDataSource var="ds" driver="org.apache.derby.jdbc.ClientDriver" 
+                                       url="jdbc:derby://localhost:1527/ConaShopDB" 
+                                       user="cona" password="admin1"/>
+                    <sql:query dataSource="${ds}" var="rs">
+                        SELECT * FROM INVENTORY WHERE GameID = 'HV001_GI'
+                    </sql:query>
+                    <c:forEach var="genshin" items="${rs.rows}">
+                        <div class="${genshin.ItemID} child">
+                        <div class="content"><label for="${genshin.ItemID}"><img src="${pageContext.servletContext.contextPath}${genshin.ItemPic}" width="225" height="225"><p class="desc">${genshin.ItemName}</p><p class="price">₱${genshin.ItemValue}</p></label></div>
+                        <div class="img-button"><input id="${genshin.ItemID}" type="radio" name="select" value="${genshin.ItemID}" required></div>
+                    
+                    </c:forEach>
+<!--                <div class="r1 child">
                     <div class="content"><label for="rb1"><img src="<%= request.getContextPath()%>/assets/StorePage/crystals1.png" width="225" height="225"><p class="desc">60 Oneiric Shard</p><p class="price">₱49</p></label></div>
                     <div class="img-button"><input id="rb1" type="radio" name="select" value="r1" required></div>
                 </div>
@@ -104,7 +116,7 @@
                 <div class="r7 child">
                     <div class="content"><label for="rb7"><img src="<%= request.getContextPath()%>/assets/StorePage/welkin.png" width="225" height="225"><p>Blessing of the Welkin Moon </p><p>₱249</p></label></div>
                     <div class="img-button"><input id="rb7" type="radio" name="select" value="r7" required></div>
-                </div>
+                </div>-->
             </div>
             <p class="solid">        
             <div class="payment">
