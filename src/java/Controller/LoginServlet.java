@@ -36,18 +36,6 @@ public class LoginServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    private String key; //Google Translate: It's really a pain to take care of yourself.
-    private String initVector; //exactly 16 bytes for 256 bit encryption
-    private String algorithm;
-    private String mode;
-    
-    public void init(ServletConfig config) throws ServletException {
-        super.init(config);
-        key = config.getInitParameter("key");
-        initVector = config.getInitParameter("initVector");
-        algorithm = config.getInitParameter("algorithm");
-        mode = config.getInitParameter("mode");
-    }
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -92,7 +80,7 @@ public class LoginServlet extends HttpServlet {
         
         public ResultSet runQuery(HttpServletRequest request, String query) throws SQLException {
             ServletContext context = request.getServletContext();
-            key = context.getInitParameter("key");
+            
             Connection conn = null;
             PreparedStatement ps = null;
             ResultSet rs = null;
