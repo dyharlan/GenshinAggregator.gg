@@ -3,7 +3,8 @@
     Created on : May 18, 2023, 4:23:56 PM
     Author     : csean
 --%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%> 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,22 +21,57 @@
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     </head>
     <body>
+
+
         <nav class="topnav">
             <img src="<%= request.getContextPath()%>/assets/ConaShop-Logo.png" 
-            alt="ConaShop Logo" 
-            loading="lazy" 
-            width="159"
-            height="35"
-            class="logo"
-            />
+                 alt="ConaShop Logo" 
+                 loading="lazy" 
+                 width="159"
+                 height="35"
+                 class="logo"
+                 />
         </nav>
         <main>
-            <h1>Profile Page</h1>
-            <p>First Name: </p>
-            <p>Last Name: </p>
-            <p>Date of Birth: </p>
+            <c:choose>
+                <c:when test="${!(cookie.containsKey('let-him-cook1') && cookie.containsKey('let-him-cook2') && cookie.containsKey('let-him-cook3'))}">
+                    <c:redirect url = "index.jsp"/>
+                </c:when>
+                <c:when test="${cookie.containsKey('let-him-cook1') && cookie.containsKey('let-him-cook2') && cookie.containsKey('let-him-cook3')}">
+                    <c:set var="param1" value="${Integer.valueOf(cookie['let-him-cook1'].value)}"/> 
+                    <c:set var="param2" value="${cookie['let-him-cook2'].value}"/> 
+                    <c:set var="param3" value="${cookie['let-him-cook3'].value}"/> 
+                    <sql:setDataSource var="ds" driver="org.apache.derby.jdbc.ClientDriver" 
+                                       url="jdbc:derby://localhost:1527/ConaShopDB" 
+                                       user="cona" password="admin1"/>
+                    <sql:query dataSource="${ds}" var="rs">
+                        SELECT PersonInfo.USERID,PersonInfo.FNAME,PersonInfo.LNAME,PersonInfo.DOB FROM PersonInfo JOIN PersonCredentials USING(UserID) where USERID = ? AND EMAIL = ? AND PASSWORD = ?
+                        <sql:param value="${param1}" />  
+                        <sql:param value="${param2}" />  
+                        <sql:param value="${param3}" />  
+                    </sql:query>
+                    <c:choose>
+                        <c:when test="${rs == null}">
+                            <c:set var="cookie" value=""/>
+                            <c:redirect url = "index.jsp"/>
+                        </c:when>  
+                        <c:otherwise>
+                            <c:forEach var="user_info" items="${rs.rows}">
+                                
+                                <h1>Profile Page</h1>
+                                <p>First Name: ${user_info.fname}</p>
+                                <p>Last Name: ${user_info.lname}</p>
+                                <p>Date of Birth: ${user_info.DOB}</p>
+
+                            </c:forEach>
+                        </c:otherwise>
+                    </c:choose>
+
+                </c:when>
+            </c:choose>
             <!-- Trigger/Open The Modal -->
-            <button id="payment-btn">Payment Info</button>
+            <h2>Available Payment Methods</h2>
+            <button id="payment-btn">Add Payment Method</button>
             <!-- The Modal -->
             <div id="modal-container" class="modal">
 
