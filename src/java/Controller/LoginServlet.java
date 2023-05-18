@@ -46,15 +46,15 @@ public class LoginServlet extends HttpServlet {
             {
                 String email = request.getParameter("email");
                 String password = request.getParameter("password");
-                String query = "SELECT USERID,EMAIL FROM PersonCredentials WHERE USERID = ? AND EMAIL = ?";
-                ResultSet credentials = runQuery(request, query); //used to determine if the login input matches credentials in database
+                String query = "SELECT USERID,EMAIL,PASSWORD FROM PersonCredentials WHERE EMAIL = ? AND PASSWORD = ?";
+                ResultSet credentials = runQuery(request, query, email, password); //used to determine if the login input matches credentials in database
                 Security sec = new Security(getServletContext().getInitParameter("key"), getServletContext().getInitParameter("initVector"));
                 while (credentials.next()) 
                 { //if successful match is found, forwards to records.jsp
                     if (credentials.getString("EMAIL").trim().equals(email) && sec.decrypt(credentials.getString("PASSWORD").trim()).equals(password))
                     {
                         credentialsFound = true;
-                        Cookie cookie = new Cookie("let him cook",email);
+                        Cookie cookie = new Cookie("let him cook",credentials.getString("USERID"));
                         response.addCookie(cookie);
                         credentials.close();
                         response.sendRedirect("index.jsp");
@@ -84,7 +84,7 @@ public class LoginServlet extends HttpServlet {
             Connection conn = null;
             PreparedStatement ps = null;
             ResultSet rs = null;
-            Map<String,String> map = null;
+            //Map<String,String> map = null;
             try {
                 Class.forName(context.getInitParameter("className"));
                 String username = context.getInitParameter("dbUsername");
@@ -99,6 +99,59 @@ public class LoginServlet extends HttpServlet {
                         //.append(config.getInitParameter("sqlSSL"));
                 conn = DriverManager.getConnection(url.toString(), username, password);
                 ps = conn.prepareStatement(query,ResultSet.TYPE_SCROLL_SENSITIVE);
+                rs = ps.executeQuery(); //support for non-query functions
+            }
+            catch(SQLException sqle)
+            {
+                System.err.println("SQLException occured - " + sqle.getMessage());
+            }
+            catch(ClassNotFoundException cnfe)
+            {
+                System.err.println("ClassNotFoundException occured - " + cnfe.getMessage());
+            }
+            finally {
+                if (ps != null)
+                    ps.close();
+                if (conn != null)
+                    conn.close();
+            }
+            return rs;
+        }
+
+		public ResultSet runQuery(HttpServletRequest request, String query, Object... params) throws SQLException {
+            ServletContext context = request.getServletContext();
+            
+            Connection conn = null;
+            PreparedStatement ps = null;
+            ResultSet rs = null;
+            //Map<String,String> map = null;
+            try {
+                Class.forName(context.getInitParameter("className"));
+                String username = context.getInitParameter("dbUsername");
+                String password = context.getInitParameter("dbPassword");
+                StringBuffer url = new StringBuffer(context.getInitParameter("driverURL"))
+                        .append("://")
+                        .append(context.getInitParameter("dbHostName"))
+                        .append(":")
+                        .append(context.getInitParameter("dbPort"))
+                        .append("/")
+                        .append(context.getInitParameter("dbName"));
+                        //.append(config.getInitParameter("sqlSSL"));
+                conn = DriverManager.getConnection(url.toString(), username, password);
+                ps = conn.prepareStatement(query,ResultSet.TYPE_SCROLL_SENSITIVE);
+				int ctr = 1;
+				for (Object object : params)
+				{
+					if (object instanceof String)
+					{
+						ps.setString(ctr, (String) object);
+					}
+					else if (object instanceof Integer)
+					{
+						ps.setInt(ctr, (Integer) object);
+					}
+					ctr++;
+				}
                 rs = ps.executeQuery(); //support for non-query functions
             }
             catch(SQLException sqle)
