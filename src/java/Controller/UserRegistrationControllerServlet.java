@@ -103,6 +103,7 @@ public class UserRegistrationControllerServlet extends HttpServlet {
                 if (request.getParameter("email").equals(emailSet.getString("EMAIL"))) {
                     boolean userExistsFlag = true;
                     request.setAttribute("userExists", userExistsFlag);
+                    session.setAttribute(Captcha.NAME, null);
                     request.getRequestDispatcher("register.jsp").include(request, response);
                     return;
                 }
