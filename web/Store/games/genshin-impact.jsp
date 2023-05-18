@@ -18,6 +18,16 @@
         <link rel="stylesheet" href="navbar.css"/>
         <link href="hsr.css" rel="stylesheet">
         <title>Honkai: Star Rail</title>
+        <script>
+            function numOnly(id) {
+                // Get the element by id
+                var element = document.getElementById(id);
+                // Use numbers only pattern, from 0 to 9 with \-
+                var regex = /[^0-9\-]/gi;
+                // Replace other characters that are not in regex pattern
+                element.value = element.value.replace(regex, "");
+            }
+        </script>
     </head>
     <body>
         <nav class="topnav">
