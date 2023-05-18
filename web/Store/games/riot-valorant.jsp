@@ -17,7 +17,7 @@
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="navbar.css"/>
         <link href="hsr.css" rel="stylesheet">
-        <title>Honkai: Star Rail</title>
+        <title>Valorant</title>
     </head>
     <body>
         <nav class="topnav">
