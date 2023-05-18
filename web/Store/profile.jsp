@@ -82,8 +82,8 @@
                         <h2>Select Payment Method</h2>
                     </div>
                     <div class="modal-body">
-                        <a href="${pageContext.request.contextPath}/Store/gcash-add.jsp">GCash</a>
-                        <a href="${pageContext.request.contextPath}/Store/cc-add.jsp">Credit Card</a>
+                        <a href="${pageContext.request.contextPath}/Store/gcash-add.jsp" class="modal-btn">GCash</a>
+                        <a href="${pageContext.request.contextPath}/Store/cc-add.jsp" class="modal-btn">Credit Card</a>
                     </div>
                 </div>
 
