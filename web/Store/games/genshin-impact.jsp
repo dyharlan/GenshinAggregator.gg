@@ -19,13 +19,40 @@
         <link href="hsr.css" rel="stylesheet">
         <title>Honkai: Star Rail</title>
         <script>
-            function numOnly(id) {
-                // Get the element by id
-                var element = document.getElementById(id);
-                // Use numbers only pattern, from 0 to 9 with \-
-                var regex = /[^0-9\-]/gi;
-                // Replace other characters that are not in regex pattern
-                element.value = element.value.replace(regex, "");
+            
+            var regex = '';
+           
+            
+            function setRegex() {               
+                if(document.getElementById("server").value === 'na' )
+                    regex = /^6[0-9]{0,8}$/gi;
+                 if(document.getElementById("server").value === 'eu' )
+                    regex = /^7[0-9]{0,8}$/gi;
+                 if(document.getElementById("server").value === 'asia' )
+                    regex = /^8[0-9]{0,8}$/gi;
+                 if(document.getElementById("server").value === 'sar' )
+                    regex = /^9[0-9]{0,8}$/gi;  
+            }
+            
+            function regexTest(){
+                if(document.getElementById("uid").value === ''){
+                    alert("Please enter a UID!");
+                }
+                
+                if(regex === ''){
+                    alert("Please enter your server!");
+                }
+                
+                if(regex.test(document.getElementById("uid").value) === false){
+                 if(document.getElementById("server").value === 'na' )
+                    alert("Please re-enter your UID. NA accounts start with 6.");
+                 if(document.getElementById("server").value === 'eu' )
+                    alert("Please re-enter your UID. EU accounts start with 7.");
+                 if(document.getElementById("server").value === 'asia' )
+                    alert("Please re-enter your UID. Asia accounts start with 8.");
+                 if(document.getElementById("server").value === 'sar' )
+                    alert("Please re-enter your UID. TW/SAR accounts start with 9."); 
+                }
             }
         </script>
     </head>
@@ -75,8 +102,8 @@
         <main>
             <div class="details">
                 <h1>Enter UID And Server Details</h1>
-                <input class="child" name="uid" id="uid" oninput="numOnly(this.id);" type="text" size="26" minlength="1" maxlength="9" placeholder="Enter UID (Up to 9 digits)" required>
-                <select class="child" name="server" id="server" required>
+                <input class="child" name="uid" id="uid" type="text" minlength="1" maxlength="9" placeholder="Enter UID (Up to 9 digits)" required>
+                <select class="child" name="server" id="server" onchange="setRegex()" required>
                     <option value="" disabled selected hidden>Select Server</option>
                     <option value="na">America</option>
                     <option value="eu">Europe</option>
@@ -98,7 +125,7 @@
                         <div class="content"><label for="${genshin.ItemID}"><img src="${pageContext.servletContext.contextPath}${genshin.ItemPic}" width="225" height="225"><p class="desc">${genshin.ItemName}</p><p class="price">₱${genshin.ItemValue}</p></label></div>
                         <div class="img-button"><input id="${genshin.ItemID}" type="radio" name="select" value="${genshin.ItemID}" required></div>
                     </div>   
-                    </c:forEach>
+                </c:forEach>
                 </div>
                 <p class="solid">        
                 <div class="payment">
@@ -109,7 +136,7 @@
                         <div class="child"><input type="radio" id="mastercard" name="payment" value="mastercard" required><img src="<%= request.getContextPath()%>/assets/StorePage/mastercard.png" class="mastercard"></div>
                         <div class="child"><input type="radio" id="gcash" name="payment" value="gcash"><img src="<%= request.getContextPath()%>/assets/StorePage/gcash.png" class="gcash"></div>
                     </div>
-                    <button type="submit">Pay Now</button>
+                    <button type="submit" onclick="regexTest()">Pay Now</button>
                 </div>   
 
         </main>
