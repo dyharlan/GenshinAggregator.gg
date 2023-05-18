@@ -9,10 +9,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
 import java.sql.SQLException;
-import java.util.Map;
-import java.util.LinkedHashMap;
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -47,78 +45,86 @@ public class LoginServlet extends HttpServlet {
                 String email = request.getParameter("email");
                 String password = request.getParameter("password");
                 String query = "SELECT USERID,EMAIL,PASSWORD FROM PersonCredentials WHERE EMAIL = ? AND PASSWORD = ?";
-                ResultSet credentials = runQuery(request, query, email, password); //used to determine if the login input matches credentials in database
                 Security sec = new Security(getServletContext().getInitParameter("key"), getServletContext().getInitParameter("initVector"));
+                ResultSet credentials = runQuery(request, query, email, sec.encrypt(password)); //used to determine if the login input matches credentials in database
+                
                 while (credentials.next()) 
                 { //if successful match is found, forwards to records.jsp
-                    if (credentials.getString("EMAIL").trim().equals(email) && sec.decrypt(credentials.getString("PASSWORD").trim()).equals(password))
+                    System.out.println(credentials.getString("EMAIL").trim());
+                    System.out.println(credentials.getString("PASSWORD").trim());
+                    if (credentials.getString("EMAIL").trim().equals(email) && sec.encrypt(password).equals(credentials.getString("PASSWORD").trim()))
                     {
                         credentialsFound = true;
-                        Cookie cookie = new Cookie("let him cook",credentials.getString("USERID"));
-                        response.addCookie(cookie);
-                        credentials.close();
-                        response.sendRedirect("index.jsp");
+                        Cookie cookie1 = new Cookie("let-him-cook1",Integer.toString(credentials.getInt("USERID")));
+                        response.addCookie(cookie1);
+                        Cookie cookie2 = new Cookie("let-him-cook2",credentials.getString("EMAIL").trim());
+                        response.addCookie(cookie2);
+                        Cookie cookie3 = new Cookie("let-him-cook3",credentials.getString("PASSWORD").trim());
+                        response.addCookie(cookie3);
                         break;
                     }
                 }
                 //if the while loop ends and there are no successful matches, redirects to error page
                 if (credentialsFound != true)
                 {
-                    if (session.getAttribute("errorCount") == null)
-                        session.setAttribute("errorCount",1);
+                    if (request.getAttribute("errorCount") == null)
+                        request.setAttribute("errorCount",1);
                     else
-                        session.setAttribute("errorCount", ((Integer) session.getAttribute("errorCount")).intValue() + 1);
-                    response.sendRedirect("error.jsp");
+                        request.setAttribute("errorCount", ((Integer) request.getAttribute("errorCount")).intValue() + 1);
+                        request.getRequestDispatcher("login.jsp").include(request, response);
+                    return;
                 }
+                //credentials.close();
+                response.sendRedirect("index.jsp");
             }
             catch (SQLException sqle)
             {
                 System.err.println(sqle.getCause());
-                response.sendRedirect("sqlexception.jsp");
+                response.sendError(500, sqle.toString());
             }
         }
         
-        public ResultSet runQuery(HttpServletRequest request, String query) throws SQLException {
-            ServletContext context = request.getServletContext();
-            
-            Connection conn = null;
-            PreparedStatement ps = null;
-            ResultSet rs = null;
-            //Map<String,String> map = null;
-            try {
-                Class.forName(context.getInitParameter("className"));
-                String username = context.getInitParameter("dbUsername");
-                String password = context.getInitParameter("dbPassword");
-                StringBuffer url = new StringBuffer(context.getInitParameter("driverURL"))
-                        .append("://")
-                        .append(context.getInitParameter("dbHostName"))
-                        .append(":")
-                        .append(context.getInitParameter("dbPort"))
-                        .append("/")
-                        .append(context.getInitParameter("dbName"));
-                        //.append(config.getInitParameter("sqlSSL"));
-                conn = DriverManager.getConnection(url.toString(), username, password);
-                ps = conn.prepareStatement(query,ResultSet.TYPE_SCROLL_SENSITIVE);
-                rs = ps.executeQuery(); //support for non-query functions
-            }
-            catch(SQLException sqle)
-            {
-                System.err.println("SQLException occured - " + sqle.getMessage());
-            }
-            catch(ClassNotFoundException cnfe)
-            {
-                System.err.println("ClassNotFoundException occured - " + cnfe.getMessage());
-            }
-            finally {
-                if (ps != null)
-                    ps.close();
-                if (conn != null)
-                    conn.close();
-            }
-            return rs;
-        }
+//        public ResultSet runQuery(HttpServletRequest request, String query) throws SQLException {
+//            ServletContext context = request.getServletContext();
+//            
+//            Connection conn = null;
+//            PreparedStatement ps = null;
+//            ResultSet rs = null;
+//            //Map<String,String> map = null;
+//            try {
+//                Class.forName(context.getInitParameter("className"));
+//                String username = context.getInitParameter("dbUsername");
+//                String password = context.getInitParameter("dbPassword");
+//                StringBuffer url = new StringBuffer(context.getInitParameter("driverURL"))
+//                        .append("://")
+//                        .append(context.getInitParameter("dbHostName"))
+//                        .append(":")
+//                        .append(context.getInitParameter("dbPort"))
+//                        .append("/")
+//                        .append(context.getInitParameter("dbName"));
+//                        //.append(config.getInitParameter("sqlSSL"));
+//                conn = DriverManager.getConnection(url.toString(), username, password);
+//                ps = conn.prepareStatement(query,ResultSet.TYPE_SCROLL_SENSITIVE,Statement.RETURN_GENERATED_KEYS);
+//                rs = ps.executeQuery(); //support for non-query functions
+//            }
+//            catch(SQLException sqle)
+//            {
+//                System.err.println("SQLException occured - " + sqle.getMessage());
+//            }
+//            catch(ClassNotFoundException cnfe)
+//            {
+//                System.err.println("ClassNotFoundException occured - " + cnfe.getMessage());
+//            }
+//            finally {
+//                if (ps != null)
+//                    ps.close();
+//                if (conn != null)
+//                    conn.close();
+//            }
+//            return rs;
+//        }
 
-		public ResultSet runQuery(HttpServletRequest request, String query, Object... params) throws SQLException {
+            public ResultSet runQuery(HttpServletRequest request, String query, Object... params) throws SQLException {
             ServletContext context = request.getServletContext();
             
             Connection conn = null;
@@ -138,21 +144,18 @@ public class LoginServlet extends HttpServlet {
                         .append(context.getInitParameter("dbName"));
                         //.append(config.getInitParameter("sqlSSL"));
                 conn = DriverManager.getConnection(url.toString(), username, password);
-                ps = conn.prepareStatement(query,ResultSet.TYPE_SCROLL_SENSITIVE);
-				int ctr = 1;
-				for (Object object : params)
-				{
-					if (object instanceof String)
-					{
-						ps.setString(ctr, (String) object);
-					}
-					else if (object instanceof Integer)
-					{
-						ps.setInt(ctr, (Integer) object);
-					}
-					ctr++;
-				}
+                ps = conn.prepareStatement(query);
+		int ctr = 1;
+                for (Object object : params) {
+                    if (object instanceof String) {
+                        ps.setString(ctr, (String) object);
+                    } else if (object instanceof Integer) {
+                        ps.setInt(ctr, (Integer) object);
+                    }
+                    ctr++;
+                }		
                 rs = ps.executeQuery(); //support for non-query functions
+                
             }
             catch(SQLException sqle)
             {
@@ -162,12 +165,7 @@ public class LoginServlet extends HttpServlet {
             {
                 System.err.println("ClassNotFoundException occured - " + cnfe.getMessage());
             }
-            finally {
-                if (ps != null)
-                    ps.close();
-                if (conn != null)
-                    conn.close();
-            }
+            
             return rs;
         }
 
@@ -183,7 +181,8 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+        response.sendRedirect("login.jsp");
     }
 
     /**
@@ -197,6 +196,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        processRequest(request, response);
     }
 
     /**

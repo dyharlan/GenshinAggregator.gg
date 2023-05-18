@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,8 +30,12 @@
             />
         </nav>
         <main>
-            <form method="post" action="" class="login">
+                
+            <form method="post" action="Login" class="login">
                 <h1>Sign In</h1>
+                <c:if test="${not empty requestScope.errorCount}">
+                    <p>User does not exist.</p>
+                </c:if>
                 <div class="container input">
                     <label for="username" class="input label">E-mail: </label>
                     <input type="email" class="input" name="email" id="email" placeholder="Enter E-mail." enterkeyhint="go" required>

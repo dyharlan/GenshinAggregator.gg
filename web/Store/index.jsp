@@ -28,6 +28,7 @@
             class="logo"
             />
             <p class="navbar-text">Celebrating 1 year in the service of Tech Otakus!</p>
+<<<<<<< Updated upstream
             <%  
                 boolean cookieFound = false;
                 String cookieName = "let him cook";
@@ -51,6 +52,44 @@
             <% } else {%>
                 <a class="split login" href="<%= request.getContextPath() %>/Store/Logout">Logout</a>
             <%}%>
+=======
+            
+            <c:choose>
+                <c:when test="${cookie.containsKey('let-him-cook1') && cookie.containsKey('let-him-cook2') && cookie.containsKey('let-him-cook3')}">
+                    <c:set var="param1" value="${Integer.valueOf(cookie['let-him-cook1'].value)}"/> 
+                    <c:set var="param2" value="${cookie['let-him-cook2'].value}"/> 
+                    <c:set var="param3" value="${cookie['let-him-cook3'].value}"/> 
+                    <sql:setDataSource var="ds" driver="org.apache.derby.jdbc.ClientDriver" 
+                                       url="jdbc:derby://localhost:1527/ConaShopDB" 
+                                       user="cona" password="admin1"/>
+                    <sql:query dataSource="${ds}" var="rs">
+                        SELECT PersonInfo.USERID,PersonInfo.FNAME,PersonInfo.LNAME FROM PersonInfo JOIN PersonCredentials USING(UserID) where USERID = ? AND EMAIL = ? AND PASSWORD = ?
+                        <sql:param value="${param1}" />  
+                        <sql:param value="${param2}" />  
+                        <sql:param value="${param3}" />  
+                    </sql:query>
+                    <c:choose>
+                         <c:when test="${rs == null}">
+                             <c:set var="cookie" value=""/>
+                         </c:when>  
+                        <c:otherwise>
+                            <c:forEach var="user_info" items="${rs.rows}">
+                                <p>${user_info.fname} ${user_info.lname}</p><a class="split login" href="<%= request.getContextPath() %>/Store/Logout">Logout</a>
+                            </c:forEach>
+                        </c:otherwise>
+                    </c:choose>
+                    
+                </c:when>
+                <c:otherwise>
+                    <a class="split login" href="<%= request.getContextPath() %>/Store/Login">Login</a>
+                </c:otherwise>
+            </c:choose>
+           
+                
+            
+                
+            
+>>>>>>> Stashed changes
             <a class="bx bx-shopping-bag split" id="cart-icon" href="cart.jsp"></a>
             
         </nav>
