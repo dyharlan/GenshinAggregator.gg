@@ -163,7 +163,7 @@ public class UserRegistrationControllerServlet extends HttpServlet {
             session.setAttribute("sql-failure", false);
             session.setAttribute("sql-success", true);
 			request.removeAttribute("userExists");
-            response.sendRedirect(request.getContextPath());
+            response.sendRedirect("index.jsp");
 
         } catch (SQLException sqle) {
             response.sendError(500, "An unexpected error has occured!: " + sqle.toString());
