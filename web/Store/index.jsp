@@ -5,7 +5,10 @@
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -35,6 +38,7 @@
                     <c:set var="param1" value="${Integer.valueOf(cookie['let-him-cook1'].value)}"/> 
                     <c:set var="param2" value="${cookie['let-him-cook2'].value}"/> 
                     <c:set var="param3" value="${cookie['let-him-cook3'].value}"/> 
+                    
                     <sql:setDataSource var="ds" driver="org.apache.derby.jdbc.ClientDriver" 
                                        url="jdbc:derby://localhost:1527/ConaShopDB" 
                                        user="cona" password="admin1"/>
@@ -50,16 +54,18 @@
                          </c:when>  
                         <c:otherwise>
                             <c:forEach var="user_info" items="${rs.rows}">
-                                <p>${user_info.fname} ${user_info.lname}</p><a class="split login" href="<%= request.getContextPath() %>/Store/Logout">Logout</a>
+                                <p class="navbar-text">${user_info.fname} ${user_info.lname}</p><a class="split login" href="<%= request.getContextPath() %>/Store/Logout">Logout</a>
                             </c:forEach>
                         </c:otherwise>
                     </c:choose>
+                         
                     
                 </c:when>
                 <c:otherwise>
                     <a class="split login" href="<%= request.getContextPath() %>/Store/Login">Login</a>
                 </c:otherwise>
             </c:choose>
+           
            
             <a class="bx bx-shopping-bag split" id="cart-icon" href="cart.jsp"></a>
             
@@ -73,7 +79,7 @@
                         SELECT * FROM SUPPORTEDGAMES
                     </sql:query>
                     <c:forEach var="games" items="${rs.rows}">
-                        <a href="${games.GamePage}">
+                        <a href="${pageContext.request.contextPath}/Store/${games.GamePage}">
                             <div class="content">
                                 <img src='${games.GameIcon}' lazy class="game-imgs" id="${games.GameID}">
                                 <label for="${games.GameID}">${games.GameName}</label>
