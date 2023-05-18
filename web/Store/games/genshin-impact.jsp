@@ -75,7 +75,7 @@
         <main>
             <div class="details">
                 <h1>Enter UID And Server Details</h1>
-                <input class="child" name="uid" id="uid" oninput="numOnly(this.id);" type="text" minlength="1" maxlength="9" placeholder="Enter UID (Up to 9 digits)" required>
+                <input class="child" name="uid" id="uid" oninput="numOnly(this.id);" type="text" size="26" minlength="1" maxlength="9" placeholder="Enter UID (Up to 9 digits)" required>
                 <select class="child" name="server" id="server" required>
                     <option value="" disabled selected hidden>Select Server</option>
                     <option value="na">America</option>

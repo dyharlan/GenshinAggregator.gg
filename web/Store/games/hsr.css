@@ -159,6 +159,6 @@ div.payment{
     max-height: 17.5px;
 }
 
-input[type="text"], select, button {
+input[type="text"], select, button, option {
     color: black;
 }
