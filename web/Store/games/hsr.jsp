@@ -28,31 +28,6 @@
             class="logo"
             />
             <p class="navbar-text">Celebrating 1 year in the service of Tech Otakus!</p>
-<<<<<<< Updated upstream
-            <%  
-                boolean cookieFound = false;
-                String cookieName = "let him cook";
-                Cookie[] cookies = request.getCookies();
-                
-                if (cookies != null) 
-                {
-                    for (int i=0; i < cookies.length; i++) 
-                    {
-                        Cookie cookie = cookies[i];
-                        if (cookieName.equals(cookie.getName())) 
-                        { 
-                            cookieFound = true;
-                            break;
-                        }
-                    }
-                }
-            %>
-            <%  if (cookieFound == false) { %>
-                <a class="split login" href="<%= request.getContextPath() %>/Store/login.jsp">Login</a>
-            <% } else { %>
-                <a class="split login" href="<%= request.getContextPath() %>/Store/Logout">Logout</a>
-            <% } %>
-=======
              <c:choose>
                 <c:when test="${cookie.containsKey('let-him-cook1') && cookie.containsKey('let-him-cook2') && cookie.containsKey('let-him-cook3')}">
                     <c:set var="param1" value="${Integer.valueOf(cookie['let-him-cook1'].value)}"/> 
@@ -83,7 +58,7 @@
                     <a class="split login" href="<%= request.getContextPath() %>/Store/Login">Login</a>
                 </c:otherwise>
             </c:choose>
->>>>>>> Stashed changes
+
             <a class="bx bx-shopping-bag split" id="cart-icon" href="cart.jsp"></a>
         </nav>
         <main>
