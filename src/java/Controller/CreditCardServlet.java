@@ -27,7 +27,7 @@ import javax.servlet.http.Cookie;
 public class CreditCardServlet extends HttpServlet {
 
     Connection conn;
-
+    PreparedStatement psCheck;
     PreparedStatement ps1;
     PreparedStatement ps2;
 
@@ -75,7 +75,20 @@ public class CreditCardServlet extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "index.jsp");
                 return;
             }
-            
+            String query = "SELECT UserID,CCNumber FROM CCardInfo WHERE UserID = ? AND CCNumber = ?";
+            psCheck = conn.prepareStatement(query);
+            psCheck.setInt(1, userID);
+            psCheck.setString(2, request.getParameter("card"));
+            Security sec = new Security(getServletContext().getInitParameter("key"), getServletContext().getInitParameter("initVector"));
+            ResultSet ccNumSet = psCheck.executeQuery();
+            while (ccNumSet.next()) {
+                if (ccNumSet.getInt(userID) == userID && ccNumSet.getString("CCNumber").equals(sec.encrypt(request.getParameter("card")))) {
+                    Boolean ccExistsFlag = true;
+                    request.setAttribute("ccExists", ccExistsFlag);
+                    request.getRequestDispatcher("cc-add.jsp").include(request, response);
+                    return;
+                }
+            }
             UUID uuid = UUID.randomUUID();
             String PMIdentifier = uuid.toString();
             //set parameterized query
@@ -95,7 +108,7 @@ public class CreditCardServlet extends HttpServlet {
                 ps2.setInt(1, userID);
                 ps2.setString(2, PMIdentifier);
                 ps2.setString(3, request.getParameter("ccType"));
-                ps2.setString(4, request.getParameter("card"));
+                ps2.setString(4, sec.encrypt(request.getParameter("card")));
                 ps2.setString(5, request.getParameter("fname"));
                 ps2.setString(6, request.getParameter("lname"));
                 ps2.setString(7, request.getParameter("ccValid"));
