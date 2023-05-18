@@ -30,7 +30,7 @@
                 <div class="container input">
                 <label for="email" class="input label">Email: </label>
                 <input type="email" class="input" name="email" id="email" placeholder="Enter Email" enterkeyhint="go" required>
-                <% if (request.getAttribute("userExists") != null && ((boolean) request.getAttribute("userExists")) == true) { %>
+                <% if (request.getAttribute("userExists") != null && (((Boolean) request.getAttribute("userExists"))) == true) { %>
                     <p>Email already exists. Please input another email.</p>
                 <% } %>
                 </div>
