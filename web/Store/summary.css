@@ -87,7 +87,13 @@ main {
 
 h1 {
     margin: 3px auto;
-    color: white;
+    color: black;
+    font-weight: bold;
+}
+
+h3 {
+    margin: 3px auto;
+    color: black;
     font-weight: bold;
 }
 
@@ -96,14 +102,14 @@ div.order{
     font-size: 1rem;
     padding: 9px;
     display: block;
-    color: white;
+    color: black;
     text-align: center;
     
 }
     
 div.captcha{
   text-align: center;
-  color: white;
+  font-color: black;
 }
 
 input[type="submit"] {
@@ -120,7 +126,7 @@ input[type="submit"] {
 div.order {
     border: solid;
     border-width: thick;
-    border-color: white;
+    border-color: black;
 }
 
 .visa {
@@ -136,4 +142,10 @@ div.order {
 .gcash {
     max-width: 74.5px;
     max-height: 17.5px;
+}
+
+input[type="text"] {
+    color: black;
+    font-size: 1rem;
+    padding: 3px;
 }
