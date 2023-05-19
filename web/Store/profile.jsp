@@ -72,6 +72,7 @@
                              
                          </c:when>  
                         <c:otherwise>
+                            <c:set var="isLoggedIn" value="true"/>
                             <c:forEach var="user_info" items="${rs.rows}">
                                 
                                 <h1>Profile Page</h1>
@@ -88,19 +89,17 @@
             <!-- Trigger/Open The Modal -->
             <h2>Available Payment Methods</h2>
             <c:choose>
-                <c:when test="${!(cookie.containsKey('let-him-cook1') && cookie.containsKey('let-him-cook2') && cookie.containsKey('let-him-cook3'))}">
+                <c:when test="${!isLoggedIn == true}">
                     <c:redirect url = "index.jsp"/>
                 </c:when>
-                <c:when test="${cookie.containsKey('let-him-cook1') && cookie.containsKey('let-him-cook2') && cookie.containsKey('let-him-cook3')}">
-                    <c:set var="param1" value="1"/> 
-                    <c:set var="param2" value="${Integer.valueOf(cookie['let-him-cook1'].value)}"/> 
-                    <sql:setDataSource var="ds" driver="org.apache.derby.jdbc.ClientDriver" 
-                                       url="jdbc:derby://localhost:1527/ConaShopDB" 
-                                       user="cona" password="admin1"/>
+                <c:when test="${isLoggedIn == true}">
+                    <c:set var="paymentType" value="1"/> 
+                    <c:set var="uID" value="${Integer.valueOf(cookie['let-him-cook1'].value)}"/> 
+                   
                     <sql:query dataSource="${ds}" var="rs">
                         SELECT USERPAYMENTMETHODS.USERID, USERPAYMENTMETHODS.PMIDENTIFIER, USERPAYMENTMETHODS.PAYMENTTYPE, CCARDINFO.CCTYPE, CCARDINFO.CCNUMBER FROM USERPAYMENTMETHODS JOIN CCARDINFO USING(PMIDENTIFIER) WHERE PAYMENTTYPE = ? AND USERPAYMENTMETHODS.USERID = ?
-                        <sql:param value="${param1}" />   
-                        <sql:param value="${param2}" />   
+                        <sql:param value="${paymentType}" />   
+                        <sql:param value="${uID}" />   
                     </sql:query>
                     <c:forEach var="cc_info" items="${rs.rows}">
                         <c:if test="${cc_info.CCTYPE == 1}">
