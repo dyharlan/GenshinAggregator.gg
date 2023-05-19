@@ -51,10 +51,15 @@ public class CheckOutGeneratorServlet extends HttpServlet {
         HttpSession session = request.getSession();
         Captcha captcha = (Captcha) session.getAttribute(Captcha.NAME);
         String answer = request.getParameter("answer");
+        String paymentMethod = request.getParameter("paymentMethod");
+        String recipient = request.getParameter("recipient");
+        String itemid = request.getParameter("itemid");
         if (!captcha.isCorrect(answer)) {
             System.out.println(captcha.isCorrect(answer));
             session.setAttribute("captcha-failure", true);
-            request.getRequestDispatcher("register.jsp").include(request, response);
+            response.setContentType("text/html;charset=UTF-8");
+            request.getRequestDispatcher("/Store/order-summary.jsp?select=" + itemid +"&uid="+recipient).include(request, response);
+            System.out.println("/Store/order-summary.jsp?select=" + itemid +"&uid="+recipient);
             return;
         } //tell the session that the captcha check was successful.
         else {
@@ -62,9 +67,7 @@ public class CheckOutGeneratorServlet extends HttpServlet {
         }
         UUID uuid = UUID.randomUUID();
         String transactionID = uuid.toString();
-        String paymentMethod = request.getParameter("paymentMethod");
-        String recipient = request.getParameter("uid");
-        String itemid = request.getParameter("itemid");
+        
         
         try {
             /*
@@ -100,7 +103,7 @@ public class CheckOutGeneratorServlet extends HttpServlet {
                 return;
             }
             //check for valid email,pmidentifier, and userid
-            String query = "SELECT PersonCredentials.USERID, PersonCredentials.email,UserPaymentMethods.PMIdentifier,UserPaymentMethods.PaymentType from PersonCredentials Join UserPaymentMethods using(USERID) where PersonInfo.USERID = ? and email = ? and PMIdentifier = ?";
+            String query = "SELECT PersonCredentials.USERID, PersonCredentials.email,UserPaymentMethods.PMIdentifier,UserPaymentMethods.PaymentType from PersonCredentials Join UserPaymentMethods using(USERID) where PersonCredentials.USERID = ? and email = ? and PMIdentifier = ?";
             psCheck = conn.prepareStatement(query);
             psCheck.setInt(1, userID);
             psCheck.setString(2, email);
@@ -110,8 +113,11 @@ public class CheckOutGeneratorServlet extends HttpServlet {
             int paymentType = -1;
             //Security sec = new Security(getServletContext().getInitParameter("key"), getServletContext().getInitParameter("initVector"));     
             ResultSet userSet = psCheck.executeQuery();
-            while (userSet.next()) {
-                if ( !(userSet.getInt("UserID") == userID && userSet.getString("email").trim().equals(email) &&  userSet.getString("pmidentifier").trim().equals(paymentMethod))) {
+            while(userSet.next()){
+                System.out.println(userSet.getInt("PaymentType"));
+                paymentType = userSet.getInt("PaymentType");
+            }
+            if (paymentType == -1) { 
                     //invalidate cookies if the client enters an invalid user and/or payment method
                     if (cookies != null)
                         for (Cookie cookie : cookies) {
@@ -121,12 +127,10 @@ public class CheckOutGeneratorServlet extends HttpServlet {
                         }
                     request.getSession().setAttribute("paymentInfo", null);
                     session.invalidate();
-                    return;
-                }
-                else{
-                    paymentType = userSet.getInt("PaymentType");
-                }
+                    response.sendRedirect("index.jsp");
+                    return;   
             }
+            
             String upd1 = "INSERT INTO USERTRANSACTIONS VALUES (?,?,?,?,?)";
             
             ps1 = conn.prepareStatement(upd1);
@@ -141,11 +145,12 @@ public class CheckOutGeneratorServlet extends HttpServlet {
 			
             try {
                 ps1.executeUpdate();
-                String upd2 = "INSERT INTO TRANSACTIONINFO VAUES(?,?,?)";
+                String upd2 = "INSERT INTO TRANSACTIONINFO VALUES(?,?,?)";
                 ps2 = conn.prepareStatement(upd2);
                 ps2.setString(1, transactionID);
                 ps2.setString(2, itemid);
                 ps2.setString(3, recipient);
+                ps2.executeUpdate();
                 conn.commit();   
             } catch (SQLException ex) {
                 conn.rollback();
@@ -169,6 +174,7 @@ public class CheckOutGeneratorServlet extends HttpServlet {
 
         } catch (SQLException sqle) {
             response.sendError(500, "An unexpected error has occured!: " + sqle.toString());
+            System.out.println(sqle.toString());
         } catch (ClassNotFoundException nfe) {
             response.sendError(500, "An unexpected error has occured!: " + nfe.toString());
         }

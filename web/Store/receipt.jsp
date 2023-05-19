@@ -1,3 +1,6 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,46 +8,83 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="receipt.css" rel="stylesheet">
         <title>Receipt Page | GenshinStore.gg</title>
-        </head>
-        <body>
+    </head>
+    <body>
         <nav class="topnav">
             <img src="<%= request.getContextPath()%>/assets/ConaShop-Logo.png" 
-            alt="ConaShop Logo" 
-            loading="lazy" 
-            width="159"
-            height="35"
-            class="logo"
-            />
+                 alt="ConaShop Logo" 
+                 loading="lazy" 
+                 width="159"
+                 height="35"
+                 class="logo"
+                 />
             <p class="navbar-text">Celebrating 1 year in the service of Tech Otakus!</p>
-         </nav>
+        </nav>
         <main>
-        <div class="receipt">
-        <h1>Thank you for your patronage!</h1>
-        <hr class="line1">
-        <br>
-        <p>A copy of your transaction has been sent to your e-mail address: <!--Insert email here from form.html--> <%= request.getAttribute("email") %>.</p>
-        <br>
-        <hr>
-        <br>
-        <div class="container">
-        <div class="image">
-        <img src="<%= request.getContextPath()%>/assets/mora.png">
-        </div>
-        <section>
-            <h2>Transaction Summary:</h2>
-            <br>
-            <p>Name: <!--Insert First Name and Last name--> <%= request.getAttribute("name") %></p>
-            <p>UID: <!--Insert UID the transaction will go to--><%= request.getAttribute("uid") %></p>
-            <p>Server: <!--Insert the Server in which the UID belongs to--> <%= request.getAttribute("server")%> </p>
-            <p>Selected Order: <!--Insert order like "Blessing of the Welkin Moon"--> <%= request.getAttribute("item") %></p>
-            <p>Payment Method: <!--Insert Credit Card (not the number)--> <%= request.getAttribute("creditCard")%></p>
-            <p>Transaction Date: <!--Insert YYYY-MM-DD HH:MM:SS (24 hr format)--> <%= getServletContext().getAttribute("currDate")%> <%= getServletContext().getAttribute("currTime")%></p>
-            <p>Total Price: ₱<!--Insert price in pesos--> <%= request.getAttribute("amount")%></p>
+            <c:if test="${empty sessionScope.transactionID || sessionScope.transactionID == null}">
+                <c:redirect url="index.jsp"/>
+            </c:if>
+            <div class="receipt">
+                <sql:setDataSource var="ds" driver="org.apache.derby.jdbc.ClientDriver" 
+                                       url="jdbc:derby://localhost:1527/ConaShopDB" 
+                                       user="cona" password="admin1"/>
+                <sql:query dataSource="${ds}" var="rs">
+                        select usertransactions.transactionid,personCredentials.EMAIL,personinfo.FNAME, personinfo.LNAME,transactioninfo.itemrecipient,transactioninfo.itemid,inventory.itemname,usertransactions.paymenttype,paymentmethods.paymentname,usertransactions.transactiondate,inventory.itemvalue from personcredentials join personinfo using(userid) join usertransactions using(userid) join paymentmethods using(paymenttype) join transactioninfo using(transactionid) join inventory using(itemid) WHERE TRANSACTIONID = ?
+                        <sql:param value="${sessionScope.transactionID}" />  
+                </sql:query>
+                <c:choose>
+                    <c:when test="${rs.rowCount <= 0}">
+                        <%
+                                Cookie[] cookies = request.getCookies();
+                                if (cookies != null) {
+                                    for (Cookie cookie : cookies) {
+                                        
+                                        cookie.setMaxAge(0);
+                                        cookie.setValue("");
+                                        response.addCookie(cookie);
 
-        </section>
+                                    }
+                                }
+                                
+                                request.getSession().setAttribute("transactionID", null);
+                                session.invalidate();
+                        %>
+                        <c:redirect url="Store/index.jsp"/>
+                    </c:when> 
+                        
+                        <c:otherwise>
+                            <c:forEach var="transaction_info" items="${rs.rows}">
+                                <h1>Thank you for your patronage!</h1>
+                                <hr class="line1">
+                                <br>
+                                <p>A copy of your transaction has been sent to your e-mail address: <!--Insert email here from form.html--> ${transaction_info.email}.</p>
+                                <br>
+                                <hr>
+                                <br>
+                                <div class="container">
+                                    <div class="image">
+                                        <img src="<%= request.getContextPath()%>/assets/mora.png">
+                                    </div>
+                                    <section>
+                                        <h2>Transaction Summary:</h2>
+                                        <br>
+                                        <p>Client Name: <!--Insert First Name and Last name--> ${transaction_info.fname} ${transaction_info.lname}</p>
+                                        <p>Recipient: <!--Insert UID the transaction will go to-->${transaction_info.itemrecipient}</p>
+                                        <p>Selected Order: <!--Insert order like "Blessing of the Welkin Moon"--> ${transaction_info.itemname}</p>
+                                        <p>Payment Method: <!--Insert Credit Card (not the number)--> ${transaction_info.paymentname}</p>
+                                        <p>Transaction Date: <!--Insert YYYY-MM-DD HH:MM:SS (24 hr format)--> ${transaction_info.transactiondate}</p>
+                                        <p>Total Price: ₱<!--Insert price in pesos--> ${transaction_info.itemvalue}</p>
 
-        <input type="submit" value="Print your receipt">
-        </div>
+                                    </section>
 
+                                    <input type="submit" value="Print your receipt">
+                                </div>
+                            </c:forEach>
+                        </c:otherwise>
+                           
+                </c:choose>
+                
+            </div>
+        </main>
     </body>
 </html>
