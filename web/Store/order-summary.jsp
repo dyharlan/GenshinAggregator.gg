@@ -38,7 +38,10 @@
                 <div class="order">
                     <div>
                         <h1>Order Summary</h1>
-                    </div> 
+                    </div>
+                    <c:if test="${empty param.select && empty param.uid && !(cookie.containsKey('let-him-cook1') && cookie.containsKey('let-him-cook2') && cookie.containsKey('let-him-cook3'))}">
+                        <c:redirect url="index.jsp"/>
+                    </c:if>
                     <sql:setDataSource var="ds" driver="org.apache.derby.jdbc.ClientDriver" 
                                        url="jdbc:derby://localhost:1527/ConaShopDB" 
                                        user="cona" password="admin1"/>
