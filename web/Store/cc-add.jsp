@@ -15,9 +15,15 @@
         <c:if test="${!(cookie.containsKey('let-him-cook1') && cookie.containsKey('let-him-cook2') && cookie.containsKey('let-him-cook3'))}">
             <c:redirect url = "index.jsp"/>
         </c:if>
+       
         <h1>Credit Card Information</h1>
         <form action="CCProcessor" method="POST">
+            <%if(request.getAttribute("ccExists") != null &&(Boolean) request.getAttribute("ccExists")){%>
+                    <h3>The Credit Card is already in use by this user!</h3>
+                    <%}%>
             <div class="section1 child">
+                
+                
                 <div class="name">
                     <label for="fn">First Name</label>
                     <input id="fn" type="text" required placeholder="First Name" name="fname">

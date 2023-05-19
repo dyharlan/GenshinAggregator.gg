@@ -75,14 +75,19 @@ public class CreditCardServlet extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "index.jsp");
                 return;
             }
-            String query = "SELECT UserID,CCNumber FROM CCardInfo WHERE UserID = ? AND CCNumber = ?";
+            String query = "SELECT UserPaymentMethods.UserID,UserPaymentMethods.PMIdentifier,CCardInfo.CCNumber FROM CCardInfo JOIN UserPaymentMethods USING(PMIDENTIFIER) WHERE UserPaymentMethods.UserID = ? AND CCNumber = ?";
             psCheck = conn.prepareStatement(query);
             psCheck.setInt(1, userID);
-            psCheck.setString(2, request.getParameter("card"));
             Security sec = new Security(getServletContext().getInitParameter("key"), getServletContext().getInitParameter("initVector"));
+            String encryptedCCNum = sec.encrypt(request.getParameter("card"));
+            System.out.println(encryptedCCNum);
+            psCheck.setString(2, encryptedCCNum);
+           
             ResultSet ccNumSet = psCheck.executeQuery();
             while (ccNumSet.next()) {
-                if (ccNumSet.getInt(userID) == userID && ccNumSet.getString("CCNumber").equals(sec.encrypt(request.getParameter("card")))) {
+                System.out.println("true?");
+                //System.out.println(ccNumSet.getInt(userID) == userID && ccNumSet.getString("CCNumber").trim().equals(sec.encrypt(request.getParameter("card"))));
+                if ( ccNumSet.getInt("UserID") == userID && ccNumSet.getString("CCNumber").trim().equals(encryptedCCNum) ) {
                     Boolean ccExistsFlag = true;
                     request.setAttribute("ccExists", ccExistsFlag);
                     request.getRequestDispatcher("cc-add.jsp").include(request, response);
@@ -91,27 +96,29 @@ public class CreditCardServlet extends HttpServlet {
             }
             UUID uuid = UUID.randomUUID();
             String PMIdentifier = uuid.toString();
+           
+            
             //set parameterized query
             String ps_query1 = "INSERT INTO UserPaymentMethods VALUES(?,?,?)";
             ps1 = conn.prepareStatement(ps_query1);
-            ps1.setString(1, PMIdentifier);
-            ps1.setInt(2, 1);
-            ps1.setInt(3, userID);
+            ps1.setInt(1, userID);
+            ps1.setString(2, PMIdentifier);
+            ps1.setInt(3, 1);
+            
             //disable autocommit for transaction mode
             conn.setAutoCommit(false);
             //execute parameterized query
 
             try {
                 ps1.executeUpdate();
-                String ps_query2 = "INSERT INTO CCardInfo VALUES(?,?,?,?,?,?,?)";
+                String ps_query2 = "INSERT INTO CCardInfo VALUES(?,?,?,?,?,?)";
                 ps2 = conn.prepareStatement(ps_query2);
-                ps2.setInt(1, userID);
-                ps2.setString(2, PMIdentifier);
-                ps2.setString(3, request.getParameter("ccType"));
-                ps2.setString(4, sec.encrypt(request.getParameter("card")));
-                ps2.setString(5, request.getParameter("fname"));
-                ps2.setString(6, request.getParameter("lname"));
-                ps2.setString(7, request.getParameter("ccValid"));
+                ps2.setString(1, PMIdentifier);
+                ps2.setString(2, request.getParameter("ccType"));
+                ps2.setString(3, sec.encrypt(request.getParameter("card")));
+                ps2.setString(4, request.getParameter("fname"));
+                ps2.setString(5, request.getParameter("lname"));
+                ps2.setString(6, request.getParameter("ccValid"));
                 ps2.executeUpdate();
                 conn.commit();
             } catch (SQLException ex) {
@@ -123,16 +130,19 @@ public class CreditCardServlet extends HttpServlet {
 
             ps2.close();
             ps1.close();
+            psCheck.close();
             conn.close();
 
            
             //set status flags accordingly
             session.setAttribute("sql-failure", false);
             session.setAttribute("sql-success", true);
+            request.setAttribute("ccExists", false);
             response.sendRedirect("profile.jsp");
 
         } catch (SQLException sqle) {
             response.sendError(500, "An unexpected error has occured!: " + sqle.toString());
+            System.out.println(sqle.toString());
         } catch (ClassNotFoundException nfe) {
             response.sendError(500, "An unexpected error has occured!: " + nfe.toString());
         }

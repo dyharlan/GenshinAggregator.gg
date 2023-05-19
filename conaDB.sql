@@ -23,19 +23,17 @@ INSERT INTO PaymentMethods (PaymentName) VALUES('Credit Card');
 INSERT INTO PaymentMethods (PaymentName) VALUES('Globe GCash');
 
 CREATE TABLE UserPaymentMethods(
+    USERID INT NOT NULL,
     PMIdentifier VARCHAR(255) NOT NULL,
     PaymentType INT NOT NULL,
-    USERID INT NOT NULL,
     FOREIGN KEY(PaymentType) REFERENCES PaymentMethods(PaymentType) ON DELETE CASCADE,
     FOREIGN KEY(USERID) REFERENCES PersonCredentials(USERID) ON DELETE CASCADE,
     PRIMARY KEY(PMIdentifier)
 );
 
 CREATE TABLE GCashInfo(
-    USERID INT NOT NULL,
     PMIdentifier VARCHAR(255) NOT NULL,
     GCashNumber VARCHAR(10) NOT NULL,
-    FOREIGN KEY(USERID) REFERENCES PersonCredentials(USERID) ON DELETE CASCADE,
     FOREIGN KEY(PMIdentifier) REFERENCES UserPaymentMethods(PMIdentifier) ON DELETE CASCADE,
     PRIMARY KEY(PMIdentifier,GCashNumber)
 );
@@ -49,14 +47,12 @@ INSERT INTO SupportedCC (CCName) VALUES('Visa');
 INSERT INTO SupportedCC (CCName) VALUES('MasterCard');
 
 CREATE TABLE CCardInfo(
-    USERID INT NOT NULL,
     PMIdentifier VARCHAR(255) NOT NULL,
     CCType SMALLINT NOT NULL,
     CCNumber VARCHAR(255) NOT NULL,
     CCFName VarChar(50) NOT NULL,
     CCLName VarChar(50) NOT NULL,
     CCValidDate Date NOT NULL,
-    FOREIGN KEY(USERID) REFERENCES PersonCredentials(USERID) ON DELETE CASCADE,
     FOREIGN KEY(PMIdentifier) REFERENCES UserPaymentMethods(PMIdentifier) ON DELETE CASCADE,
     FOREIGN KEY(CCType) REFERENCES SupportedCC(CCType) ON DELETE CASCADE,
     PRIMARY KEY(PMIdentifier,CCNumber)
@@ -92,13 +88,13 @@ INSERT INTO INVENTORY VALUES ('HV_GI_GC3280', 'HV001_GI', '3280+3280 Genesis Cry
 INSERT INTO INVENTORY VALUES ('HV_GI_GC6480', 'HV001_GI', '6480+6480 Genesis Crystals', '/assets/StorePage/crystals6.png', 4990);
 INSERT INTO INVENTORY VALUES ('HV_GI_WELKIN', 'HV001_GI', 'Blessing of the Welkin Moon', '/assets/StorePage/welkin.png', 249);
 
-INSERT INTO INVENTORY VALUES ('HV_GI_OS60', 'HV002_HSR', '60 Oneiric Shard', '/assets/StorePage/Oneiric60.png', 49);
-INSERT INTO INVENTORY VALUES ('HV_GI_OS300', 'HV002_HSR', '300+300 Oneiric Shard', '/assets/StorePage/Oneiric300.png', 249);
-INSERT INTO INVENTORY VALUES ('HV_GI_OS980', 'HV002_HSR', '980+980 Oneiric Shard', '/assets/StorePage/Oneiric980.png', 749);
-INSERT INTO INVENTORY VALUES ('HV_GI_OS1980', 'HV002_HSR', '1980+1980 Oneiric Shard', '/assets/StorePage/Oneiric1980.png', 1490);
-INSERT INTO INVENTORY VALUES ('HV_GI_OS3280', 'HV002_HSR', '3280+3280 Oneiric Shard', '/assets/StorePage/Oneiric3280.png', 2490);
-INSERT INTO INVENTORY VALUES ('HV_GI_OS6480', 'HV002_HSR', '6480+6480 Oneiric Shard', '/assets/StorePage/Oneiric6480.png', 4990);
-INSERT INTO INVENTORY VALUES ('HV_GI_ESPASS', 'HV002_HSR', 'Express Supply Pass', '/assets/StorePage/SupplyPass.png', 299);
+INSERT INTO INVENTORY VALUES ('HV_HSR_OS60', 'HV002_HSR', '60 Oneiric Shard', '/assets/StorePage/Oneiric60.png', 49);
+INSERT INTO INVENTORY VALUES ('HV_HSR_OS300', 'HV002_HSR', '300+300 Oneiric Shard', '/assets/StorePage/Oneiric300.png', 249);
+INSERT INTO INVENTORY VALUES ('HV_HSR_OS980', 'HV002_HSR', '980+980 Oneiric Shard', '/assets/StorePage/Oneiric980.png', 749);
+INSERT INTO INVENTORY VALUES ('HV_HSR_OS1980', 'HV002_HSR', '1980+1980 Oneiric Shard', '/assets/StorePage/Oneiric1980.png', 1490);
+INSERT INTO INVENTORY VALUES ('HV_HSR_OS3280', 'HV002_HSR', '3280+3280 Oneiric Shard', '/assets/StorePage/Oneiric3280.png', 2490);
+INSERT INTO INVENTORY VALUES ('HV_HSR_OS6480', 'HV002_HSR', '6480+6480 Oneiric Shard', '/assets/StorePage/Oneiric6480.png', 4990);
+INSERT INTO INVENTORY VALUES ('HV_HSR_ESPASS', 'HV002_HSR', 'Express Supply Pass', '/assets/StorePage/SupplyPass.png', 299);
 
 INSERT INTO INVENTORY VALUES ('TRG_VRT_VP375', 'TRG003_VRT', '375 Valorant Points', '/assets/StorePage/valopoints375.png', 49);
 INSERT INTO INVENTORY VALUES ('TRG_VRT_VP650', 'TRG003_VRT', '627+23 Valorant Points', '/assets/StorePage/valopoints650.png', 249);
