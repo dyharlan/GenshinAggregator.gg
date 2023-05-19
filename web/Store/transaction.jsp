@@ -32,6 +32,9 @@
             <p class="navbar-text">Celebrating 1 year in the service of Tech Otakus!</p>
 
             <c:choose>
+                <c:when test="${!(cookie.containsKey('let-him-cook1') && cookie.containsKey('let-him-cook2') && cookie.containsKey('let-him-cook3'))}">
+                    <c:redirect url="index.jsp"/>
+                </c:when>
                 <c:when test="${cookie.containsKey('let-him-cook1') && cookie.containsKey('let-him-cook2') && cookie.containsKey('let-him-cook3')}">
                     <c:set var="param1" value="${Integer.valueOf(cookie['let-him-cook1'].value)}"/> 
                     <c:set var="param2" value="${cookie['let-him-cook2'].value}"/> 
@@ -68,7 +71,6 @@
                         <c:otherwise>
                             <c:forEach var="user_info" items="${rs.rows}">
                                 <a class="split login" href="<%= request.getContextPath() %>/Store/Logout">Logout</a>
-                                <a class="bx bx-shopping-bag split" id="cart-icon" href="cart.jsp"></a>
                                 <a class="navbar-text split name" href="<%= request.getContextPath() %>/Store/profile.jsp">${user_info.fname} ${user_info.lname}</a>
                             </c:forEach>
                         </c:otherwise>
@@ -92,13 +94,22 @@
                     <th>Transaction Date</th>
                     <th>Item Value</th>
                 </tr>
+                <sql:query dataSource="${ds}" var="rs">
+                        select usertransactions.transactionid,personCredentials.EMAIL,personinfo.FNAME, personinfo.LNAME,transactioninfo.itemrecipient,transactioninfo.itemid,inventory.itemname,usertransactions.paymenttype,paymentmethods.paymentname,usertransactions.transactiondate,inventory.itemvalue from personcredentials join personinfo using(userid) join usertransactions using(userid) join paymentmethods using(paymenttype) join transactioninfo using(transactionid) join inventory using(itemid) WHERE PERSONCREDENTIALS.USERID = ?
+                        <sql:param value="${param1}" />   
+                </sql:query>
                 <tr>
-                    <td>Sample Text</td>
-                    <td>Sample Text</td>
-                    <td>Sample Text</td>
-                    <td>Sample Text</td>
-                    <td>Sample Text</td>
-                    <td>Sample Text</td>
+                    <c:forEach var="user_transactions" items="${rs.rows}">
+                        <tr>
+                            <td>${user_transactions.transactionid}</td>
+                            <td>${user_transactions.itemrecipient}</td>
+                            <td>${user_transactions.itemname}</td>
+                            <td>${user_transactions.paymentname}</td>
+                            <td>${user_transactions.transactiondate}</td>
+                            <td>₱${user_transactions.itemvalue}</td>
+                        </tr>
+                    </c:forEach>
+                    
                 </tr>
             </table>
         </main>

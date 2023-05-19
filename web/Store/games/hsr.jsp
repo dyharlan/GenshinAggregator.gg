@@ -66,7 +66,7 @@
                              <c:set var="isLoggedIn" value="true"/>
                             <c:forEach var="user_info" items="${rs.rows}">
                                 <a class="split login" href="<%= request.getContextPath() %>/Store/Logout">Logout</a>
-                                <a class="bx bx-shopping-bag split" id="cart-icon" href="cart.jsp"></a>
+                                <a class="bx bx-shopping-bag split" id="cart-icon" href="<%=request.getContextPath()%>/Store/transaction.jsp"></a>
                                 <a class="navbar-text split name" href="<%= request.getContextPath() %>/Store/profile.jsp">${user_info.fname} ${user_info.lname}</a>
                             </c:forEach>
                         </c:otherwise>

@@ -66,7 +66,7 @@
                             <c:set var="isLoggedIn" value="true"/>
                             <c:forEach var="user_info" items="${rs.rows}">
                                 <a class="split login" href="<%= request.getContextPath()%>/Store/Logout">Logout</a>
-                                <a class="bx bx-shopping-bag split" id="cart-icon" href="cart.jsp"></a>
+                                <a class="bx bx-shopping-bag split" id="cart-icon" href="<%=request.getContextPath()%>/Store/transaction.jsp"></a>
                                 <a class="navbar-text split name" href="<%= request.getContextPath()%>/Store/profile.jsp">${user_info.fname} ${user_info.lname}</a>
                             </c:forEach>
                         </c:otherwise>
@@ -83,7 +83,7 @@
         <main>
             <c:choose>
                 <c:when test="${isLoggedIn == true}">
-                    <form action="PaymentProcessor" method="POST" class="content-form">
+                    <form action="<%=request.getContextPath()%>/Store/order-summary.jsp" method="POST" class="content-form">
                 </c:when>
                 <c:otherwise>
                     <form action="Login" method="POST" class="content-form">
@@ -91,7 +91,7 @@
             </c:choose>
                     <div class="details">
                         <h1>Enter your Riot ID</h1>
-                        <input class="child" name="uid" id="uid" oninput="numOnly(this.id);" type="text" minlength="1" maxlength="9" placeholder="Enter your Riot ID" required>
+                        <input class="child" name="uid" id="uid" oninput="numOnly(this.id);" type="text" minlength="3" maxlength="192" placeholder="Enter your Riot ID" pattern=".+#.+" title="(letters, numbers, symbols) # (letters, numbers, symbols)" required>
                     </div>
                     <div class="recharge">
                         <!-- for (database) -->
@@ -110,13 +110,7 @@
 
                     </div>
                     <div class="payment">
-                        <h1>Select Payment</h1>
-                        <div class="payment-container">
-                            <!-- for (database) -->
-                            <div class="child"><input type="radio" id="visa" name="payment" value="visa" required><label for="visa"><img src="<%= request.getContextPath()%>/assets/StorePage/visa.png" class="visa"></label></div>
-                            <div class="child"><input type="radio" id="mastercard" name="payment" value="mastercard" required><label for="mastercard"><img src="<%= request.getContextPath()%>/assets/StorePage/mastercard.png" class="mastercard"></label></div>
-                            <div class="child"><input type="radio" id="gcash" name="payment" value="gcash"><label for="gcash"><img src="<%= request.getContextPath()%>/assets/StorePage/gcash.png" class="gcash"></label></div>
-                        </div>
+                       
                         <c:choose>
                             <c:when test="${isLoggedIn == true}">
                                 <button type="submit">Pay Now</button>
