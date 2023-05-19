@@ -155,6 +155,10 @@
         <servlet-name>PaymentManager</servlet-name>
         <servlet-class>Controller.PaymentManager</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ReportServlet</servlet-name>
+        <servlet-class>Controller.ReportServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CaptchaGenerator</servlet-name>
         <url-pattern>/Store/captchaImg.png</url-pattern>
@@ -194,6 +198,10 @@
     <servlet-mapping>
         <servlet-name>PaymentManager</servlet-name>
         <url-pattern>/Store/PaymentManager</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReportServlet</servlet-name>
+        <url-pattern>/Store/ReportServlet.pdf</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
