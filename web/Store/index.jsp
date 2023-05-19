@@ -12,11 +12,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title><%= getServletContext().getInitParameter("AppName")%> - Celebrating 1 year in the service of Tech Otakus!</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title><%= getServletContext().getInitParameter("AppName")%> - Celebrating 1 year in the service of Tech Otakus!</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="navbar.css"/>
         <link rel="stylesheet" href="store.css">
@@ -81,10 +81,7 @@
                     <a class="split login" href="<%= request.getContextPath() %>/Store/Login">Login</a>
                 </c:otherwise>
             </c:choose>
-           
-           
-            
-            
+                    
         </nav>
         <main>
             <div class="grid">

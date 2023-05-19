@@ -47,4 +47,26 @@ main {
     background-color: rgb(28,31,70);
     width: 100%;
     height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+}
+
+h1 {
+    font-size: 1.75rem; /* default value is 2rem; */
+}
+
+h2 {
+    font-size: 1.25rem; /* default value is 1.5rem; */
+}
+
+label {
+    display: block;
+    font-size: 0.9rem;
+}
+
+input {
+    color: black;
+    width: 18%;
 }
