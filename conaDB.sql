@@ -107,11 +107,11 @@ CREATE TABLE UserTransactions(
     UserID INT NOT NULL,
     TransactionID VARCHAR(192) NOT NULL,
     PaymentType INT NOT NULL,
-    PMIdentifier VARCHAR(255) NOT NULL,
+    PMIdentifier VARCHAR(255),
     TransactionDate DATE NOT NULL,
     FOREIGN KEY(UserID) REFERENCES PersonCredentials(UserID) ON DELETE CASCADE,
     FOREIGN KEY(PaymentType) REFERENCES PaymentMethods(PaymentType) ON DELETE CASCADE,
-    FOREIGN KEY(PMIdentifier) REFERENCES UserPaymentMethods(PMIdentifier)  ON DELETE CASCADE,
+    FOREIGN KEY(PMIdentifier) REFERENCES UserPaymentMethods(PMIdentifier)ON DELETE CASCADE,
     PRIMARY KEY(TransactionID),
     UNIQUE(USERID, TransactionID)
 );
@@ -120,7 +120,7 @@ CREATE TABLE TransactionInfo(
     TransactionID VARCHAR(192) NOT NULL,
     ItemID VARCHAR(255) NOT NULL,
     ItemRecipient VARCHAR(192) NOT NULL,
-    Foreign Key(TransactionID) references UserTransactions(TransactionID),
-    Foreign Key(ItemID) references INVENTORY(ItemID),
+    Foreign Key(TransactionID) references UserTransactions(TransactionID) ON DELETE CASCADE,
+    Foreign Key(ItemID) references INVENTORY(ItemID) ON DELETE CASCADE,
     PRIMARY KEY(TransactionID)
 );

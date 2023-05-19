@@ -151,6 +151,10 @@
         <servlet-name>CheckOutGeneratorServlet</servlet-name>
         <servlet-class>Controller.CheckOutGeneratorServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PaymentManager</servlet-name>
+        <servlet-class>Controller.PaymentManager</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CaptchaGenerator</servlet-name>
         <url-pattern>/Store/captchaImg.png</url-pattern>
@@ -186,6 +190,10 @@
     <servlet-mapping>
         <servlet-name>CheckOutGeneratorServlet</servlet-name>
         <url-pattern>/Store/Checkout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PaymentManager</servlet-name>
+        <url-pattern>/Store/PaymentManager</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -227,5 +235,4 @@
             <page-encoding>UTF-8</page-encoding>
         </jsp-property-group>
     </jsp-config>
-    
 </web-app>
