@@ -120,10 +120,6 @@
         <servlet-class>Controller.PaymentProcessorServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CheckOutGeneratorServlet</servlet-name>
-        <servlet-class>Controller.CheckOutGeneratorServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>Controller.LoginServlet</servlet-class>
     </servlet>
@@ -151,6 +147,10 @@
         <servlet-name>CreditCardServlet</servlet-name>
         <servlet-class>Controller.CreditCardServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CheckOutGeneratorServlet</servlet-name>
+        <servlet-class>Controller.CheckOutGeneratorServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CaptchaGenerator</servlet-name>
         <url-pattern>/Store/captchaImg.png</url-pattern>
@@ -162,14 +162,6 @@
     <servlet-mapping>
         <servlet-name>BannerController</servlet-name>
         <url-pattern>/BannerViewer</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>PaymentProcessorControllerServlet</servlet-name>
-        <url-pattern>/OldStore/PaymentProcessor</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CheckOutGeneratorServlet</servlet-name>
-        <url-pattern>/OldStore/Checkout</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>UserRegistrationControllerServlet</servlet-name>
@@ -190,6 +182,10 @@
     <servlet-mapping>
         <servlet-name>CreditCardServlet</servlet-name>
         <url-pattern>/Store/CCProcessor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckOutGeneratorServlet</servlet-name>
+        <url-pattern>/Store/Checkout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -231,4 +227,5 @@
             <page-encoding>UTF-8</page-encoding>
         </jsp-property-group>
     </jsp-config>
+    
 </web-app>
