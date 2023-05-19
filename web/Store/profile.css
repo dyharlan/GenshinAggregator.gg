@@ -118,3 +118,16 @@ h1,h2 {
     background-color: darkgreen;
     color: white;
 }
+
+.visa {
+    max-width: 55px;
+    max-height: 18px;
+   
+}
+
+.mastercard {
+    
+    max-width: 32px;
+    max-height: 18px;
+   
+}
