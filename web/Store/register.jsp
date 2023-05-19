@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <%@page import="nl.captcha.* "%>
 <!DOCTYPE html>
 <html>
@@ -25,6 +26,9 @@
             <a class="bx bx-shopping-bag split" id="cart-icon" href="cart.jsp"></a>
         </nav>
         <main>
+            <c:if test="${cookie.containsKey('let-him-cook1') && cookie.containsKey('let-him-cook2') && cookie.containsKey('let-him-cook3')}">
+                    <c:redirect url = "index.jsp"/>
+            </c:if>
             <form method="post" action="Register" class="register">
                 <h1>Sign Up</h1>
                 <div class="container input">

@@ -36,6 +36,9 @@
                 <c:if test="${not empty requestScope.errorCount}">
                     <p>User does not exist.</p>
                 </c:if>
+                <c:if test="${cookie.containsKey('let-him-cook1') && cookie.containsKey('let-him-cook2') && cookie.containsKey('let-him-cook3')}">
+                    <c:redirect url = "index.jsp"/>
+                </c:if>
                 <div class="container input">
                     <label for="username" class="input label">E-mail: </label>
                     <input type="email" class="input" name="email" id="email" placeholder="Enter E-mail." enterkeyhint="go" required>
