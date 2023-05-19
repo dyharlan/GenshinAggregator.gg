@@ -115,7 +115,14 @@ public class UserRegistrationControllerServlet extends HttpServlet {
                     return;
                 }
             }
-			
+            
+            if(request.getParameter("password").equals(request.getParameter("confirm-password"))){
+                Boolean passwordsDontMatch = true;
+                request.setAttribute("passwordsDontMatch", true);
+                session.setAttribute(Captcha.NAME, null);
+                request.getRequestDispatcher("register.jsp").include(request, response);
+                return;
+            }
             //set parameterized query
             String ps_query1 = "INSERT INTO PersonCredentials(EMAIL,PASSWORD) VALUES(?,?)";
             ps1 = conn.prepareStatement(ps_query1);
