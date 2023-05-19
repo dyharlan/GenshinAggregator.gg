@@ -29,11 +29,14 @@
                  />
         </nav>
         <main> 
-            <form class="gcash-ui">
+            <form action="" method="post" class="gcash-ui">
                 <h1>Hello World!</h1>
                 <h2>Add Number to Merchant</h2>
-                <input type="text">
-                <input type="submit">
+                <div>
+                    <label for="number">Number:</label>
+                    <input type="text" name="number" id="number" maxlength="13" size="13" placeholder="Input your mobile number" required>
+                </div>
+                <input type="submit" name="Submit">
             </form>
         </main>
     </body>
