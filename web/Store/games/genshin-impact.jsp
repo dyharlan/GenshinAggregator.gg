@@ -37,10 +37,12 @@
             function regexTest(){
                 if(document.getElementById("uid").value === ''){
                     alert("Please enter a UID!");
+                    return false;
                 }
                 
                 if(regex === ''){
                     alert("Please enter your server!");
+                    return false;
                 }
                 
                 if(regex.test(document.getElementById("uid").value) === false){
@@ -52,9 +54,16 @@
                     alert("Please re-enter your UID. Asia accounts start with 8.");
                  if(document.getElementById("server").value === 'sar' )
                     alert("Please re-enter your UID. TW/SAR accounts start with 9."); 
+                    return false;
                 }
+                return true;
             }
-        </script>
+                document.getElementById("pay").addEventListener("submit", function(event) {
+                if (!regexTest()) {
+                event.preventDefault(); // Stop the form submission
+            }
+            });
+                </script>
     </head>
     <body>
         <nav class="topnav">
@@ -121,7 +130,7 @@
         <main>
             <c:choose>
                 <c:when test="${isLoggedIn == true}">
-                    <form action="<%=request.getContextPath()%>/Store/order-summary.jsp" method="POST" class="content-form">
+                    <form id="pay" action="<%=request.getContextPath()%>/Store/order-summary.jsp" method="POST" class="content-form">
                 </c:when>
                 <c:otherwise>
                     <form action="Login" method="POST" class="content-form">
