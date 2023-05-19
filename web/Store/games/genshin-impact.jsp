@@ -127,7 +127,6 @@
                     <form action="Login" method="POST" class="content-form">
                 </c:otherwise>
             </c:choose>
-                
                     <div class="details">
                         <h1>Enter UID And Server Details</h1>
                         <input class="child" name="uid" id="uid" type="text" minlength="1" maxlength="9" placeholder="Enter UID (Up to 9 digits)" required>
@@ -156,21 +155,14 @@
                     </div>
                     <p class="solid">        
                     <div class="payment">
-                        <h1>Select Payment</h1>
-                        <div class="payment-container">
-                            <!-- for (database) -->
-                            <div class="child"><input type="radio" id="visa" name="payment" value="visa" required><label for="visa"><img src="<%= request.getContextPath()%>/assets/StorePage/visa.png" class="visa"></label></div>
-                            <div class="child"><input type="radio" id="mastercard" name="payment" value="mastercard" required><label for="mastercard"><img src="<%= request.getContextPath()%>/assets/StorePage/mastercard.png" class="mastercard"></label></div>
-                            <div class="child"><input type="radio" id="gcash" name="payment" value="gcash"><label for="gcash"><img src="<%= request.getContextPath()%>/assets/StorePage/gcash.png" class="gcash"></label></div>
-                        </div>
-                            <c:choose>
-                                <c:when test="${isLoggedIn == true}">
-                                    <button type="submit" onclick="regexTest()">Proceed To Checkout</button>
-                                </c:when>
-                                <c:otherwise>
-                                    <h2>Please Login to Continue.</h2>
-                                </c:otherwise>
-                            </c:choose>
+                        <c:choose>
+                            <c:when test="${isLoggedIn == true}">
+                                <button type="submit" onclick="regexTest()">Proceed To Checkout</button>
+                            </c:when>
+                            <c:otherwise>
+                                <h2>Please Login to Continue.</h2>
+                            </c:otherwise>
+                        </c:choose>
                     </div>   
                 </form>
         </main>
