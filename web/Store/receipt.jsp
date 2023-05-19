@@ -77,7 +77,7 @@
 
                                     </section>
 
-                                    <input type="submit" value="Print your receipt">
+                                     <a href="<%=request.getContextPath()%>/Store/ReportServlet.pdf" target="_blank">Print your receipt</a>
                                 </div>
                             </c:forEach>
                         </c:otherwise>

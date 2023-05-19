@@ -60,11 +60,13 @@ body {
   color: white;
 }
 
-.logo {
+
+/*.logo*/ #img-link {
     float: left;
     position: relative;
     margin-top: 10px;
     margin-left: 35px;/*55px;*/
+    padding: 0;
 }
 
 .navbar-text {
