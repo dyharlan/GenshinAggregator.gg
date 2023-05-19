@@ -76,8 +76,9 @@
                                     </c:when>
                                     <c:otherwise>
                                         <h1>Select Payment Method:</h1>
+                                        <% Security sec = new Security(getServletContext().getInitParameter("key"), getServletContext().getInitParameter("initVector"));%>
                                         <c:forEach var="payment_info" items="${rs.rows}">
-                                            <% Security sec = new Security(getServletContext().getInitParameter("key"), getServletContext().getInitParameter("initVector"));%>
+                                            
                                             <c:set var="ccEnc" value="${payment_info.CCNUMBER}"/>
                                             <c:set var="string1" value="<%= sec.decrypt((String) pageContext.getAttribute("ccEnc"))%>"/>
                                             <c:set var="string2" value="${fn:substring(string1, 1 % fn:length(string1), fn:length(string1)-3 % fn:length(string1))}" />
@@ -91,12 +92,12 @@
                                             %>
                                             <c:set var="tmpStr" value="<%= sb.toString()%>"/>
                                             <c:set var="string3" value="${    fn:replace(string1, string2, tmpStr)   }" />
-                                            
+                                            <c:set var="tmpStr2" value="${payment_info.pmidentifier}"/>
                                             <c:if test="${payment_info.CCTYPE == 1}">
-                                                <div class="child"><input type="radio" id="visa" name="paymentMethod" value="${payment_info.PMIDENTIFIER}" required><img src="<%= request.getContextPath()%>/assets/StorePage/visa.png" class="visa"><label for="visa"><c:out value="${string3}"/></label></div>
+                                                <div class="child"><input type="radio" id="visa" name="paymentMethod" value="<%= sec.encrypt((String)pageContext.getAttribute("tmpStr2"))%>" required><img src="<%= request.getContextPath()%>/assets/StorePage/visa.png" class="visa"><label for="visa"><c:out value="${string3}"/></label></div>
                                             </c:if>
                                             <c:if test="${payment_info.CCTYPE == 2}">
-                                                <div class="child"><input type="radio" id="mastercard" name="paymentMethod" value="${payment_info.PMIDENTIFIER}" required><img src="<%= request.getContextPath()%>/assets/StorePage/mastercard.png" class="mastercard"><label for="mastercard"><c:out value="${string3}"/></label></div>
+                                                <div class="child"><input type="radio" id="mastercard" name="paymentMethod" value="<%= sec.encrypt((String)pageContext.getAttribute("tmpStr2"))%>" required><img src="<%= request.getContextPath()%>/assets/StorePage/mastercard.png" class="mastercard"><label for="mastercard"><c:out value="${string3}"/></label></div>
                                             </c:if>
                                                 
                                                

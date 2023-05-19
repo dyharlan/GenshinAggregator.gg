@@ -51,7 +51,8 @@ public class CheckOutGeneratorServlet extends HttpServlet {
         HttpSession session = request.getSession();
         Captcha captcha = (Captcha) session.getAttribute(Captcha.NAME);
         String answer = request.getParameter("answer");
-        String paymentMethod = request.getParameter("paymentMethod");
+        Security sec = new Security(getServletContext().getInitParameter("key"), getServletContext().getInitParameter("initVector"));
+        String paymentMethod = sec.decrypt(request.getParameter("paymentMethod"));
         String recipient = request.getParameter("recipient");
         String itemid = request.getParameter("itemid");
         if (!captcha.isCorrect(answer)) {
