@@ -54,6 +54,7 @@
                     <label for="password" class="input label">Confirm Password: </label>
                     <input type="password" class="input" name="confirm-password" id="confirm-password" placeholder="Confirm Password" enterkeyhint="go" pattern="(?=[A-Za-z0-9]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,}).*$" title="At least 8 characters with at least 1 number, 1 uppercase character, and 1 lowercase character" required>
                 </div>
+                <!-- input condition that if "password mismatch", display <p> element saying "passwords are mismatched" -->
                 <div class="container input">
                       <label for="birthday">Birthday:</label>
                       <input type="date" id="birthday" name="birthday">

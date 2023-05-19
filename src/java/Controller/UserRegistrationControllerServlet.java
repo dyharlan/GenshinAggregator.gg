@@ -65,6 +65,13 @@ public class UserRegistrationControllerServlet extends HttpServlet {
 //            out.println("</body>");
 //            out.println("</html>");
 //        }
+        //if input of password does not match the input of confirm-password
+        if (!request.getParameter("password").trim().equals(request.getParameter("confirm-password").trim()))
+        {
+            request.getSession().setAttribute("password-mismatch", true);
+            request.getRequestDispatcher("register.jsp").include(request, response);
+            return;
+        }
         Captcha captcha = (Captcha) request.getSession().getAttribute(Captcha.NAME);
         //captcha check
         String answer = request.getParameter("answer");
