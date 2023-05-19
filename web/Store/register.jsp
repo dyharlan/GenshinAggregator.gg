@@ -33,7 +33,7 @@
                 <div class="container input">
                     <label for="username" class="input label">E-mail: </label>
                     <input type="email" class="input" name="email" id="email" placeholder="Enter E-mail." enterkeyhint="go" required>
-                <% if (request.getAttribute("userExists") != null && (((Boolean) request.getAttribute("userExists"))) == true) { %>
+                <% if (request.getAttribute("userExists") != null && ((Boolean) request.getAttribute("userExists")) == true) { %>
                     <p>Email already exists. Please input another email.</p>
                 <% } %>
                 </div>
@@ -54,6 +54,9 @@
                     <input type="password" class="input" name="confirm-password" id="confirm-password" placeholder="Confirm Password" enterkeyhint="go" pattern="(?=[A-Za-z0-9]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,}).*$" title="At least 8 characters with at least 1 number, 1 uppercase character, and 1 lowercase character" required>
                 </div>
                 <!-- input condition that if "password mismatch", display <p> element saying "passwords are mismatched" -->
+                <% if (request.getAttribute("passwordsDontMatch") != null && ((Boolean) request.getAttribute("passwordsDontMatch")) == true) { %>
+                    <p>Passwords do not match. Please try again.<p>
+                <% } %>
                 <div class="container input">
                       <label for="birthday">Birthday:</label>
                       <input type="date" id="birthday" name="birthday">

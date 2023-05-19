@@ -20,6 +20,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="navbar.css"/>
         <link rel="stylesheet" href="store.css">
+        <script>
+            <%  if (session.getAttribute("registration-success") != null && ((Boolean) session.getAttribute("registration-success")) == true) { %>
+                    alert("User registration successful!");
+            <%      session.removeAttribute("registration-success"); %>
+            <%  } %>
+        </script>
     </head>
     <body>
         <nav class="topnav">

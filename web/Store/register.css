@@ -35,7 +35,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #280031;
+    background-color: cornflowerblue;
     min-height: calc(100vh - 55px);
     width: 100%;
     padding: 25px 0;
@@ -43,7 +43,7 @@ main {
 
 /*navbar customization section start*/
 .topnav {
-    background-color: #3c1f42;
+    background-color: purple;
     overflow: hidden;
     height: 55px;
   }
@@ -101,7 +101,7 @@ form.register {
     border-radius: 9px;
     max-width: 35%;
     padding: 12px;
-    background: #32cd32; /*#093100;*/ /*#3c1f42;*/ /*rgb(26, 12, 74);*/
+    background: #ADD8E6; /*#093100;*/ /*#3c1f42;*/ /*rgb(26, 12, 74);*/
     margin: auto;
     flex-grow: 1;
 }

@@ -116,7 +116,7 @@ public class UserRegistrationControllerServlet extends HttpServlet {
                 }
             }
             
-            if(request.getParameter("password").equals(request.getParameter("confirm-password"))){
+            if(!request.getParameter("password").equals(request.getParameter("confirm-password"))){
                 Boolean passwordsDontMatch = true;
                 request.setAttribute("passwordsDontMatch", true);
                 session.setAttribute(Captcha.NAME, null);
@@ -177,6 +177,7 @@ public class UserRegistrationControllerServlet extends HttpServlet {
             session.setAttribute("sql-failure", false);
             session.setAttribute("sql-success", true);
 			request.removeAttribute("userExists");
+            session.setAttribute("registration-success", true);
             response.sendRedirect("index.jsp");
 
         } catch (SQLException sqle) {
