@@ -80,20 +80,37 @@
                         <sql:param value="${param3}" />  
                     </sql:query>
                     <c:choose>
-                         <c:when test="${rs == null}">
-                             <c:set var="cookie" value=""/>
-                         </c:when>  
+                        <c:when test="${rs.rowCount <= 0}">
+                             <%
+                                Cookie[] cookies = request.getCookies();
+                                if (cookies != null) {
+                                    for (Cookie cookie : cookies) {
+                                       
+                                        cookie.setMaxAge(0);
+                                        cookie.setValue("");
+                                        response.addCookie(cookie);
+
+                                    }
+                                }
+                                
+                                request.getSession().setAttribute("paymentInfo", null);
+                                session.invalidate();
+                            %>
+                             <a class="split login" href="<%= request.getContextPath() %>/Store/Login">Login</a>
+                         </c:when>   
                         <c:otherwise>
+                             <c:set var="isLoggedIn" value="true"/>
                             <c:forEach var="user_info" items="${rs.rows}">
                                 <a class="split login" href="<%= request.getContextPath() %>/Store/Logout">Logout</a>
                                 <a class="bx bx-shopping-bag split" id="cart-icon" href="cart.jsp"></a>
-                                <a class="navbar-text split name">${user_info.fname} ${user_info.lname}</a>
+                                <a class="navbar-text split name" href="<%= request.getContextPath() %>/Store/profile.jsp">${user_info.fname} ${user_info.lname}</a>
                             </c:forEach>
                         </c:otherwise>
                     </c:choose>
                     
                 </c:when>
                 <c:otherwise>
+                     <c:set var="isLoggedIn" value="false"/>
                     <a class="split login" href="<%= request.getContextPath() %>/Store/Login">Login</a>
                 </c:otherwise>
             </c:choose>
@@ -101,6 +118,14 @@
             
         </nav>
         <main>
+            <c:choose>
+                <c:when test="${isLoggedIn == true}">
+                    <form action="PaymentProcessor" method="POST">
+                </c:when>
+                <c:otherwise>
+                    <form action="Login" method="POST">
+                </c:otherwise>
+            </c:choose>
             <div class="details">
                 <h1>Enter UID And Server Details</h1>
                 <input class="child" name="uid" id="uid" type="text" minlength="1" onchange="setRegex()" maxlength="9" placeholder="Enter UID (Up to 9 digits)" required>
@@ -134,7 +159,14 @@
                     <div class="child"><input type="radio" id="mastercard" name="payment" value="mastercard" required><label for="mastercard"><img src="<%= request.getContextPath()%>/assets/StorePage/mastercard.png" class="mastercard"></label></div>
                     <div class="child"><input type="radio" id="gcash" name="payment" value="gcash"><label for="gcash"><img src="<%= request.getContextPath()%>/assets/StorePage/gcash.png" class="gcash"></label></div>
                 </div>
-                <button type="submit" onclick="regexTest()">Pay Now</button>
+                    <c:choose>
+                        <c:when test="${isLoggedIn == true}">
+                            <button type="submit">Pay Now</button>
+                        </c:when>
+                        <c:otherwise>
+                            <h2>Please Login to Continue.</h2>
+                        </c:otherwise>
+                    </c:choose>
             </div>
 
         </main>
