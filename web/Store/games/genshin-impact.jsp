@@ -18,43 +18,7 @@
         <link rel="stylesheet" href="navbar.css"/>
         <link rel="stylesheet" href="game-content.css">
         <title>Genshin Impact</title>
-        <script>
-            
-            var regex = '';
-           
-            
-            function setRegex() {               
-                if(document.getElementById("server").value === 'na' )
-                    regex = /^6[0-9]{0,8}$/gi;
-                 if(document.getElementById("server").value === 'eu' )
-                    regex = /^7[0-9]{0,8}$/gi;
-                 if(document.getElementById("server").value === 'asia' )
-                    regex = /^8[0-9]{0,8}$/gi;
-                 if(document.getElementById("server").value === 'sar' )
-                    regex = /^9[0-9]{0,8}$/gi;  
-            }
-            
-            function regexTest(){
-                if(document.getElementById("uid").value === ''){
-                    alert("Please enter a UID!");
-                }
-                
-                if(regex === ''){
-                    alert("Please enter your server!");
-                }
-                
-                if(regex.test(document.getElementById("uid").value) === false){
-                 if(document.getElementById("server").value === 'na' )
-                    alert("Please re-enter your UID. NA accounts start with 6.");
-                 if(document.getElementById("server").value === 'eu' )
-                    alert("Please re-enter your UID. EU accounts start with 7.");
-                 if(document.getElementById("server").value === 'asia' )
-                    alert("Please re-enter your UID. Asia accounts start with 8.");
-                 if(document.getElementById("server").value === 'sar' )
-                    alert("Please re-enter your UID. TW/SAR accounts start with 9."); 
-                }
-            }
-        </script>
+        <script src="uidCheck.js"></script>
     </head>
     <body>
         <nav class="topnav">
@@ -129,7 +93,7 @@
             </c:choose>
                     <div class="details">
                         <h1>Enter UID And Server Details</h1>
-                        <input class="child" name="uid" id="uid" type="text" minlength="1" maxlength="9" placeholder="Enter UID (Up to 9 digits)" required>
+                        <input class="child" enterkeyhint="go" name="uid" id="uid" type="text" minlength="1" maxlength="9" placeholder="Enter UID (Up to 9 digits)" pattern="" title="" required>
                         <select class="child" name="server" id="server" onchange="setRegex()" required>
                             <option value="" disabled selected hidden>Select Server</option>
                             <option value="na">America</option>
@@ -157,7 +121,7 @@
                     <div class="payment">
                         <c:choose>
                             <c:when test="${isLoggedIn == true}">
-                                <button type="submit" onclick="regexTest()">Proceed To Checkout</button>
+                                <button type="submit" onclick="setRegex()" >Proceed To Checkout</button>
                             </c:when>
                             <c:otherwise>
                                 <h2>Please Login to Continue.</h2>
