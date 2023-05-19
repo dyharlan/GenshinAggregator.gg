@@ -48,8 +48,23 @@
                         <sql:param value="${param3}" />  
                     </sql:query>
                     <c:choose>
-                         <c:when test="${rs == null}">
-                             <c:set var="cookie" value=""/>
+                         <c:when test="${rs.rowCount <= 0}">
+                             <%
+                                Cookie[] cookies = request.getCookies();
+                                if (cookies != null) {
+                                    for (Cookie cookie : cookies) {
+                                        
+                                        cookie.setMaxAge(0);
+                                        cookie.setValue("");
+                                        response.addCookie(cookie);
+
+                                    }
+                                }
+                                
+                                request.getSession().setAttribute("paymentInfo", null);
+                                session.invalidate();
+                            %>
+                             <a class="split login" href="<%= request.getContextPath() %>/Store/Login">Login</a>
                          </c:when>  
                         <c:otherwise>
                             <c:forEach var="user_info" items="${rs.rows}">
@@ -82,7 +97,7 @@
                     <c:forEach var="games" items="${rs.rows}">
                         <a href="${pageContext.request.contextPath}/Store/${games.GamePage}" class="games">
                             <div class="content">
-                                <img src='${games.GameIcon}' lazy class="game-imgs" id="${games.GameID}">
+                                <img alt="${games.GameName}" src='${games.GameIcon}' lazy class="game-imgs" id="${games.GameID}">
                                 <label for="${games.GameID}">${games.GameName}</label>
                             </div>
                         </a>
