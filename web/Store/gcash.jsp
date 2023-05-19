@@ -28,9 +28,9 @@
                  class="logo"
                  />
         </nav>
-        <main>
-            <h1>Hello World!</h1>
-            <div>
+        <main> 
+            <div class="gcash-ui">
+                <h1>Hello World!</h1>
                 <h2>Add Number to Merchant</h2>
                 
             </div>
