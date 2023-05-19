@@ -68,6 +68,9 @@
                 
                 <div class="captcha">
                 <label for="captcha">Captcha:</label>
+                 <% if (session.getAttribute("captcha-failure") != null && (((Boolean) session.getAttribute("captcha-failure"))) == true) { %>
+                    <p>Wrong answer. Please try again.</p>
+                <% } %>
                 <br>
                 <img src ="<%= request.getContextPath() %>/Store/captchaImg.png"/>
                 <br>

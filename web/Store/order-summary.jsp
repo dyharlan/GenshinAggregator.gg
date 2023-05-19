@@ -113,6 +113,9 @@
                             <br>
                             <img src ="<%= request.getContextPath()%>/Store/captchaImg.png"/>
                             <br>
+                             <% if (session.getAttribute("captcha-failure") != null && (((Boolean) session.getAttribute("captcha-failure"))) == true) { %>
+                                <p>Wrong answer. Please try again.</p>
+                            <% } %>
                             <input type="text" name="answer" id="captcha" class="form-control" placeholder="Enter the captcha" required />
                         </div>  
                         <c:if test="${!noPaymentMethods == true}">
