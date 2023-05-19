@@ -21,6 +21,7 @@
     </head>
     <body>
         <nav class="topnav">
+            <a id="img-link" href="<%= request.getContextPath()%>/Store/index.jsp">
             <img src="<%= request.getContextPath()%>/assets/ConaShop-Logo.png" 
                  alt="ConaShop Logo" 
                  loading="lazy" 
@@ -28,6 +29,7 @@
                  height="35"
                  class="logo"
                  />
+            </a>
             <p class="navbar-text">Celebrating 1 year in the service of Tech Otakus!</p>
             <c:choose>
                 <c:when test="${cookie.containsKey('let-him-cook1') && cookie.containsKey('let-him-cook2') && cookie.containsKey('let-him-cook3')}">
@@ -91,7 +93,7 @@
             </c:choose>
                     <div class="details">
                         <h1>Enter your Riot ID</h1>
-                        <input class="child" name="uid" id="uid" oninput="numOnly(this.id);" type="text" minlength="3" maxlength="192" placeholder="Enter your Riot ID" pattern=".+#.+" title="(letters, numbers, symbols) # (letters, numbers, symbols)" required>
+                        <input class="child" name="uid" id="uid" oninput="numOnly(this.id);" type="text" size="18" minlength="3" maxlength="192" placeholder="Enter your Riot ID" pattern=".+#.+" title="(letters, numbers, symbols) # (letters, numbers, symbols)" required>
                     </div>
                     <div class="recharge">
                         <!-- for (database) -->

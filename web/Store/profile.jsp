@@ -26,6 +26,7 @@
 
 
         <nav class="topnav">
+            <a id="img-link" href="<%= request.getContextPath()%>/Store/index.jsp">
             <img src="<%= request.getContextPath()%>/assets/ConaShop-Logo.png" 
                  alt="ConaShop Logo" 
                  loading="lazy" 
@@ -33,6 +34,7 @@
                  height="35"
                  class="logo"
                  />
+            </a>
         </nav>
         <main>
             <c:choose>

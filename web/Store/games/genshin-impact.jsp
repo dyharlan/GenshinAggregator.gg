@@ -22,6 +22,7 @@
     </head>
     <body>
         <nav class="topnav">
+            <a id="img-link" href="<%= request.getContextPath()%>/Store/index.jsp">
             <img src="<%= request.getContextPath()%>/assets/ConaShop-Logo.png" 
                  alt="ConaShop Logo" 
                  loading="lazy" 
@@ -29,6 +30,7 @@
                  height="35"
                  class="logo"
                  />
+            </a>
             <p class="navbar-text">Celebrating 1 year in the service of Tech Otakus!</p>
             
             <c:choose>
@@ -93,7 +95,7 @@
             </c:choose>
                     <div class="details">
                         <h1>Enter UID And Server Details</h1>
-                        <input class="child" enterkeyhint="go" name="uid" id="uid" type="text" minlength="1" maxlength="9" placeholder="Enter UID (Up to 9 digits)" pattern="" title="" required>
+                        <input class="child" enterkeyhint="go" name="uid" id="uid" type="text" size="26" minlength="1" maxlength="9" placeholder="Enter UID (Up to 9 digits)" pattern="" title="" required>
                         <select class="child" name="server" id="server" onchange="setRegex()" required>
                             <option value="" disabled selected hidden>Select Server</option>
                             <option value="na">America</option>

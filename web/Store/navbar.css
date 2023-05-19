@@ -64,11 +64,22 @@ body {
   color: white;
 }
 
+/*
 .logo {
     float: left;
     position: relative;
     margin-top: 10px;
+    margin-left: 35px; 55px;
+    padding: 0;
+}
+*/
+
+#img-link {
+    float: left;
+    position: relative;
+    margin-top: 10px;
     margin-left: 35px;/*55px;*/
+    padding: 0;
 }
 
 .navbar-text {
@@ -84,7 +95,7 @@ body {
 a.login {
     line-height: 40px;
     display: inline-block;
-    margin: 7.5px 9px;
+    margin: 7.5px 16px;
     color: white;
     font-size: 18px;
     padding: 0 13px;
