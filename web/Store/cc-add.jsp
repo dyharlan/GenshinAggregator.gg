@@ -49,7 +49,7 @@
             </div>
             <div class="section4 child">
                     <label for="ccValid">Expiry date:</label>
-                    <input type="date" id="ccValid" name="ccValid">
+                    <input type="date" id="ccValid" name="ccValid" required>
                     
             </div>
             
