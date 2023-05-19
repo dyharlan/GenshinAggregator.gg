@@ -102,29 +102,38 @@
                         <sql:param value="${uID}" />   
                     </sql:query>
                     <c:forEach var="cc_info" items="${rs.rows}">
+                        <% Security sec = new Security(getServletContext().getInitParameter("key"), getServletContext().getInitParameter("initVector"));%>
+                        <c:set var="ccEnc" value="${cc_info.CCNUMBER}"/>
+                        <c:set var="string1" value="<%= sec.decrypt((String) pageContext.getAttribute("ccEnc"))%>"/>
+                        <c:set var="string2" value="${fn:substring(string1, 1 % fn:length(string1), fn:length(string1)-3 % fn:length(string1))}" />
+
+                        <%
+                            String x = (String) pageContext.getAttribute("string2");
+                            StringBuilder sb = new StringBuilder();
+                            for (int i = 0; i < x.length(); i++) {
+                                sb.append('*');
+                            }
+                        %>
+                        <c:set var="tmpStr" value="<%= sb.toString()%>"/>
+                        <c:set var="string3" value="${    fn:replace(string1, string2, tmpStr)   }" />
                         <c:if test="${cc_info.CCTYPE == 1}">
-                            <img class="visa" lazy alt="Visa" src="${pageContext.servletContext.contextPath}/assets/StorePage/visa.png"/>
-                            <h3>Visa</h3>
+                            <form action="CCManager" method="post">
+                                <input type="hidden" name="pmIdentifier" value="${cc_info.pmidentifier}"/>
+                                <img class="visa" lazy alt="Visa" src="${pageContext.servletContext.contextPath}/assets/StorePage/visa.png"/>
+                                <h3>Visa</h3><p><c:out value="${string3}"/></p>
+                                <input type="submit" value="Delete">
+                            </form>
                         </c:if>
                         <c:if test="${cc_info.CCTYPE == 2}">
-                            <img class="mastercard" lazy alt="Mastercard" src="${pageContext.servletContext.contextPath}/assets/StorePage/mastercard.png"/>
-                            <h3>MasterCard</h3>
+                            <form action="CCManager" method="post">
+                                <input type="hidden" name="pmIdentifier" value="${cc_info.pmidentifier}"/>
+                                <img class="mastercard" lazy alt="Mastercard" src="${pageContext.servletContext.contextPath}/assets/StorePage/mastercard.png"/>
+                                <h3>MasterCard</h3><p><c:out value="${string3}"/></p>
+                                <input type="submit" value="Delete">
+                            </form>
                         </c:if>
-                            <% Security sec = new Security(getServletContext().getInitParameter("key"), getServletContext().getInitParameter("initVector")); %>
-                            <c:set var="ccEnc" value="${cc_info.CCNUMBER}"/>
-                            <c:set var="string1" value="<%= sec.decrypt((String)pageContext.getAttribute("ccEnc"))%>"/>
-                            <c:set var="string2" value="${fn:substring(string1, 1 % fn:length(string1), fn:length(string1)-3 % fn:length(string1))}" />
-
-                            <%
-                                String x = (String) pageContext.getAttribute("string2");
-                                StringBuilder sb = new StringBuilder();
-                                for (int i = 0; i < x.length(); i++) {
-                                    sb.append('*');
-                                }
-                            %>
-                            <c:set var="tmpStr" value="<%= sb.toString()%>"/>
-                            <c:set var="string3" value="${    fn:replace(string1, string2, tmpStr)   }" />
-                            <p><c:out value="${string3}"/></p>
+                            
+                            
 
                     </c:forEach>
                 </c:when>

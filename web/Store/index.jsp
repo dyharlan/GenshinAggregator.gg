@@ -20,6 +20,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="navbar.css"/>
         <link rel="stylesheet" href="store.css">
+        <script>
+            <%  if (session.getAttribute("registration-success") != null && ((Boolean) session.getAttribute("registration-success")) == true) { %>
+                    alert("User registration successful!");
+            <%      session.removeAttribute("registration-success"); %>
+            <%  } %>
+        </script>
     </head>
     <body>
         <nav class="topnav">
@@ -68,8 +74,8 @@
                          </c:when>  
                         <c:otherwise>
                             <c:forEach var="user_info" items="${rs.rows}">
-                                <a class="split login" href="<%= request.getContextPath() %>/Store/Logout">Logout</a>
-                                <a class="bx bx-shopping-bag split" id="cart-icon" href="cart.jsp"></a>
+                                <a class="split login" href="<%= request.getContextPath()%>/Store/Logout">Logout</a>
+                                <a class="bx bx-shopping-bag split" id="cart-icon" href="<%=request.getContextPath()%>/Store/transaction.jsp"></a>
                                 <a class="navbar-text split name" href="<%= request.getContextPath() %>/Store/profile.jsp">${user_info.fname} ${user_info.lname}</a>
                             </c:forEach>
                         </c:otherwise>
