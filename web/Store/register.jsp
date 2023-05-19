@@ -23,7 +23,6 @@
             height="35"
             class="logo"
             />
-            <a class="bx bx-shopping-bag split" id="cart-icon" href="cart.jsp"></a>
         </nav>
         <main>
             <c:if test="${cookie.containsKey('let-him-cook1') && cookie.containsKey('let-him-cook2') && cookie.containsKey('let-him-cook3')}">
