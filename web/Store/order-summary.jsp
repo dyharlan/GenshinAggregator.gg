@@ -39,15 +39,31 @@
                 <div>
                     <h1>Order Summary</h1>
                 </div> 
-            
-             <div class="captcha">
-                <label for="captcha">Captcha:</label>
-                <br>
-                <img src ="<%= request.getContextPath() %>/Store/captchaImg.png"/>
-                <br>
-                <input type="text" name="answer" id="captcha" class="form-control" placeholder="Enter the captcha" required />
-            </div>  
-            <input type="submit" value="Pay Now">       
+                <sql:setDataSource var="ds" driver="org.apache.derby.jdbc.ClientDriver" 
+                                   url="jdbc:derby://localhost:1527/ConaShopDB" 
+                                   user="cona" password="admin1"/>
+                <sql:query dataSource="${ds}" var="rs">
+                    SELECT * FROM INVENTORY WHERE ITEMID = '<%= request.getParameter("select")%>'
+                </sql:query>
+                <c:forEach var="genshin" items="${rs.rows}">
+                    <div class="${genshin.ItemID} child">
+                        <div class="content"><label><img src="${pageContext.servletContext.contextPath}${genshin.ItemPic}" width="225" height="225"><p class="desc">${genshin.ItemName}</p><p class="price">₱${genshin.ItemValue}</p></label></div>
+                        
+                        <p>Recipient's ID: <%= request.getParameter("uid")%></p>
+                    </div>   
+                </c:forEach>
+                    <form>
+                        <input type="hidden" name="itemid" value="<%= request.getParameter("select")%>">
+                        <input type="hidden" name="recipient" value="<%= request.getParameter("uid")%>">
+                        <div class="captcha">
+                            <label for="captcha">Captcha:</label>
+                            <br>
+                            <img src ="<%= request.getContextPath()%>/Store/captchaImg.png"/>
+                            <br>
+                            <input type="text" name="answer" id="captcha" class="form-control" placeholder="Enter the captcha" required />
+                        </div>  
+                        <input type="submit" value="Pay Now">    
+                    </form>
             </section>
             
             </div>    
