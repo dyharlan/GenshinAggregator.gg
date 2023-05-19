@@ -16,7 +16,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="navbar.css"/>
-        <link href="game-content.css" rel="stylesheet">
+        <link rel="stylesheet" href="game-content.css">
         <title>Genshin Impact</title>
         <script>
             
@@ -121,60 +121,58 @@
         <main>
             <c:choose>
                 <c:when test="${isLoggedIn == true}">
-                    <form action="<%=request.getContextPath()%>/Store/order-summary.jsp" method="POST">
+                    <form action="<%=request.getContextPath()%>/Store/order-summary.jsp" method="POST" class="content-form">
                 </c:when>
                 <c:otherwise>
-                     <form action="Login" method="POST">
+                    <form action="Login" method="POST" class="content-form">
                 </c:otherwise>
             </c:choose>
                 
-            <div class="details">
-                <h1>Enter UID And Server Details</h1>
-                <input class="child" name="uid" id="uid" type="text" minlength="1" maxlength="9" placeholder="Enter UID (Up to 9 digits)" required>
-                <select class="child" name="server" id="server" onchange="setRegex()" required>
-                    <option value="" disabled selected hidden>Select Server</option>
-                    <option value="na">America</option>
-                    <option value="eu">Europe</option>
-                    <option value="asia">Asia</option>
-                    <option value="sar">Taiwan, Hong Kong, Macao</option>
-                </select>
-
-            </div>
-            <div class="recharge">
-                <!-- for (database) -->
-                <sql:setDataSource var="ds" driver="org.apache.derby.jdbc.ClientDriver" 
-                                   url="jdbc:derby://localhost:1527/ConaShopDB" 
-                                   user="cona" password="admin1"/>
-                <sql:query dataSource="${ds}" var="rs">
-                    SELECT * FROM INVENTORY WHERE GameID = 'HV001_GI'
-                </sql:query>
-                <c:forEach var="genshin" items="${rs.rows}">
-                    <div class="${genshin.ItemID} child">
-                        <div class="content"><label for="${genshin.ItemID}"><img src="${pageContext.servletContext.contextPath}${genshin.ItemPic}" width="225" height="225"><p class="desc">${genshin.ItemName}</p><p class="price">₱${genshin.ItemValue}</p></label></div>
-                        <div class="img-button"><input id="${genshin.ItemID}" type="radio" name="select" value="${genshin.ItemID}" required></div>
+                    <div class="details">
+                        <h1>Enter UID And Server Details</h1>
+                        <input class="child" name="uid" id="uid" type="text" minlength="1" maxlength="9" placeholder="Enter UID (Up to 9 digits)" required>
+                        <select class="child" name="server" id="server" onchange="setRegex()" required>
+                            <option value="" disabled selected hidden>Select Server</option>
+                            <option value="na">America</option>
+                            <option value="eu">Europe</option>
+                            <option value="asia">Asia</option>
+                            <option value="sar">Taiwan, Hong Kong, Macao</option>
+                        </select>
+                    </div>
+                    <div class="recharge">
+                        <!-- for (database) -->
+                        <sql:setDataSource var="ds" driver="org.apache.derby.jdbc.ClientDriver" 
+                                           url="jdbc:derby://localhost:1527/ConaShopDB" 
+                                           user="cona" password="admin1"/>
+                        <sql:query dataSource="${ds}" var="rs">
+                            SELECT * FROM INVENTORY WHERE GameID = 'HV001_GI'
+                        </sql:query>
+                        <c:forEach var="genshin" items="${rs.rows}">
+                            <div class="${genshin.ItemID} child">
+                                <div class="content"><label for="${genshin.ItemID}"><img src="${pageContext.servletContext.contextPath}${genshin.ItemPic}" width="225" height="225"><p class="desc">${genshin.ItemName}</p><p class="price">₱${genshin.ItemValue}</p></label></div>
+                                <div class="img-button"><input id="${genshin.ItemID}" type="radio" name="select" value="${genshin.ItemID}" required></div>
+                            </div>   
+                        </c:forEach>
+                    </div>
+                    <p class="solid">        
+                    <div class="payment">
+                        <h1>Select Payment</h1>
+                        <div class="payment-container">
+                            <!-- for (database) -->
+                            <div class="child"><input type="radio" id="visa" name="payment" value="visa" required><label for="visa"><img src="<%= request.getContextPath()%>/assets/StorePage/visa.png" class="visa"></label></div>
+                            <div class="child"><input type="radio" id="mastercard" name="payment" value="mastercard" required><label for="mastercard"><img src="<%= request.getContextPath()%>/assets/StorePage/mastercard.png" class="mastercard"></label></div>
+                            <div class="child"><input type="radio" id="gcash" name="payment" value="gcash"><label for="gcash"><img src="<%= request.getContextPath()%>/assets/StorePage/gcash.png" class="gcash"></label></div>
+                        </div>
+                            <c:choose>
+                                <c:when test="${isLoggedIn == true}">
+                                    <button type="submit" onclick="regexTest()">Proceed To Checkout</button>
+                                </c:when>
+                                <c:otherwise>
+                                    <h2>Please Login to Continue.</h2>
+                                </c:otherwise>
+                            </c:choose>
                     </div>   
-                </c:forEach>
-                </div>
-                <p class="solid">        
-                <div class="payment">
-<!--                    <h1>Select Payment</h1>
-                    <div class="payment-container">
-                         for (database) 
-                        <div class="child"><input type="radio" id="visa" name="payment" value="visa" required><label for="visa"><img src="<%= request.getContextPath()%>/assets/StorePage/visa.png" class="visa"></label></div>
-                        <div class="child"><input type="radio" id="mastercard" name="payment" value="mastercard" required><label for="mastercard"><img src="<%= request.getContextPath()%>/assets/StorePage/mastercard.png" class="mastercard"></label></div>
-                        <div class="child"><input type="radio" id="gcash" name="payment" value="gcash"><label for="gcash"><img src="<%= request.getContextPath()%>/assets/StorePage/gcash.png" class="gcash"></label></div>
-                    </div>-->
-                        <c:choose>
-                            <c:when test="${isLoggedIn == true}">
-                                <button type="submit" onclick="regexTest()">Proceed To Checkout</button>
-                            </c:when>
-                            <c:otherwise>
-                                <h2>Please Login to Continue.</h2>
-                            </c:otherwise>
-                        </c:choose>
-                    
-                </div>   
-            </form>
+                </form>
         </main>
     </body>
 </html>

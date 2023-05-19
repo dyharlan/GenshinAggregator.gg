@@ -83,12 +83,12 @@
         <main>
             <c:choose>
                 <c:when test="${isLoggedIn == true}">
-                    <form action="PaymentProcessor" method="POST">
-                    </c:when>
-                    <c:otherwise>
-                        <form action="Login" method="POST">
-                        </c:otherwise>
-                    </c:choose>
+                    <form action="PaymentProcessor" method="POST" class="content-form">
+                </c:when>
+                <c:otherwise>
+                    <form action="Login" method="POST" class="content-form">
+                </c:otherwise>
+            </c:choose>
                     <div class="details">
                         <h1>Enter your Riot ID</h1>
                         <input class="child" name="uid" id="uid" oninput="numOnly(this.id);" type="text" minlength="1" maxlength="9" placeholder="Enter your Riot ID" required>
@@ -125,7 +125,6 @@
                                 <h2>Please Login to Continue.</h2>
                             </c:otherwise>
                         </c:choose>
-
                     </div>
                 </form>
         </main>

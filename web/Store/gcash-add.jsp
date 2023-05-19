@@ -29,12 +29,12 @@
                  />
         </nav>
         <main> 
-            <div class="gcash-ui">
+            <form class="gcash-ui">
                 <h1>Hello World!</h1>
                 <h2>Add Number to Merchant</h2>
-                
-            </div>
+                <input type="text">
+                <input type="submit">
+            </form>
         </main>
-        
     </body>
 </html>

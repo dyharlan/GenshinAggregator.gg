@@ -120,45 +120,45 @@
         <main>
             <c:choose>
                 <c:when test="${isLoggedIn == true}">
-                    <form action="PaymentProcessor" method="POST">
+                    <form action="PaymentProcessor" method="POST" class="content-form">
                 </c:when>
                 <c:otherwise>
-                    <form action="Login" method="POST">
+                    <form action="Login" method="POST" class="content-form">
                 </c:otherwise>
             </c:choose>
-            <div class="details">
-                <h1>Enter UID And Server Details</h1>
-                <input class="child" name="uid" id="uid" type="text" minlength="1" onchange="setRegex()" maxlength="9" placeholder="Enter UID (Up to 9 digits)" required>
-                <select class="child" name="server" id="server" required>
-                    <option value="" disabled selected hidden>Select Server</option>
-                    <option value="na">America</option>
-                    <option value="eu">Europe</option>
-                    <option value="asia">Asia</option>
-                    <option value="sar">Taiwan, Hong Kong, Macao</option>
-                </select>
-            </div>
-            <div class="recharge">
-                <sql:setDataSource var="ds" driver="org.apache.derby.jdbc.ClientDriver" 
-                                   url="jdbc:derby://localhost:1527/ConaShopDB" 
-                                   user="cona" password="admin1"/>
-                <sql:query dataSource="${ds}" var="rs">
-                    SELECT * FROM INVENTORY WHERE GameID = 'HV002_HSR'
-                </sql:query>
-                <c:forEach var="hsr" items="${rs.rows}">
-                    <div class="${hsr.ItemID} child">
-                        <div class="content"><label for="${hsr.ItemID}"><img src="${pageContext.servletContext.contextPath}${hsr.ItemPic}" width="225" height="225"><p class="desc">${hsr.ItemName}</p><p class="price">₱${hsr.ItemValue}</p></label></div>
-                        <div class="img-button"><input id="${hsr.ItemID}" type="radio" name="select" value="${hsr.ItemID}" required></div>
-                    </div>   
-                </c:forEach>
-            </div>
-            <div class="payment">
-                <h1>Select Payment</h1>
-                <div class="payment-container">
-                    <!-- for (database) -->
-                    <div class="child"><input type="radio" id="visa" name="payment" value="visa" required><label for="visa"><img src="<%= request.getContextPath()%>/assets/StorePage/visa.png" class="visa"></label></div>
-                    <div class="child"><input type="radio" id="mastercard" name="payment" value="mastercard" required><label for="mastercard"><img src="<%= request.getContextPath()%>/assets/StorePage/mastercard.png" class="mastercard"></label></div>
-                    <div class="child"><input type="radio" id="gcash" name="payment" value="gcash"><label for="gcash"><img src="<%= request.getContextPath()%>/assets/StorePage/gcash.png" class="gcash"></label></div>
+                <div class="details">
+                    <h1>Enter UID And Server Details</h1>
+                    <input class="child" name="uid" id="uid" type="text" minlength="1" onchange="setRegex()" maxlength="9" placeholder="Enter UID (Up to 9 digits)" required>
+                    <select class="child" name="server" id="server" required>
+                        <option value="" disabled selected hidden>Select Server</option>
+                        <option value="na">America</option>
+                        <option value="eu">Europe</option>
+                        <option value="asia">Asia</option>
+                        <option value="sar">Taiwan, Hong Kong, Macao</option>
+                    </select>
                 </div>
+                <div class="recharge">
+                    <sql:setDataSource var="ds" driver="org.apache.derby.jdbc.ClientDriver" 
+                                       url="jdbc:derby://localhost:1527/ConaShopDB" 
+                                       user="cona" password="admin1"/>
+                    <sql:query dataSource="${ds}" var="rs">
+                        SELECT * FROM INVENTORY WHERE GameID = 'HV002_HSR'
+                    </sql:query>
+                    <c:forEach var="hsr" items="${rs.rows}">
+                        <div class="${hsr.ItemID} child">
+                            <div class="content"><label for="${hsr.ItemID}"><img src="${pageContext.servletContext.contextPath}${hsr.ItemPic}" width="225" height="225"><p class="desc">${hsr.ItemName}</p><p class="price">₱${hsr.ItemValue}</p></label></div>
+                            <div class="img-button"><input id="${hsr.ItemID}" type="radio" name="select" value="${hsr.ItemID}" required></div>
+                        </div>   
+                    </c:forEach>
+                </div>
+                <div class="payment">
+                    <h1>Select Payment</h1>
+                    <div class="payment-container">
+                        <!-- for (database) -->
+                        <div class="child"><input type="radio" id="visa" name="payment" value="visa" required><label for="visa"><img src="<%= request.getContextPath()%>/assets/StorePage/visa.png" class="visa"></label></div>
+                        <div class="child"><input type="radio" id="mastercard" name="payment" value="mastercard" required><label for="mastercard"><img src="<%= request.getContextPath()%>/assets/StorePage/mastercard.png" class="mastercard"></label></div>
+                        <div class="child"><input type="radio" id="gcash" name="payment" value="gcash"><label for="gcash"><img src="<%= request.getContextPath()%>/assets/StorePage/gcash.png" class="gcash"></label></div>
+                    </div>
                     <c:choose>
                         <c:when test="${isLoggedIn == true}">
                             <button type="submit">Pay Now</button>
@@ -167,8 +167,8 @@
                             <h2>Please Login to Continue.</h2>
                         </c:otherwise>
                     </c:choose>
-            </div>
-
+                </div>
+            </form>
         </main>
     </body>
 </html>
