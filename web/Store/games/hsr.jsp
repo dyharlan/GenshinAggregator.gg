@@ -14,8 +14,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-        <link rel="stylesheet" href="navbar.css"/>
-        <link href="game-content.css" rel="stylesheet">
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/Store/navbar.css"/>
+        <link rel="stylesheet" href="game-content.css">
         <title>Honkai: Star Rail</title>
         <script>
             
