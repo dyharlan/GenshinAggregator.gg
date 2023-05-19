@@ -33,14 +33,14 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #280031;
+    background-color: cornflowerblue;
     min-height: calc(100vh - 55px);
     width: 100%;
     gap: 9px;
 }
 
 .topnav {
-    background-color: #3c1f42;
+    background-color: purple;
     overflow: hidden;
 }
   
