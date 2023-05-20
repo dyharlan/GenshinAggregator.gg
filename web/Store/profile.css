@@ -22,11 +22,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 
 main {
-    background-color: #280031;
+    background-color: cornflowerblue;
     min-height: calc(100vh - 55px);
     width: 100%;
     padding-left: 18px;
     padding-top: 18px;
+    
 }
 
 /* The Modal (background) */
@@ -104,13 +105,30 @@ main {
       opacity: 1}
 }
 
-h1,h2 {
+h1 {
     padding: 9px 0;
+    color: black;
+    text-align: center;
+}
+
+h2{
+    padding: 9px 0;
+    color: black;
+    text-align: center;
+    font-size: 12px;
+}
+
+p{
+    text-align: center;
+    color: black;
+    font-weight: bold;
 }
 
 #payment-btn {
     padding: 9px;
     color: black;
+    text-align: center;
+    margin-left: 675px;
 }
 
 .modal-btn {
@@ -131,3 +149,16 @@ h1,h2 {
     max-height: 18px;
    
 }
+
+h1,h2, #payment-btn, p{
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    border: solid;
+    border-radius: 9px;
+    max-width: 25%;
+    padding: 12px;
+    background: #ADD8E6; /*#093100;*/ /*#3c1f42;*/ /*rgb(26, 12, 74);*/
+    margin: auto;
+    flex-grow: 1;
+} 

@@ -23,8 +23,6 @@
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     </head>
     <body>
-
-
         <nav class="topnav">
             <a id="img-link" href="<%= request.getContextPath()%>/Store/index.jsp">
             <img src="<%= request.getContextPath()%>/assets/ConaShop-Logo.png" 
@@ -35,6 +33,7 @@
                  class="logo"
                  />
             </a>
+            <p1 class="navbar-text">Celebrating 1 year in the service of Tech Otakus!</p1>
         </nav>
         <main>
             <c:choose>
@@ -156,7 +155,7 @@
                         <a href="${pageContext.request.contextPath}/Store/cc-add.jsp" class="modal-btn">Credit Card</a>
                     </div>
                 </div>
-
+  
             </div>
         </main>
     </body>

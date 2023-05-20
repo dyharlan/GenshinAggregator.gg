@@ -32,7 +32,7 @@ main {
     place-items: center;
     */
     padding: 25px 0px;
-    background-color: #280031;
+    background-color: cornflowerblue;
     min-height: calc(100vh - 55px);
     width: 100%;
     gap: 16px;
