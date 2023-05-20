@@ -3,7 +3,8 @@
     Created on : May 19, 2023, 12:04:12 PM
     Author     : csean
 --%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%> 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -29,12 +30,15 @@
                  />
         </nav>
         <main> 
+            <c:if test="${!(cookie.containsKey('let-him-cook1') && cookie.containsKey('let-him-cook2') && cookie.containsKey('let-him-cook3'))}">
+                <c:redirect url = "index.jsp"/>
+            </c:if>
             <form action="" method="post" class="gcash-ui">
                 <h1>Hello World!</h1>
                 <h2>Add Number to Merchant</h2>
                 <div>
                     <label for="number">Number:</label>
-                    <input type="text" name="number" id="number" maxlength="13" size="13" placeholder="Input your mobile number" required>
+                    <input type="text" name="gcash-number" id="number" maxlength="13" size="13" placeholder="Input your mobile number" required>
                 </div>
                 <input type="submit" name="Submit">
             </form>

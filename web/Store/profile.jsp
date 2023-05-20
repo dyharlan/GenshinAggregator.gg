@@ -21,6 +21,16 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <script defer>
+            <%  if (session.getAttribute("cc-success") != null && ((Boolean) session.getAttribute("cc-success")) == true) { %>
+                    alert("Credit Card has been added successfully!");
+            <%      session.removeAttribute("cc-success"); %>
+            <%  } %>
+            <%  if (session.getAttribute("gcash-success") != null && ((Boolean) session.getAttribute("gcash-success")) == true) { %>
+                    alert("GCash Number has been added successfully!");
+            <%      session.removeAttribute("gcash-success"); %>
+            <%  } %>
+        </script>
     </head>
     <body>
         <nav class="topnav">

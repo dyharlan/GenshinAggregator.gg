@@ -90,7 +90,7 @@
                     <form id="pay" action="<%=request.getContextPath()%>/Store/order-summary.jsp" method="POST" class="content-form">
                 </c:when>
                 <c:otherwise>
-                    <form action="Login" method="POST" class="content-form">
+                    <div class="content-form">
                 </c:otherwise>
             </c:choose>
                     <div class="details">
@@ -129,8 +129,16 @@
                                 <h2>Please Login to Continue.</h2>
                             </c:otherwise>
                         </c:choose>
-                    </div>   
-                </form>
+                    </div>
+            <c:choose>
+                <c:when test="${isLoggedIn == true}">
+                    </form>
+                </c:when>
+                <c:otherwise>
+                    </div>
+                </c:otherwise>
+            </c:choose>
+
         </main>
     </body>
 </html>
