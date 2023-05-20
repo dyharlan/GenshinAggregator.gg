@@ -159,6 +159,9 @@ img {
     cursor: pointer;
 }
 
+.store-redirect{
+    font-size: 1em;
+}
 @media (max-width: 1600px) {
     .welcome-section > h1 {
         font-size: 75%;
@@ -182,12 +185,18 @@ img {
     .welcome-section, .banner-section {
         font-size: 2em;
     }
+    .store-redirect{
+        font-size: 0.5em;
+    }
 }
 
 @media (max-width: 1300px) { /* tried to do mobile-first (lower max-widths first for media queries) but failed */
     @media (max-height: 600px) { /* Firefox, 150% */
         .welcome-section > h1 {
             font-size: 100%;
+        }
+        .store-redirect{
+            font-size: 0.5em;
         }
 
         .cbanner > form {
@@ -215,7 +224,9 @@ img {
         welcome-section > h1 {
             font-size: 100%;
         }
-        
+        .store-redirect{
+            font-size: 0.5em;
+        }
         .banners .child h4 {
             font-size: 18px;
         }

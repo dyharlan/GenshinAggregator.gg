@@ -20,8 +20,9 @@
     <body onload="">
         <section class="welcome-section">
             <img src="assets/ConaShop-Logo.png">
-            <h1>Celebrating 1 year in the service of Tech Otakus!</h1>    
-            
+            <h1>Celebrating 1 year in the service of Tech Otakus!</h1>   
+            <br>
+            <a href="BannerViewer?goto=store"  class="store-redirect">Visit our Store now to recharge your crystals! We now Support Valorant.</a>
             
         </section>
 
@@ -72,7 +73,7 @@
                     <form action="BannerViewer" METHOD="GET">
                         <button type="submit" name="banner" value="wb"><img src="<%= request.getContextPath() %>/<%= getServletContext().getInitParameter("asset-folder") %>wbanner.png" alt="Weapon Banner"></button>
                     </form>
-                    <a href="BannerViewer?goto=store">Buy genesis Crystals now! We are 50% off</a>   
+                       
                 </div>
             </div>
         </section>
