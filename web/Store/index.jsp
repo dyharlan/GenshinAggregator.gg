@@ -93,6 +93,7 @@
         </nav>
         <main>
             <h1 class="center">Popular Games Right Now!</h1>
+            <h2 class="center">We offer the best prices on the market! More games coming soon your way!</h2>
             <div class="grid">
                 <sql:setDataSource var="ds" driver="org.apache.derby.jdbc.ClientDriver" 
                                        url="jdbc:derby://localhost:1527/ConaShopDB" 
@@ -109,6 +110,7 @@
                         </a>
                     </c:forEach>
             </div>
+            
         </main>
     </body>
 </html>
