@@ -138,6 +138,7 @@ public class CreditCardServlet extends HttpServlet {
             session.setAttribute("sql-failure", false);
             session.setAttribute("sql-success", true);
             request.setAttribute("ccExists", false);
+            session.setAttribute("cc-success",true);
             response.sendRedirect("profile.jsp");
 
         } catch (SQLException sqle) {

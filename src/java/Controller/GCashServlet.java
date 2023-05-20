@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -40,6 +41,9 @@ public class GCashServlet extends HttpServlet {
             out.println("<h1>Servlet GCashServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
+            HttpSession session = request.getSession();
+            session.setAttribute("gcash-success",true); //before the redirect
+            response.sendRedirect("profile.jsp");
         }
     }
 
