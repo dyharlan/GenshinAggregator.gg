@@ -41,58 +41,6 @@ main {
     padding: 25px 0;
 }
 
-/*navbar customization section start*/
-.topnav {
-    background-color: purple;
-    overflow: hidden;
-    height: 55px;
-  }
-  
-/* Style the links inside the navigation bar */
-.topnav a {
-  float: left;
-/*  color: #f2f2f2;*/
-  text-align: center;
-  padding: 15px 15px;
-  text-decoration: none;
-  font-size: 25px;
-  /* margin-right: 50px; */
-}
-
-/* Change the color of links on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-/* Create a right-aligned (split) link inside the navigation bar */
-.topnav .split {
-  float: right;
-  /*background-color: #04AA6D;*/
-  color: white;
-}
-
-.logo {
-    position: relative;
-    margin-top: 10px;
-    margin-left: 35px;/*55px;*/
-}
-/*
-input.register {
-    line-height: 40px;
-    display: inline-block;
-    margin: 7.5px 9px;
-    color: white;
-    font-size: 18px;
-    padding: 0 13px;
-    border-radius: 3px;
-    background-color: #f16d0b;
-    border-color: #f16d0b;
-    border: none;
-}
-*/
-/*navbar customization section end*/
-
 form.register {
     display: flex;
     flex-direction: column;

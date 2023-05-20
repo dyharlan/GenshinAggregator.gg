@@ -23,6 +23,7 @@
     </head>
     <body>
         <nav class="topnav">
+            <a id="img-link" href="<%= request.getContextPath()%>/Store/index.jsp">
             <img src="<%= request.getContextPath()%>/assets/ConaShop-Logo.png" 
                  alt="ConaShop Logo" 
                  loading="lazy" 
@@ -30,6 +31,7 @@
                  height="35"
                  class="logo"
                  />
+            </a>
             <p class="navbar-text">Celebrating 1 year in the service of Tech Otakus!</p>
 
         </nav>
@@ -50,7 +52,7 @@
                     </sql:query>
                     <c:forEach var="genshin" items="${rs.rows}">
                         <div class="${genshin.ItemID} child">
-                            <div class="content"><label><img src="${pageContext.servletContext.contextPath}${genshin.ItemPic}" width="225" height="225"><p class="desc">${genshin.ItemName}</p><p class="price">₱${genshin.ItemValue}</p></label></div>
+                            <div class="content"><label><img src="${pageContext.servletContext.contextPath}${genshin.ItemPic}" class="selected-img"><p class="desc">${genshin.ItemName}</p><p class="price">₱${genshin.ItemValue}</p></label></div>
 
                             <p>Recipient's ID: <%= request.getParameter("uid")%></p>
                         </div>   
