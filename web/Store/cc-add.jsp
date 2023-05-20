@@ -44,7 +44,7 @@
                     <input id="card2" type="text"  maxlength="4" placeholder="xxxx" name="card2" oninput="numOnly(this.id);" required>
                     <input id="card3" type="text"  maxlength="4" placeholder="xxxx" name="card3" oninput="numOnly(this.id);" required>
                     <input id="card4" type="text"  maxlength="4" placeholder="xxxx" name="card4" oninput="numOnly(this.id);" required>-->
-                    <input id="card" type="text" maxlength="19" oninput="numOnly(this.id);" placeholder="xxxx-xxxx-xxxx-xxxx" name="card" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" required>
+<input id="card" type="text" minlength="19" maxlength="19" oninput="numOnly(this.id);" placeholder="xxxx-xxxx-xxxx-xxxx" name="card" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" title="The credit card number follows this pattern: xxxx-xxxx-xxxx-xxxx" required>
                 </div>
             </div>
             <div class="section4 child">
