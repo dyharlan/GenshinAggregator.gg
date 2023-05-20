@@ -20,6 +20,9 @@
         <script src="uidCheck.js"></script>
     </head>
     <body>
+        <sql:setDataSource var="ds" driver="${initParam.className}" 
+                                       url="${initParam.driverURL}://${initParam.dbHostName}:${initParam.dbPort}/${initParam.dbName}" 
+                                       user="${initParam.dbUsername}" password="${initParam.dbPassword}"/>
         <nav class="topnav">
             <a id="img-link" href="<%= request.getContextPath()%>/Store/index.jsp">
             <img src="<%= request.getContextPath()%>/assets/ConaShop-Logo.png" 

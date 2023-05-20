@@ -40,19 +40,19 @@
     <!--context params for db-->
     <context-param>
         <param-name>className</param-name>
-        <param-value>org.apache.derby.jdbc.ClientDriver</param-value>
+        <param-value>com.mysql.cj.jdbc.Driver</param-value>
     </context-param>
     <context-param>
         <param-name>dbUsername</param-name>
-        <param-value>cona</param-value>
+        <param-value>root</param-value>
     </context-param>
     <context-param>
         <param-name>dbPassword</param-name>
-        <param-value>admin1</param-value>
+        <param-value>toorenia</param-value>
     </context-param>
     <context-param>
         <param-name>driverURL</param-name>
-        <param-value>jdbc:derby</param-value>
+        <param-value>jdbc:mysql</param-value>
     </context-param>
     <context-param>
         <param-name>dbHostName</param-name>
@@ -60,11 +60,11 @@
     </context-param>
     <context-param>
         <param-name>dbPort</param-name>
-        <param-value>1527</param-value>
+        <param-value>3310</param-value>
     </context-param>
     <context-param>
         <param-name>dbName</param-name>
-        <param-value>ConaShopDB</param-value>
+        <param-value>ConaShopDB?useSSL=false</param-value>
     </context-param>
     <context-param>
         <param-name>key</param-name>
