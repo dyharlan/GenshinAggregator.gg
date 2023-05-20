@@ -13,6 +13,7 @@
         <title>Login Page</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="login.css">
+        <link rel="stylesheet" href="navbar.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat&display=swap">
         <script defer src="login.js"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,13 +22,15 @@
     </head>
     <body>
         <nav class="topnav">
+            <a id="img-link" href="<%= request.getContextPath()%>/Store/index.jsp">
             <img src="<%= request.getContextPath()%>/assets/ConaShop-Logo.png" 
-            alt="ConaShop Logo" 
-            loading="lazy" 
-            width="159"
-            height="35"
-            class="logo"
-            />
+                 alt="ConaShop Logo" 
+                 loading="lazy" 
+                 width="159"
+                 height="35"
+                 class="logo"
+                 />
+            </a>
         </nav>
         <main>
                 

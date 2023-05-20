@@ -66,11 +66,12 @@ public class UserRegistrationControllerServlet extends HttpServlet {
 //            out.println("</html>");
 //        }
         //if input of password does not match the input of confirm-password
-        if (!request.getParameter("password").trim().equals(request.getParameter("confirm-password").trim()))
-        {
-            request.getSession().setAttribute("password-mismatch", true);
-            request.getRequestDispatcher("register.jsp").include(request, response);
-            return;
+        if (!request.getParameter("password").equals(request.getParameter("confirm-password"))) {
+                Boolean passwordsDontMatch = true;
+                request.setAttribute("passwordsDontMatch", true);
+                session.setAttribute(Captcha.NAME, null);
+                request.getRequestDispatcher("register.jsp").include(request, response);
+                return;
         }
         Captcha captcha = (Captcha) request.getSession().getAttribute(Captcha.NAME);
         //captcha check
@@ -116,13 +117,7 @@ public class UserRegistrationControllerServlet extends HttpServlet {
                 }
             }
             
-            if(!request.getParameter("password").equals(request.getParameter("confirm-password"))){
-                Boolean passwordsDontMatch = true;
-                request.setAttribute("passwordsDontMatch", true);
-                session.setAttribute(Captcha.NAME, null);
-                request.getRequestDispatcher("register.jsp").include(request, response);
-                return;
-            }
+            
             //set parameterized query
             String ps_query1 = "INSERT INTO PersonCredentials(EMAIL,PASSWORD) VALUES(?,?)";
             ps1 = conn.prepareStatement(ps_query1);
