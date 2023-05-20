@@ -92,6 +92,7 @@
                     
         </nav>
         <main>
+            <h1>Popular Games Right Now!</h1>
             <div class="grid">
                 <sql:setDataSource var="ds" driver="org.apache.derby.jdbc.ClientDriver" 
                                        url="jdbc:derby://localhost:1527/ConaShopDB" 
