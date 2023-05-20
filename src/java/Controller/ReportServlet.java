@@ -4,13 +4,18 @@
  */
 package Controller;
 
+import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.Utilities;
+import com.itextpdf.text.pdf.BaseFont;
+import com.itextpdf.text.pdf.ColumnText;
+import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -49,12 +54,15 @@ public class ReportServlet extends HttpServlet {
         OutputStream out = response.getOutputStream();
         HttpSession session = request.getSession();
         //ByteArrayInputStream bais = ReportGenerator.generateReport(map, user, reportType, out);
-        
+        String ipAddress = InetAddress.getLocalHost().getHostAddress();
+        //BaseFont base = BaseFont.createFont("c:/windows/fonts/arial.ttf", BaseFont.WINANSI);
+        //Font font = new Font(base, 11f, Font.BOLD);
         System.out.println("Inside the method");
         Font[] fonts = {
             new Font(Font.FontFamily.HELVETICA,36,Font.BOLD),
-            new Font(Font.FontFamily.HELVETICA,12),
-            new Font(Font.FontFamily.HELVETICA,12,Font.ITALIC)
+            new Font(Font.FontFamily.HELVETICA,11, Font.BOLD),
+            new Font(Font.FontFamily.HELVETICA,12,Font.ITALIC),
+            FontFactory.getFont(ipAddress + request.getContextPath() + "/assets/fonts/SourceSansPro-Regular.ttf",BaseFont.HELVETICA,BaseFont.EMBEDDED,36f,Font.NORMAL,BaseColor.BLACK)
         };
         Document document = new Document();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -63,23 +71,33 @@ public class ReportServlet extends HttpServlet {
 //            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Sample Report.pdf")); //ByteArrayOutputStream
 //            ByteArrayOutputStream temp = new ByteArrayOutputStream(); //this is where the pdf will first be stored as a byte array, output stream since this is a binary file
             PdfWriter writer = PdfWriter.getInstance(document,baos); //temp);
-            Rectangle rect = new Rectangle(Utilities.millimetersToPoints(210),Utilities.millimetersToPoints(170));
+            Rectangle rect = new Rectangle(Utilities.inchesToPoints(11.69f),Utilities.inchesToPoints(6.69f));
             document.setPageSize(rect);
             document.open();
             
             Paragraph title;
             //String role = records.getString("USERROLE")
             //if (role.equals("Admin") || role.equals("ADMIN") || role.equals("admin"))
-            title = new Paragraph("Receipt",fonts[0]);
-            title.setAlignment(Element.ALIGN_LEFT);
-            document.add(title);
-            String ipAddress = InetAddress.getLocalHost().getHostAddress();
+            title = new Paragraph("Receipt",fonts[3]);
+            PdfContentByte pcb = writer.getDirectContent();
+            BaseFont bf = BaseFont.createFont(BaseFont.HELVETICA,BaseFont.CP1252,BaseFont.NOT_EMBEDDED);
+            ColumnText.showTextAligned(pcb, Element.ALIGN_LEFT,
+                        title,
+                        document.left() + document.leftMargin(),
+//                        document.left()*3 + document.leftMargin(),
+                        document.top() - document.topMargin(), 0);
+//            title.setAlignment(Element.ALIGN_LEFT);
+            //title.
+            //document.add(title);
+            
             String url = ipAddress + request.getContextPath() + "/assets/ConaShop-Logo.png";
             //System.out.println(url);
             URL imgURL = new URL("http", ipAddress,8080,request.getContextPath()+"/assets/ConaShop-Logo.png");
             System.out.println(imgURL.toString());
             Image img = PngImage.getImage(imgURL.openStream());
-            img.setAlignment(Element.ALIGN_RIGHT);
+//            img.setAlignment(Element.ALIGN_RIGHT);
+            img.scaleAbsolute(190.8f, 42f);
+            img.setAbsolutePosition(document.right() - 200, document.top() - document.topMargin());
             document.add(img);
 //            document.newPage();
             
@@ -97,23 +115,23 @@ public class ReportServlet extends HttpServlet {
             table.addCell(columnTwo);
             PdfPCell columnThree = new PdfPCell();
             Paragraph contentThree = new Paragraph("Item Name",fonts[1]);
-            contentTwo.setAlignment(Element.ALIGN_CENTER);
-            columnTwo.addElement(contentThree);
+            contentThree.setAlignment(Element.ALIGN_CENTER);
+            columnThree.addElement(contentThree);
             table.addCell(columnThree);
             PdfPCell columnFour = new PdfPCell();
             Paragraph contentFour = new Paragraph("Payment Type",fonts[1]);
-            contentTwo.setAlignment(Element.ALIGN_CENTER);
-            columnTwo.addElement(contentFour);
+            contentFour.setAlignment(Element.ALIGN_CENTER);
+            columnFour.addElement(contentFour);
             table.addCell(columnFour);
             PdfPCell columnFive = new PdfPCell();
             Paragraph contentFive = new Paragraph("Transaction Date",fonts[1]);
-            contentTwo.setAlignment(Element.ALIGN_CENTER);
-            columnTwo.addElement(contentFive);
+            contentFive.setAlignment(Element.ALIGN_CENTER);
+            columnFive.addElement(contentFive);
             table.addCell(columnFive);
             PdfPCell columnSix = new PdfPCell();
             Paragraph contentSix = new Paragraph("Item Value",fonts[1]);
-            contentTwo.setAlignment(Element.ALIGN_CENTER);
-            columnTwo.addElement(contentSix);
+            contentSix.setAlignment(Element.ALIGN_CENTER);
+            columnSix.addElement(contentSix);
             table.addCell(columnSix);
                 //test
                 contentOne = new Paragraph("0a932279-0d87-4a79-9e31-99b1ad1d0f68",fonts[1]);
@@ -130,7 +148,7 @@ public class ReportServlet extends HttpServlet {
                 contentThree.setAlignment(Element.ALIGN_CENTER);
                 columnThree = new PdfPCell();
                 columnThree.addElement(contentThree);
-                table.addCell(columnTwo);
+                table.addCell(columnThree);
                 contentFour = new Paragraph("Credit Card",fonts[1]);
                 contentFour.setAlignment(Element.ALIGN_CENTER);
                 columnFour = new PdfPCell();
@@ -140,13 +158,14 @@ public class ReportServlet extends HttpServlet {
                 contentFive.setAlignment(Element.ALIGN_CENTER);
                 columnFive = new PdfPCell();
                 columnFive.addElement(contentFive);
-                table.addCell(columnTwo);
-                contentSix = new Paragraph("₱499",fonts[1]);
+                table.addCell(columnFive);
+                contentSix = new Paragraph("\u20B1499",fonts[1]);
                 contentSix.setAlignment(Element.ALIGN_CENTER);
                 columnSix = new PdfPCell();
                 columnSix.addElement(contentSix);
                 table.addCell(columnSix);
                 
+            table.setWidthPercentage(100);
             document.add(table);
             
             
