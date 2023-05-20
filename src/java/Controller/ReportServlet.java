@@ -49,7 +49,7 @@ public class ReportServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("application/pdf");
+        response.setContentType("application/pdf;charset=utf-8");
         response.setHeader("Accept-Ranges", "bytes");
         OutputStream out = response.getOutputStream();
         HttpSession session = request.getSession();
@@ -159,7 +159,7 @@ public class ReportServlet extends HttpServlet {
                 columnFive = new PdfPCell();
                 columnFive.addElement(contentFive);
                 table.addCell(columnFive);
-                contentSix = new Paragraph("\u20B1499",fonts[1]);
+                contentSix = new Paragraph("₱499",fonts[1]); //₱ or \u20B1
                 contentSix.setAlignment(Element.ALIGN_CENTER);
                 columnSix = new PdfPCell();
                 columnSix.addElement(contentSix);
