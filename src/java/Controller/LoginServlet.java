@@ -71,10 +71,11 @@ public class LoginServlet extends HttpServlet {
                         request.setAttribute("errorCount",1);
                     else
                         request.setAttribute("errorCount", ((Integer) request.getAttribute("errorCount")).intValue() + 1);
+                        credentials.close();
                         request.getRequestDispatcher("login.jsp").include(request, response);
                     return;
                 }
-                //credentials.close();
+                credentials.close();
                 response.sendRedirect("index.jsp");
             }
             catch (SQLException sqle)

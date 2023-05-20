@@ -111,8 +111,7 @@ public class CheckOutGeneratorServlet extends HttpServlet {
             psCheck.setString(3, paymentMethod);
             
 
-            int paymentType = -1;
-            //Security sec = new Security(getServletContext().getInitParameter("key"), getServletContext().getInitParameter("initVector"));     
+            int paymentType = -1;    
             ResultSet userSet = psCheck.executeQuery();
             while(userSet.next()){
                 System.out.println(userSet.getInt("PaymentType"));

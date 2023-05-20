@@ -28,6 +28,7 @@ public class CreditCardServlet extends HttpServlet {
 
     Connection conn;
     PreparedStatement psCheck;
+    ResultSet ccNumSet;
     PreparedStatement ps1;
     PreparedStatement ps2;
 
@@ -48,6 +49,8 @@ public class CreditCardServlet extends HttpServlet {
              *  AYOKO NA NG DERBY DI KO SANA GAGAWIN ITO KUNG MADALI LANG GUMAWA NG STORED PROCEDURES
              * -dyharlan, 2021147927
              */
+            
+            //driver init
             Class.forName(getServletContext().getInitParameter("className"));
             //System.out.println("jdbcClassName: " + config.getInitParameter("jdbcClassName"));
             String username = getServletContext().getInitParameter("dbUsername");
@@ -61,15 +64,14 @@ public class CreditCardServlet extends HttpServlet {
                     .append(getServletContext().getInitParameter("dbName"));
             System.out.println(password);
             conn = DriverManager.getConnection(url.toString(), username, password);
+            
+            //retrieve cookies
             Cookie[] cookies = request.getCookies();
-            String email = "";
             int userID = -1;
             if (cookies != null)
                 for (Cookie cookie : cookies) {
                    if(cookie.getName().equals("let-him-cook1"))
                       userID = Integer.parseInt(cookie.getValue());
-                   if(cookie.getName().equals("let-him-cook2"))
-                      email = cookie.getValue(); 
                 }
             else{
                 response.sendRedirect(request.getContextPath() + "index.jsp");
@@ -83,7 +85,7 @@ public class CreditCardServlet extends HttpServlet {
             System.out.println(encryptedCCNum);
             psCheck.setString(2, encryptedCCNum);
            
-            ResultSet ccNumSet = psCheck.executeQuery();
+            ccNumSet = psCheck.executeQuery();
             while (ccNumSet.next()) {
                 System.out.println("true?");
                 //System.out.println(ccNumSet.getInt(userID) == userID && ccNumSet.getString("CCNumber").trim().equals(sec.encrypt(request.getParameter("card"))));
@@ -115,7 +117,7 @@ public class CreditCardServlet extends HttpServlet {
                 ps2 = conn.prepareStatement(ps_query2);
                 ps2.setString(1, PMIdentifier);
                 ps2.setString(2, request.getParameter("ccType"));
-                ps2.setString(3, sec.encrypt(request.getParameter("card")));
+                ps2.setString(3, encryptedCCNum);
                 ps2.setString(4, request.getParameter("fname"));
                 ps2.setString(5, request.getParameter("lname"));
                 ps2.setString(6, request.getParameter("ccValid"));
@@ -130,6 +132,7 @@ public class CreditCardServlet extends HttpServlet {
 
             ps2.close();
             ps1.close();
+            ccNumSet.close();
             psCheck.close();
             conn.close();
 
