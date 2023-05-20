@@ -79,7 +79,7 @@
                                         <p>Total Price: ₱<!--Insert price in pesos--> ${transaction_info.itemvalue}</p>
 
                                     </section>
-                                    <form action="<%=request.getContextPath()%>/Store/ReportServlet.pdf" target="_blank">
+                                    <form action="<%=request.getContextPath()%>/Store/Receipt.pdf" target="_blank">
                                         <button type="submit">Print your receipt</button>
                                     </form>
                                 </div>
