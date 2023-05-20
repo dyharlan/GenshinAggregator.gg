@@ -7,17 +7,22 @@ package Controller;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.Utilities;
 import com.itextpdf.text.pdf.ColumnText;
 import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfImage;
+import com.itextpdf.text.pdf.PdfName;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.PdfStamper;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.codec.PngImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -32,6 +37,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.net.URL;
 
 /**
  *
@@ -54,8 +60,6 @@ public class ReportServlet extends HttpServlet {
         response.setHeader("Accept-Ranges", "bytes");
         OutputStream out = response.getOutputStream();
         HttpSession session = request.getSession();
-        Map<String,String> map = (LinkedHashMap) session.getAttribute("result");
-        String user = String.valueOf(session.getAttribute("user"));
         //ByteArrayInputStream bais = ReportGenerator.generateReport(map, user, reportType, out);
         
         System.out.println("Inside the method");
@@ -64,8 +68,6 @@ public class ReportServlet extends HttpServlet {
             new Font(Font.FontFamily.HELVETICA,12),
             new Font(Font.FontFamily.HELVETICA,12,Font.ITALIC)
         };
-        System.out.println(map);
-        System.out.println(user);
         Document document = new Document();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         try
@@ -73,89 +75,133 @@ public class ReportServlet extends HttpServlet {
 //            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Sample Report.pdf")); //ByteArrayOutputStream
 //            ByteArrayOutputStream temp = new ByteArrayOutputStream(); //this is where the pdf will first be stored as a byte array, output stream since this is a binary file
             PdfWriter writer = PdfWriter.getInstance(document,baos); //temp);
-            Rectangle rect = new Rectangle(PageSize.A4);
+            Rectangle rect = new Rectangle(Utilities.millimetersToPoints(210),Utilities.millimetersToPoints(170));
             document.setPageSize(rect);
             document.open();
             
             Paragraph title;
             //String role = records.getString("USERROLE")
             //if (role.equals("Admin") || role.equals("ADMIN") || role.equals("admin"))
-            title = new Paragraph("\n\n\n\n\nGuest Report\n\n\n\n",fonts[0]);
-            title.setAlignment(Element.ALIGN_CENTER);
+            title = new Paragraph("Receipt",fonts[0]);
+            title.setAlignment(Element.ALIGN_LEFT);
             document.add(title);
-            document.newPage();
+            String url = request.getContextPath() + "/assets/ConaShop-Logo.png";
+            System.out.println(url);
+            URL imgURL = new URL(url);
+            imgURL.toURI();
+            Image img = PngImage.getImage(imgURL);
+            img.setAlignment(Element.ALIGN_RIGHT);
+            document.add(img);
+//            document.newPage();
             
             //table section
-            PdfPTable table = new PdfPTable(2);
+            PdfPTable table = new PdfPTable(6);
             PdfPCell columnOne = new PdfPCell();
-            Paragraph contentOne = new Paragraph("Username",fonts[1]);
+            Paragraph contentOne = new Paragraph("Transaction ID",fonts[1]);
             contentOne.setAlignment(Element.ALIGN_CENTER);
             columnOne.addElement(contentOne);
             table.addCell(columnOne);
             PdfPCell columnTwo = new PdfPCell();
-            Paragraph contentTwo = new Paragraph("User Role",fonts[1]);
+            Paragraph contentTwo = new Paragraph("Recipient",fonts[1]);
             contentTwo.setAlignment(Element.ALIGN_CENTER);
             columnTwo.addElement(contentTwo);
             table.addCell(columnTwo);
-            //for (int i = 0; i < username.length; i++)
-            for (Map.Entry<String,String> entry : map.entrySet())
-            {
-                contentOne = new Paragraph(entry.getKey(),fonts[1]);
+            PdfPCell columnThree = new PdfPCell();
+            Paragraph contentThree = new Paragraph("Item Name",fonts[1]);
+            contentTwo.setAlignment(Element.ALIGN_CENTER);
+            columnTwo.addElement(contentThree);
+            table.addCell(columnThree);
+            PdfPCell columnFour = new PdfPCell();
+            Paragraph contentFour = new Paragraph("Payment Type",fonts[1]);
+            contentTwo.setAlignment(Element.ALIGN_CENTER);
+            columnTwo.addElement(contentFour);
+            table.addCell(columnFour);
+            PdfPCell columnFive = new PdfPCell();
+            Paragraph contentFive = new Paragraph("Transaction Date",fonts[1]);
+            contentTwo.setAlignment(Element.ALIGN_CENTER);
+            columnTwo.addElement(contentFive);
+            table.addCell(columnFive);
+            PdfPCell columnSix = new PdfPCell();
+            Paragraph contentSix = new Paragraph("Item Value",fonts[1]);
+            contentTwo.setAlignment(Element.ALIGN_CENTER);
+            columnTwo.addElement(contentSix);
+            table.addCell(columnSix);
+                //test
+                contentOne = new Paragraph("0a932279-0d87-4a79-9e31-99b1ad1d0f68",fonts[1]);
                 contentOne.setAlignment(Element.ALIGN_CENTER);
                 columnOne = new PdfPCell();
                 columnOne.addElement(contentOne); //note that columnOne may have two elements onwards
                 table.addCell(columnOne);
-                contentTwo = new Paragraph(entry.getValue(),fonts[1]);
+                contentTwo = new Paragraph("johnnyenglish9#BEAN",fonts[1]);
                 contentTwo.setAlignment(Element.ALIGN_CENTER);
                 columnTwo = new PdfPCell();
                 columnTwo.addElement(contentTwo);
                 table.addCell(columnTwo);
-            }
+                contentThree = new Paragraph("1256+94 Valorant Points",fonts[1]);
+                contentThree.setAlignment(Element.ALIGN_CENTER);
+                columnThree = new PdfPCell();
+                columnThree.addElement(contentThree);
+                table.addCell(columnTwo);
+                contentFour = new Paragraph("Credit Card",fonts[1]);
+                contentFour.setAlignment(Element.ALIGN_CENTER);
+                columnFour = new PdfPCell();
+                columnFour.addElement(contentFour);
+                table.addCell(columnFour);
+                contentFive = new Paragraph("2023-05-19",fonts[1]);
+                contentFive.setAlignment(Element.ALIGN_CENTER);
+                columnFive = new PdfPCell();
+                columnFive.addElement(contentFive);
+                table.addCell(columnTwo);
+                contentSix = new Paragraph("₱499",fonts[1]);
+                contentSix.setAlignment(Element.ALIGN_CENTER);
+                columnSix = new PdfPCell();
+                columnSix.addElement(contentSix);
+                table.addCell(columnSix);
+                
             document.add(table);
+            
+            
             
             document.close();
             
             System.out.println("document completed");
             
-            ByteArrayInputStream pdfToStamp = new ByteArrayInputStream(baos.toByteArray());
+//            ByteArrayInputStream pdfToStamp = new ByteArrayInputStream(baos.toByteArray());
+//            PdfReader reader = new PdfReader(pdfToStamp);
+//            System.out.println("report is read");
+//            int n = reader.getNumberOfPages();
+//            PdfStamper stamper;
+//            stamper = new PdfStamper(reader, baos);
+//            PdfContentByte pagecontent;
             
-            
-//            PdfReader reader = new PdfReader("Sample Report.pdf");
-            PdfReader reader = new PdfReader(pdfToStamp);
-            System.out.println("report is read");
-            int n = reader.getNumberOfPages();
-            PdfStamper stamper;
-//            if (reportType.equals("Admin") || reportType.equals("ADMIN") || reportType.equals("admin"))
-//                stamper = new PdfStamper(reader, new FileOutputStream("Admin Report.pdf"));
-//                stamper = new PdfStamper(reader, baos);
-//            else
-//                stamper = new PdfStamper(reader, new FileOutputStream("Guest Report.pdf"));
-            stamper = new PdfStamper(reader, baos);
-            PdfContentByte pagecontent;
-            for (int i = 0; i < n; ) {
-                pagecontent = stamper.getOverContent(++i); //because i is incremented here, it's no longer necessary to add it on the for loop itself
-                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-                LocalDateTime now = LocalDateTime.now();
-                Phrase dateAndTimeGenerated = new Phrase("Date and Time Generated: " + dtf.format(now), fonts[2]);
-                Phrase generatedBy = new Phrase("Generated By: " + user,fonts[2]);
-                Phrase pageXOfY = new Phrase("Page " + i + " of " + n, fonts[2]);
-                ColumnText.showTextAligned(pagecontent, Element.ALIGN_LEFT,
-                        dateAndTimeGenerated,
-                        document.left() + document.leftMargin(),
-                        //document.left()*3 + document.leftMargin(),
-                        document.bottom() - 12, 0);
-                ColumnText.showTextAligned(pagecontent, Element.ALIGN_LEFT, 
-                        generatedBy, 
-                        document.left() + document.leftMargin(), 
-                        document.bottom() - 24, 0);
-                ColumnText.showTextAligned(pagecontent, Element.ALIGN_RIGHT,
-                        pageXOfY,
-                        document.right() - document.rightMargin(),
-                        document.bottom() - 15, 0);
-            }
-            stamper.close();
-            reader.close();
-            System.out.println("report completed");
+//            for (int i = 0; i < n; ) {  
+//                pagecontent = stamper.getOverContent(++i); //because i is incremented here, it's no longer necessary to add it on the for loop itself
+//                if (i == 1)
+//                {
+//                    
+//                }
+//                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+//                LocalDateTime now = LocalDateTime.now();
+//                Phrase dateAndTimeGenerated = new Phrase("Date and Time Generated: " + dtf.format(now), fonts[2]);
+//                Phrase generatedBy = new Phrase("Generated By: " + user,fonts[2]);
+//                Phrase pageXOfY = new Phrase("Page " + i + " of " + n, fonts[2]);
+//                ColumnText.showTextAligned(pagecontent, Element.ALIGN_LEFT,
+//                        dateAndTimeGenerated,
+//                        document.left() + document.leftMargin(),
+//                        //document.left()*3 + document.leftMargin(),
+//                        document.bottom() - 12, 0);
+//                ColumnText.showTextAligned(pagecontent, Element.ALIGN_LEFT, 
+//                        generatedBy, 
+//                        document.left() + document.leftMargin(), 
+//                        document.bottom() - 24, 0);
+//                ColumnText.showTextAligned(pagecontent, Element.ALIGN_RIGHT,
+//                        pageXOfY,
+//                        document.right() - document.rightMargin(),
+//                        document.bottom() - 15, 0);
+//            }
+//            stamper.close();
+//            reader.close();
+//            System.out.println("report completed");
             
         } catch(Exception e)
         {
