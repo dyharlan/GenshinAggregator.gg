@@ -33,7 +33,7 @@ CREATE TABLE UserPaymentMethods(
 
 CREATE TABLE GCashInfo(
     PMIdentifier VARCHAR(255) NOT NULL,
-    GCashNumber VARCHAR(10) NOT NULL,
+    GCashNumber VARCHAR(255) NOT NULL,
     FOREIGN KEY(PMIdentifier) REFERENCES UserPaymentMethods(PMIdentifier) ON DELETE CASCADE,
     PRIMARY KEY(PMIdentifier,GCashNumber)
 );

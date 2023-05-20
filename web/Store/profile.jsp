@@ -94,7 +94,6 @@
                             </c:forEach>
                         </c:otherwise>
                     </c:choose>
-
                 </c:when>
             </c:choose>
             <!-- Trigger/Open The Modal -->
@@ -112,15 +111,19 @@
                         <sql:param value="${paymentType}" />   
                         <sql:param value="${uID}" />   
                     </sql:query>
-                    <% Security sec = new Security(getServletContext().getInitParameter("key"), getServletContext().getInitParameter("initVector"));%>
+                    <% Security sec = new Security(getServletContext().getInitParameter("key"), getServletContext().getInitParameter("initVector"));
+                       String x="";
+                       StringBuilder sb;
+                    %>
+                    
                     <c:forEach var="cc_info" items="${rs.rows}">            
                         <c:set var="ccEnc" value="${cc_info.CCNUMBER}"/>
                         <c:set var="string1" value="<%= sec.decrypt((String) pageContext.getAttribute("ccEnc"))%>"/>
                         <c:set var="string2" value="${fn:substring(string1, 1 % fn:length(string1), fn:length(string1)-3 % fn:length(string1))}" />
 
                         <%
-                            String x = (String) pageContext.getAttribute("string2");
-                            StringBuilder sb = new StringBuilder();
+                            x = (String) pageContext.getAttribute("string2");
+                            sb = new StringBuilder();
                             for (int i = 0; i < x.length(); i++) {
                                 sb.append('*');
                             }
@@ -148,10 +151,35 @@
                                 <input type="submit" value="Delete" style="color:black">
                                 <br>
                             </form>
-                        </c:if>
-                            
-                            
+                        </c:if>                                                        
+                    </c:forEach>
+                    <c:set var="paymentType" value="2"/> 
+                    <sql:query dataSource="${ds}" var="rs">
+                        SELECT USERPAYMENTMETHODS.USERID, USERPAYMENTMETHODS.PMIDENTIFIER, USERPAYMENTMETHODS.PAYMENTTYPE, GCASHINFO.GCASHNUMBER FROM USERPAYMENTMETHODS JOIN GCASHINFO USING(PMIDENTIFIER) WHERE PAYMENTTYPE = ? AND USERPAYMENTMETHODS.USERID = ?
+                        <sql:param value="${paymentType}" />   
+                        <sql:param value="${uID}" />   
+                    </sql:query>
+                    <c:forEach var="gcash_info" items="${rs.rows}">            
+                        <c:set var="gcashEnc" value="${gcash_info.GcashNUMBER}"/>
+                        <c:set var="string1" value="<%= sec.decrypt((String) pageContext.getAttribute("gcashEnc"))%>"/>
+                        <c:set var="string2" value="${fn:substring(string1, 1 % fn:length(string1), fn:length(string1)-3 % fn:length(string1))}" />
 
+                        <%
+                            x = (String) pageContext.getAttribute("string2");
+                            sb = new StringBuilder();
+                            for (int i = 0; i < x.length(); i++) {
+                                sb.append('*');
+                            }
+                        %>
+                        <c:set var="tmpStr" value="<%= sb.toString()%>"/>
+                        <c:set var="string3" value="${    fn:replace(string1, string2, tmpStr)   }" />
+                        <c:set var="tmpStr2" value="${gcash_info.pmidentifier}"/>
+                            <form action="PaymentManager" method="post">
+                                <input type="hidden" name="pmIdentifier" value="<%= sec.encrypt((String)pageContext.getAttribute("tmpStr2"))%>"/>
+                                <img class="gcash" lazy alt="GCash" src="${pageContext.servletContext.contextPath}/assets/StorePage/gcashalter.png"/>
+                                <h3>GCash</h3><p><c:out value="${string3}"/></p>
+                                <input type="submit" value="Delete">
+                            </form>
                     </c:forEach>
                 </c:when>
             </c:choose>

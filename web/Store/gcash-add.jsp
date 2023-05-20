@@ -33,10 +33,13 @@
             <c:if test="${!(cookie.containsKey('let-him-cook1') && cookie.containsKey('let-him-cook2') && cookie.containsKey('let-him-cook3'))}">
                 <c:redirect url = "index.jsp"/>
             </c:if>
-            <form action="" method="post" class="gcash-ui">
+            <form action="GCashProcessor" method="post" class="gcash-ui">
                 <h1>Hello World!</h1>
                 <h2>Add Number to Merchant</h2>
                 <div>
+                    <%if(request.getAttribute("gcashExists") != null &&(Boolean) request.getAttribute("gcashExists")){%>
+                        <h3>The GCash Number is already in use by this user!</h3>
+                    <%}%>
                     <label for="number">Number:</label>
                     <input type="text" name="gcash-number" id="number" maxlength="13" size="13" placeholder="Input your mobile number" required>
                 </div>
