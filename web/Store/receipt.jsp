@@ -7,10 +7,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="receipt.css" rel="stylesheet">
+        <link href="navbar.css" rel="stylesheet">
         <title>Receipt Page | GenshinStore.gg</title>
     </head>
     <body>
         <nav class="topnav">
+            <a id="img-link" href="<%= request.getContextPath()%>/Store/index.jsp">
             <img src="<%= request.getContextPath()%>/assets/ConaShop-Logo.png" 
                  alt="ConaShop Logo" 
                  loading="lazy" 
@@ -18,6 +20,7 @@
                  height="35"
                  class="logo"
                  />
+            </a>
             <p class="navbar-text">Celebrating 1 year in the service of Tech Otakus!</p>
         </nav>
         <main>
@@ -76,8 +79,9 @@
                                         <p>Total Price: ₱<!--Insert price in pesos--> ${transaction_info.itemvalue}</p>
 
                                     </section>
-
-                                     <a href="<%=request.getContextPath()%>/Store/ReportServlet.pdf" target="_blank">Print your receipt</a>
+                                    <form action="<%=request.getContextPath()%>/Store/ReportServlet.pdf" target="_blank">
+                                        <button type="submit">Print your receipt</button>
+                                    </form>
                                 </div>
                             </c:forEach>
                         </c:otherwise>
