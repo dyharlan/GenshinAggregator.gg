@@ -159,6 +159,10 @@
         <servlet-name>ReportServlet</servlet-name>
         <servlet-class>Controller.ReportServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GCashServlet</servlet-name>
+        <servlet-class>Controller.GCashServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CaptchaGenerator</servlet-name>
         <url-pattern>/Store/captchaImg.png</url-pattern>
@@ -202,6 +206,10 @@
     <servlet-mapping>
         <servlet-name>ReportServlet</servlet-name>
         <url-pattern>/Store/ReportServlet.pdf</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GCashServlet</servlet-name>
+        <url-pattern>/Store/GCashProcessor</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
