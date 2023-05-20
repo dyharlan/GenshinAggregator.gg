@@ -28,9 +28,9 @@
                 <c:redirect url="index.jsp"/>
             </c:if>
             <div class="receipt">
-                <sql:setDataSource var="ds" driver="org.apache.derby.jdbc.ClientDriver" 
-                                       url="jdbc:derby://localhost:1527/ConaShopDB" 
-                                       user="cona" password="admin1"/>
+                <sql:setDataSource var="ds" driver="${initParam.className}" 
+                                       url="${initParam.driverURL}://${initParam.dbHostName}:${initParam.dbPort}/${initParam.dbName}" 
+                                       user="${initParam.dbUsername}" password="${initParam.dbPassword}"/>
                 <sql:query dataSource="${ds}" var="rs">
                         select usertransactions.transactionid,personCredentials.EMAIL,personinfo.FNAME, personinfo.LNAME,transactioninfo.itemrecipient,transactioninfo.itemid,inventory.itemname,usertransactions.paymenttype,paymentmethods.paymentname,usertransactions.transactiondate,inventory.itemvalue from personcredentials join personinfo using(userid) join usertransactions using(userid) join paymentmethods using(paymenttype) join transactioninfo using(transactionid) join inventory using(itemid) WHERE TRANSACTIONID = ?
                         <sql:param value="${sessionScope.transactionID}" />  

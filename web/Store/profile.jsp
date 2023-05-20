@@ -54,9 +54,9 @@
                     <c:set var="param1" value="${Integer.valueOf(cookie['let-him-cook1'].value)}"/> 
                     <c:set var="param2" value="${cookie['let-him-cook2'].value}"/> 
                     <c:set var="param3" value="${cookie['let-him-cook3'].value}"/> 
-                    <sql:setDataSource var="ds" driver="org.apache.derby.jdbc.ClientDriver" 
-                                       url="jdbc:derby://localhost:1527/ConaShopDB" 
-                                       user="cona" password="admin1"/>
+                    <sql:setDataSource var="ds" driver="${initParam.className}" 
+                                       url="${initParam.driverURL}://${initParam.dbHostName}:${initParam.dbPort}/${initParam.dbName}" 
+                                       user="${initParam.dbUsername}" password="${initParam.dbPassword}"/>
                     <sql:query dataSource="${ds}" var="rs">
                         SELECT PersonInfo.USERID,PersonInfo.FNAME,PersonInfo.LNAME,PersonInfo.DOB FROM PersonInfo JOIN PersonCredentials USING(UserID) where USERID = ? AND EMAIL = ? AND PASSWORD = ?
                         <sql:param value="${param1}" />  
@@ -173,8 +173,8 @@
                         %>
                         <c:set var="tmpStr" value="<%= sb.toString()%>"/>
                         <c:set var="string3" value="${    fn:replace(string1, string2, tmpStr)   }" />
-                        <c:set var="tmpStr2" value="${gcash_info.pmidentifier}"/>
-                            <form action="PaymentManager" method="post">
+                        <c:set var="tmpStr2" value="${gcash_info.pmidentifier}" />
+                            <form action="PaymentManager" method="post" style="text-align:center;">
                                 <input type="hidden" name="pmIdentifier" value="<%= sec.encrypt((String)pageContext.getAttribute("tmpStr2"))%>"/>
                                 <img class="gcash" lazy alt="GCash" src="${pageContext.servletContext.contextPath}/assets/StorePage/gcashalter.png"/>
                                 <h3>GCash</h3><p><c:out value="${string3}"/></p>

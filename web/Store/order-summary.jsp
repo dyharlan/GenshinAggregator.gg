@@ -44,9 +44,9 @@
                     <c:if test="${(empty param.select && empty param.uid) || !(cookie.containsKey('let-him-cook1') && cookie.containsKey('let-him-cook2') && cookie.containsKey('let-him-cook3'))}">
                         <c:redirect url="index.jsp"/>
                     </c:if>
-                    <sql:setDataSource var="ds" driver="org.apache.derby.jdbc.ClientDriver" 
-                                       url="jdbc:derby://localhost:1527/ConaShopDB" 
-                                       user="cona" password="admin1"/>
+                    <sql:setDataSource var="ds" driver="${initParam.className}" 
+                                       url="${initParam.driverURL}://${initParam.dbHostName}:${initParam.dbPort}/${initParam.dbName}" 
+                                       user="${initParam.dbUsername}" password="${initParam.dbPassword}"/>
                     <sql:query dataSource="${ds}" var="rs">
                         SELECT * FROM INVENTORY WHERE ITEMID = '<%= request.getParameter("select")%>'
                     </sql:query>
