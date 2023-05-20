@@ -140,14 +140,12 @@ p{
 .visa {
     max-width: 55px;
     max-height: 18px;
-   
 }
 
 .mastercard {
     
     max-width: 32px;
     max-height: 18px;
-   
 }
 
 h1,h2, #payment-btn, p{

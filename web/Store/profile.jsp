@@ -119,19 +119,24 @@
                         <c:set var="string3" value="${    fn:replace(string1, string2, tmpStr)   }" />
                         <c:set var="tmpStr2" value="${cc_info.pmidentifier}"/>
                         <c:if test="${cc_info.CCTYPE == 1}">
-                            <form action="PaymentManager" method="post">
+                            <form action="PaymentManager" method="post" style="text-align:center;">
                                 <input type="hidden" name="pmIdentifier" value="<%= sec.encrypt((String)pageContext.getAttribute("tmpStr2"))%>"/>
-                                <img class="visa" lazy alt="Visa" src="${pageContext.servletContext.contextPath}/assets/StorePage/visa.png"/>
+                                <br>
+                                <img class="visa" alt="Visa" src="${pageContext.servletContext.contextPath}/assets/StorePage/visa.png"/>
+                                <br>
                                 <h3>Visa</h3><p><c:out value="${string3}"/></p>
-                                <input type="submit" value="Delete">
+                                <input type="submit" value="Delete" style="color:black">
+                                <br>
                             </form>
                         </c:if>
                         <c:if test="${cc_info.CCTYPE == 2}">
-                            <form action="PaymentManager" method="post">
+                            <form action="PaymentManager" method="post" style="text-align:center;">
                                 <input type="hidden" name="pmIdentifier" value="<%= sec.encrypt((String)pageContext.getAttribute("tmpStr2"))%>"/>
-                                <img class="mastercard" lazy alt="Mastercard" src="${pageContext.servletContext.contextPath}/assets/StorePage/mastercard.png"/>
+                                <br>
+                                <img class="mastercard" alt="Mastercard" src="${pageContext.servletContext.contextPath}/assets/StorePage/mastercard.png"/>
                                 <h3>MasterCard</h3><p><c:out value="${string3}"/></p>
-                                <input type="submit" value="Delete">
+                                <input type="submit" value="Delete" style="color:black">
+                                <br>
                             </form>
                         </c:if>
                             
@@ -140,6 +145,7 @@
                     </c:forEach>
                 </c:when>
             </c:choose>
+                        <br>
             <button id="payment-btn">Add Payment Method</button>
             <!-- The Modal -->
             <div id="modal-container" class="modal">
