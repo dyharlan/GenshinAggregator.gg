@@ -31,6 +31,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.net.URL;
+import java.net.URLEncoder;
 
 /**
  *
@@ -55,14 +56,21 @@ public class ReportServlet extends HttpServlet {
         HttpSession session = request.getSession();
         //ByteArrayInputStream bais = ReportGenerator.generateReport(map, user, reportType, out);
         String ipAddress = InetAddress.getLocalHost().getHostAddress();
-        //BaseFont base = BaseFont.createFont("c:/windows/fonts/arial.ttf", BaseFont.WINANSI);
-        //Font font = new Font(base, 11f, Font.BOLD);
+        String url = request.getRequestURL().toString();
+        String baseURL = url.substring(0, url.length() - request.getRequestURI().length()) + request.getContextPath();
+        String path1 = baseURL + "/assets/zh-cn.ttf";
+        System.out.println(path1);
+        FontFactory.register(path1, "Zhongli");
+        String path2 = baseURL + "/assets/fonts/SourceSansPro-Bold.ttf";
+        System.out.println(path2);
+        FontFactory.register(path2, "Calibri Bold");
+        String path3 = baseURL + "/assets/fonts/Calibri-Bold.ttf";
         System.out.println("Inside the method");
         Font[] fonts = {
-            new Font(Font.FontFamily.HELVETICA,36,Font.BOLD),
-            new Font(Font.FontFamily.HELVETICA,11, Font.BOLD),
-            new Font(Font.FontFamily.HELVETICA,12,Font.ITALIC),
-            FontFactory.getFont(ipAddress + request.getContextPath() + "/assets/fonts/SourceSansPro-Regular.ttf",BaseFont.HELVETICA,BaseFont.EMBEDDED,36f,Font.NORMAL,BaseColor.BLACK)
+            FontFactory.getFont("Zhongli",BaseFont.IDENTITY_H,true,11,Font.NORMAL),
+            FontFactory.getFont("Zhongli",BaseFont.IDENTITY_H,true,36,Font.BOLD),
+            FontFactory.getFont("Zhongli",BaseFont.IDENTITY_H,true,26,Font.UNDERLINE),
+            FontFactory.getFont("Zhongli",BaseFont.IDENTITY_H,true,26,Font.NORMAL),
         };
         Document document = new Document();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -78,7 +86,7 @@ public class ReportServlet extends HttpServlet {
             Paragraph title;
             //String role = records.getString("USERROLE")
             //if (role.equals("Admin") || role.equals("ADMIN") || role.equals("admin"))
-            title = new Paragraph("Receipt",fonts[3]);
+            title = new Paragraph("Receipt",fonts[1]);
             PdfContentByte pcb = writer.getDirectContent();
             BaseFont bf = BaseFont.createFont(BaseFont.HELVETICA,BaseFont.CP1252,BaseFont.NOT_EMBEDDED);
             ColumnText.showTextAligned(pcb, Element.ALIGN_LEFT,
@@ -90,76 +98,77 @@ public class ReportServlet extends HttpServlet {
             //title.
             //document.add(title);
             
-            String url = ipAddress + request.getContextPath() + "/assets/ConaShop-Logo.png";
+//            String url = ipAddress + request.getContextPath() + "/assets/ConaShop-Logo.png";
             //System.out.println(url);
-            URL imgURL = new URL("http", ipAddress,8080,request.getContextPath()+"/assets/ConaShop-Logo.png");
+            URL imgURL = new URL("http", ipAddress,8080,request.getContextPath()+"/assets/ConaShop-AlterLogo.png");
             System.out.println(imgURL.toString());
             Image img = PngImage.getImage(imgURL.openStream());
 //            img.setAlignment(Element.ALIGN_RIGHT);
             img.scaleAbsolute(190.8f, 42f);
-            img.setAbsolutePosition(document.right() - 200, document.top() - document.topMargin());
+            img.setAbsolutePosition(document.right() - 225, document.top() - document.topMargin());
             document.add(img);
 //            document.newPage();
-            
+            Paragraph spacing = new Paragraph("\n\n\n\n\n");
+            document.add(spacing);
             //table section
             PdfPTable table = new PdfPTable(6);
             PdfPCell columnOne = new PdfPCell();
-            Paragraph contentOne = new Paragraph("Transaction ID",fonts[1]);
+            Paragraph contentOne = new Paragraph("Transaction ID",fonts[0]);
             contentOne.setAlignment(Element.ALIGN_CENTER);
             columnOne.addElement(contentOne);
             table.addCell(columnOne);
             PdfPCell columnTwo = new PdfPCell();
-            Paragraph contentTwo = new Paragraph("Recipient",fonts[1]);
+            Paragraph contentTwo = new Paragraph("Recipient",fonts[0]);
             contentTwo.setAlignment(Element.ALIGN_CENTER);
             columnTwo.addElement(contentTwo);
             table.addCell(columnTwo);
             PdfPCell columnThree = new PdfPCell();
-            Paragraph contentThree = new Paragraph("Item Name",fonts[1]);
+            Paragraph contentThree = new Paragraph("Item Name",fonts[0]);
             contentThree.setAlignment(Element.ALIGN_CENTER);
             columnThree.addElement(contentThree);
             table.addCell(columnThree);
             PdfPCell columnFour = new PdfPCell();
-            Paragraph contentFour = new Paragraph("Payment Type",fonts[1]);
+            Paragraph contentFour = new Paragraph("Payment Type",fonts[0]);
             contentFour.setAlignment(Element.ALIGN_CENTER);
             columnFour.addElement(contentFour);
             table.addCell(columnFour);
             PdfPCell columnFive = new PdfPCell();
-            Paragraph contentFive = new Paragraph("Transaction Date",fonts[1]);
+            Paragraph contentFive = new Paragraph("Transaction Date",fonts[0]);
             contentFive.setAlignment(Element.ALIGN_CENTER);
             columnFive.addElement(contentFive);
             table.addCell(columnFive);
             PdfPCell columnSix = new PdfPCell();
-            Paragraph contentSix = new Paragraph("Item Value",fonts[1]);
+            Paragraph contentSix = new Paragraph("Item Value",fonts[0]);
             contentSix.setAlignment(Element.ALIGN_CENTER);
             columnSix.addElement(contentSix);
             table.addCell(columnSix);
                 //test
-                contentOne = new Paragraph("0a932279-0d87-4a79-9e31-99b1ad1d0f68",fonts[1]);
+                contentOne = new Paragraph("0a932279-0d87-4a79-9e31-99b1ad1d0f68",fonts[0]);
                 contentOne.setAlignment(Element.ALIGN_CENTER);
                 columnOne = new PdfPCell();
                 columnOne.addElement(contentOne); //note that columnOne may have two elements onwards
                 table.addCell(columnOne);
-                contentTwo = new Paragraph("johnnyenglish9#BEAN",fonts[1]);
+                contentTwo = new Paragraph("johnnyenglish9#BEAN",fonts[0]);
                 contentTwo.setAlignment(Element.ALIGN_CENTER);
                 columnTwo = new PdfPCell();
                 columnTwo.addElement(contentTwo);
                 table.addCell(columnTwo);
-                contentThree = new Paragraph("1256+94 Valorant Points",fonts[1]);
+                contentThree = new Paragraph("1256+94 Valorant Points",fonts[0]);
                 contentThree.setAlignment(Element.ALIGN_CENTER);
                 columnThree = new PdfPCell();
                 columnThree.addElement(contentThree);
                 table.addCell(columnThree);
-                contentFour = new Paragraph("Credit Card",fonts[1]);
+                contentFour = new Paragraph("Credit Card",fonts[0]);
                 contentFour.setAlignment(Element.ALIGN_CENTER);
                 columnFour = new PdfPCell();
                 columnFour.addElement(contentFour);
                 table.addCell(columnFour);
-                contentFive = new Paragraph("2023-05-19",fonts[1]);
+                contentFive = new Paragraph("2023-05-19",fonts[0]);
                 contentFive.setAlignment(Element.ALIGN_CENTER);
                 columnFive = new PdfPCell();
                 columnFive.addElement(contentFive);
                 table.addCell(columnFive);
-                contentSix = new Paragraph("₱499",fonts[1]); //₱ or \u20B1
+                contentSix = new Paragraph("₱P499",fonts[0]); //₱ or \u20B1
                 contentSix.setAlignment(Element.ALIGN_CENTER);
                 columnSix = new PdfPCell();
                 columnSix.addElement(contentSix);
@@ -168,7 +177,13 @@ public class ReportServlet extends HttpServlet {
             table.setWidthPercentage(100);
             document.add(table);
             
+            Paragraph salesTax = new Paragraph("Sales Tax: P0",fonts[2]);
+            salesTax.setAlignment(Element.ALIGN_RIGHT);
+            document.add(salesTax);
             
+            Paragraph total = new Paragraph("Total: P499",fonts[3]);
+            total.setAlignment(Element.ALIGN_RIGHT);
+            document.add(total);
             
             document.close();
             
